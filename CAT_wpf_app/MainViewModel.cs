@@ -25,8 +25,10 @@ namespace CAT_wpf_app
         private Thread _workerThread;
         private volatile bool _shouldRun;
         private readonly object _logLock = new object();
+        private TeleopSubscriber _teleopSubscriber; // Promoted to field
 
         // --- Properties ---
+
 
         private string _robotIpAddress = "127.0.0.1";
         public string RobotIpAddress
@@ -279,7 +281,7 @@ namespace CAT_wpf_app
             FRCRobot robot = null;
             DomainParticipant participant = null;
             RobotStatePublisher publisher = null;
-            TeleopSubscriber teleopSubscriber = null;
+            // TeleopSubscriber teleopSubscriber = null; // Removed local var
             DateTime startTime = DateTime.Now;
             DateTime lastRateCheck = DateTime.Now;
             int lastSampleCount = 0;
@@ -337,8 +339,8 @@ namespace CAT_wpf_app
                 participant = DomainParticipantFactory.Instance.CreateParticipant(0, partQos);
                 if (participant == null) throw new Exception("Failed to create Participant.");
 
-                publisher = new RobotStatePublisher(participant, writerQos, Log);
-                teleopSubscriber = new TeleopSubscriber(participant, readerQos, Log);
+                publisher = new RobotStatePublisher(participant, writerQos, msg => Log(msg));
+                _teleopSubscriber = new TeleopSubscriber(participant, readerQos, msg => Log(msg));
                 Application.Current.Dispatcher.Invoke(() => DdsStatus = "Initialized");
                 Log("DDS Initialized.");
 
@@ -360,9 +362,9 @@ namespace CAT_wpf_app
                             }
 
                             // Teleop Receive
-                            if (teleopSubscriber != null)
+                            if (_teleopSubscriber != null)
                             {
-                                teleopSubscriber.ReceiveAndProcess(robot);
+                                _teleopSubscriber.ReceiveAndProcess(robot);
                             }
 
                             // Update UI Data
@@ -397,16 +399,16 @@ namespace CAT_wpf_app
                                 X = x; Y = y; Z = z; W = w; P = p; R = r;
 
                                 // Teleop UI Updates
-                                if (teleopSubscriber != null)
+                                if (_teleopSubscriber != null)
                                 {
-                                    TeleopX = teleopSubscriber.LastX.ToString("F2");
-                                    TeleopY = teleopSubscriber.LastY.ToString("F2");
-                                    TeleopZ = teleopSubscriber.LastZ.ToString("F2");
-                                    TeleopW = teleopSubscriber.LastW.ToString("F2");
-                                    TeleopP = teleopSubscriber.LastP.ToString("F2");
-                                    TeleopR = teleopSubscriber.LastR.ToString("F2");
-                                    TeleopSpeed = teleopSubscriber.LastSpeed.ToString("F1");
-                                    TeleopSampleCount = teleopSubscriber.TotalSamplesReceived;
+                                    TeleopX = _teleopSubscriber.LastX.ToString("F2");
+                                    TeleopY = _teleopSubscriber.LastY.ToString("F2");
+                                    TeleopZ = _teleopSubscriber.LastZ.ToString("F2");
+                                    TeleopW = _teleopSubscriber.LastW.ToString("F2");
+                                    TeleopP = _teleopSubscriber.LastP.ToString("F2");
+                                    TeleopR = _teleopSubscriber.LastR.ToString("F2");
+                                    TeleopSpeed = _teleopSubscriber.LastSpeed.ToString("F1");
+                                    TeleopSampleCount = _teleopSubscriber.TotalSamplesReceived;
                                 }
 
                                 // Update Stats
@@ -419,7 +421,7 @@ namespace CAT_wpf_app
                                     PublishRate = $"{rate:F1} Hz";
                                     lastSampleCount = SampleCount;
 
-                                    if (teleopSubscriber != null)
+                                    if (_teleopSubscriber != null)
                                     {
                                         double tRate = (TeleopSampleCount - lastTeleopSampleCount) / (now - lastRateCheck).TotalSeconds;
                                         TeleopRate = $"{tRate:F1} Hz";

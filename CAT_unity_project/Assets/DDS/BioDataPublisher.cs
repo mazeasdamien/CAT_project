@@ -11,7 +11,7 @@ using Rti.Dds.Topics;
 /// 
 /// Functionality:
 /// 1. Reads a CSV file (`sim_trace.csv`) containing time-series biometric data.
-/// 2. Publishes this data at a fixed rate (50Hz) to the "Operator_Bio_State" topic.
+/// 2. Publishes this data at a fixed rate (50Hz) to the "OperatorBioState_Topic" topic.
 /// 3. Simulates physiological responses (e.g., pupil dilation) based on stress metrics.
 /// </summary>
 public class BioDataPublisher : MonoBehaviour
@@ -22,13 +22,13 @@ public class BioDataPublisher : MonoBehaviour
 
     // DDS
     private DomainParticipant _participant;
-    private DataWriter<Operator_Bio_State> _writer;
+    private DataWriter<OperatorBioState> _writer;
 
     void Start()
     {
         // 1. Setup DDS
         _participant = DomainParticipantFactory.Instance.CreateParticipant(0);
-        var topic = _participant.CreateTopic<Operator_Bio_State>("Operator_Bio_State");
+        var topic = _participant.CreateTopic<OperatorBioState>("OperatorBioState_Topic");
         _writer = _participant.ImplicitPublisher.CreateDataWriter(topic);
 
         // 2. Load Data
@@ -43,7 +43,7 @@ public class BioDataPublisher : MonoBehaviour
             var parts = line.Split(',');
             if (parts.Length >= 2)
             {
-                var sample = new Operator_Bio_State();
+                var sample = new OperatorBioState();
                 sample.timestamp = System.DateTime.Now.ToString("HH:mm:ss.fff");
 
                 // Parse the Stress (0.0 - 1.0)
@@ -73,9 +73,9 @@ public class BioDataPublisher : MonoBehaviour
 
 /// <summary>
 /// Data Structure representing the Operator's Biometric State.
-/// This class is used as the data type for the DDS Topic "Operator_Bio_State".
+/// This class is used as the data type for the DDS Topic "OperatorBioState_Topic".
 /// </summary>
-public class Operator_Bio_State
+public class OperatorBioState
 {
     /// <summary>
     /// Timestamp of the sample (HH:mm:ss.fff).

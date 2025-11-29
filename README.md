@@ -23,10 +23,12 @@ graph LR
     subgraph Unity App
     C[FanucDataSubscriber]
     D[TeleopDataPublisher]
+    E[BioDataPublisher]
     end
 
     A -- "RobotState_Topic" --> C
-    D -- "OperatorNewPose_Topic" --> B
+    D -- "OperatorPose_Topic" --> B
+    E -. "OperatorBioState_Topic" .-> F((DDS))
 ```
 
 ---
@@ -45,7 +47,7 @@ The WPF application is a standalone desktop tool for robot control and monitorin
 *   **`TeleopSubscriber.cs`**: 
     *   **Role**: Receives teleoperation commands from Unity.
     *   **Action**: Updates the robot's Position Register `PR[3]` with the received target pose.
-    *   **Topic**: `OperatorNewPose_Topic`.
+    *   **Topic**: `OperatorPose_Topic`.
 *   **`MainViewModel.cs`**: Orchestrates the application logic, handles UI binding, and manages DDS entities.
 
 ### User Interface
@@ -77,13 +79,13 @@ The Unity project serves as the visualization and control interface.
 #### 3. `TeleopDataPublisher.cs`
 **Role:** Teleoperation Source
 *   Tracks a target GameObject in Unity.
-*   Publishes its position, rotation, and speed to `OperatorNewPose_Topic`.
+*   Publishes its position, rotation, and speed to `OperatorPose_Topic`.
 *   Handles coordinate conversion (Unity -> Fanuc).
 
 #### 4. `BioDataPublisher.cs`
 **Role:** Human Simulation
 *   Simulates operator physiological state (Stress, Pupil Diameter) from CSV data.
-*   Publishes to `Operator_Bio_State`.
+*   Publishes to `OperatorBioState_Topic`.
 
 ### Mathematical Conversions
 
@@ -118,7 +120,7 @@ Fanuc WPR (Euler) $\leftrightarrow$ Unity Quaternion conversions are handled aut
 | `X`, `Y`, `Z` | Double | Position (mm) |
 | `W`, `P`, `R` | Double | Orientation (Deg) |
 
-#### 2. `OperatorNewPose` (Unity -> Robot)
+#### 2. `OperatorPose` (Unity -> Robot)
 | Field | Type | Description |
 | :--- | :--- | :--- |
 | `X`, `Y`, `Z` | Float | Target Position (mm) |

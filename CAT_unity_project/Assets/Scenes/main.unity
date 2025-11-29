@@ -710,31 +710,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1262163163}
-  - component: {fileID: 1262163162}
-  - component: {fileID: 1262163164}
+  - component: {fileID: 1262163166}
   - component: {fileID: 1262163165}
   m_Layer: 0
-  m_Name: DDS
+  m_Name: DDS Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1262163162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262163160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92726b534c861e442905fbd95d5bff25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DDSHandler
-  qosFileName: QOS.xml
-  qosLibrary: RigQoSLibrary
-  qosProfile: RigQoSProfile
 --- !u!4 &1262163163
 Transform:
   m_ObjectHideFlags: 0
@@ -750,28 +734,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1262163164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262163160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c80108a1f31f13842aaca552b42197f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FanucManager
-  joints:
-  - {fileID: 8212066213609488316}
-  - {fileID: 8573129904684618843}
-  - {fileID: 8930647944807180229}
-  - {fileID: 7371109357990056968}
-  - {fileID: 7935584455357518204}
-  - {fileID: 7866809311753471311}
-  worldPosition: {fileID: 391397835}
-  topicName: RobotState_Topic
-  typeName: RobotState
 --- !u!114 &1262163165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +747,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BioDataPublisher
   csvFile: {fileID: 0}
+--- !u!114 &1262163166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262163160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92726b534c861e442905fbd95d5bff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DDSHandler
+  qosFileName: QOS.xml
+  qosLibrary: RigQoSLibrary
+  qosProfile: RigQoSProfile
 --- !u!1 &1305357903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1269,7 @@ GameObject:
   - component: {fileID: 8181148326621454108}
   - component: {fileID: 1355474766984601080}
   - component: {fileID: 8181148326621454109}
+  - component: {fileID: 8181148326621454110}
   m_Layer: 0
   m_Name: Fanuc
   m_TagString: Untagged
@@ -2192,6 +2170,28 @@ ArticulationBody:
   m_Immovable: 1
   m_UseGravity: 1
   m_CollisionDetectionMode: 0
+--- !u!114 &8181148326621454110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5851782934205117317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80108a1f31f13842aaca552b42197f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FanucManager
+  joints:
+  - {fileID: 8212066213609488316}
+  - {fileID: 8573129904684618843}
+  - {fileID: 8930647944807180229}
+  - {fileID: 7371109357990056968}
+  - {fileID: 7935584455357518204}
+  - {fileID: 7866809311753471311}
+  worldPosition: {fileID: 391397835}
+  topicName: RobotState_Topic
+  typeName: RobotState
 --- !u!1 &8212066213609488315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2221,7 +2221,7 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 5
   m_Mass: 1
-  m_ParentAnchorPosition: {x: 0, y: 0, z: 0.0012769996}
+  m_ParentAnchorPosition: {x: 0, y: 0, z: 0.0012769998}
   m_ParentAnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
