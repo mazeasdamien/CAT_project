@@ -4,92 +4,93 @@ This project implements a real-time Digital Twin interface for industrial roboti
 
 ## 🏗 System Architecture
 
-The system consists of two main applications communicating via RTI Connext DDS:
+The system consists of two main applications communicating bidirectionally via RTI Connext DDS:
 
-1.  **WPF Application (`CAT_wpf_app`)**: Acts as the **Publisher**. It connects to the Fanuc Robot Controller (physical or virtual via Roboguide), reads the robot's state (Joints & Cartesian), and publishes this data to the DDS domain.
-2.  **Unity Application (`CAT_unity_project`)**: Acts as the **Subscriber**. It receives the robot state updates and visualizes the robot's movement in real-time, handling coordinate system conversions and synchronization.
+1.  **WPF Application (`CAT_wpf_app`)**: 
+    *   **Publisher**: Connects to the Fanuc Robot Controller, reads the robot's state (Joints & Cartesian), and publishes it to DDS.
+    *   **Subscriber**: Subscribes to teleoperation commands from Unity and updates the robot's registers.
+2.  **Unity Application (`CAT_unity_project`)**: 
+    *   **Subscriber**: Receives robot state updates and visualizes the robot's movement.
+    *   **Publisher**: Publishes teleoperation commands (Target Pose & Speed) based on user interaction.
 
 ```mermaid
 graph LR
-    A["Fanuc Robot / Roboguide"] -- "FRRobot Library" --> B["WPF App (Publisher)"]
-    B -- "DDS Topic: RobotState_Topic" --> C["Unity App (Subscriber)"]
-    C --> D["3D Visualization"]
+    subgraph WPF App
+    A[RobotStatePublisher]
+    B[TeleopSubscriber]
+    end
+    
+    subgraph Unity App
+    C[FanucDataSubscriber]
+    D[TeleopDataPublisher]
+    end
+
+    A -- "RobotState_Topic" --> C
+    D -- "OperatorNewPose_Topic" --> B
 ```
 
 ---
 
-## 🖥️ WPF Application (Publisher)
+## 🖥️ WPF Application
 
 Located in: `CAT_wpf_app/`
 
-The WPF application is a standalone desktop tool responsible for data acquisition and transmission.
+The WPF application is a standalone desktop tool for robot control and monitoring.
 
 ### Key Components
-*   **`RobotStatePublisher.cs`**: The core logic script.
-    *   **Data Acquisition**: Uses the `FRRobot` library to poll the robot's current position (`CurPosition`) including Joint angles and World (Cartesian) coordinates.
-    *   **Dynamic Data**: Defines the `RobotState` data structure dynamically at runtime, eliminating the need for pre-compiled IDL files.
-    *   **Change Detection**: Implements logic to only publish data when the robot's state has changed (threshold: `0.0001`), optimizing network bandwidth.
-    *   **DDS Publication**: Publishes the data to the `RobotState_Topic`.
-*   **`MainViewModel.cs`**: Handles the UI logic, user inputs for DDS configuration, and initiates the connection to the robot.
+*   **`RobotStatePublisher.cs`**: 
+    *   **Data Acquisition**: Polls the robot's `CurPosition` (Joints & World) via `FRRobot`.
+    *   **Change Detection**: Publishes data only when changes exceed a threshold (`0.0001`).
+    *   **Topic**: `RobotState_Topic`.
+*   **`TeleopSubscriber.cs`**: 
+    *   **Role**: Receives teleoperation commands from Unity.
+    *   **Action**: Updates the robot's Position Register `PR[3]` with the received target pose.
+    *   **Topic**: `OperatorNewPose_Topic`.
+*   **`MainViewModel.cs`**: Orchestrates the application logic, handles UI binding, and manages DDS entities.
 
-### Requirements
-*   **Fanuc PCDK**: The PC Developer's Kit libraries (`FRRobot.dll`, etc.) must be referenced to communicate with the Fanuc controller.
-*   **RTI Connext DDS**: The application requires the RTI DDS C# libraries.
+### User Interface
+The UI has been enhanced with a **Live Robot Data** panel containing two tabs:
+*   **Robot State**: Displays real-time Joint angles (J1-J6) and Cartesian coordinates (X, Y, Z, W, P, R).
+*   **Teleoperation**: Visualizes the incoming target pose and speed from Unity, along with reception statistics (Samples Received, Rate).
 
 ---
 
-## 🎮 Unity Application (Subscriber)
+## 🎮 Unity Application
 
 Located in: `CAT_unity_project/`
 
-The Unity project visualizes the robot's movements based on the incoming DDS data.
+The Unity project serves as the visualization and control interface.
 
 ### Key Scripts (Assets/DDS)
 
 #### 1. `DDSHandler.cs`
 **Role:** Central DDS Manager / Singleton
+*   Initializes the DDS `DomainParticipant` using `QOS.xml`.
+*   Manages the lifecycle of DDS entities.
 
-The `DDSHandler` class is the backbone of the DDS integration in Unity.
-*   **Initialization**: Initializes the DDS `DomainParticipant` using settings from `QOS.xml` (configurable via Inspector).
-*   **Singleton Pattern**: Ensures a single persistent instance across the application lifecycle.
-*   **Performance**: Uses shared entities and string caching to minimize overhead and garbage collection.
-*   **Topic Management**: Maintains a registry to prevent duplicate topic creation.
-*   **Helper Methods**: Provides `SetupDataReader` and `SetupDataWriter` for easy integration by other scripts.
+#### 2. `FanucDataSubscriber.cs`
+**Role:** Robot State Visualizer
+*   Subscribes to `RobotState_Topic`.
+*   Converts Fanuc coordinates (Right-Handed, mm) to Unity coordinates (Left-Handed, m).
+*   Updates the 3D robot model's joint angles.
 
-#### 2. FanucDataSubscriber.cs
-**Role:** Robot State Consumer & Visualizer
+#### 3. `TeleopDataPublisher.cs`
+**Role:** Teleoperation Source
+*   Tracks a target GameObject in Unity.
+*   Publishes its position, rotation, and speed to `OperatorNewPose_Topic`.
+*   Handles coordinate conversion (Unity -> Fanuc).
 
-This script consumes the `RobotState` data and drives the 3D robot model.
-*   **Dynamic Type Definition**: Reconstructs the `RobotState` struct to match the publisher's definition.
-*   **Data Processing**:
-    *   **Coordinate Conversion**: Converts Fanuc's Right-Handed (mm) system to Unity's Left-Handed (m) system. Note: Position values are scaled by 100 (not 1000) to match the specific project requirements.
-    *   **Orientation**: Converts Fanuc WPR (Yaw-Pitch-Roll) Euler angles to Unity Quaternions.
-    *   **Joint Coupling**: Compensates for the mechanical coupling between J2 and J3 specific to the Fanuc model ($J3_{Unity} = J3_{Fanuc} + J2_{Fanuc}$).
-*   **Visualization**: Updates the `ArticulationBody` components for physics-based movement or standard `Transform` components.
-
-#### 3. BioDataPublisher.cs
-**Role:** Operator Biometric Data Simulator
-
-This script simulates the physiological state of a human operator to enable Human-Robot Collaboration (HRC) scenarios.
-*   **Data Source**: Reads time-series data from a CSV file (`sim_trace.csv`).
-*   **Metrics**: Publishes Stress Index, Pupil Diameter, and Gaze status.
-*   **DDS Publication**: Broadcasts data to the `Operator_Bio_State` topic for the robot controller to consume.
-
-#### 4. TeleopDataPublisher.cs
-**Role:** Teleoperation Data Source
-
-This script enables teleoperation by publishing the position, rotation, and speed of a Unity GameObject to the robot controller.
-*   **Data Source**: Tracks the transform of the attached GameObject.
-*   **Data Structure**: Publishes `OperatorNewPose` containing X, Y, Z, W, P, R, and Speed.
-*   **Coordinate Conversion**: Converts Unity's Left-Handed system to Fanuc's Right-Handed system, including scaling and rotation conversion (Quaternion to WPR).
-*   **Optimization**: Only publishes data when the pose or speed changes.
+#### 4. `BioDataPublisher.cs`
+**Role:** Human Simulation
+*   Simulates operator physiological state (Stress, Pupil Diameter) from CSV data.
+*   Publishes to `Operator_Bio_State`.
 
 ### Mathematical Conversions
 
-The `FanucDataSubscriber` script applies several mathematical transformations to map the industrial robot data to the Unity coordinate system.
-
-#### 1. Coordinate System Conversion
-Fanuc robots typically use a Right-Handed coordinate system in millimeters, while Unity uses a Left-Handed coordinate system in meters. In this project, the scaling factor is 100.
+#### Coordinate System
+*   **Fanuc**: Right-Handed, Millimeters.
+*   **Unity**: Left-Handed, Meters.
+*   **Scaling Factor**: 100 (Project specific).
 
 $$
 \begin{aligned}
@@ -99,70 +100,50 @@ Z_{Unity} &= \frac{Z_{Fanuc}}{100}
 \end{aligned}
 $$
 
-#### 2. Orientation (Fanuc WPR to Quaternion)
-Fanuc uses Yaw-Pitch-Roll (W-P-R) Euler angles. These are converted to a Quaternion $(q_x, q_y, q_z, q_w)$ for Unity.
-
-First, angles are converted to radians:
-
-$$
-\theta_{rad} = \theta_{deg} \times \frac{\pi}{180}
-$$
-
-Then, the half-angle formulas are applied:
-
-$$
-\begin{aligned}
-q_x &= \cos(R/2)\cos(P/2)\sin(W/2) - \sin(R/2)\sin(P/2)\cos(W/2) \\
-q_y &= \cos(R/2)\sin(P/2)\cos(W/2) + \sin(R/2)\cos(P/2)\sin(W/2) \\
-q_z &= \sin(R/2)\cos(P/2)\cos(W/2) - \cos(R/2)\sin(P/2)\sin(W/2) \\
-q_w &= \cos(R/2)\cos(P/2)\cos(W/2) + \sin(R/2)\sin(P/2)\sin(W/2)
-\end{aligned}
-$$
-
-#### 3. Joint Coupling
-For this specific Fanuc model, the third joint ($J3$) is mechanically coupled to the second joint ($J2$). The script compensates for this:
-
-$$
-J3_{Unity} = J3_{Fanuc} + J2_{Fanuc}
-$$
+#### Orientation
+Fanuc WPR (Euler) $\leftrightarrow$ Unity Quaternion conversions are handled automatically, including the necessary axis remapping.
 
 ---
 
 ## 📡 DDS Configuration
 
-The communication relies on a shared understanding of the data and Quality of Service (QoS).
+### Data Structures
 
-### Data Structure (`RobotState`)
+#### 1. `RobotState` (Robot -> Unity)
 | Field | Type | Description |
 | :--- | :--- | :--- |
-| `Clock` | String | Timestamp of the sample |
-| `Sample` | Int | Incremental sample ID |
-| `J1` - `J6` | Double | Joint angles (Degrees) |
-| `X`, `Y`, `Z` | Double | Cartesian Position (mm) |
-| `W`, `P`, `R` | Double | Orientation (Degrees) |
+| `Clock` | String | Timestamp |
+| `Sample` | Int | Sample ID |
+| `J1` - `J6` | Double | Joint angles (Deg) |
+| `X`, `Y`, `Z` | Double | Position (mm) |
+| `W`, `P`, `R` | Double | Orientation (Deg) |
+
+#### 2. `OperatorNewPose` (Unity -> Robot)
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `X`, `Y`, `Z` | Float | Target Position (mm) |
+| `W`, `P`, `R` | Float | Target Orientation (Deg) |
+| `Speed` | Float | Movement Speed |
 
 ### QoS Profile
-Both applications load the QoS settings from `QOS.xml`. The default profile used is `RigQoSLibrary::RigQoSProfile`.
-*   **Reliability**: Reliable (ensures data delivery).
-*   **Durability**: Volatile (no history needed for real-time control, but can be adjusted).
+Settings are loaded from `QOS.xml` (Default: `RigQoSLibrary::RigQoSProfile`).
 
 ---
 
 ## 🚀 Setup & Usage
 
 1.  **Prerequisites**:
-    *   Install **RTI Connext DDS**.
-    *   Ensure `rti_license.dat` is present in both project root directories.
-    *   Have **Fanuc Roboguide** running with a virtual robot OR a real Fanuc robot connected to the network.
+    *   RTI Connext DDS installed.
+    *   `rti_license.dat` in project roots.
+    *   Fanuc Roboguide or Real Robot.
 
-2.  **Running the Publisher (WPF)**:
-    *   Open `CAT_wpf_app.sln` in Visual Studio.
-    *   Build and Run.
-    *   Enter the Robot IP (or `127.0.0.1` for local Roboguide).
-    *   Click **Connect** to start streaming.
+2.  **WPF App**:
+    *   Build & Run `CAT_wpf_app`.
+    *   Enter Robot IP and Connect.
+    *   Monitor "Robot State" tab for live data.
+    *   Monitor "Teleoperation" tab for incoming commands.
 
-3.  **Running the Subscriber (Unity)**:
-    *   Open `CAT_unity_project` in Unity Hub.
-    *   Open the main scene.
-    *   Press **Play**.
-    *   The virtual robot should now mirror the movements of the Fanuc robot.
+3.  **Unity App**:
+    *   Open `CAT_unity_project`.
+    *   Play the scene.
+    *   Move the Teleop Target object to send commands to the robot.
