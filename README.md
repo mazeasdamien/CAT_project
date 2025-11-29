@@ -54,9 +54,13 @@ $$
 Fanuc uses Yaw-Pitch-Roll (W-P-R) Euler angles. These are converted to a Quaternion $(q_x, q_y, q_z, q_w)$ for Unity.
 
 First, angles are converted to radians:
-$$ \theta_{rad} = \theta_{deg} \times \frac{\pi}{180} $$
+
+$$
+\theta_{rad} = \theta_{deg} \times \frac{\pi}{180}
+$$
 
 Then, the half-angle formulas are applied:
+
 $$
 \begin{aligned}
 q_x &= \cos(R/2)\cos(P/2)\sin(W/2) - \sin(R/2)\sin(P/2)\cos(W/2) \\
@@ -69,7 +73,9 @@ $$
 #### 3. Joint Coupling
 For this specific Fanuc model, the third joint ($J3$) is mechanically coupled to the second joint ($J2$). The script compensates for this:
 
-$$ J3_{Unity} = J3_{Fanuc} + J2_{Fanuc} $$
+$$
+J3_{Unity} = J3_{Fanuc} + J2_{Fanuc}
+$$
 
 ## Requirements
 
