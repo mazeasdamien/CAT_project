@@ -505,7 +505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1262163163}
   - component: {fileID: 1262163162}
-  - component: {fileID: 1262163161}
+  - component: {fileID: 1262163164}
   m_Layer: 0
   m_Name: DDS
   m_TagString: Untagged
@@ -513,26 +513,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1262163161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262163160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6a3fa52c48a46142abc6b9374eb7edf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FanucManager
-  joints:
-  - {fileID: 8212066213609488316}
-  - {fileID: 8573129904684618843}
-  - {fileID: 8930647944807180229}
-  - {fileID: 7371109357990056968}
-  - {fileID: 7935584455357518204}
-  - {fileID: 7866809311753471311}
-  worldPosition: {fileID: 391397835}
 --- !u!114 &1262163162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92726b534c861e442905fbd95d5bff25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DDSHandler
+  qosFileName: QOS.xml
+  qosLibrary: RigQoSLibrary
+  qosProfile: RigQoSProfile
 --- !u!4 &1262163163
 Transform:
   m_ObjectHideFlags: 0
@@ -560,6 +543,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1262163164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262163160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277e9f5d6e98c024993e9ca320804bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FanucManager
+  joints:
+  - {fileID: 8212066213609488316}
+  - {fileID: 8573129904684618843}
+  - {fileID: 8930647944807180229}
+  - {fileID: 7371109357990056968}
+  - {fileID: 7935584455357518204}
+  - {fileID: 7866809311753471311}
+  worldPosition: {fileID: 391397835}
 --- !u!1 &2085541856
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Rti.Dds.Core;
 using Rti.Dds.Domain;
@@ -7,145 +8,211 @@ using Rti.Dds.Topics;
 using Rti.Types.Dynamic;
 using UnityEngine;
 
+/// <summary>
+/// The DDSHandler class manages the lifecycle and configuration of DDS (Data Distribution Service) components 
+/// within the Unity application. It implements the Singleton pattern to ensure a single instance manages 
+/// the DomainParticipant and shared resources.
+/// </summary>
 public class DDSHandler : MonoBehaviour
 {
+    /// <summary>
+    /// Singleton instance of the DDSHandler.
+    /// Access this via DDSHandler.Instance from other scripts.
+    /// </summary>
     public static DDSHandler Instance { get; private set; }
 
-    private const string QosProfile = "CAT_Industrial_Library::SafetyCritical_Profile";
-    private QosProvider provider;
-    public DomainParticipant participant;
+    [Header("DDS Configuration")]
+    [Tooltip("The name of the XML file containing QoS profiles.")]
+    [SerializeField] private string qosFileName = "QOS.xml";
+    
+    [Tooltip("The name of the QoS library defined in the XML file.")]
+    [SerializeField] private string qosLibrary = "RigQoSLibrary";
+    
+    [Tooltip("The name of the QoS profile to use.")]
+    [SerializeField] private string qosProfile = "RigQoSProfile";
 
-    private Dictionary<string, Topic<DynamicData>> registeredTopics = new Dictionary<string, Topic<DynamicData>>();
+    private QosProvider _provider;
+    
+    /// <summary>
+    /// The main DDS DomainParticipant. This entity is the entry point for all DDS communication.
+    /// </summary>
+    public DomainParticipant Participant { get; private set; }
+    
+    // Shared Publisher and Subscriber instances to reduce overhead.
+    private Publisher _sharedPublisher;
+    private Subscriber _sharedSubscriber;
+    
+    // Cached full profile name to avoid repeated string concatenation.
+    private string _fullProfileName;
 
+    // Dictionary to cache created topics and avoid duplicate creation.
+    private readonly Dictionary<string, Topic<DynamicData>> _registeredTopics = new Dictionary<string, Topic<DynamicData>>();
+
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// Initializes the Singleton instance and sets up DDS.
+    /// </summary>
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
+        // Singleton pattern implementation
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // Persist across scene loads
 
+        InitializeDDS();
+    }
+
+    /// <summary>
+    /// Initializes the DDS DomainParticipant, QoS Provider, and shared Publisher/Subscriber.
+    /// </summary>
+    private void InitializeDDS()
+    {
         try
         {
-            string projectRoot = System.IO.Directory.GetParent(Application.dataPath).FullName;
-            string licensePath = System.IO.Path.Combine(projectRoot, "rti_license.dat");
-
-            if (System.IO.File.Exists(licensePath))
-            {
-                System.Environment.SetEnvironmentVariable("RTI_LICENSE_FILE", licensePath);
-            }
-            else
-            {
-                Debug.LogError($"[DDSHandler] License file NOT found at: {licensePath}");
-            }
-
-            string qosPath = System.IO.Path.Combine(projectRoot, "USER_QOS_PROFILES.xml");
+            // Load QoS settings from the specified XML file
+            _provider = new QosProvider(qosFileName);
             
-            if (!System.IO.File.Exists(qosPath))
-            {
-                Debug.LogError($"[DDSHandler] QoS file not found at: {qosPath}");
-                return;
-            }
+            // Create the DomainParticipant (domain ID 0 is standard default)
+            Participant = DomainParticipantFactory.Instance.CreateParticipant(0, _provider.GetDomainParticipantQos());
+            
+            // Construct the full profile name string once
+            _fullProfileName = $"{qosLibrary}::{qosProfile}";
+            
+            // Pre-create a shared Publisher and Subscriber. 
+            // This is a performance optimization to avoid creating new entities for every DataWriter/DataReader.
+            var publisherQos = _provider.GetPublisherQos(_fullProfileName);
+            _sharedPublisher = Participant.CreatePublisher(publisherQos);
 
-            string qosUri = "file:///" + qosPath.Replace("\\", "/");
+            var subscriberQos = _provider.GetSubscriberQos(_fullProfileName);
+            _sharedSubscriber = Participant.CreateSubscriber(subscriberQos);
 
-            provider = new QosProvider(qosUri);
-
-            var participantQos = provider.GetDomainParticipantQos();
-
-            participant = DomainParticipantFactory.Instance.CreateParticipant(0, participantQos);
+            Debug.Log("DDS Participant initialized successfully.");
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
-            Debug.LogError($"Failed to initialize DDS: {e.Message}\nStack Trace: {e.StackTrace}");
-            if (e.InnerException != null)
-            {
-                Debug.LogError($"Inner Exception: {e.InnerException.Message}");
-            }
+            Debug.LogError($"Failed to initialize DDS: {e.Message}");
         }
     }
 
-    public DataReader<DynamicData> SetupDataReader(string topicName, DynamicType dynamicData)
-    {
-        if (participant == null)
-        {
-            Debug.LogError("DDS Participant is not initialized.");
-            return null;
-        }
-
-        Topic<DynamicData> topic = GetOrCreateTopic(topicName, dynamicData);
-        if (topic == null) return null;
-
-        try
-        {
-            var subscriberQos = provider.GetSubscriberQos(QosProfile);
-            Subscriber subscriber = participant.CreateSubscriber(subscriberQos);
-
-            var readerQos = provider.GetDataReaderQos(QosProfile);
-            return subscriber.CreateDataReader(topic, readerQos);
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Failed to create DataReader for {topicName}: {e.Message}");
-            return null;
-        }
-    }
-
-    public DataWriter<DynamicData> SetupDataWriter(string topicName, DynamicType dynamicData)
-    {
-        if (participant == null)
-        {
-            Debug.LogError("DDS Participant is not initialized.");
-            return null;
-        }
-
-        Topic<DynamicData> topic = GetOrCreateTopic(topicName, dynamicData);
-        if (topic == null) return null;
-
-        try
-        {
-            var publisherQos = provider.GetPublisherQos(QosProfile);
-            Publisher publisher = participant.CreatePublisher(publisherQos);
-
-            var writerQos = provider.GetDataWriterQos(QosProfile);
-            return publisher.CreateDataWriter(topic, writerQos);
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Failed to create DataWriter for {topicName}: {e.Message}");
-            return null;
-        }
-    }
-
+    /// <summary>
+    /// Retrieves an existing topic or creates a new one if it doesn't exist.
+    /// </summary>
+    /// <param name="topicName">The name of the topic.</param>
+    /// <param name="dynamicData">The dynamic type definition for the topic data.</param>
+    /// <returns>The created or retrieved Topic.</returns>
     private Topic<DynamicData> GetOrCreateTopic(string topicName, DynamicType dynamicData)
     {
-        if (registeredTopics.TryGetValue(topicName, out var existingTopic))
+        // Check if the topic is already registered
+        if (_registeredTopics.TryGetValue(topicName, out var existingTopic))
         {
             return existingTopic;
         }
 
         try
         {
-            Topic<DynamicData> topic = participant.CreateTopic(topicName, dynamicData);
-            registeredTopics[topicName] = topic;
+            // Create a new topic and register it
+            Topic<DynamicData> topic = Participant.CreateTopic(topicName, dynamicData);
+            _registeredTopics[topicName] = topic;
             return topic;
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
-            Debug.LogError($"Failed to create topic {topicName}: {e.Message}");
+            Debug.LogError($"Failed to create topic '{topicName}': {e.Message}");
             return null;
         }
     }
 
+    /// <summary>
+    /// Sets up a DataReader for a specified topic.
+    /// </summary>
+    /// <param name="topicName">The name of the topic to subscribe to.</param>
+    /// <param name="dynamicData">The dynamic type definition for the data.</param>
+    /// <returns>The created DataReader, or null if setup failed.</returns>
+    public DataReader<DynamicData> SetupDataReader(string topicName, DynamicType dynamicData)
+    {
+        if (Participant == null)
+        {
+            Debug.LogError("Cannot setup DataReader: Participant is not initialized.");
+            return null;
+        }
+
+        try
+        {
+            Topic<DynamicData> topic = GetOrCreateTopic(topicName, dynamicData);
+            if (topic == null) return null;
+
+            // Use the shared Subscriber to create the DataReader
+            var readerQos = _provider.GetDataReaderQos(_fullProfileName);
+            DataReader<DynamicData> reader = _sharedSubscriber.CreateDataReader(topic, readerQos);
+
+            return reader;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to setup DataReader for topic '{topicName}': {e.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Sets up a DataWriter for a specified topic.
+    /// </summary>
+    /// <param name="topicName">The name of the topic to publish to.</param>
+    /// <param name="dynamicData">The dynamic type definition for the data.</param>
+    /// <returns>The created DataWriter, or null if setup failed.</returns>
+    public DataWriter<DynamicData> SetupDataWriter(string topicName, DynamicType dynamicData)
+    {
+        if (Participant == null)
+        {
+            Debug.LogError("Cannot setup DataWriter: Participant is not initialized.");
+            return null;
+        }
+
+        try
+        {
+            Topic<DynamicData> topic = GetOrCreateTopic(topicName, dynamicData);
+            if (topic == null) return null;
+
+            // Use the shared Publisher to create the DataWriter
+            var writerQos = _provider.GetDataWriterQos(_fullProfileName);
+            DataWriter<DynamicData> writer = _sharedPublisher.CreateDataWriter(topic, writerQos);
+
+            return writer;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed to setup DataWriter for topic '{topicName}': {e.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Called when the script instance is being destroyed.
+    /// Cleans up DDS resources to prevent leaks.
+    /// </summary>
+    private void OnDestroy()
+    {
+        if (Participant != null)
+        {
+            Participant.Dispose();
+            Participant = null;
+        }
+    }
+
+    /// <summary>
+    /// Called when the application quits.
+    /// Ensures resources are disposed of if OnDestroy wasn't called (redundant safety check).
+    /// </summary>
     private void OnApplicationQuit()
     {
-        if (participant != null)
+        if (Participant != null)
         {
-            participant.Dispose();
+            Participant.Dispose();
+            Participant = null;
         }
     }
 }

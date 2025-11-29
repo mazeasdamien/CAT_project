@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/7.6.0/rti_dds_profiles.xsd" version="7.6.0">
+  <qos_library name="RigQoSLibrary">
+    <qos_profile name="RigQoSProfile" base_name="BuiltinQosLib::Pattern.Streaming" is_default_qos="true" is_default_participant_factory_profile="true">
+      <domain_participant_qos>
+        <transport_builtin>
+          <mask>UDPv4 | SHMEM</mask>
+        </transport_builtin>
+        <discovery>
+          <initial_peers>
+            <element>localhost</element>
+          </initial_peers>
+        </discovery>
+        <receiver_pool>
+          <buffer_size>65535</buffer_size>
+        </receiver_pool>
+        <property>
+          <value>
+            <element>
+              <name>dds.transport.UDPv4.builtin.parent.message_size_max</name>
+              <value>65535</value>
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.send_socket_buffer_size </name>
+              <value>65535</value>
+            </element>
+            <element>
+              <name>dds.transport.UDPv4.builtin.recv_socket_buffer_size</name>
+              <value>65535</value>
+            </element>
+            <element>
+              <name>dds.transport.shmem.builtin.parent.message_size_max</name>
+              <value>65535</value>
+            </element>
+            <element>
+              <name>dds.transport.shmem.builtin.receive_buffer_size</name>
+              <value>65535</value>
+            </element>
+          </value>
+        </property>
+        <participant_name>
+          <name>Telexistence_Rig</name>
+        </participant_name>
+      </domain_participant_qos>
+      <datareader_qos>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+        <history>
+          <depth>1</depth>
+        </history>
+      </datareader_qos>
+      <datawriter_qos>
+        <reliability>
+          <kind>RELIABLE_RELIABILITY_QOS</kind>
+        </reliability>
+        <history>
+          <depth>1</depth>
+        </history>
+      </datawriter_qos>
+    </qos_profile>
+  </qos_library>
+</dds>

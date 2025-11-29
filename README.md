@@ -13,8 +13,11 @@ The core communication layer is built upon RTI Connext DDS, managed through a se
 
 The `DDSHandler` class is the backbone of the DDS integration in this project. It is responsible for the lifecycle management of the DDS Domain Participant and provides utility methods for creating readers and writers.
 
-*   **Initialization**: It initializes the DDS `DomainParticipant` using a specific Quality of Service (QoS) profile (`CAT_Industrial_Library::SafetyCritical_Profile`) defined in `USER_QOS_PROFILES.xml`.
-*   **Singleton Pattern**: Implements the Singleton pattern to ensure only one instance of the DDS handler exists throughout the application lifecycle.
+*   **Initialization**: It initializes the DDS `DomainParticipant` using a specific Quality of Service (QoS) profile. By default, it loads from `QOS.xml` using the library `RigQoSLibrary` and profile `RigQoSProfile`. These settings are **configurable via the Unity Inspector**.
+*   **Singleton Pattern**: Implements the Singleton pattern to ensure only one instance of the DDS handler exists throughout the application lifecycle and persists across scene loads.
+*   **Performance Optimizations**: 
+    *   **Shared Entities**: It pre-creates and reuses a shared `Publisher` and `Subscriber` to reduce the overhead of creating these heavy entities for every new topic.
+    *   **String Caching**: QoS profile strings are cached to avoid repeated string allocations.
 *   **Topic Management**: It maintains a registry of created topics to prevent duplicate topic creation, which ensures stability when multiple components request the same topic.
 *   **Reader/Writer Creation**: Provides public methods (`SetupDataReader`, `SetupDataWriter`) that other scripts can use to easily create DDS DataReaders and DataWriters for specific topics and dynamic data types without handling the low-level boilerplate.
 *   **Cleanup**: Handles the proper disposal of the `DomainParticipant` when the application quits to prevent resource leaks.
@@ -28,7 +31,9 @@ The `FanucManager` class is a specialized component that consumes data specifica
     *   **Joints**: `J1`, `J2`, `J3`, `J4`, `J5`, `J6` (Joint angles)
     *   **Cartesian Position**: `X`, `Y`, `Z`
     *   **Orientation (Fanuc WPR)**: `W` (Yaw), `P` (Pitch), `R` (Roll)
-*   **Subscription**: Uses `DDSHandler` to subscribe to the `RobotState_Topic`.
+*   **Subscription**: Uses `DDSHandler` to subscribe to the `RobotState_Topic` (configurable in the Inspector).
+*   **Performance Optimizations**: 
+    *   **Member ID Caching**: Caches the integer IDs of the dynamic data members during initialization to avoid expensive string-based lookups in the `Update` loop.
 *   **Data Processing**: In every frame, it checks for new data samples. If valid data is received, it:
     *   Updates the **World Position** transform (converting millimeters to meters).
     *   Updates the **World Orientation** by converting Fanuc WPR angles to a Unity Quaternion.
@@ -80,5 +85,5 @@ $$
 ## Requirements
 
 *   **RTI Connext DDS**: The project requires the RTI Connext DDS libraries to be present in the project (typically under `Packages` or `Assets/Plugins`).
-*   **QoS Profile**: A valid `USER_QOS_PROFILES.xml` file must be present in the project root to define the `CAT_Industrial_Library::SafetyCritical_Profile`.
+*   **QoS Profile**: A valid `QOS.xml` file must be present in the project root to define the `RigQoSLibrary::RigQoSProfile` (or whatever is configured in the Inspector).
 *   **RTI License**: A valid license file (`rti_license.dat`) must be present in the project root.
