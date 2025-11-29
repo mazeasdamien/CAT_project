@@ -35,6 +35,42 @@ The `FanucManager` class is a specialized component that consumes data specifica
     *   Updates the **Joint Angles** of the assigned `ArticulationBody` components.
 *   **Coupling Compensation**: Implements specific logic for Fanuc robots where the J3 joint angle is mechanically coupled with J2 (applying `J3 + J2`).
 
+### Mathematical Conversions
+
+The `FanucManager` script applies several mathematical transformations to map the industrial robot data to the Unity coordinate system.
+
+#### 1. Coordinate System Conversion
+Fanuc robots typically use a Right-Handed coordinate system in millimeters, while Unity uses a Left-Handed coordinate system in meters.
+
+$$
+\begin{aligned}
+X_{Unity} &= -\frac{X_{Fanuc}}{1000} \\
+Y_{Unity} &= \frac{Y_{Fanuc}}{1000} \\
+Z_{Unity} &= \frac{Z_{Fanuc}}{1000}
+\end{aligned}
+$$
+
+#### 2. Orientation (Fanuc WPR to Quaternion)
+Fanuc uses Yaw-Pitch-Roll (W-P-R) Euler angles. These are converted to a Quaternion $(q_x, q_y, q_z, q_w)$ for Unity.
+
+First, angles are converted to radians:
+$$ \theta_{rad} = \theta_{deg} \times \frac{\pi}{180} $$
+
+Then, the half-angle formulas are applied:
+$$
+\begin{aligned}
+q_x &= \cos(R/2)\cos(P/2)\sin(W/2) - \sin(R/2)\sin(P/2)\cos(W/2) \\
+q_y &= \cos(R/2)\sin(P/2)\cos(W/2) + \sin(R/2)\cos(P/2)\sin(W/2) \\
+q_z &= \sin(R/2)\cos(P/2)\cos(W/2) - \cos(R/2)\sin(P/2)\sin(W/2) \\
+q_w &= \cos(R/2)\cos(P/2)\cos(W/2) + \sin(R/2)\sin(P/2)\sin(W/2)
+\end{aligned}
+$$
+
+#### 3. Joint Coupling
+For this specific Fanuc model, the third joint ($J3$) is mechanically coupled to the second joint ($J2$). The script compensates for this:
+
+$$ J3_{Unity} = J3_{Fanuc} + J2_{Fanuc} $$
+
 ## Requirements
 
 *   **RTI Connext DDS**: The project requires the RTI Connext DDS libraries to be present in the project (typically under `Packages` or `Assets/Plugins`).
