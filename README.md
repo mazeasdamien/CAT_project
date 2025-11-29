@@ -11,9 +11,9 @@ The system consists of two main applications communicating via RTI Connext DDS:
 
 ```mermaid
 graph LR
-    A[Fanuc Robot / Roboguide] -- FRRobot Library --> B[WPF App (Publisher)]
-    B -- DDS Topic: RobotState_Topic --> C[Unity App (Subscriber)]
-    C --> D[3D Visualization]
+    A["Fanuc Robot / Roboguide"] -- "FRRobot Library" --> B["WPF App (Publisher)"]
+    B -- "DDS Topic: RobotState_Topic" --> C["Unity App (Subscriber)"]
+    C --> D["3D Visualization"]
 ```
 
 ---
@@ -69,13 +69,45 @@ This script consumes the `RobotState` data and drives the 3D robot model.
 
 ### Mathematical Conversions
 
-**Coordinate System (mm to m):**
+The `FanucManager` script applies several mathematical transformations to map the industrial robot data to the Unity coordinate system.
+
+#### 1. Coordinate System Conversion
+Fanuc robots typically use a Right-Handed coordinate system in millimeters, while Unity uses a Left-Handed coordinate system in meters.
+
 $$
-X_{Unity} = -X_{Fanuc}/1000, \quad Y_{Unity} = Y_{Fanuc}/1000, \quad Z_{Unity} = Z_{Fanuc}/1000
+\begin{aligned}
+X_{Unity} &= -\frac{X_{Fanuc}}{1000} \\
+Y_{Unity} &= \frac{Y_{Fanuc}}{1000} \\
+Z_{Unity} &= \frac{Z_{Fanuc}}{1000}
+\end{aligned}
 $$
 
-**Orientation (WPR to Quaternion):**
-Fanuc WPR angles are converted to Radians and then to a Unity Quaternion using half-angle formulas, adjusting for the coordinate system differences.
+#### 2. Orientation (Fanuc WPR to Quaternion)
+Fanuc uses Yaw-Pitch-Roll (W-P-R) Euler angles. These are converted to a Quaternion $(q_x, q_y, q_z, q_w)$ for Unity.
+
+First, angles are converted to radians:
+
+$$
+\theta_{rad} = \theta_{deg} \times \frac{\pi}{180}
+$$
+
+Then, the half-angle formulas are applied:
+
+$$
+\begin{aligned}
+q_x &= \cos(R/2)\cos(P/2)\sin(W/2) - \sin(R/2)\sin(P/2)\cos(W/2) \\
+q_y &= \cos(R/2)\sin(P/2)\cos(W/2) + \sin(R/2)\cos(P/2)\sin(W/2) \\
+q_z &= \sin(R/2)\cos(P/2)\cos(W/2) - \cos(R/2)\sin(P/2)\sin(W/2) \\
+q_w &= \cos(R/2)\cos(P/2)\cos(W/2) + \sin(R/2)\sin(P/2)\sin(W/2)
+\end{aligned}
+$$
+
+#### 3. Joint Coupling
+For this specific Fanuc model, the third joint ($J3$) is mechanically coupled to the second joint ($J2$). The script compensates for this:
+
+$$
+J3_{Unity} = J3_{Fanuc} + J2_{Fanuc}
+$$
 
 ---
 
