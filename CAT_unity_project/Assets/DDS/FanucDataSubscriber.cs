@@ -16,11 +16,18 @@ using UnityEngine;
 public class FanucDataSubscriber : MonoBehaviour
 {
     [Header("Robot Configuration")]
+    [Tooltip("List of ArticulationBodies representing the robot joints.")]
     public List<ArticulationBody> joints;
+
+    [Tooltip("The root transform for the robot's world position.")]
     public Transform worldPosition;
 
     [Header("DDS Configuration")]
+    [Tooltip("The name of the DDS topic to subscribe to.")]
     [SerializeField] private string topicName = "RobotState_Topic";
+
+    [Tooltip("The name of the struct type in DDS.")]
+    [SerializeField] private string typeName = "RobotState";
 
     private DataReader<DynamicData> _reader;
     private bool _hasReceivedData = false;
@@ -51,6 +58,34 @@ public class FanucDataSubscriber : MonoBehaviour
         try
         {
             // --- IMPORTANT: DATA TYPE DEFINITION ---
+            // This MUST match the Publisher's definition EXACTLY.
+            // Publisher has: Clock (String), Sample (Int), then Joints.
+
+            var typeFactory = DynamicTypeFactory.Instance;
+
+            // Define struct
+            StructType robotStateType = typeFactory.BuildStruct()
+                .WithName(typeName)
+                .AddMember(new StructMember("Clock", typeFactory.CreateString(bounds: 50))) // MUST BE HERE
+                .AddMember(new StructMember("Sample", typeFactory.GetPrimitiveType<int>())) // MUST BE HERE
+                .AddMember(new StructMember("J1", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J2", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J3", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J4", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J5", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J6", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("X", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("Y", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("Z", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("W", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("P", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("R", typeFactory.GetPrimitiveType<double>()))
+                .Create();
+
+            // Cache IDs to ensure we are looking up valid members
+            // If these throw an error, it means the Type Build failed
+            _idJ1 = robotStateType.GetMember("J1").Id;
+            _idX = robotStateType.GetMember("X").Id; // Checking just a couple for safety
 
             Debug.Log("FanucDataSubscriber: Type Definition Built. Attempting to create Reader...");
 
@@ -125,12 +160,15 @@ public class FanucDataSubscriber : MonoBehaviour
                     float j5 = (float)data.GetValue<double>("J5");
                     float j6 = (float)data.GetValue<double>("J6");
 
-                    float x = (float)data.GetValue<double>("X");
-                    float y = (float)data.GetValue<double>("Y");
-                    float z = (float)data.GetValue<double>("Z");
+                    float x = (float)data.GetValue<double>("X") / 100;
+                    float y = (float)data.GetValue<double>("Y") / 100;
+                    float z = (float)data.GetValue<double>("Z") / 100;
                     float w = (float)data.GetValue<double>("W");
                     float p = (float)data.GetValue<double>("P");
                     float r = (float)data.GetValue<double>("R");
+
+                    // DEBUG: Log all joint values
+                    Debug.Log($"<color=cyan>JOINTS:</color> J1:{j1:F2} | J2:{j2:F2} | J3:{j3:F2} | J4:{j4:F2} | J5:{j5:F2} | J6:{j6:F2}");
 
                     UpdateRobotState(j1, j2, j3, j4, j5, j6, x, y, z, w, p, r);
                 }
@@ -155,12 +193,11 @@ public class FanucDataSubscriber : MonoBehaviour
     /// </summary>
     private void UpdateRobotState(float j1, float j2, float j3, float j4, float j5, float j6, float x, float y, float z, float w, float p, float r)
     {
-        // Simple log to prove the update loop is running
-        // Debug.Log($"Updating Robot: J1={j1:F2}"); 
-
         if (worldPosition != null)
         {
-            worldPosition.localPosition = new Vector3(-x / 1000f, y / 1000f, z / 1000f);
+            // Position is already scaled in ProcessData (divided by 100), so we use it directly here.
+            // Note: Coordinate conversion (X inverted) is still applied.
+            worldPosition.localPosition = new Vector3(-x, y, z);
             Vector3 eulerAngles = CreateQuaternionFromFanucWPR(w, p, r).eulerAngles;
             worldPosition.localEulerAngles = new Vector3(eulerAngles.x, -eulerAngles.y, -eulerAngles.z);
         }

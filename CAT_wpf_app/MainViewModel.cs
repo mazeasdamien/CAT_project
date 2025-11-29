@@ -11,6 +11,7 @@ using FRRobot;
 using Rti.Dds.Core;
 using Rti.Dds.Domain;
 using Rti.Dds.Publication;
+using Rti.Dds.Subscription;
 using Microsoft.Win32;
 
 namespace CAT_wpf_app
@@ -124,14 +125,51 @@ namespace CAT_wpf_app
         private string _p; public string P { get => _p; set { _p = value; OnPropertyChanged(); } }
         private string _r; public string R { get => _r; set { _r = value; OnPropertyChanged(); } }
 
-        public ObservableCollection<string> Logs { get; } = new ObservableCollection<string>();
+        // Teleop Data
+        private string _teleopX = "0.00"; public string TeleopX { get => _teleopX; set { _teleopX = value; OnPropertyChanged(); } }
+        private string _teleopY = "0.00"; public string TeleopY { get => _teleopY; set { _teleopY = value; OnPropertyChanged(); } }
+        private string _teleopZ = "0.00"; public string TeleopZ { get => _teleopZ; set { _teleopZ = value; OnPropertyChanged(); } }
+        private string _teleopW = "0.00"; public string TeleopW { get => _teleopW; set { _teleopW = value; OnPropertyChanged(); } }
+        private string _teleopP = "0.00"; public string TeleopP { get => _teleopP; set { _teleopP = value; OnPropertyChanged(); } }
+        private string _teleopR = "0.00"; public string TeleopR { get => _teleopR; set { _teleopR = value; OnPropertyChanged(); } }
+        private string _teleopSpeed = "0.0"; public string TeleopSpeed { get => _teleopSpeed; set { _teleopSpeed = value; OnPropertyChanged(); } }
 
-        // --- Commands ---
-        public ICommand StartCommand { get; }
-        public ICommand StopCommand { get; }
-        public ICommand ClearLogsCommand { get; }
+        private int _teleopSampleCount = 0;
+        public int TeleopSampleCount { get => _teleopSampleCount; set { _teleopSampleCount = value; OnPropertyChanged(); } }
+
+        private string _teleopRate = "0.0 Hz";
+        public string TeleopRate { get => _teleopRate; set { _teleopRate = value; OnPropertyChanged(); } }
+
+        // Teleop Configuration
+        private int _teleopPositionRegisterId = 1;
+        public int TeleopPositionRegisterId
+        {
+            get => _teleopPositionRegisterId;
+            set
+            {
+                _teleopPositionRegisterId = value;
+                OnPropertyChanged();
+                if (_teleopSubscriber != null) _teleopSubscriber.PositionRegisterId = value;
+            }
+        }
+
+        private int _teleopSpeedRegisterId = 1;
+        public int TeleopSpeedRegisterId
+        {
+            get => _teleopSpeedRegisterId;
+            set
+            {
+                _teleopSpeedRegisterId = value;
+                OnPropertyChanged();
+                if (_teleopSubscriber != null) _teleopSubscriber.SpeedRegisterId = value;
+            }
+        }
+
+    }
+
         public ICommand BrowseQosCommand { get; }
         public ICommand BrowseLicenseCommand { get; }
+        public ICommand OpenAboutCommand { get; }
 
         // --- Constructor ---
         public MainViewModel()
@@ -144,9 +182,20 @@ namespace CAT_wpf_app
             ClearLogsCommand = new RelayCommand(_ => ClearLogs());
             BrowseQosCommand = new RelayCommand(_ => BrowseFile("XML Files|*.xml|All Files|*.*", path => QosFilePath = path), _ => !IsRunning);
             BrowseLicenseCommand = new RelayCommand(_ => BrowseFile("License Files|*.dat|All Files|*.*", path => LicenseFilePath = path), _ => !IsRunning);
+            OpenAboutCommand = new RelayCommand(_ => OpenAbout());
         }
 
         // --- Methods ---
+
+        private void OpenAbout()
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                var aboutWin = new AboutWindow();
+                aboutWin.Owner = Application.Current.MainWindow;
+                aboutWin.ShowDialog();
+            });
+        }
 
         private void BrowseFile(string filter, Action<string> onPathSelected)
         {
@@ -220,9 +269,11 @@ namespace CAT_wpf_app
             FRCRobot robot = null;
             DomainParticipant participant = null;
             RobotStatePublisher publisher = null;
+            TeleopSubscriber teleopSubscriber = null;
             DateTime startTime = DateTime.Now;
             DateTime lastRateCheck = DateTime.Now;
             int lastSampleCount = 0;
+            int lastTeleopSampleCount = 0;
 
             try
             {
@@ -271,11 +322,13 @@ namespace CAT_wpf_app
                 string fullProfileName = "RigQoSLibrary::RigQoSProfile";
                 DomainParticipantQos partQos = provider.GetDomainParticipantQos(fullProfileName);
                 DataWriterQos writerQos = provider.GetDataWriterQos(fullProfileName);
+                DataReaderQos readerQos = provider.GetDataReaderQos(fullProfileName);
 
                 participant = DomainParticipantFactory.Instance.CreateParticipant(0, partQos);
                 if (participant == null) throw new Exception("Failed to create Participant.");
 
                 publisher = new RobotStatePublisher(participant, writerQos, Log);
+                teleopSubscriber = new TeleopSubscriber(participant, readerQos, Log);
                 Application.Current.Dispatcher.Invoke(() => DdsStatus = "Initialized");
                 Log("DDS Initialized.");
 
@@ -294,6 +347,12 @@ namespace CAT_wpf_app
                             if (publisher.Publish(robot))
                             {
                                 Application.Current.Dispatcher.Invoke(() => SampleCount++);
+                            }
+
+                            // Teleop Receive
+                            if (teleopSubscriber != null)
+                            {
+                                teleopSubscriber.ReceiveAndProcess(robot);
                             }
 
                             // Update UI Data
@@ -327,6 +386,19 @@ namespace CAT_wpf_app
                                 J1 = j1; J2 = j2; J3 = j3; J4 = j4; J5 = j5; J6 = j6;
                                 X = x; Y = y; Z = z; W = w; P = p; R = r;
 
+                                // Teleop UI Updates
+                                if (teleopSubscriber != null)
+                                {
+                                    TeleopX = teleopSubscriber.LastX.ToString("F2");
+                                    TeleopY = teleopSubscriber.LastY.ToString("F2");
+                                    TeleopZ = teleopSubscriber.LastZ.ToString("F2");
+                                    TeleopW = teleopSubscriber.LastW.ToString("F2");
+                                    TeleopP = teleopSubscriber.LastP.ToString("F2");
+                                    TeleopR = teleopSubscriber.LastR.ToString("F2");
+                                    TeleopSpeed = teleopSubscriber.LastSpeed.ToString("F1");
+                                    TeleopSampleCount = teleopSubscriber.TotalSamplesReceived;
+                                }
+
                                 // Update Stats
                                 var now = DateTime.Now;
                                 SystemUptime = (now - startTime).ToString(@"hh\:mm\:ss");
@@ -336,12 +408,20 @@ namespace CAT_wpf_app
                                     double rate = (SampleCount - lastSampleCount) / (now - lastRateCheck).TotalSeconds;
                                     PublishRate = $"{rate:F1} Hz";
                                     lastSampleCount = SampleCount;
+
+                                    if (teleopSubscriber != null)
+                                    {
+                                        double tRate = (TeleopSampleCount - lastTeleopSampleCount) / (now - lastRateCheck).TotalSeconds;
+                                        TeleopRate = $"{tRate:F1} Hz";
+                                        lastTeleopSampleCount = TeleopSampleCount;
+                                    }
+
                                     lastRateCheck = now;
                                 }
                             });
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         // Log($"Loop Error: {ex.Message}");
                     }
@@ -378,13 +458,13 @@ namespace CAT_wpf_app
             }
         }
 
-        private void Log(string message)
+        private void Log(string message, string color = "#CCCCCC")
         {
             lock (_logLock)
             {
                 Application.Current.Dispatcher.InvokeAsync(() =>
                 {
-                    Logs.Insert(0, $"[{DateTime.Now:HH:mm:ss}] {message}");
+                    Logs.Insert(0, new LogEntry { Text = $"[{DateTime.Now:HH:mm:ss}] {message}", Color = color });
                     if (Logs.Count > 100) Logs.RemoveAt(Logs.Count - 1);
                 });
             }

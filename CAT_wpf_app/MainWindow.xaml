@@ -95,6 +95,8 @@
                     <TextBlock Text="CAT Fanuc Node" FontSize="12" VerticalAlignment="Center" Foreground="#CCCCCC"/>
                 </StackPanel>
 
+                <Button Grid.Column="1" Content="About" Command="{Binding OpenAboutCommand}" Style="{StaticResource TitleBarButton}" HorizontalAlignment="Right" Margin="0,0,10,0" Width="60"/>
+
                 <!-- Window Controls -->
                 <StackPanel Grid.Column="2" Orientation="Horizontal">
                     <Button Content="_" Style="{StaticResource TitleBarButton}" Click="MinimizeButton_Click" ToolTip="Minimize"/>
@@ -186,158 +188,491 @@
 
                 <!-- Data Panel -->
                 <Border Grid.Column="1" Background="#252526" CornerRadius="5" Padding="15" Margin="10,0,0,10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        
-                        <TextBlock Text="Live Robot Data" FontWeight="Bold" Margin="0,0,0,15"/>
+                    <TabControl Background="Transparent" BorderThickness="0">
+                        <TabControl.Resources>
+                            <Style TargetType="TabItem">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="TabItem">
+                                            <Border Name="Border" BorderThickness="0,0,0,2" BorderBrush="Transparent" Margin="0,0,10,0" Padding="10,5">
+                                                <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="10,2"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="Border" Property="BorderBrush" Value="#007ACC" />
+                                                    <Setter Property="Foreground" Value="White" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="False">
+                                                    <Setter Property="Foreground" Value="#888888" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TabControl.Resources>
 
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-
-                            <!-- Joints -->
-                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
-                                <TextBlock Text="Joints (deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#4FC3F7"/>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock Text="J1" Grid.Row="0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding J1}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="J2" Grid.Row="1" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding J2}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="J3" Grid.Row="2" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding J3}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="J4" Grid.Row="3" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding J4}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="J5" Grid.Row="4" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding J5}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="J6" Grid.Row="5" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding J6}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-                                </Grid>
-                            </StackPanel>
-
-                            <!-- Cartesian -->
-                            <StackPanel Grid.Column="1" Margin="10,0,0,0">
-                                <TextBlock Text="Cartesian (mm/deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#FFB74D"/>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="30"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30"/>
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock Text="X" Grid.Row="0" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding X}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="Y" Grid.Row="1" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Y}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="Z" Grid.Row="2" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding Z}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="W" Grid.Row="3" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding W}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="P" Grid.Row="4" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding P}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-
-                                    <TextBlock Text="R" Grid.Row="5" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding R}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
-                                </Grid>
-                            </StackPanel>
-                        </Grid>
-                        
-                        <Separator Grid.Row="2" Background="#3E3E42" Margin="0,15"/>
-
-                        <!-- Statistics Section -->
-                        <Grid Grid.Row="3">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Statistics" FontWeight="Bold" Margin="0,0,0,10"/>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                        <TabItem Header="Robot State">
+                            <Grid Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
                                 
-                                <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-                                    <TextBlock Text="Samples Sent" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding SampleCount}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
-                                </StackPanel>
+                                <TextBlock Text="Live Robot Data" FontWeight="Bold" Margin="0,0,0,15"/>
 
-                                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                                    <TextBlock Text="Publish Rate" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding PublishRate}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
-                                </StackPanel>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
 
-                                <StackPanel Grid.Column="2" HorizontalAlignment="Center">
-                                    <TextBlock Text="Uptime" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="{Binding SystemUptime}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
-                                </StackPanel>
+                                    <!-- Joints -->
+                                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                        <TextBlock Text="Joints (deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#4FC3F7"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Text="J1" Grid.Row="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J1}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="J2" Grid.Row="1" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J2}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="J3" Grid.Row="2" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J3}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="J4" Grid.Row="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J4}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="J5" Grid.Row="4" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J5}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="J6" Grid.Row="5" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J6}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+                                        </Grid>
+                                    </StackPanel>
+
+                                    <!-- Cartesian -->
+                                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                        <TextBlock Text="Cartesian (mm/deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#FFB74D"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Text="X" Grid.Row="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding X}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="Y" Grid.Row="1" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Y}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="Z" Grid.Row="2" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Z}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="W" Grid.Row="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding W}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="P" Grid.Row="4" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding P}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="R" Grid.Row="5" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding R}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                                
+                                <Separator Grid.Row="2" Background="#3E3E42" Margin="0,15"/>
+
+                                <!-- Statistics Section -->
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Statistics" FontWeight="Bold" Margin="0,0,0,10"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                                            <TextBlock Text="Samples Sent" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding SampleCount}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <TextBlock Text="Publish Rate" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding PublishRate}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+                                            <TextBlock Text="Uptime" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding SystemUptime}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Grid>
+                        </TabItem>
+
+                        <TabItem Header="Teleoperation">
+                            <Grid Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Incoming Unity Data" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Cartesian Input -->
+                                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                        <TextBlock Text="Target Pose (mm/deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#81C784"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+
+                                            <!-- XYZ -->
+                                            <TextBlock Text="X" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopX}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="Y" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopY}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="Z" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopZ}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <!-- WPR -->
+                                            <TextBlock Text="W" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopW}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="P" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopP}" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="R" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopR}" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+                                        </Grid>
+                                    </StackPanel>
+
+                                    <!-- Speed & Stats -->
+                                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                        <TextBlock Text="Parameters" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#64B5F6"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <TextBlock Text="Speed" Grid.Row="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopSpeed}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="Pos Reg ID" Grid.Row="1" VerticalAlignment="Center" FontSize="10"/>
+                                            <TextBox Text="{Binding TeleopPositionRegisterId}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="#333" Foreground="White" BorderBrush="#555"/>
+
+                                            <TextBlock Text="Spd Reg ID" Grid.Row="2" VerticalAlignment="Center" FontSize="10"/>
+                                            <TextBox Text="{Binding TeleopSpeedRegisterId}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="#333" Foreground="White" BorderBrush="#555"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Separator Grid.Row="2" Background="#3E3E42" Margin="0,15"/>
+                                
+                                <!-- Teleop Statistics -->
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Statistics" FontWeight="Bold" Margin="0,0,0,10"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                                            <TextBlock Text="Samples Received" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopSampleCount}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center" Foreground="#FFFFFF"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <TextBlock Text="Receive Rate" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopRate}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center" Foreground="#FFFFFF"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                </Border>
+            </Grid>
+
+                                            <TextBlock Text="{Binding J5}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="J6" Grid.Row="5" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding J6}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+                                        </Grid>
+                                    </StackPanel>
+
+                                    <!-- Cartesian -->
+                                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                        <TextBlock Text="Cartesian (mm/deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#FFB74D"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+
+                                            <TextBlock Text="X" Grid.Row="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding X}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="Y" Grid.Row="1" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Y}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="Z" Grid.Row="2" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding Z}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="W" Grid.Row="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding W}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="P" Grid.Row="4" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding P}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+
+                                            <TextBlock Text="R" Grid.Row="5" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding R}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+                                
+                                <Separator Grid.Row="2" Background="#3E3E42" Margin="0,15"/>
+
+                                <!-- Statistics Section -->
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Statistics" FontWeight="Bold" Margin="0,0,0,10"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                                            <TextBlock Text="Samples Sent" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding SampleCount}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <TextBlock Text="Publish Rate" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding PublishRate}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+                                            <TextBlock Text="Uptime" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding SystemUptime}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem Header="Teleoperation">
+                            <Grid Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="Incoming Unity Data" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Cartesian Input -->
+                                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                        <TextBlock Text="Target Pose (mm/deg)" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#81C784"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="20"/>
+                                                <ColumnDefinition Width="30"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+
+                                            <!-- XYZ -->
+                                            <TextBlock Text="X" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopX}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="Y" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopY}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="Z" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopZ}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <!-- WPR -->
+                                            <TextBlock Text="W" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopW}" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="P" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopP}" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="R" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopR}" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+                                        </Grid>
+                                    </StackPanel>
+
+                                    <!-- Speed & Stats -->
+                                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                                        <TextBlock Text="Parameters" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#64B5F6"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <TextBlock Text="Speed" Grid.Row="0" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopSpeed}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Consolas" Foreground="#FFFFFF"/>
+
+                                            <TextBlock Text="Pos Reg ID" Grid.Row="1" VerticalAlignment="Center" FontSize="10"/>
+                                            <TextBox Text="{Binding TeleopPositionRegisterId}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="#333" Foreground="White" BorderBrush="#555"/>
+
+                                            <TextBlock Text="Spd Reg ID" Grid.Row="2" VerticalAlignment="Center" FontSize="10"/>
+                                            <TextBox Text="{Binding TeleopSpeedRegisterId}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="#333" Foreground="White" BorderBrush="#555"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+
+                                <Separator Grid.Row="2" Background="#3E3E42" Margin="0,15"/>
+                                
+                                <!-- Teleop Statistics -->
+                                <Grid Grid.Row="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Statistics" FontWeight="Bold" Margin="0,0,0,10"/>
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                                            <TextBlock Text="Samples Received" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopSampleCount}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center" Foreground="#FFFFFF"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                                            <TextBlock Text="Receive Rate" FontSize="11" Opacity="0.7" HorizontalAlignment="Center"/>
+                                            <TextBlock Text="{Binding TeleopRate}" FontSize="16" FontFamily="Consolas" HorizontalAlignment="Center" Foreground="#FFFFFF"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
                 </Border>
             </Grid>
 
             <!-- Logs -->
-            <Border Grid.Row="3" Background="#252526" CornerRadius="5" Padding="10" Margin="20,0,20,20">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="System Logs" FontWeight="Bold" Margin="0,0,0,5" FontSize="12" VerticalAlignment="Center"/>
-                        <Button Grid.Column="1" Content="Clear" Command="{Binding ClearLogsCommand}" Style="{StaticResource StandardButton}" Width="60" Height="20" FontSize="10" Padding="5,0" Margin="0,0,0,5"/>
-                    </Grid>
-                    <ListBox Grid.Row="1" ItemsSource="{Binding Logs}" Background="Transparent" BorderThickness="0" Foreground="#CCCCCC" FontFamily="Consolas" FontSize="11">
-                        <ListBox.ItemContainerStyle>
-                            <Style TargetType="ListBoxItem">
-                                <Setter Property="Padding" Value="0"/>
-                                <Setter Property="Margin" Value="0"/>
-                            </Style>
-                        </ListBox.ItemContainerStyle>
-                    </ListBox>
+            <Grid Grid.Row="3" Margin="20,0,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,0,0,5">
+                    <TextBlock Text="System Logs" FontWeight="Bold" VerticalAlignment="Center"/>
+                    <Button Content="Clear" Command="{Binding ClearLogsCommand}" HorizontalAlignment="Right" Width="60" Height="25" Style="{StaticResource StandardButton}"/>
                 </Grid>
-            </Border>
+
+                <Border Grid.Row="1" Background="#1E1E1E" CornerRadius="5" Padding="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <ItemsControl ItemsSource="{Binding Logs}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Text}" Foreground="{Binding Color}" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,2"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+            </Grid>
         </Grid>
     </Border>
 </Window>
