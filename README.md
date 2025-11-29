@@ -62,7 +62,7 @@ The `DDSHandler` class is the backbone of the DDS integration in Unity.
 This script consumes the `RobotState` data and drives the 3D robot model.
 *   **Dynamic Type Definition**: Reconstructs the `RobotState` struct to match the publisher's definition.
 *   **Data Processing**:
-    *   **Coordinate Conversion**: Converts Fanuc's Right-Handed (mm) system to Unity's Left-Handed (m) system.
+    *   **Coordinate Conversion**: Converts Fanuc's Right-Handed (mm) system to Unity's Left-Handed (m) system. Note: Position values are scaled by 100 (not 1000) to match the specific project requirements.
     *   **Orientation**: Converts Fanuc WPR (Yaw-Pitch-Roll) Euler angles to Unity Quaternions.
     *   **Joint Coupling**: Compensates for the mechanical coupling between J2 and J3 specific to the Fanuc model ($J3_{Unity} = J3_{Fanuc} + J2_{Fanuc}$).
 *   **Visualization**: Updates the `ArticulationBody` components for physics-based movement or standard `Transform` components.
@@ -75,18 +75,27 @@ This script simulates the physiological state of a human operator to enable Huma
 *   **Metrics**: Publishes Stress Index, Pupil Diameter, and Gaze status.
 *   **DDS Publication**: Broadcasts data to the `Operator_Bio_State` topic for the robot controller to consume.
 
+#### 4. TeleopDataPublisher.cs
+**Role:** Teleoperation Data Source
+
+This script enables teleoperation by publishing the position, rotation, and speed of a Unity GameObject to the robot controller.
+*   **Data Source**: Tracks the transform of the attached GameObject.
+*   **Data Structure**: Publishes `OperatorNewPose` containing X, Y, Z, W, P, R, and Speed.
+*   **Coordinate Conversion**: Converts Unity's Left-Handed system to Fanuc's Right-Handed system, including scaling and rotation conversion (Quaternion to WPR).
+*   **Optimization**: Only publishes data when the pose or speed changes.
+
 ### Mathematical Conversions
 
 The `FanucDataSubscriber` script applies several mathematical transformations to map the industrial robot data to the Unity coordinate system.
 
 #### 1. Coordinate System Conversion
-Fanuc robots typically use a Right-Handed coordinate system in millimeters, while Unity uses a Left-Handed coordinate system in meters.
+Fanuc robots typically use a Right-Handed coordinate system in millimeters, while Unity uses a Left-Handed coordinate system in meters. In this project, the scaling factor is 100.
 
 $$
 \begin{aligned}
-X_{Unity} &= -\frac{X_{Fanuc}}{1000} \\
-Y_{Unity} &= \frac{Y_{Fanuc}}{1000} \\
-Z_{Unity} &= \frac{Z_{Fanuc}}{1000}
+X_{Unity} &= -\frac{X_{Fanuc}}{100} \\
+Y_{Unity} &= \frac{Y_{Fanuc}}{100} \\
+Z_{Unity} &= \frac{Z_{Fanuc}}{100}
 \end{aligned}
 $$
 
