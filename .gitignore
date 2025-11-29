@@ -58,3 +58,6 @@ crashlytics-build.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# RTI License
+rti_license.dat
