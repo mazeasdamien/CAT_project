@@ -10,10 +10,10 @@ public class TeleopDataPublisher : MonoBehaviour
 {
     [Header("DDS Configuration")]
     [Tooltip("The name of the DDS topic to publish to.")]
-    [SerializeField] private string topicName = "OperatorPose_Topic";
+    [SerializeField] private string topicName = "TeleopData_Topic";
 
     [Tooltip("The name of the struct type in DDS.")]
-    [SerializeField] private string typeName = "OperatorPose";
+    [SerializeField] private string typeName = "TeleopData";
 
     [Header("Teleoperation Settings")]
     [Tooltip("Speed value to publish (0-100%).")]
@@ -144,6 +144,9 @@ public class TeleopDataPublisher : MonoBehaviour
 
             // Publish
             _writer.Write(_sample);
+
+            // Debug Log
+            Debug.Log($"[TeleopPublisher] Sent: X={-_transform.localPosition.x * positionScale:F2}, Y={_transform.localPosition.y * positionScale:F2}, Z={_transform.localPosition.z * positionScale:F2}, Speed={speed:F1}");
         }
         catch (System.Exception ex)
         {

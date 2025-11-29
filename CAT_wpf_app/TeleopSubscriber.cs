@@ -14,8 +14,8 @@ namespace CAT_wpf_app
     /// </summary>
     public class TeleopSubscriber
     {
-        private const string TOPIC_NAME = "OperatorPose_Topic";
-        private const string TYPE_NAME = "OperatorPose";
+        private const string TOPIC_NAME = "TeleopData_Topic";
+        private const string TYPE_NAME = "TeleopData";
 
         private readonly DataReader<DynamicData> _reader;
         private readonly Action<string> _logAction;
@@ -164,20 +164,11 @@ namespace CAT_wpf_app
 
                 // Commit changes to the controller
                 groupPos.Update();
-
-                // 2. Update Data Register R[x] for Speed
-                FRCVar varSpeed = robot.RegNumerics[SpeedRegisterId];
-                varSpeed.Value.Value = speed;
-                varSpeed.Update();
-                // if (!varSpeed.Update())
-                // {
-                //     // _logAction?.Invoke($"[TeleopSubscriber] Failed to update Speed R[{SpeedRegisterId}]");
-                // }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Often fails if robot is moving or locked
-                // _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}");
+                _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}");
             }
         }
     }

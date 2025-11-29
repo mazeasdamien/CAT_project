@@ -1,0 +1,11 @@
+﻿  Determining projects to restore...
+  Nothing to do. None of the projects specified contain packages to restore.
+C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3068,5): error MSB4803: The task "ResolveComReference" is not supported on the .NET Core version of MSBuild. Please use the .NET Framework version of MSBuild. See https://aka.ms/msbuild/MSB4803 for further details. [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+
+Build FAILED.
+
+C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3068,5): error MSB4803: The task "ResolveComReference" is not supported on the .NET Core version of MSBuild. Please use the .NET Framework version of MSBuild. See https://aka.ms/msbuild/MSB4803 for further details. [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.54

@@ -254,6 +254,7 @@ namespace CAT_wpf_app
             IsBusy = false;
         }
 
+
         private void Stop()
         {
             IsBusy = true;
@@ -292,17 +293,26 @@ namespace CAT_wpf_app
                 // 1. Initialize Robot
                 string ip = RobotIpAddress; // Capture current IP
                 Log($"Connecting to Robot at {ip}...");
-                robot = new FRCRobot();
-                robot.ConnectEx(ip, false, 10, 1);
+                try
+                {
+                    robot = new FRCRobot();
+                    robot.ConnectEx(ip, false, 10, 1);
 
-                if (robot.IsConnected)
-                {
-                    Application.Current.Dispatcher.Invoke(() => RobotStatus = "Connected");
-                    Log("Robot Connected.");
+                    if (robot.IsConnected)
+                    {
+                        Application.Current.Dispatcher.Invoke(() => RobotStatus = "Connected");
+                        Log("Robot Connected.");
+                    }
+                    else
+                    {
+                        Log("Robot connection failed. Running in Disconnected mode.");
+                        Application.Current.Dispatcher.Invoke(() => RobotStatus = "Disconnected");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    throw new Exception("Robot connection failed.");
+                    Log($"Robot connection error: {ex.Message}. Running in Disconnected mode.");
+                    Application.Current.Dispatcher.Invoke(() => RobotStatus = "Error");
                 }
 
                 // 2. Initialize DDS
@@ -353,21 +363,27 @@ namespace CAT_wpf_app
                 {
                     try
                     {
-                        if (robot.IsConnected)
+                        // Publish (Only if connected)
+                        if (robot != null && robot.IsConnected)
                         {
-                            // Publish
                             if (publisher.Publish(robot))
                             {
                                 Application.Current.Dispatcher.Invoke(() => SampleCount++);
                             }
+                        }
 
-                            // Teleop Receive
-                            if (_teleopSubscriber != null)
-                            {
-                                _teleopSubscriber.ReceiveAndProcess(robot);
-                            }
+                        // Teleop Receive (Always try to receive)
+                        if (_teleopSubscriber != null)
+                        {
+                            _teleopSubscriber.ReceiveAndProcess(robot);
+                        }
 
-                            // Update UI Data
+                        // Update UI Data
+                        string j1 = "0.00", j2 = "0.00", j3 = "0.00", j4 = "0.00", j5 = "0.00", j6 = "0.00";
+                        string x = "0.00", y = "0.00", z = "0.00", w = "0.00", p = "0.00", r = "0.00";
+
+                        if (robot != null && robot.IsConnected)
+                        {
                             FRCCurPosition cur = robot.CurPosition;
                             var grpJoint = cur.Group[1, FRECurPositionConstants.frJointDisplayType];
                             var grpWorld = cur.Group[1, FRECurPositionConstants.frWorldDisplayType];
@@ -378,60 +394,63 @@ namespace CAT_wpf_app
                             var xyz = grpWorld.Formats[FRETypeCodeConstants.frXyzWpr];
 
                             // Capture values
-                            string j1 = ((float)joint[1]).ToString("F2");
-                            string j2 = ((float)joint[2]).ToString("F2");
-                            string j3 = ((float)joint[3]).ToString("F2");
-                            string j4 = ((float)joint[4]).ToString("F2");
-                            string j5 = ((float)joint[5]).ToString("F2");
-                            string j6 = ((float)joint[6]).ToString("F2");
+                            j1 = ((float)joint[1]).ToString("F2");
+                            j2 = ((float)joint[2]).ToString("F2");
+                            j3 = ((float)joint[3]).ToString("F2");
+                            j4 = ((float)joint[4]).ToString("F2");
+                            j5 = ((float)joint[5]).ToString("F2");
+                            j6 = ((float)joint[6]).ToString("F2");
 
-                            string x = ((float)xyz.X).ToString("F2");
-                            string y = ((float)xyz.Y).ToString("F2");
-                            string z = ((float)xyz.Z).ToString("F2");
-                            string w = ((float)xyz.W).ToString("F2");
-                            string p = ((float)xyz.P).ToString("F2");
-                            string r = ((float)xyz.R).ToString("F2");
+                            x = ((float)xyz.X).ToString("F2");
+                            y = ((float)xyz.Y).ToString("F2");
+                            z = ((float)xyz.Z).ToString("F2");
+                            w = ((float)xyz.W).ToString("F2");
+                            p = ((float)xyz.P).ToString("F2");
+                            r = ((float)xyz.R).ToString("F2");
+                        }
 
-                            // Update Properties on UI Thread
-                            Application.Current.Dispatcher.Invoke(() =>
+                        // Update Properties on UI Thread
+                        Application.Current.Dispatcher.Invoke(() =>
+                        {
+                            if (robot != null && robot.IsConnected)
                             {
                                 J1 = j1; J2 = j2; J3 = j3; J4 = j4; J5 = j5; J6 = j6;
                                 X = x; Y = y; Z = z; W = w; P = p; R = r;
+                            }
 
-                                // Teleop UI Updates
+                            // Teleop UI Updates
+                            if (_teleopSubscriber != null)
+                            {
+                                TeleopX = _teleopSubscriber.LastX.ToString("F2");
+                                TeleopY = _teleopSubscriber.LastY.ToString("F2");
+                                TeleopZ = _teleopSubscriber.LastZ.ToString("F2");
+                                TeleopW = _teleopSubscriber.LastW.ToString("F2");
+                                TeleopP = _teleopSubscriber.LastP.ToString("F2");
+                                TeleopR = _teleopSubscriber.LastR.ToString("F2");
+                                TeleopSpeed = _teleopSubscriber.LastSpeed.ToString("F1");
+                                TeleopSampleCount = _teleopSubscriber.TotalSamplesReceived;
+                            }
+
+                            // Update Stats
+                            var now = DateTime.Now;
+                            SystemUptime = (now - startTime).ToString(@"hh\:mm\:ss");
+
+                            if ((now - lastRateCheck).TotalSeconds >= 1.0)
+                            {
+                                double rate = (SampleCount - lastSampleCount) / (now - lastRateCheck).TotalSeconds;
+                                PublishRate = $"{rate:F1} Hz";
+                                lastSampleCount = SampleCount;
+
                                 if (_teleopSubscriber != null)
                                 {
-                                    TeleopX = _teleopSubscriber.LastX.ToString("F2");
-                                    TeleopY = _teleopSubscriber.LastY.ToString("F2");
-                                    TeleopZ = _teleopSubscriber.LastZ.ToString("F2");
-                                    TeleopW = _teleopSubscriber.LastW.ToString("F2");
-                                    TeleopP = _teleopSubscriber.LastP.ToString("F2");
-                                    TeleopR = _teleopSubscriber.LastR.ToString("F2");
-                                    TeleopSpeed = _teleopSubscriber.LastSpeed.ToString("F1");
-                                    TeleopSampleCount = _teleopSubscriber.TotalSamplesReceived;
+                                    double tRate = (TeleopSampleCount - lastTeleopSampleCount) / (now - lastRateCheck).TotalSeconds;
+                                    TeleopRate = $"{tRate:F1} Hz";
+                                    lastTeleopSampleCount = TeleopSampleCount;
                                 }
 
-                                // Update Stats
-                                var now = DateTime.Now;
-                                SystemUptime = (now - startTime).ToString(@"hh\:mm\:ss");
-
-                                if ((now - lastRateCheck).TotalSeconds >= 1.0)
-                                {
-                                    double rate = (SampleCount - lastSampleCount) / (now - lastRateCheck).TotalSeconds;
-                                    PublishRate = $"{rate:F1} Hz";
-                                    lastSampleCount = SampleCount;
-
-                                    if (_teleopSubscriber != null)
-                                    {
-                                        double tRate = (TeleopSampleCount - lastTeleopSampleCount) / (now - lastRateCheck).TotalSeconds;
-                                        TeleopRate = $"{tRate:F1} Hz";
-                                        lastTeleopSampleCount = TeleopSampleCount;
-                                    }
-
-                                    lastRateCheck = now;
-                                }
-                            });
-                        }
+                                lastRateCheck = now;
+                            }
+                        });
                     }
                     catch (Exception)
                     {
