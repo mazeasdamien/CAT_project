@@ -1,0 +1,32 @@
+                       TP Accounting
+
+F Number: F00000    
+VERSION : LR HandlingTool      
+$VERSION: V9.40107      7/23/2021
+DATE:     29-NOV-25 15:20 
+
+Menu                         Elapsed Time         #Sel       #Keys
+                     (YY-MM-DD HH:MM:SS)
+Id:  962, 1                          08            1           2
+Id:  936, 1                          24            1           0
+Hints                             59:08           11          38
+DCS                            11:05:40            8          29
+Id:  381, 5                       22:18           15           6
+Home                              03:26            3         116
+Notifications                        16            1          10
+Home                                 38            1           3
+Alarm Log                      02:25:14            1         110
+Registers                            06            2           0
+SELECT                            13:26            2          62
+EDIT                              49:14            3          16
+
+Full Menus:                    15:59:58 
+Quick Menus:                         00 
+
+MENU Popup:                                        6
+[ TYPE ] Pullup:                                   1
+
+Functions at COLD start
+
+Functions at CTRL start
+START (COLD)                                       1

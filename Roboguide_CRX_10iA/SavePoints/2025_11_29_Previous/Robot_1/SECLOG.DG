@@ -1,0 +1,14 @@
+Security Log for F00000     at 29-NOV-25 15:44:34 
+
+25-11-28   23:2 SEC -001 Security Config Mismatch
+29-NOV-25 10:19 SEC -001 Security Config Mismatch
+29-NOV-25 10:31 SEC -001 Security Config Mismatch
+29-NOV-25 10:31 SEC -001 Security Config Mismatch
+
+
+MAIN Security Log Filter:
+29-NOV-25 10:31:24  Task: NIYS logged error: SEC -001 occurred 1 times in 2147483.750000 seconds from 0.0.0.0
+
+
+COMM Security Log Filter:
+29-NOV-25 10:31:24  Task: NIYS logged error: SEC -001 occurred 1 times in 2147483.750000 seconds from 0.0.0.0

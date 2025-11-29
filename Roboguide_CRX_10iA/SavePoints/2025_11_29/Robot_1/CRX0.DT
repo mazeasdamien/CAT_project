@@ -1,0 +1,8 @@
+tb_cart 1           -- cartesian 1. cycle priority 2. path priority
+tb_jnt 1            -- joint 1. cycle priority 2. path priority
+angle 0  -- mount angle
+payload 10  -- max payload
+mount 1 -- Generated Automatically
+cllb_qstp 0 -- Generated Automatically
+cllb_qstpre 0 -- Generated Automatically
+ENDOFL              -- end of the file
