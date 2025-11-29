@@ -33,12 +33,31 @@ public class DDSHandler : MonoBehaviour
 
         try
         {
-            provider = new QosProvider("USER_QOS_PROFILES.xml");  // Loads QoS settings
-            participant = DomainParticipantFactory.Instance.CreateParticipant(0, provider.GetDomainParticipantQos());
+            string qosPath = System.IO.Path.GetFullPath("USER_QOS_PROFILES.xml");
+            Debug.Log($"[DDSHandler] Working Directory: {System.IO.Directory.GetCurrentDirectory()}");
+            Debug.Log($"[DDSHandler] Attempting to load QoS from: {qosPath}");
+            
+            if (!System.IO.File.Exists(qosPath))
+            {
+                Debug.LogError($"[DDSHandler] QoS file not found at: {qosPath}");
+            }
+
+            provider = new QosProvider("USER_QOS_PROFILES.xml");
+            Debug.Log("[DDSHandler] QoS Provider loaded successfully.");
+
+            var participantQos = provider.GetDomainParticipantQos();
+            Debug.Log("[DDSHandler] Retrieved DomainParticipantQos.");
+
+            participant = DomainParticipantFactory.Instance.CreateParticipant(0, participantQos);
+            Debug.Log("[DDSHandler] DomainParticipant created successfully.");
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"Failed to initialize DDS: {e.Message}");
+            Debug.LogError($"Failed to initialize DDS: {e.Message}\nStack Trace: {e.StackTrace}");
+            if (e.InnerException != null)
+            {
+                Debug.LogError($"Inner Exception: {e.InnerException.Message}");
+            }
         }
     }
 
