@@ -165,8 +165,18 @@ namespace CAT_wpf_app
             }
         }
 
-    }
+        public class LogEntry
+        {
+            public string Text { get; set; }
+            public string Color { get; set; }
+        }
 
+        public ObservableCollection<LogEntry> Logs { get; } = new ObservableCollection<LogEntry>();
+
+        // --- Commands ---
+        public ICommand StartCommand { get; }
+        public ICommand StopCommand { get; }
+        public ICommand ClearLogsCommand { get; }
         public ICommand BrowseQosCommand { get; }
         public ICommand BrowseLicenseCommand { get; }
         public ICommand OpenAboutCommand { get; }
