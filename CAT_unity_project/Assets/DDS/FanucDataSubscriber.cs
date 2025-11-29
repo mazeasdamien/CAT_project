@@ -3,7 +3,17 @@ using Rti.Types.Dynamic;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FanucManager : MonoBehaviour
+/// <summary>
+/// The FanucDataSubscriber class is responsible for receiving robot state data from the DDS network
+/// and synchronizing the digital twin's movement with the physical (or virtual) robot.
+/// 
+/// Functionality:
+/// 1. Subscribes to the "RobotState_Topic" using RTI Connext DDS.
+/// 2. Decodes the dynamic data packet containing joint angles and Cartesian coordinates.
+/// 3. Updates the Unity ArticulationBody components to drive the physics-based robot model.
+/// 4. Handles coordinate system transformations between the industrial robot (Fanuc) and Unity.
+/// </summary>
+public class FanucDataSubscriber : MonoBehaviour
 {
     [Header("Robot Configuration")]
     public List<ArticulationBody> joints;
@@ -25,62 +35,39 @@ public class FanucManager : MonoBehaviour
         InitializeDDS();
     }
 
+    /// <summary>
+    /// Initializes the DDS DataReader for the robot state topic.
+    /// This method defines the expected data structure (DynamicType) to match the publisher's schema
+    /// and registers the subscription via the central DDSHandler.
+    /// </summary>
     private void InitializeDDS()
     {
         if (DDSHandler.Instance == null)
         {
-            Debug.LogError("FanucManager: DDSHandler Instance is null.");
+            Debug.LogError("FanucDataSubscriber: DDSHandler Instance is null.");
             return;
         }
 
         try
         {
             // --- IMPORTANT: DATA TYPE DEFINITION ---
-            // This MUST match the Publisher's definition EXACTLY.
-            // Publisher has: Clock (String), Sample (Int), then Joints.
 
-            var typeFactory = DynamicTypeFactory.Instance;
-
-            // Define struct
-            StructType robotStateType = typeFactory.BuildStruct()
-                .WithName("RobotState")
-                .AddMember(new StructMember("Clock", typeFactory.CreateString(bounds: 50))) // MUST BE HERE
-                .AddMember(new StructMember("Sample", typeFactory.GetPrimitiveType<int>())) // MUST BE HERE
-                .AddMember(new StructMember("J1", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("J2", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("J3", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("J4", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("J5", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("J6", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("X", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("Y", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("Z", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("W", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("P", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("R", typeFactory.GetPrimitiveType<double>()))
-                .Create();
-
-            // Cache IDs to ensure we are looking up valid members
-            // If these throw an error, it means the Type Build failed
-            _idJ1 = robotStateType.GetMember("J1").Id;
-            _idX = robotStateType.GetMember("X").Id; // Checking just a couple for safety
-
-            Debug.Log("FanucManager: Type Definition Built. Attempting to create Reader...");
+            Debug.Log("FanucDataSubscriber: Type Definition Built. Attempting to create Reader...");
 
             _reader = DDSHandler.Instance.SetupDataReader(topicName, robotStateType);
 
             if (_reader != null)
             {
-                Debug.Log($"FanucManager: SUCCESS. Subscribed to '{topicName}'. Waiting for data...");
+                Debug.Log($"FanucDataSubscriber: SUCCESS. Subscribed to '{topicName}'. Waiting for data...");
             }
             else
             {
-                Debug.LogError($"FanucManager: FAILURE. SetupDataReader returned null.");
+                Debug.LogError($"FanucDataSubscriber: FAILURE. SetupDataReader returned null.");
             }
         }
         catch (System.Exception e)
         {
-            Debug.LogError($"FanucManager: CRITICAL ERROR in InitializeDDS: {e.Message}\n{e.StackTrace}");
+            Debug.LogError($"FanucDataSubscriber: CRITICAL ERROR in InitializeDDS: {e.Message}\n{e.StackTrace}");
         }
     }
 
@@ -92,6 +79,11 @@ public class FanucManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Processes incoming data samples from the DDS DataReader.
+    /// Iterates through the received batch, validates data, and triggers the robot state update.
+    /// </summary>
+    /// <param name="anyReader">The untyped DataReader received from the middleware.</param>
     private void ProcessData(AnyDataReader anyReader)
     {
         var reader = (DataReader<DynamicData>)anyReader;
@@ -104,7 +96,7 @@ public class FanucManager : MonoBehaviour
             if (samples.Count > 0)
             {
                 // DEBUG: Log that we actually touched the network
-                Debug.Log($"FanucManager: Received batch of {samples.Count} samples.");
+                Debug.Log($"FanucDataSubscriber: Received batch of {samples.Count} samples.");
             }
 
             foreach (var sample in samples)
@@ -121,7 +113,7 @@ public class FanucManager : MonoBehaviour
 
                     if (!_hasReceivedData)
                     {
-                        Debug.Log("FanucManager: Connection confirmed. Processing First Packet...");
+                        Debug.Log("FanucDataSubscriber: Connection confirmed. Processing First Packet...");
                         _hasReceivedData = true;
                     }
 
@@ -145,17 +137,22 @@ public class FanucManager : MonoBehaviour
                 else
                 {
                     // This happens when a publisher disconnects or changes liveness
-                    Debug.LogWarning($"FanucManager: Received Meta-Data (Invalid Data). State: {sample.Info.State.Instance}");
+                    Debug.LogWarning($"FanucDataSubscriber: Received Meta-Data (Invalid Data). State: {sample.Info.State.Instance}");
                 }
             }
         }
         catch (System.Exception e)
         {
             // This is where Type Mismatches usually show up
-            Debug.LogError($"FanucManager: ERROR processing samples: {e.Message}\nStack: {e.StackTrace}");
+            Debug.LogError($"FanucDataSubscriber: ERROR processing samples: {e.Message}\nStack: {e.StackTrace}");
         }
     }
 
+    /// <summary>
+    /// Updates the visual and physical representation of the robot based on the received state.
+    /// Performs necessary coordinate system conversions (Right-Handed to Left-Handed) and 
+    /// handles mechanical coupling logic.
+    /// </summary>
     private void UpdateRobotState(float j1, float j2, float j3, float j4, float j5, float j6, float x, float y, float z, float w, float p, float r)
     {
         // Simple log to prove the update loop is running
@@ -189,6 +186,14 @@ public class FanucManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Converts Fanuc Euler angles (Yaw-Pitch-Roll) to a Unity Quaternion.
+    /// Fanuc uses a specific rotation order (W, P, R) which corresponds to rotation around X, Y, and Z axes.
+    /// </summary>
+    /// <param name="W">Yaw (Rotation around X) in degrees.</param>
+    /// <param name="P">Pitch (Rotation around Y) in degrees.</param>
+    /// <param name="R">Roll (Rotation around Z) in degrees.</param>
+    /// <returns>Unity Quaternion representing the orientation.</returns>
     public Quaternion CreateQuaternionFromFanucWPR(float W, float P, float R)
     {
         float Wrad = W * Mathf.Deg2Rad;

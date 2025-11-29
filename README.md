@@ -56,7 +56,7 @@ The `DDSHandler` class is the backbone of the DDS integration in Unity.
 *   **Topic Management**: Maintains a registry to prevent duplicate topic creation.
 *   **Helper Methods**: Provides `SetupDataReader` and `SetupDataWriter` for easy integration by other scripts.
 
-#### 2. `FanucManager.cs`
+#### 2. FanucDataSubscriber.cs
 **Role:** Robot State Consumer & Visualizer
 
 This script consumes the `RobotState` data and drives the 3D robot model.
@@ -67,9 +67,17 @@ This script consumes the `RobotState` data and drives the 3D robot model.
     *   **Joint Coupling**: Compensates for the mechanical coupling between J2 and J3 specific to the Fanuc model ($J3_{Unity} = J3_{Fanuc} + J2_{Fanuc}$).
 *   **Visualization**: Updates the `ArticulationBody` components for physics-based movement or standard `Transform` components.
 
+#### 3. BioDataPublisher.cs
+**Role:** Operator Biometric Data Simulator
+
+This script simulates the physiological state of a human operator to enable Human-Robot Collaboration (HRC) scenarios.
+*   **Data Source**: Reads time-series data from a CSV file (`sim_trace.csv`).
+*   **Metrics**: Publishes Stress Index, Pupil Diameter, and Gaze status.
+*   **DDS Publication**: Broadcasts data to the `Operator_Bio_State` topic for the robot controller to consume.
+
 ### Mathematical Conversions
 
-The `FanucManager` script applies several mathematical transformations to map the industrial robot data to the Unity coordinate system.
+The `FanucDataSubscriber` script applies several mathematical transformations to map the industrial robot data to the Unity coordinate system.
 
 #### 1. Coordinate System Conversion
 Fanuc robots typically use a Right-Handed coordinate system in millimeters, while Unity uses a Left-Handed coordinate system in meters.

@@ -9,9 +9,14 @@ using Rti.Types.Dynamic;
 using UnityEngine;
 
 /// <summary>
-/// The DDSHandler class manages the lifecycle and configuration of DDS (Data Distribution Service) components 
-/// within the Unity application. It implements the Singleton pattern to ensure a single instance manages 
-/// the DomainParticipant and shared resources.
+/// The DDSHandler class serves as the central manager for the Data Distribution Service (DDS) integration within the Unity application.
+/// It implements the Singleton design pattern to ensure a unified entry point for all DDS communications (Publishing and Subscribing).
+/// 
+/// Key Responsibilities:
+/// 1. Lifecycle Management: Initializes and disposes of the DDS DomainParticipant.
+/// 2. Resource Optimization: Manages shared Publisher and Subscriber entities to reduce resource overhead.
+/// 3. QoS Configuration: Loads and applies Quality of Service (QoS) profiles from an external XML file.
+/// 4. Topic Management: Prevents duplicate topic creation by maintaining a registry of active topics.
 /// </summary>
 public class DDSHandler : MonoBehaviour
 {
@@ -70,7 +75,9 @@ public class DDSHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes the DDS DomainParticipant, QoS Provider, and shared Publisher/Subscriber.
+    /// Initializes the DDS ecosystem.
+    /// This method sets up the DomainParticipant, loads the QoS XML configuration, and pre-allocates
+    /// shared Publisher and Subscriber entities to optimize performance during runtime.
     /// </summary>
     private void InitializeDDS()
     {
@@ -102,11 +109,13 @@ public class DDSHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Retrieves an existing topic or creates a new one if it doesn't exist.
+    /// Retrieves an existing Topic from the registry or creates a new one if it does not exist.
+    /// This ensures that multiple scripts requesting the same Topic share the same underlying DDS entity,
+    /// preventing "Duplicate Topic" errors and saving resources.
     /// </summary>
-    /// <param name="topicName">The name of the topic.</param>
-    /// <param name="dynamicData">The dynamic type definition for the topic data.</param>
-    /// <returns>The created or retrieved Topic.</returns>
+    /// <param name="topicName">The unique name of the DDS Topic.</param>
+    /// <param name="dynamicData">The DynamicType definition describing the data structure.</param>
+    /// <returns>The active Topic instance.</returns>
     private Topic<DynamicData> GetOrCreateTopic(string topicName, DynamicType dynamicData)
     {
         // Check if the topic is already registered
@@ -130,11 +139,13 @@ public class DDSHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets up a DataReader for a specified topic.
+    /// Configures and creates a DataReader for a specific Topic.
+    /// This method abstracts the complexity of DDS Reader creation, automatically handling Topic registration
+    /// and QoS application.
     /// </summary>
-    /// <param name="topicName">The name of the topic to subscribe to.</param>
-    /// <param name="dynamicData">The dynamic type definition for the data.</param>
-    /// <returns>The created DataReader, or null if setup failed.</returns>
+    /// <param name="topicName">The name of the Topic to subscribe to.</param>
+    /// <param name="dynamicData">The structure definition of the data to be received.</param>
+    /// <returns>A typed DataReader for DynamicData, or null if initialization fails.</returns>
     public DataReader<DynamicData> SetupDataReader(string topicName, DynamicType dynamicData)
     {
         if (Participant == null)
@@ -162,11 +173,13 @@ public class DDSHandler : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets up a DataWriter for a specified topic.
+    /// Configures and creates a DataWriter for a specific Topic.
+    /// This method abstracts the complexity of DDS Writer creation, allowing other scripts to easily
+    /// publish data without managing the underlying DDS entities.
     /// </summary>
-    /// <param name="topicName">The name of the topic to publish to.</param>
-    /// <param name="dynamicData">The dynamic type definition for the data.</param>
-    /// <returns>The created DataWriter, or null if setup failed.</returns>
+    /// <param name="topicName">The name of the Topic to publish to.</param>
+    /// <param name="dynamicData">The structure definition of the data to be sent.</param>
+    /// <returns>A typed DataWriter for DynamicData, or null if initialization fails.</returns>
     public DataWriter<DynamicData> SetupDataWriter(string topicName, DynamicType dynamicData)
     {
         if (Participant == null)
