@@ -140,20 +140,20 @@ public class FanucManager : MonoBehaviour
                     DynamicData data = sample.Data;
 
                     // Extract values using cached Integer IDs (faster than string lookup)
-                    float j1 = (float)data.GetDouble(_idJ1);
-                    float j2 = (float)data.GetDouble(_idJ2);
-                    float j3 = (float)data.GetDouble(_idJ3);
-                    float j4 = (float)data.GetDouble(_idJ4);
-                    float j5 = (float)data.GetDouble(_idJ5);
-                    float j6 = (float)data.GetDouble(_idJ6);
+                    float j1 = (float)data.GetValue<double>(_idJ1);
+                    float j2 = (float)data.GetValue<double>(_idJ2);
+                    float j3 = (float)data.GetValue<double>(_idJ3);
+                    float j4 = (float)data.GetValue<double>(_idJ4);
+                    float j5 = (float)data.GetValue<double>(_idJ5);
+                    float j6 = (float)data.GetValue<double>(_idJ6);
 
-                    float x = (float)data.GetDouble(_idX);
-                    float y = (float)data.GetDouble(_idY);
-                    float z = (float)data.GetDouble(_idZ);
+                    float x = (float)data.GetValue<double>(_idX);
+                    float y = (float)data.GetValue<double>(_idY);
+                    float z = (float)data.GetValue<double>(_idZ);
 
-                    float w = (float)data.GetDouble(_idW);
-                    float p = (float)data.GetDouble(_idP);
-                    float r = (float)data.GetDouble(_idR);
+                    float w = (float)data.GetValue<double>(_idW);
+                    float p = (float)data.GetValue<double>(_idP);
+                    float r = (float)data.GetValue<double>(_idR);
 
                     UpdateRobotState(j1, j2, j3, j4, j5, j6, x, y, z, w, p, r);
                 }
