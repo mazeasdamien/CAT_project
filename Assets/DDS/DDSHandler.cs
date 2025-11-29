@@ -33,7 +33,21 @@ public class DDSHandler : MonoBehaviour
 
         try
         {
-            string qosPath = System.IO.Path.GetFullPath("USER_QOS_PROFILES.xml");
+            // Explicitly locate and set the license file
+            string projectRoot = System.IO.Directory.GetParent(Application.dataPath).FullName;
+            string licensePath = System.IO.Path.Combine(projectRoot, "rti_license.dat");
+
+            if (System.IO.File.Exists(licensePath))
+            {
+                Debug.Log($"[DDSHandler] Found license file at: {licensePath}");
+                System.Environment.SetEnvironmentVariable("RTI_LICENSE_FILE", licensePath);
+            }
+            else
+            {
+                Debug.LogError($"[DDSHandler] License file NOT found at: {licensePath}");
+            }
+
+            string qosPath = System.IO.Path.Combine(projectRoot, "USER_QOS_PROFILES.xml");
             Debug.Log($"[DDSHandler] Working Directory: {System.IO.Directory.GetCurrentDirectory()}");
             Debug.Log($"[DDSHandler] Attempting to load QoS from: {qosPath}");
             
@@ -42,7 +56,7 @@ public class DDSHandler : MonoBehaviour
                 Debug.LogError($"[DDSHandler] QoS file not found at: {qosPath}");
             }
 
-            provider = new QosProvider("USER_QOS_PROFILES.xml");
+            provider = new QosProvider(qosPath);
             Debug.Log("[DDSHandler] QoS Provider loaded successfully.");
 
             var participantQos = provider.GetDomainParticipantQos();
