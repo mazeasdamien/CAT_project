@@ -81,3 +81,4 @@ $$
 
 *   **RTI Connext DDS**: The project requires the RTI Connext DDS libraries to be present in the project (typically under `Packages` or `Assets/Plugins`).
 *   **QoS Profile**: A valid `USER_QOS_PROFILES.xml` file must be present in the project root to define the `CAT_Industrial_Library::SafetyCritical_Profile`.
+*   **RTI License**: A valid license file (`rti_license.dat`) must be present in the project root.
