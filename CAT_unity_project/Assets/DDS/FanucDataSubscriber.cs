@@ -160,15 +160,17 @@ public class FanucDataSubscriber : MonoBehaviour
                     float j5 = (float)data.GetValue<double>("J5");
                     float j6 = (float)data.GetValue<double>("J6");
 
-                    float x = (float)data.GetValue<double>("X") / 100;
-                    float y = (float)data.GetValue<double>("Y") / 100;
-                    float z = (float)data.GetValue<double>("Z") / 100;
+                    // Fanuc sends position in mm, Unity uses meters. Divide by 100000.(beacaus model was scale 100)
+                    float x = (float)data.GetValue<double>("X") / 100000;
+                    float y = (float)data.GetValue<double>("Y") / 100000;
+                    float z = (float)data.GetValue<double>("Z") / 100000;
                     float w = (float)data.GetValue<double>("W");
                     float p = (float)data.GetValue<double>("P");
                     float r = (float)data.GetValue<double>("R");
 
-                    // DEBUG: Log all joint values
+                    // DEBUG: Log all joint values and position
                     Debug.Log($"<color=cyan>JOINTS:</color> J1:{j1:F2} | J2:{j2:F2} | J3:{j3:F2} | J4:{j4:F2} | J5:{j5:F2} | J6:{j6:F2}");
+                    Debug.Log($"<color=yellow>POS:</color> X:{x:F3} | Y:{y:F3} | Z:{z:F3} | W:{w:F2} | P:{p:F2} | R:{r:F2}");
 
                     UpdateRobotState(j1, j2, j3, j4, j5, j6, x, y, z, w, p, r);
                 }
@@ -195,11 +197,15 @@ public class FanucDataSubscriber : MonoBehaviour
     {
         if (worldPosition != null)
         {
-            // Position is already scaled in ProcessData (divided by 100), so we use it directly here.
+            // Position is already scaled in ProcessData (divided by 1000), so we use it directly here.
             // Note: Coordinate conversion (X inverted) is still applied.
             worldPosition.localPosition = new Vector3(-x, y, z);
             Vector3 eulerAngles = CreateQuaternionFromFanucWPR(w, p, r).eulerAngles;
             worldPosition.localEulerAngles = new Vector3(eulerAngles.x, -eulerAngles.y, -eulerAngles.z);
+        }
+        else
+        {
+            Debug.LogWarning("FanucDataSubscriber: worldPosition Transform is not assigned!");
         }
 
         if (joints != null && joints.Count >= 6)

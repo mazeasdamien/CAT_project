@@ -120,9 +120,11 @@ Fanuc WPR (Euler) $\leftrightarrow$ Unity Quaternion conversions are handled aut
 | `X`, `Y`, `Z` | Double | Position (mm) |
 | `W`, `P`, `R` | Double | Orientation (Deg) |
 
-#### 2. `OperatorPose` (Unity -> Robot)
+#### 2. `TeleopData` (Unity -> Robot)
 | Field | Type | Description |
 | :--- | :--- | :--- |
+| `Id` | String | Sequence ID |
+| `Timestamp` | Double | Time in seconds (Epoch) |
 | `X`, `Y`, `Z` | Float | Target Position (mm) |
 | `W`, `P`, `R` | Float | Target Orientation (Deg) |
 | `Speed` | Float | Movement Speed |

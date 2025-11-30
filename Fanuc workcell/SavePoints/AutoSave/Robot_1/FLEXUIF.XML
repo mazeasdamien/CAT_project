@@ -1402,15 +1402,15 @@
           <MENELE id="CRXPLDEST" navid="/nav/core/home/setup/crxpldest" DynState="VISIBLE" fc="INITMEN" spid="1631" scid="0" text="Payload Estimation" image="advrobset.png" xpath="/wizard/crxpldest/steps">
                                                                                                   
 />
-          <MENELE id="CYCLEPOWER" navid="/nav/core/home/setup/cyclepower" DynState="INVISIBLE" fc="INITMEN" spid="1631" scid="0" text="CYCLE POWER" image="power.png" xpath="/wizard/file2/cyclepower/steps">
+          <MENELE id="CYCLEPOWER" navid="/nav/core/home/setup/cyclepower" DynState="VISIBLE" fc="INITMEN" spid="1631" scid="0" text="CYCLE POWER" image="power.png" xpath="/wizard/file2/cyclepower/steps">
                                                                                                   
 />
         </ELEMENTS>
         <ELEMENTS id="TEACH" navid="/nav/core/home/teach" DynState="VISIBLE" fc="INITMEN" spid="71" scid="1" text="TEACH">
                                                                                                   
 >
-          <MENELE id="EDIT" navid="/nav/core/home/teach/edit" DynState="VISIBLE" fc="URL" spid="71" scid="0" text="TELEOP" image="editprog.png" url="/SOFTPART/GENLINK?current=editpage,TELEOP,1"/>
-          <MENELE id="RECENT" navid="/nav/core/home/teach/recent" DynState="INVISIBLE" fc="INITMEN" spid="71" scid="0" text="SELECT PROG." image="selprog.png" xpath="/nav/core/recent">
+          <MENELE id="EDIT" navid="/nav/core/home/teach/edit" DynState="VISIBLE" fc="URL" spid="71" scid="0" text="CURRENT PROG." image="editprog.png" url="/SOFTPART/GENLINK?current=editpage,PROG_1,1"/>
+          <MENELE id="RECENT" navid="/nav/core/home/teach/recent" DynState="VISIBLE" fc="INITMEN" spid="71" scid="0" text="SELECT PROG." image="selprog.png" xpath="/nav/core/recent">
                                                                                                   
 />
           <MENELE id="CREATE" navid="/nav/core/home/teach/create" DynState="VISIBLE" fc="INITMEN" spid="71" scid="0" text="CREATE PROG." image="newprog.png" xpath="/wizard/createprog/steps">
@@ -1423,13 +1423,13 @@
           <MENELE id="PRMON" navid="/nav/core/home/runprog/prmon" DynState="VISIBLE" fc="URL" spid="1631" scid="0" text="MONITOR" image="oppanel.png" url="/SOFTPART/GENLINK?current=omenupage,1388,1,27">
                                                                                                   
 />
-          <MENELE id="CLLBMON" navid="/nav/core/home/runprog/cllbmon" DynState="INVISIBLE" fc="URL" spid="1631" scid="0" text="COLLABORATIVE" image="cllbmon.png" url="/SOFTPART/GENLINK?current=omenupage,1388,1,28">
+          <MENELE id="CLLBMON" navid="/nav/core/home/runprog/cllbmon" DynState="VISIBLE" fc="URL" spid="1631" scid="0" text="COLLABORATIVE" image="cllbmon.png" url="/SOFTPART/GENLINK?current=omenupage,1388,1,28">
                                                                                                   
 />
-          <MENELE id="QSSR" navid="/nav/core/home/runprog/qssr" DynState="INVISIBLE" fc="INITMEN" spid="1631" scid="0" text="CNC-QSSR" image="/frh/qssr/qssrmonitor.png" xpath="/nav/core/qssr">
+          <MENELE id="QSSR" navid="/nav/core/home/runprog/qssr" DynState="VISIBLE" fc="INITMEN" spid="1631" scid="0" text="CNC-QSSR" image="/frh/qssr/qssrmonitor.png" xpath="/nav/core/qssr">
                                                                                                   
 />
-          <MENELE id="TYPEKEY" navid="/nav/core/home/runprog/typekey" DynState="INVISIBLE" fc="CALLBACK" spid="1631" scid="0" text="TOOLS" image="guideset.png">
+          <MENELE id="TYPEKEY" navid="/nav/core/home/runprog/typekey" DynState="VISIBLE" fc="CALLBACK" spid="1631" scid="0" text="TOOLS" image="guideset.png">
                                                                                                   
 />
         </ELEMENTS>
@@ -1445,7 +1445,7 @@
           <MENELE id="TUTORIAL" navid="/nav/core/home/util/tutorial" DynState="VISIBLE" fc="INITMEN" spid="1631" scid="0" text="TUTORIAL" image="tutorial.png" xpath="/nav/core/tutorial">
                                                                                                   
 />
-          <MENELE id="JOG" navid="/nav/core/home/util/jog" DynState="INVISIBLE" fc="INITMEN" spid="1631" scid="0" text="TOUCH JOG" image="moverobot.png" xpath="/nav/core/touchjog">
+          <MENELE id="JOG" navid="/nav/core/home/util/jog" DynState="VISIBLE" fc="INITMEN" spid="1631" scid="0" text="TOUCH JOG" image="moverobot.png" xpath="/nav/core/touchjog">
                                                                                                   
 />
         </ELEMENTS>
@@ -1494,7 +1494,7 @@
         <MENELE id="F4" navid="/nav/core/wizardkeys/f4" DynState="VISIBLE" fc="CALLBACK" text="NEXT STEP" image="wznextgrey.png">
                                                                                                   
 />
-        <MENELE id="F5" navid="/nav/core/wizardkeys/f5" DynState="INVISIBLE" fc="CALLBACK" text="FINISH" image="wzfinish.png">
+        <MENELE id="F5" navid="/nav/core/wizardkeys/f5" DynState="VISIBLE" fc="CALLBACK" text="FINISH" image="wzfinish.png">
                                                                                                   
 />
         <MENELE id="F5A" navid="/nav/core/wizardkeys/f5a" DynState="INVISIBLE" IniState="INVISIBLE" fc="CALLBACK" text="BACK PREV" image="goback.png">
@@ -4079,19 +4079,19 @@ Select start mode for the next startup.
       <WIZARD id="STEPS" navid="/wizard/guided/steps" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="5" text="Initial Setup">
                                                                                                   
 >
-        <STEP id="INTRODUCTION" navid="/wizard/guided/steps/Introduction" DynState="CURRSTEP" IniState="INVISIBLE" sumexc="1" spid="1631" scid="999" text="Introduction" xpath="/wizard/guided/introduction">
+        <STEP id="INTRODUCTION" navid="/wizard/guided/steps/Introduction" DynState="INVISIBLE" IniState="INVISIBLE" sumexc="1" spid="1631" scid="999" text="Introduction" xpath="/wizard/guided/introduction">
                                                                                                   
 />
-        <STEP id="SAFETY" navid="/wizard/guided/steps/Safety" DynState="VISIBLE" IniState="INVISIBLE" spid="1631" scid="161" text="Safety Considerations" xpath="/wizard/guided/safety">
+        <STEP id="SAFETY" navid="/wizard/guided/steps/Safety" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="161" text="Safety Considerations" xpath="/wizard/guided/safety">
                                                                                                   
 />
-        <STEP id="EXPERT" navid="/wizard/guided/steps/Expert" DynState="DISABLED" IniState="INVISIBLE" sumexc="1" spid="1631" scid="142" text="Setup Method" xpath="/wizard/guided/usertype">
+        <STEP id="EXPERT" navid="/wizard/guided/steps/Expert" DynState="INVISIBLE" IniState="INVISIBLE" sumexc="1" spid="1631" scid="142" text="Setup Method" xpath="/wizard/guided/usertype">
                                                                                                   
 />
-        <STEP id="REGION" navid="/wizard/guided/steps/Region" DynState="DISABLED" IniState="INVISIBLE" spid="1631" scid="101" text="Region" xpath="/wizard/guided/region">
+        <STEP id="REGION" navid="/wizard/guided/steps/Region" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="101" text="Region" xpath="/wizard/guided/region">
                                                                                                   
 />
-        <STEP id="TIMEZONEUS" navid="/wizard/guided/steps/TimezoneUS" DynState="DISABLED" IniState="INVISIBLE" spid="1631" scid="102" text="Time Zone" xpath="/wizard/guided/timezoneUS">
+        <STEP id="TIMEZONEUS" navid="/wizard/guided/steps/TimezoneUS" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="102" text="Time Zone" xpath="/wizard/guided/timezoneUS">
                                                                                                   
 />
         <STEP id="TIMEZONEEU" navid="/wizard/guided/steps/TimezoneEU" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="103" text="Time Zone" xpath="/wizard/guided/timezoneEU">
@@ -4105,62 +4105,62 @@ Set TIME AND DATE.
           <SUBST id="CURRENT" navid="/wizard/guided/steps/TimeUS/current" DynState="VISIBLE" fc="TEXT" sumexc="1" spid="1631" scid="130" text="Current Setting">
                                                                                                   
 />
-          <SUBST id="YEAR" navid="/wizard/guided/steps/TimeUS/Year" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="131" text="Year" min="2016.000000"  max="2254.000000">
+          <SUBST id="YEAR" navid="/wizard/guided/steps/TimeUS/Year" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="131" text="Year">
                                                                                                   
 />
-          <SUBST id="MONTH" navid="/wizard/guided/steps/TimeUS/Month" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="132" text="Month" min="1.000000"  max="12.000000">
+          <SUBST id="MONTH" navid="/wizard/guided/steps/TimeUS/Month" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="132" text="Month">
                                                                                                   
 />
-          <SUBST id="DAY" navid="/wizard/guided/steps/TimeUS/Day" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="133" text="Day" min="1.000000"  max="30.000000">
+          <SUBST id="DAY" navid="/wizard/guided/steps/TimeUS/Day" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="133" text="Day">
                                                                                                   
 />
-          <SUBST id="HOUR" navid="/wizard/guided/steps/TimeUS/Hour" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="134" text="Hour" min="1.000000"  max="12.000000">
+          <SUBST id="HOUR" navid="/wizard/guided/steps/TimeUS/Hour" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="134" text="Hour">
                                                                                                   
 />
-          <SUBST id="MINUTE" navid="/wizard/guided/steps/TimeUS/Minute" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="135" text="Minute" min="0.000000"  max="59.000000">
+          <SUBST id="MINUTE" navid="/wizard/guided/steps/TimeUS/Minute" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="135" text="Minute">
                                                                                                   
 />
           <SUBST id="AMPM" navid="/wizard/guided/steps/TimeUS/AMPM" DynState="VISIBLE" fc="MINIRAD" sumexc="1" spid="1631" scid="136" text="AM or PM" xpath="/wizard/guided/ampm">
                                                                                                   
 />
-          <SUBST id="DST" navid="/wizard/guided/steps/TimeUS/DST" DynState="INVISIBLE" fc="MINIRAD" sumexc="1" spid="1631" scid="137" text="Daylight Savings Time" xpath="/wizard/guided/dst">
+          <SUBST id="DST" navid="/wizard/guided/steps/TimeUS/DST" DynState="VISIBLE" fc="MINIRAD" sumexc="1" spid="1631" scid="137" text="Daylight Savings Time" xpath="/wizard/guided/dst">
                                                                                                   
 />
         </STEP>
-        <STEP id="TIME24" navid="/wizard/guided/steps/Time24" DynState="DISABLED" IniState="INVISIBLE" spid="1631" scid="106" text="Time and Date">
+        <STEP id="TIME24" navid="/wizard/guided/steps/Time24" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="106" text="Time and Date">
 Set TIME AND DATE.                                                                                                  
           <SUBST id="CURRENT" navid="/wizard/guided/steps/Time24/current" DynState="VISIBLE" fc="TEXT" sumexc="1" spid="1631" scid="130" text="Current Setting">
                                                                                                   
 />
-          <SUBST id="YEAR" navid="/wizard/guided/steps/Time24/Year" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="131" text="Year" min="2016.000000"  max="2254.000000">
+          <SUBST id="YEAR" navid="/wizard/guided/steps/Time24/Year" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="131" text="Year">
                                                                                                   
 />
-          <SUBST id="MONTH" navid="/wizard/guided/steps/Time24/Month" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="132" text="Month" min="1.000000"  max="12.000000">
+          <SUBST id="MONTH" navid="/wizard/guided/steps/Time24/Month" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="132" text="Month">
                                                                                                   
 />
-          <SUBST id="DAY" navid="/wizard/guided/steps/Time24/Day" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="133" text="Day" min="1.000000"  max="30.000000">
+          <SUBST id="DAY" navid="/wizard/guided/steps/Time24/Day" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="133" text="Day">
                                                                                                   
 />
-          <SUBST id="HOUR" navid="/wizard/guided/steps/Time24/Hour" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="134" text="Hour" min="0.000000"  max="23.000000">
+          <SUBST id="HOUR" navid="/wizard/guided/steps/Time24/Hour" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="134" text="Hour">
                                                                                                   
 />
-          <SUBST id="MINUTE" navid="/wizard/guided/steps/Time24/Minute" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="135" text="Minute" min="0.000000"  max="59.000000">
+          <SUBST id="MINUTE" navid="/wizard/guided/steps/Time24/Minute" DynState="VISIBLE" fc="INTEGER" sumexc="1" spid="1631" scid="135" text="Minute">
                                                                                                   
 />
-          <SUBST id="DST" navid="/wizard/guided/steps/Time24/DST" DynState="INVISIBLE" fc="MINIRAD" sumexc="1" spid="1631" scid="137" text="Daylight Savings Time" xpath="/wizard/guided/dst">
+          <SUBST id="DST" navid="/wizard/guided/steps/Time24/DST" DynState="VISIBLE" fc="MINIRAD" sumexc="1" spid="1631" scid="137" text="Daylight Savings Time" xpath="/wizard/guided/dst">
                                                                                                   
 />
         </STEP>
-        <STEP id="ACCESS" navid="/wizard/guided/steps/access" DynState="DISABLED" IniState="INVISIBLE" spid="1631" scid="143" text="Network Access" xpath="/wizard/guided/access">
+        <STEP id="ACCESS" navid="/wizard/guided/steps/access" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="143" text="Network Access" xpath="/wizard/guided/access">
                                                                                                   
 />
         <STEP id="NETMETHOD" navid="/wizard/guided/steps/NetMethod" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="140" text="Network Setup" xpath="/wizard/guided/netchoice">
                                                                                                   
 />
-        <STEP id="NETDONE" navid="/wizard/guided/steps/NetDone" DynState="DISABLED" IniState="INVISIBLE" spid="1631" scid="145" text="Network Settings" xpath="/wizard/guided/netchoice2">
+        <STEP id="NETDONE" navid="/wizard/guided/steps/NetDone" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="145" text="Network Settings" xpath="/wizard/guided/netchoice2">
                                                                                                   
 />
-        <STEP id="EDITOR" navid="/wizard/guided/steps/Editor" DynState="DISABLED" IniState="INVISIBLE" spid="1631" scid="170" text="Editor Type" xpath="/wizard/guided/editor">
+        <STEP id="EDITOR" navid="/wizard/guided/steps/Editor" DynState="INVISIBLE" IniState="INVISIBLE" spid="1631" scid="170" text="Editor Type" xpath="/wizard/guided/editor">
                                                                                                   
 />
         <STEP id="UPDATE" navid="/wizard/guided/steps/update" DynState="INVISIBLE" IniState="INVISIBLE" sumexc="2" spid="1631" scid="400" text="Software Update" xpath="/wizard/guided/update">
@@ -4178,10 +4178,10 @@ Set TIME AND DATE.
                                                                                                   
 />
         </STEP>
-        <STEP id="SUMMARY" navid="/wizard/guided/steps/Summary" DynState="DISABLED" IniState="INVISIBLE" fc="INTERSUM" spid="1631" scid="144" text="Summary">
+        <STEP id="SUMMARY" navid="/wizard/guided/steps/Summary" DynState="INVISIBLE" IniState="INVISIBLE" fc="INTERSUM" spid="1631" scid="144" text="Summary">
 Congratulations! Your Initial Setup is complete. Press &lt;b&gt;NEXT STEP&lt;/b&gt; to review robot operation. &lt;br&gt;Press &lt;b&gt;FINISH&lt;/b&gt; to go on to End of Arm Tooling Setup setup.&lt;br&gt;&lt;br&gt;                                                                                                 
         </STEP>
-        <STEP id="ROBOTOP" navid="/wizard/guided/steps/RobotOp" DynState="DISABLED" IniState="INVISIBLE" fc="FINALSTEP" spid="1631" scid="180" text="Robot Operation" xpath="/wizard/guided/robotop">
+        <STEP id="ROBOTOP" navid="/wizard/guided/steps/RobotOp" DynState="INVISIBLE" IniState="INVISIBLE" fc="FINALSTEP" spid="1631" scid="180" text="Robot Operation" xpath="/wizard/guided/robotop">
                                                                                                   
 />
         <STEP id="TABSUMMARY" navid="/wizard/guided/steps/TabSummary" DynState="INVISIBLE" IniState="INVISIBLE" fc="INITSUM" spid="1631" scid="146" text="Summary">

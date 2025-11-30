@@ -18,7 +18,7 @@ namespace CAT_wpf_app
         private const string TYPE_NAME = "TeleopData";
 
         private readonly DataReader<DynamicData> _reader;
-        private readonly Action<string> _logAction;
+        private readonly Action<string, string> _logAction;
 
         // Data holders for UI visualization
         public float LastX { get; private set; }
@@ -28,7 +28,10 @@ namespace CAT_wpf_app
         public float LastP { get; private set; }
         public float LastR { get; private set; }
         public float LastSpeed { get; private set; }
+        public string LastId { get; private set; }
+        public double LastTimestamp { get; private set; }
         public int TotalSamplesReceived { get; private set; }
+        public bool IsReachable { get; private set; }
 
         // Configurable Register IDs
         public int PositionRegisterId { get; set; } = 1;
@@ -39,8 +42,8 @@ namespace CAT_wpf_app
         /// </summary>
         /// <param name="participant">The DDS DomainParticipant.</param>
         /// <param name="readerQos">The DataReader QoS.</param>
-        /// <param name="logAction">Action to log messages.</param>
-        public TeleopSubscriber(DomainParticipant participant, DataReaderQos readerQos, Action<string> logAction = null)
+        /// <param name="logAction">Action to log messages with color.</param>
+        public TeleopSubscriber(DomainParticipant participant, DataReaderQos readerQos, Action<string, string> logAction = null)
         {
             if (participant == null) throw new ArgumentNullException(nameof(participant));
             _logAction = logAction;
@@ -52,6 +55,8 @@ namespace CAT_wpf_app
                 var typeFactory = DynamicTypeFactory.Instance;
                 var operatorPoseType = typeFactory.BuildStruct()
                     .WithName(TYPE_NAME)
+                    .AddMember(new StructMember("Id", typeFactory.CreateString(bounds: 128)))
+                    .AddMember(new StructMember("Timestamp", typeFactory.GetPrimitiveType<double>()))
                     .AddMember(new StructMember("X", typeFactory.GetPrimitiveType<float>()))
                     .AddMember(new StructMember("Y", typeFactory.GetPrimitiveType<float>()))
                     .AddMember(new StructMember("Z", typeFactory.GetPrimitiveType<float>()))
@@ -79,11 +84,11 @@ namespace CAT_wpf_app
                 // 4. Create DataReader
                 _reader = participant.ImplicitSubscriber.CreateDataReader(topic, readerQos);
 
-                _logAction?.Invoke($"[TeleopSubscriber] Subscribed to {TOPIC_NAME}");
+                _logAction?.Invoke($"[TeleopSubscriber] Subscribed to {TOPIC_NAME}", "#4CAF50");
             }
             catch (Exception ex)
             {
-                _logAction?.Invoke($"[TeleopSubscriber] Init Error: {ex.Message}");
+                _logAction?.Invoke($"[TeleopSubscriber] Init Error: {ex.Message}", "#F44336");
                 throw;
             }
         }
@@ -111,6 +116,8 @@ namespace CAT_wpf_app
                         DynamicData data = sample.Data;
 
                         // Extract Data
+                        try { LastId = data.GetValue<string>("Id"); } catch { LastId = string.Empty; }
+                        try { LastTimestamp = data.GetValue<double>("Timestamp"); } catch { LastTimestamp = 0; }
                         LastX = data.GetValue<float>("X");
                         LastY = data.GetValue<float>("Y");
                         LastZ = data.GetValue<float>("Z");
@@ -135,7 +142,7 @@ namespace CAT_wpf_app
             }
             catch (Exception ex)
             {
-                _logAction?.Invoke($"[TeleopSubscriber] Process Error: {ex.Message}");
+                _logAction?.Invoke($"[TeleopSubscriber] Process Error: {ex.Message}", "#F44336");
             }
 
             return dataReceived;
@@ -162,13 +169,28 @@ namespace CAT_wpf_app
                 xyzWpr.P = p;
                 xyzWpr.R = r;
 
-                // Commit changes to the controller
-                groupPos.Update();
+                // Check Reachability
+                object missing = System.Type.Missing;
+                FRCMotionErrorInfo motionErrorInfo;
+
+                // Using the snippet provided by user, adapted for C# context
+                if (groupPos.IsReachable[missing, FREMotionTypeConstants.frJointMotionType, FREOrientTypeConstants.frAESWorldOrientType, missing, out motionErrorInfo])
+                {
+                    IsReachable = true;
+                    // Commit changes to the controller
+                    groupPos.Update();
+                    // _logAction?.Invoke($"[TeleopSubscriber] Robot Updated: {x:F2}, {y:F2}, {z:F2}", "#4CAF50"); // Optional: Log success (might be too spammy)
+                }
+                else
+                {
+                    IsReachable = false;
+                    _logAction?.Invoke($"[TeleopSubscriber] Target Unreachable: X={x:F2}, Y={y:F2}, Z={z:F2}", "#FFA500");
+                }
             }
             catch (Exception ex)
             {
                 // Often fails if robot is moving or locked
-                _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}");
+                _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}", "#F44336");
             }
         }
     }

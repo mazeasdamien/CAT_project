@@ -1,9 +1,0 @@
-tb_cart 1           -- cartesian 1. cycle priority 2. path priority
-tb_jnt 1            -- joint 1. cycle priority 2. path priority
-angle 0  -- mount angle
-mount 1             -- mount type 1. Floor 2. Angle (Side) 3. Angle (Front-Back)
-payload 10  -- max payload
-cllb_qstp 0 -- collabolative sudden stop
-cllb_qstpre 0 -- collabolative sudden stop re-confirm
-grease 1            -- 1: Standard Grease 2: Food Grade Grease
-ENDOFL              -- end of the file

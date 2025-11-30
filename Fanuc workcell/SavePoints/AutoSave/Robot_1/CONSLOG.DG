@@ -43,11 +43,12 @@ Loading C:\Program Files (x86)\FANUC\Shared\Off Line\FRVRC\V9.40\bin\DRASKER.DLL
 Switching states: old = STARTUP   new = STARTUP 
 [ntinit] TmpWrk3 wanted 370MB and got 307MB
 [ntinit] TmpWrk  BaseAddress: 0x10550000 RegionSize:  27648KB Protections: 0x00000004
-[ntinit] TmpWrk2 BaseAddress: 0x07FC0000 RegionSize: 122880KB Protections: 0x00000004
+[ntinit] TmpWrk2 BaseAddress: 0x07C50000 RegionSize: 122880KB Protections: 0x00000004
 [ntinit] TmpWrk3 BaseAddress: 0x2D150000 RegionSize: 315072KB Protections: 0x00000004
 [NTINIT] Frequency 10000000, Ticks/ms 10000 BusClock 40000000
 [IEWTQ] Count = 0 add to head/tail task: 199  cnt: 24  pri: 10
 [osppc] Virtual Clock timer device resolution discovery suceeded, min res: 1 ms
+[NTPORT] Ready for connections at 9100
 [NTPORT] Ready for connections at 9101
 [NTPORT] Ready for connections at 9102
 [NTPORT] Ready for connections at 9103
@@ -64,7 +65,7 @@ Updated $MED_PATH to = C:\ProgramData\FANUC\FRVRC Media\V9.40
 Updated $UD1_PATH to = c:\users\DAMIEN~1\desktop\IFAC_P~1\FANUCW~1\robot_1\ud1
 Updated $UD2_PATH to = C:\Users\Damien Mazeas\Documents\My Workcells\Fanuc workcell\Robot_1\UD2
 Updated $UT1_PATH to = C:\Users\Damien Mazeas\Documents\My Workcells\Fanuc workcell\Robot_1\UT1
-[syinit] bootrom time: 49303 ms
+[syinit] bootrom time: 337277 ms
 [syinit] ** HOT START **
 [syinit] System Version V9.40107      7/23/2021
 [ERLOG] Waiting for UIF to start up
@@ -73,18 +74,19 @@ Updated $UT1_PATH to = C:\Users\Damien Mazeas\Documents\My Workcells\Fanuc workc
 [syinisb0] osxsndpkt F_INIT packet 0x0
 [ostkinit] ID $31 type 1D baud 31 version P
 [ostkinit] TP Baud Rate 19200
-[ostkinit] sending F_WRIT to 201
-[ostkinit] TPWDOG_CHK+2 $1000
-[ostkinit] sending F_READ to 201
+[NTPORT] accept connection
 [syinisb0] F_INIT complete 0x0
 [syinit] ** HOT START **
 [spinit] featuremod ptrs
 [dpinit] setting cur lang to NULL
 [dpsetlng] setting cur lang to DEFAULT     
 [tppascon_config] wait for EVB_SPINITDONE
-[syinit] start at 29-NOV-25 20:38:10 
+[syinit] start at 29-NOV-25 22:58:58 
 [sycfgmen] cfgmenu_p 0x407C4CE4
-[syinisb0] tpid check ltp = 0x6C7E80, tpid = 49
+[ostkinit] sending F_WRIT to 201
+[ostkinit] TPWDOG_CHK+2 $1000
+[ostkinit] sending F_READ to 201
+[syinisb0] tpid check ltp = 0x753650, tpid = 49
 [NTSYIN_STEP] Startup Step #1
 VMGR for R-30iB V8.30
 [mktskmem] use static 2000 pages for tid:  52
@@ -93,8 +95,8 @@ VMGR for R-30iB V8.30
 [vminit] Loading 2 temp 153007108 remaining of 154052600
 [vminit_loadctx] Loaded FRB:\S-SYSTEM.PRV only
 [vminit_loadctx] Loaded FRB:\S-INTERN.PRV only
-[vminit_loadctx] Done Loading Time = 84630us
-[vminit] after 2 temp 150611736 remaining of 154052600, took 0ms
+[vminit_loadctx] Done Loading Time = 117240us
+[vminit] after 2 temp 150591264 remaining of 154052600, took 0ms
 [NTSYIN_STEP] Startup Step #2
 [NTFRCPY] Did not load \TMILIB.DLL
 [NTSYIN_STEP] Startup Step #3
@@ -123,9 +125,9 @@ Web Enhancements installed
 [syinisb0] Legacy 2, tpid = 49
 [dpsetlng] setting cur lang to DEFAULT     
 [tppascon_config] wait for EVB_SPINITDONE
-[dpimage_restctx] Loading DEFAULT      dictionaries pool_avail = 150084668
+[dpimage_restctx] Loading DEFAULT      dictionaries pool_avail = 150064196
 [dpimage_restctx] Ref time cached:120ms nocache:620ms, Numfiles = 291 Time 0ms
-[dpimage_restctx] Dictionaries loaded pool_avail = 148562552
+[dpimage_restctx] Dictionaries loaded pool_avail = 148542080
 [dpsetlng] setting cur lang to DEFAULT     
 [tppascon_config] wait for EVB_SPINITDONE
 [NTSYIN_STEP] Startup Step #4
@@ -143,15 +145,18 @@ Web Enhancements installed
 [NTFRCPY] Did not load \TLIFTSK.DLL
 [NTFRCPY] Did not load \TPFICD.DLL
 [NTFRCPY] Did not load \UECK.DLL
-[SYSINISB0] spspload reference time 44355 ms, This Time 566ms
-[vminit] Loading 3 temp 148477884 remaining of 154052600
+[SYSINISB0] spspload reference time 44355 ms, This Time 1189ms
+[vminit] Loading 3 temp 148457412 remaining of 154052600
 [vminit_loadctx] Loading all files (VMGR/PVAR Suspended)
-[vminit_loadctx] Done Loading Time = 133830us
+[vminit_loadctx] Done Loading Time = 129130us
 [vmshadow_cleanup] Redirected from task 187 to TID_VMSC
-[vminit] after 3 temp 144468924 remaining of 154052600, took 0ms
+[vmimage_bakfile] FRB:s-intern.PRV at 29-NOV-25 22:59:02  (322)
+[vmimage_bakfile] FRB:s-posreg.PRV at 29-NOV-25 22:59:02  (322)
+[vmimage_bakfile] FRB:s-system.PRV at 29-NOV-25 22:59:02  (322)
+[vminit] after 3 temp 145511256 remaining of 154052600, took 0ms
 [Syin] Mobo start 0xFFFFFFFF
 [NTSYIN_STEP] Startup Step #5
-[SYINISB)] total time 2592
+[SYINISB)] total time 4166
 [NTSYIN_STEP] Startup Step #6
 [NTSYIN_STEP] Startup Step #7
 [SYINISUB] Saving user device UD1:
@@ -163,7 +168,7 @@ Web Enhancements installed
 [syinit] : calling iosetup
 [ripini] Initializing
 [rosip] Entering baseinit, waiting on packet rate =2
-[ripini] Sending init packet 1, 388, 0x11AABC64
+[ripini] Sending init packet 1, 388, 0x11E99ECC
 [rosip] Initialization not successful
 [NTSYIN_STEP] Startup Step #10
 pmgr-sector set 100
@@ -182,8 +187,8 @@ pmgr-sector set 100
 [SMTP] $SYS_TIME not available
 [NTSYIN_STEP] Startup Step #19
 [ERLOG] continue stat = 0x0
-[rcmplg] RCMCFG_BASE $61D42F8, rcmcfg_p $11E57574
-[rcmutl] Remote Connect Manager V1.2@0x6505089
+[rcmplg] RCMCFG_BASE $752A38, rcmcfg_p $11E5257C
+[rcmutl] Remote Connect Manager V1.2@0x6425089
 [RMCN] Loading FR:\RCMCFG.XML
 [rcmlib_parseurl] Added forward slash
 [rcmlib_parseurl] Error not in format http://
@@ -246,7 +251,7 @@ syopinsp-Jog in Auto used: 1
 [SYINISUB] Saving user device UD1:
 [NTSYIN_STEP] Startup Step #33
 [DEBUG] Entering moinit
-[sfmdest] null_flg_p:113CFCAC
+[sfmdest] null_flg_p:EFFA738
 [pmgr]shakehand px01, px_starting=1022
 [pmgr]shakehand px02, px_starting=1020
 [pmgr]shakehand px03, px_starting=1016
@@ -259,7 +264,7 @@ syopinsp-Jog in Auto used: 1
 [pmgr]shakehand px010, px_starting=0
 [PMPT] Not Required
 [SRIF] Not Need
-[miinit][1] posted init PKT <E487208> to task<72> (0)
+[miinit][1] posted init PKT <109341EC> to task<72> (0)
 [miinit] Mount $SPL_MOR_GRP[1] fail. stat = 100006 
  [mpinit] initialize mb_fp
 [mpinit] after mpdyinit
@@ -268,15 +273,15 @@ syopinsp-Jog in Auto used: 1
 [mpinit] done mpinit
 [mfinit] start
   [load_safety_param(MAIN)]load_address:0x11FE9000, size:0x1368C
-[ottask] eoat_p 11E83330
+[ottask] eoat_p 11E7E338
 [tbjtkini] finish wake up stat = 0
 [nectkini] finish wake up  stat = 0
 [moinit] done
 [ostksock_timeout] g_ce_mode 0
-[ostksock_create] Socket 1704 binding to IP port # 60004
+[ostksock_create] Socket 1792 binding to IP port # 60004
 [ostksock_create] T-X IP address <001.001.001.011>
 start set_risc_global 
-  RISC global address 11DD1A20
+  RISC global address 11C905BC
   PHYSICAL ITP = 8
   IDLING NUM = 1
 FINISH !!
@@ -297,7 +302,7 @@ SEC -001 Security Config Mismatch
 [TELNET] Ethernet event flag received.
 [miinit] done 
 [SYINISUB] Checking $repower.$flag
-[syinisub] TICK_OFFSET 61D427C to 0
+[syinisub] TICK_OFFSET 7529BC to 0
 [vmshadow_cleanup] Redirected from task 72 to TID_VMSC
 [NTSYIN_STEP] Startup Step #34
 [syinisub] TPID = 0x31 !!!!!!!!!!!!!!!!!!!!!!!!!
@@ -346,7 +351,7 @@ Ready to run SHELL
 [symonutl] Getting data (3EA, 0)
 [symonutl] Fail to get mac from I2C (1)
 [vmshadow_cleanup] Redirected from task 72 to TID_VMSC
-SYINISUB TOTAL TIME 6044
+SYINISUB TOTAL TIME 8051
 [SYINISUB] restored user device UD1:
 [NTSYIN_STEP] Startup Step #40
 [TPSPART] Found KAREL ATMSKCHG 200
@@ -356,21 +361,21 @@ SYINISUB TOTAL TIME 6044
 [TPSPART] Found KAREL ATPRSCRN 932
 [TPSPART] Found KAREL ATPASWRD 935
 [TPSPART] Found KAREL ATINSTAL 936
-[TPKSINIT] dname -K943- not found devstat = 0 cfg $113795F0
+[TPKSINIT] dname -K943- not found devstat = 0 cfg $108EFEF4
 [TPSPART] Found KAREL ATCELLIO 955
-[TPKSINIT] dname -K972- not found devstat = 0 cfg $11379384
-[TPKSINIT] dname -K973- not found devstat = 0 cfg $E4469B4
+[TPKSINIT] dname -K972- not found devstat = 0 cfg $108EFC88
+[TPKSINIT] dname -K973- not found devstat = 0 cfg $EC5C2B4
 [TPSPART] Found KAREL ATSOFTPA 992
 Result size = 596
 [xmlparse_getAttrEnum] fc does not enumerate as PROGRAM
 [osppc] Tick time changed -1200
-[vmimage_bakfile] FRB:mtparam.PRV at 29-NOV-25 20:38:20  (322)
+[vmimage_bakfile] FRB:mtparam.PRV at 29-NOV-25 22:59:12  (322)
 [vmfndvar] [*SYSTEM*]$SYSTEM_TIMER truncated to $SYSTEM_TIME
 [FTP] getservbyname failed
 [FTP] getservbyname failed
 [NTSYIN_STEP] Startup Step #41
 [NTSYIN_STEP] Startup Step #42
-[tpmains] ready at 29-NOV-25 20:38:20 
+[tpmains] ready at 29-NOV-25 22:59:12 
 [PMON] Connecting to <127.000.000.001:5182>
 [PMON] Connect ID is 3BCDB0EC
 [scswapap] not swapping SGLY, 0, 0
@@ -383,12 +388,33 @@ R E S E T
 [ntsuperv] Sync state change from 0 to 1
 [ntsuperv] Sync state change from 1 to 0
 
-SMON(main)> xyzrate 11=>192.168.56.1:36400
+SMON(main)> xyzrate 11=>192.168.56.1:21696
 spcmd time 0 
 spcmd completed successfully.
 
+[PMON] Connecting to <127.000.000.001:5183>
+[PMON] Connect ID is 3BCCD4A0
+[PMON] Disconnecting from <127.000.000.001:5183>, $3BCCD4A0
+[osppc] Tick time changed -200
 
-SMON(main)> tpdisc 0=>192.168.56.1:36400
+SMON(main)> xyzrate 11
+spcmd time 8 
+spcmd completed successfully.
+R E S E T
+[ntsuperv] Sync state change from 0 to 1
+R E S E T
+DAQ connecting to <127.0.0.1:61013>
+[PMON] Connecting to <127.000.000.001:5183>
+[PMON] Connect ID is 3BCCD1E4
+
+SMON(main)> xyzrate 11=>192.168.56.1:21696
+spcmd time 5 
+spcmd completed successfully.
+
+[osppc] Tick time changed -1200
+[ntsuperv] Sync state change from 1 to 0
+
+SMON(main)> tpdisc 0=>192.168.56.1:21696
 [ostkdisc] F_CANCL packet sent to 201
 [ostkdisc] F_SHUTDOWN packet sent to 201
 [ostkdisc] TP is disconnected
@@ -397,20 +423,20 @@ SMON(main)> tpdisc 0=>192.168.56.1:36400
 [tpaccn] disconnect current TP
 [sytp_disc] setting CGTPFLAG_TPDISC
 [tpaccn] prepare for remote iPendant connection
-spcmd time 380 
+spcmd time 430 
 spcmd completed successfully.
 
 
 SMON(main)> tpconn 0
 [dpsetlng] setting cur lang to DEFAULT     
 [sytp_disc] resetting CGTPFLAG_TPDISC
-spcmd time 59 
+spcmd time 48 
 spcmd completed successfully.
 [wdwmclng]
 [ostkdisc] prepare for remote iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 29-NOV-25 20:39:02 
+[tpmains] ready at 29-NOV-25 23:17:06 
 [ostchp] ignoring connect pkt
 [sfcgtp] disconnect remote iPendant
 [ostkdisc] TP is disconnected
@@ -419,20 +445,18 @@ spcmd completed successfully.
 [ostkdisc] prepare for local iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 29-NOV-25 20:39:04 
+[tpmains] ready at 29-NOV-25 23:17:10 
 [sfcgtp] request PMON connect to 127.0.0.1:60005
 [sfcgtp] ip 7F000001, port EA65
 [PMON] Connecting to <127.000.000.001:60005>
-[ostkey] recevied iPendant socket 1796 from PMON
+[ostkey] recevied iPendant socket 1628 from PMON
 [ostkey] Not wired so not FTP connect
-[PMON] Sent iPendant socket 1796 to TKEY
-[PMON] Connect ID is 3BCCD4A0
+[PMON] Sent iPendant socket 1628 to TKEY
+[PMON] Connect ID is 3BCCAD30
 [PMEV_CONNECT_ID]S501 is not ordered
 [TXPROC] version of iPendant V9.4107
 [TXPROC] core version of iPendant V9.40P/17
-SYST-042 DEADMAN defeated
 SYST-045 TP enabled in AUTO mode
-R E S E T
 SYST-042 DEADMAN defeated
 R E S E T
 SYST-042 DEADMAN defeated
@@ -441,128 +465,92 @@ SRVO-003 Deadman switch released
 R E S E T
 R E S E T
 R E S E T
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCCDB40
-JOG -007 Press shift key to jog
-JOG -010 Jog pressed before shift
-JOG -010 Jog pressed before shift
-[scswapap] not swapping SGLY, 0, 0
-[scswapap] not swapping SGLY, 0, 1
-SYST-323 Collaborative speed limit (TCP)
-R E S E T
-SYST-178 SHIFT-RESET Pressed
-SYST-179 SHIFT-RESET Released
-SYST-323 Collaborative speed limit (TCP)
-R E S E T
-SYST-178 SHIFT-RESET Pressed
-SYST-179 SHIFT-RESET Released
-PROG-048 Shift released while running (TELEOP)
-PROG-048 Shift released while running (TELEOP)
 SYST-043 TP disabled in T1/T2 mode
 SYST-042 DEADMAN defeated
-SRVO-233 TP OFF in T1,T2
 SYST-040 Operation mode AUTO Selected
 R E S E T
-SYST-045 TP enabled in AUTO mode
-SYST-042 DEADMAN defeated
-R E S E T
-SYST-042 DEADMAN defeated
-SYST-039 Operation mode T2 Selected
-R E S E T
-R E S E T
-R E S E T
-SYST-178 SHIFT-RESET Pressed
-SYST-179 SHIFT-RESET Released
-SYST-323 Collaborative speed limit (TCP)
-PROG-048 Shift released while running (TELEOP)
-PROG-048 Shift released while running (TELEOP)
-PROG-048 Shift released while running (TELEOP)
-SYST-043 TP disabled in T1/T2 mode
-SYST-042 DEADMAN defeated
-SRVO-233 TP OFF in T1,T2
-SYST-040 Operation mode AUTO Selected
-R E S E T
-R E S E T
-SYST-178 SHIFT-RESET Pressed
-TPIF-104 Teach Pendant is disabled
-SYST-179 SHIFT-RESET Released
-SYST-323 Collaborative speed limit (TCP)
-SYST-359 Collaborative speed limit (Elbow)
-TPIF-104 Teach Pendant is disabled
-TPIF-104 Teach Pendant is disabled
-TPIF-047 Invalid program is selected
-[PMON] Disconnecting from <127.000.000.001:60005>, $3BCCD4A0
+[PMON] Disconnecting from <127.000.000.001:60005>, $3BCCAD30
 [pmon] disconnect current iPendant
 [ostkdisc] TP is disconnected
 [ostchp] TP is disconnected
 [pmon] prepare for remote iPendant connection
 [pmon] iPendant connection closed
-
-SMON(main)> tpconn 0
-[dpsetlng] setting cur lang to DEFAULT     
-spcmd time 25 
-spcmd completed successfully.
-[wdwmclng]
 [ostkdisc] prepare for remote iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 29-NOV-25 21:05:28 
-[ostchp] ignoring connect pkt
+[tpmains] ready at 29-NOV-25 23:18:04 
+[osppc] Tick time changed -200
+
+SMON(main)> xyzrate 11
+spcmd time 0 
+spcmd completed successfully.
+R E S E T
+[ntsuperv] Sync state change from 0 to 1
+R E S E T
+DAQ connecting to <127.0.0.1:61013>
+[PMON] Disconnecting from <127.000.000.001:5183>, $3BCCD1E4
+[PMON] Connecting to <127.000.000.001:5183>
+[PMON] Connect ID is 3BCC7B50
+MOTN-018 Position not reachable (G:1)
+[daq_listfields_1] called
+[PMON] Disconnecting from <127.000.000.001:5183>, $3BCC7B50
+[PMON] Connecting to <127.000.000.001:5183>
+[PMON] Connect ID is 3BCCD5F8
+R E S E T
+SYST-034 HOLD signal from SOP/UOP is lost
+R E S E T
+R E S E T
+MOTN-018 Position not reachable (G:1)
 [FRSOCK] recv failed (no pending)! 0x2746
-[osppc] Tick time changed -200
+[sfcgtp] disconnect remote iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[sfcgtp] prepare for local iPendant connection
+[ostkdisc] prepare for local iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 29-NOV-25 23:40:26 
+[sfcgtp] request PMON connect to 127.0.0.1:60005
+[sfcgtp] ip 7F000001, port EA65
+[PMON] Connecting to <127.000.000.001:60005>
+[ostkey] recevied iPendant socket 1592 from PMON
+[ostkey] Not wired so not FTP connect
+[PMON] Sent iPendant socket 1592 to TKEY
+[PMON] Connect ID is 3BCCAE00
+[PMEV_CONNECT_ID]S501 is not ordered
+[TXPROC] version of iPendant V9.4107
+[TXPROC] core version of iPendant V9.40P/17
 
-SMON(main)> xyzrate 11
-spcmd time 0 
-spcmd completed successfully.
-R E S E T
-[ntsuperv] Sync state change from 0 to 1
-R E S E T
-DAQ connecting to <127.0.0.1:55124>
-
-SMON(main)> xyzrate 11=>192.168.56.1:36400
-spcmd time 0 
-spcmd completed successfully.
-
-[osppc] Tick time changed -1200
-[ntsuperv] Sync state change from 1 to 0
-[osppc] Tick time changed -200
-R E S E T
-
-SMON(main)> xyzrate 11
-spcmd time 0 
-spcmd completed successfully.
-[ntsuperv] Sync state change from 0 to 1
-R E S E T
-DAQ connecting to <127.0.0.1:55124>
-
-SMON(main)> xyzrate 11=>192.168.56.1:36400
-spcmd time 0 
+SMON(main)> xyzrate 11=>192.168.56.1:21696
+spcmd time 4 
 spcmd completed successfully.
 
 [osppc] Tick time changed -1200
 [ntsuperv] Sync state change from 1 to 0
+INTP-105 (~MOVET2~, 1) Run request failed
+MCTL-003 system is in error status
 
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:36400
-Copy time 2 
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:21696
+Copy time 1 
 
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:36400
-[mdspc] MDS9:\CRSENSPK.ZIP file generation error 0x2000E
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:21696
+[mdspc] MDS3:\CRSENSPK.ZIP file generation error 0x2000E
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
-[vmisavef] appending segment to MDS9:\SYSVARS.SV
+[vmisavef] appending segment to MDS3:\SYSVARS.SV
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
-[mdspc] MDS1:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 4183 
+[mdspc] MDS5:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 3680 
 
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:36400
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:21696
 Created directory VIRT:\TMPBACK\VISION
 Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 23 
+spcmd time 48 
 spcmd completed successfully.
 
 
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:36400
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:21696
 Created directory VIRT:\TMPBACK\DCSL
 Created directory VIRT:\TMPBACK\_BACKUP_
 spcmd time 2 
@@ -571,65 +559,586 @@ spcmd completed successfully.
 R E S E T
 SYST-323 Collaborative speed limit (TCP)
 [osppc] Tick time changed -200
-R E S E T
 
 SMON(main)> xyzrate 11
 spcmd time 0 
 spcmd completed successfully.
+R E S E T
 [ntsuperv] Sync state change from 0 to 1
 R E S E T
-DAQ connecting to <127.0.0.1:55124>
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCCDB40
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCC72B0
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCC72B0
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCCDB40
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCCDB40
+DAQ connecting to <127.0.0.1:61013>
+MOTN-018 Position not reachable (G:1)
 
-SMON(main)> xyzrate 11=>192.168.56.1:36400
+SMON(main)> xyzrate 11=>192.168.56.1:21696
+spcmd time 0 
+spcmd completed successfully.
+
+[osppc] Tick time changed -1200
+[ntsuperv] Sync state change from 1 to 0
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+[PMON] Disconnecting from <127.000.000.001:60005>, $3BCCAE00
+[pmon] disconnect current iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[pmon] prepare for remote iPendant connection
+[pmon] iPendant connection closed
+[sfcgtp] wait for tpmains ready
+[ostkdisc] prepare for remote iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 29-NOV-25 23:51:04 
+[sfcgtp] request PMON connect to 127.0.0.1:60005
+[sfcgtp] ip 7F000001, port EA65
+[PMON] Connecting to <127.000.000.001:60005>
+[pmon] client is remote iPendant
+[ostkey] recevied iPendant socket 1996 from PMON
+[ostkey] Not wired so not FTP connect
+[PMON] Sent iPendant socket 1996 to TKEY
+[PMON] Connect ID is 3BCCAE48
+[PMEV_CONNECT_ID]S501 is not ordered
+[osppc] Tick time changed -200
+
+SMON(main)> xyzrate 11
 spcmd time 4 
+spcmd completed successfully.
+R E S E T
+[ntsuperv] Sync state change from 0 to 1
+R E S E T
+DAQ connecting to <127.0.0.1:61013>
+[TXPROC] Command A process break. tpconstate_p was NULL
+[PMON] Disconnecting from <127.000.000.001:60005>, $3BCCAE48
+[pmon] disconnect current iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[pmon] prepare for remote iPendant connection
+[pmon] iPendant connection closed
+[ostkdisc] prepare for remote iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 29-NOV-25 23:51:24 
+[PMON] Disconnecting from <127.000.000.001:5183>, $3BCCD5F8
+[PMON] Connecting to <127.000.000.001:5183>
+[PMON] Connect ID is 3BCC7B50
+[FRSOCK] recv failed (no pending)! 0x2746
+[sfcgtp] disconnect remote iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[sfcgtp] prepare for local iPendant connection
+[ostkdisc] prepare for local iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 30-NOV-25 00:01:58 
+[sfcgtp] request PMON connect to 127.0.0.1:60005
+[sfcgtp] ip 7F000001, port EA65
+[PMON] Connecting to <127.000.000.001:60005>
+[ostkey] recevied iPendant socket 1612 from PMON
+[ostkey] Not wired so not FTP connect
+[PMON] Sent iPendant socket 1612 to TKEY
+[PMON] Connect ID is 3BCCADD8
+[PMEV_CONNECT_ID]S501 is not ordered
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+[TXPROC] version of iPendant V9.4107
+[TXPROC] core version of iPendant V9.40P/17
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+JOG -007 Press shift key to jog
+JOG -010 Jog pressed before shift
+JOG -009 Hold deadman to jog
+JOG -008 Turn on TP to jog
+PROG-046 TP is enabled while running (TELEOP)
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+R E S E T
+R E S E T
+
+SMON(main)> xyzrate 11=>192.168.56.1:21696
+spcmd time 2 
+spcmd completed successfully.
+
+[osppc] Tick time changed -1200
+[ntsuperv] Sync state change from 1 to 0
+SYST-323 Collaborative speed limit (TCP)
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:21696
+Copy time 2 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:21696
+[mdspc] MDS1:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS1:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS3:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 3240 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:21696
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 32 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:21696
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 2 
+spcmd completed successfully.
+
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+MOTN-023 In singularity
+SYST-323 Collaborative speed limit (TCP)
+SYST-359 Collaborative speed limit (Elbow)
+[PMON] Connecting to <127.000.000.001:5184>
+[PMON] Connect ID is 3BCC77D4
+SYST-323 Collaborative speed limit (TCP)
+SYST-043 TP disabled in T1/T2 mode
+SYST-042 DEADMAN defeated
+SYST-040 Operation mode AUTO Selected
+R E S E T
+[osppc] Tick time changed -200
+
+SMON(main)> xyzrate 11
+spcmd time 2 
+spcmd completed successfully.
+R E S E T
+[ntsuperv] Sync state change from 0 to 1
+R E S E T
+DAQ connecting to <127.0.0.1:61013>
+MOTN-018 Position not reachable (G:1)
+R E S E T
+SYST-034 HOLD signal from SOP/UOP is lost
+R E S E T
+R E S E T
+SYST-178 SHIFT-RESET Pressed
+SYST-179 SHIFT-RESET Released
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+R E S E T
+SYST-178 SHIFT-RESET Pressed
+SYST-179 SHIFT-RESET Released
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
+[PMON] Disconnecting from <127.000.000.001:5183>, $3BCC7B50
+
+SMON(main)> xyzrate 11=>192.168.56.1:21696
+spcmd time 0 
+spcmd completed successfully.
+
+[osppc] Tick time changed -1200
+[ntsuperv] Sync state change from 1 to 0
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+SYST-359 Collaborative speed limit (Elbow)
+SYST-043 TP disabled in T1/T2 mode
+SYST-042 DEADMAN defeated
+SRVO-233 TP OFF in T1,T2
+SYST-040 Operation mode AUTO Selected
+R E S E T
+[osppc] Tick time changed -200
+
+SMON(main)> xyzrate 11
+spcmd time 0 
+spcmd completed successfully.
+R E S E T
+[ntsuperv] Sync state change from 0 to 1
+R E S E T
+DAQ connecting to <127.0.0.1:61013>
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+[PMON] Disconnecting from <127.000.000.001:60005>, $3BCCADD8
+[pmon] disconnect current iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[pmon] prepare for remote iPendant connection
+[pmon] iPendant connection closed
+[ostkdisc] prepare for remote iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 30-NOV-25 00:43:40 
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+[sfcgtp] disconnect remote iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[sfcgtp] prepare for local iPendant connection
+[ostkdisc] prepare for local iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 30-NOV-25 00:45:50 
+[sfcgtp] request PMON connect to 127.0.0.1:60005
+[sfcgtp] ip 7F000001, port EA65
+[PMON] Connecting to <127.000.000.001:60005>
+[ostkey] recevied iPendant socket 1584 from PMON
+[ostkey] Not wired so not FTP connect
+[PMON] Sent iPendant socket 1584 to TKEY
+[PMON] Connect ID is 3BCC8734
+[PMEV_CONNECT_ID]S501 is not ordered
+[TXPROC] version of iPendant V9.4107
+[TXPROC] core version of iPendant V9.40P/17
+R E S E T
+PROG-046 TP is enabled while running (TELEOP)
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+TPIF-014 Teach pendant is disabled
+SYST-042 DEADMAN defeated
+SYST-045 TP enabled in AUTO mode
+R E S E T
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+SYST-042 DEADMAN defeated
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
+[PMON] Disconnecting from <127.000.000.001:60005>, $3BCC8734
+[pmon] disconnect current iPendant
+[ostkdisc] TP is disconnected
+[ostchp] TP is disconnected
+[pmon] prepare for remote iPendant connection
+[pmon] iPendant connection closed
+[ostkdisc] prepare for remote iPendant connection
+[ostkdisc] TP is connected
+[ostchp] TP is connected in graphic mode
+[tpmains] ready at 30-NOV-25 00:53:50 
+R E S E T
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+[FRSOCK] recv failed (no pending)! 0x2746
+
+SMON(main)> xyzrate 11=>192.168.56.1:21696
+spcmd time 6 
 spcmd completed successfully.
 
 [osppc] Tick time changed -1200
 [ntsuperv] Sync state change from 1 to 0
 
-SMON(main)> tpdisc 0=>192.168.56.1:36400
-[ostkdisc] TP is disconnected
-[ostchp] TP is disconnected
-[tpaccn] disconnect current TP
-[tpaccn] prepare for remote iPendant connection
-spcmd time 249 
-spcmd completed successfully.
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:21696
+Copy time 3 
 
-[ostkdisc] prepare for remote iPendant connection
-[ostkdisc] TP is connected
-[ostchp] TP is connected in graphic mode
-[tpmains] ready at 29-NOV-25 22:26:36 
-
-SMON(main)> tpconn 1=>192.168.56.1:36400
-[ostkdisc] TP is disconnected
-[ostchp] TP is disconnected
-[dpsetlng] setting cur lang to DEFAULT     
-[tpaccn] disconnect remote iPendant
-[sytp_disc] resetting CGTPFLAG_TPDISC
-spcmd time 253 
-spcmd completed successfully.
-
-[wdwmclng]
-[NTPORT] accept connection
-[ostksock_shutdownPPP] TELNET F_CLOS packet sent
-[ostksock_shutdownPPP] TELNET F_CLOS status $10A
-[ostkdisc] F_STARTUP packet sent to 201
-[ostkdisc] connecting to tpid 49
-[ostkdisc] TP is connected
-[ostkdisc] F_READ packet sent to 201
-[ostchp] TP is connected in legacy mode
-[tpmains_start] executing legacy mode case
-[tpmains] ready at 29-NOV-25 22:26:36 
-TPIF-157 Menu cannot be displayed
-
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:36400
-Copy time 1 
-
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:36400
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:21696

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CAT_wpf_app"
         mc:Ignorable="d"
-        Title="CAT Fanuc Node" Height="600" Width="900"
+        Title="CAT Fanuc Node" Height="800" Width="900"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         ResizeMode="CanResizeWithGrip">
     
@@ -78,7 +78,7 @@
                 <RowDefinition Height="Auto"/> <!-- Header (Old) - Removed/Integrated -->
                 <RowDefinition Height="*"/>    <!-- Main Content -->
                 <RowDefinition Height="5"/>    <!-- Splitter -->
-                <RowDefinition Height="150"/>  <!-- Logs -->
+                <RowDefinition Height="225"/>  <!-- Logs -->
             </Grid.RowDefinitions>
 
             <!-- Custom Title Bar -->
@@ -409,6 +409,7 @@
                                                 <RowDefinition Height="30"/>
                                                 <RowDefinition Height="30"/>
                                                 <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
                                             </Grid.RowDefinitions>
                                             
                                             <TextBlock Text="Speed" Grid.Row="0" VerticalAlignment="Center"/>
@@ -419,6 +420,9 @@
 
                                             <TextBlock Text="Spd Reg ID" Grid.Row="2" VerticalAlignment="Center" FontSize="10"/>
                                             <TextBox Text="{Binding TeleopSpeedRegisterId}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="40" Background="#333" Foreground="White" BorderBrush="#555"/>
+
+                                            <TextBlock Text="Reachability" Grid.Row="3" VerticalAlignment="Center" FontSize="12"/>
+                                            <TextBlock Text="{Binding TeleopReachability}" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="{Binding TeleopReachabilityColor}" FontWeight="Bold"/>
                                         </Grid>
                                     </StackPanel>
                                 </Grid>

@@ -142,6 +142,12 @@ namespace CAT_wpf_app
         private string _teleopRate = "0.0 Hz";
         public string TeleopRate { get => _teleopRate; set { _teleopRate = value; OnPropertyChanged(); } }
 
+        private string _teleopReachability = "Unknown";
+        public string TeleopReachability { get => _teleopReachability; set { _teleopReachability = value; OnPropertyChanged(); } }
+
+        private string _teleopReachabilityColor = "#CCCCCC";
+        public string TeleopReachabilityColor { get => _teleopReachabilityColor; set { _teleopReachabilityColor = value; OnPropertyChanged(); } }
+
         // Teleop Configuration
         private int _teleopPositionRegisterId = 1;
         public int TeleopPositionRegisterId
@@ -349,8 +355,8 @@ namespace CAT_wpf_app
                 participant = DomainParticipantFactory.Instance.CreateParticipant(0, partQos);
                 if (participant == null) throw new Exception("Failed to create Participant.");
 
-                publisher = new RobotStatePublisher(participant, writerQos, msg => Log(msg));
-                _teleopSubscriber = new TeleopSubscriber(participant, readerQos, msg => Log(msg));
+                publisher = new RobotStatePublisher(participant, writerQos, (msg, color) => Log(msg, color));
+                _teleopSubscriber = new TeleopSubscriber(participant, readerQos, (msg, color) => Log(msg, color));
                 Application.Current.Dispatcher.Invoke(() => DdsStatus = "Initialized");
                 Log("DDS Initialized.");
 
@@ -429,6 +435,17 @@ namespace CAT_wpf_app
                                 TeleopR = _teleopSubscriber.LastR.ToString("F2");
                                 TeleopSpeed = _teleopSubscriber.LastSpeed.ToString("F1");
                                 TeleopSampleCount = _teleopSubscriber.TotalSamplesReceived;
+
+                                if (_teleopSubscriber.IsReachable)
+                                {
+                                    TeleopReachability = "Reachable";
+                                    TeleopReachabilityColor = "#4CAF50"; // Green
+                                }
+                                else
+                                {
+                                    TeleopReachability = "Unreachable";
+                                    TeleopReachabilityColor = "#F44336"; // Red
+                                }
                             }
 
                             // Update Stats

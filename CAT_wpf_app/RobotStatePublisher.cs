@@ -20,7 +20,7 @@ namespace CAT_wpf_app
         private readonly DataWriter<DynamicData> _writer;
         private readonly DynamicData _sample;
         private readonly StructType _robotStateType;
-        private readonly Action<string> _logAction;
+        private readonly Action<string, string> _logAction;
 
         // State tracking for change detection to avoid publishing redundant data
         private readonly float[] _prevJoints = new float[6];
@@ -33,8 +33,8 @@ namespace CAT_wpf_app
         /// </summary>
         /// <param name="participant">The DDS DomainParticipant.</param>
         /// <param name="writerQos">The DataWriter QoS.</param>
-        /// <param name="logAction">Action to log messages.</param>
-        public RobotStatePublisher(DomainParticipant participant, DataWriterQos writerQos, Action<string> logAction = null)
+        /// <param name="logAction">Action to log messages with color.</param>
+        public RobotStatePublisher(DomainParticipant participant, DataWriterQos writerQos, Action<string, string> logAction = null)
         {
             if (participant == null) throw new ArgumentNullException(nameof(participant));
             _logAction = logAction;
@@ -140,7 +140,7 @@ namespace CAT_wpf_app
                     _writer.Write(_sample);
 
                     // Log
-                    _logAction?.Invoke($"[Publisher] Sample {_sampleId} sent. J1: {currentJoints[0]:F2}, X: {xyzWpr.X:F2}");
+                    _logAction?.Invoke($"[Publisher] Sample {_sampleId} sent. J1: {currentJoints[0]:F2}, X: {xyzWpr.X:F2}", "#2196F3");
 
                     // Update state
                     Array.Copy(currentJoints, _prevJoints, 6);
@@ -151,7 +151,7 @@ namespace CAT_wpf_app
             }
             catch (Exception ex)
             {
-                _logAction?.Invoke($"[Publisher] Error: {ex.Message}");
+                _logAction?.Invoke($"[Publisher] Error: {ex.Message}", "#F44336");
             }
             return false;
         }

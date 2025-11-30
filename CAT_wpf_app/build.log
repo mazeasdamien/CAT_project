@@ -1,0 +1,741 @@
+Build started 29/11/2025 23:50:10.
+Logging verbosity is set to: Detailed.     0>Process = "C:\Program Files\dotnet\dotnet.exe"
+       MSBuild executable path = "C:\Program Files\dotnet\sdk\10.0.100\MSBuild.dll"
+       Command line arguments = "C:\Program Files\dotnet\sdk\10.0.100\MSBuild.dll -maxcpucount --verbosity:m -tlp:default=auto --property:NuGetInteractive=true --restoreProperty:NuGetInteractive=true --restoreProperty:EnableDefaultCompileItems=false --restoreProperty:EnableDefaultEmbeddedResourceItems=false --restoreProperty:EnableDefaultNoneItems=false CAT_wpf_app.csproj /fl /flp:logfile=build.log -consoleloggerparameters:Summary -restore -distributedlogger:Microsoft.DotNet.Cli.Commands.MSBuild.MSBuildLogger,C:\Program Files\dotnet\sdk\10.0.100\dotnet.dll*Microsoft.DotNet.Cli.Commands.MSBuild.MSBuildForwardingLogger,C:\Program Files\dotnet\sdk\10.0.100\dotnet.dll -nologo"
+       Current directory = "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app"
+       MSBuild version = "18.0.2+b0f34d51f"
+       Based on the Windows registry key LongPathsEnabled, the LongPaths feature is enabled.
+       Based on the Windows registry key VerifiedAndReputablePolicyState, SAC state = 0: turned off.
+       C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj(4,92): message : Property 'MSBuildExtensionsPath' with value 'C:\Program Files\dotnet\sdk\10.0.100\' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props(60,5): message : Property reassignment: $(MSBuildProjectExtensionsPath)="C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\obj\" (previous value: "obj\") at C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props (60,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props(84,119): message : Property 'MSBuildUserExtensionsPath' with value 'C:\Users\Damien Mazeas\AppData\Local\Microsoft\MSBuild' expanded from the environment.
+       Assembly loaded during Evaluation: System.Threading.Tasks.Parallel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Threading.Tasks.Parallel.dll, MVID: 5134392a-badb-4b79-ae80-096fbe1adfd1, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Security.Principal.Windows, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Security.Principal.Windows.dll, MVID: f85282ea-bf27-4b8f-8c25-7ca971be3120, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Security.Claims, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Security.Claims.dll, MVID: 09ee1238-339d-40cf-9405-e5a9eaa17072, AssemblyLoadContext: Default)
+       C:\Program Files\dotnet\sdk\10.0.100\Roslyn\Microsoft.CSharp.Core.targets(200,5): message : Property reassignment: $(CommandLineArgsForDesignTimeEvaluation)="-langversion:8.0 -define:DEBUG;TRACE" (previous value: "-langversion:8.0") at C:\Program Files\dotnet\sdk\10.0.100\Roslyn\Microsoft.CSharp.Core.targets (200,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.props(117,5): message : Property reassignment: $(AvailablePlatforms)="Any CPU,x86,x64,ARM64" (previous value: "Any CPU,x86,x64") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.props (117,5)
+       Assembly loaded during Evaluation: Microsoft.Build.Utilities.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Build.Utilities.Core.dll, MVID: ab0e30c8-73fa-4371-b652-a90186f12a77, AssemblyLoadContext: Default)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(175,5): message : Property reassignment: $(_DebugSymbolsProduced)="true" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (175,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(185,5): message : Property reassignment: $(_DocumentationFileProduced)="false" (previous value: "true") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (185,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(392,5): message : Property reassignment: $(MSBuildCopyMarkerName)="CAT_wpf_.24E02ED6" (previous value: "CAT_wpf_app.csproj") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (392,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(393,5): message : Property reassignment: $(MSBuildCopyMarkerName)="CAT_wpf_.24E02ED6.Up2Date" (previous value: "CAT_wpf_.24E02ED6") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (393,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(528,5): message : Property reassignment: $(ProcessorArchitecture)="amd64" (previous value: "x64") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (528,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(580,5): message : Property reassignment: $(DelaySign)="" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (580,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(649,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};" (previous value: "{CandidateAssemblyFiles}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (649,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(650,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem}" (previous value: "{CandidateAssemblyFiles};") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (650,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(651,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (651,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(652,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (652,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(653,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (653,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(654,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (654,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(655,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (655,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(656,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (656,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(657,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName};bin\Debug\" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (657,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(2606,5): message : Property 'LOCALAPPDATA' with value 'C:\Users\Damien Mazeas\AppData\Local' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3934,5): message : Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Auto" (previous value: "") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (3934,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3935,5): message : Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Off" (previous value: "Auto") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (3935,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message : Property reassignment: $(_TargetsThatPrepareProjectReferences)="
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :       _SplitProjectReferencesByFileExistence
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :     " (previous value: "_SplitProjectReferencesByFileExistence") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (5146,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(6959,5): message : Property 'MSBuildExtensionsPath32' with value 'C:\Program Files\dotnet\sdk\10.0.100' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message : Property reassignment: $(ResolveReferencesDependsOn)="
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ImplicitlyExpandDesignTimeFacades
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     " (previous value: "
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets (74,5)
+       Assembly loaded during Evaluation: System.Threading.ThreadPool, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Threading.ThreadPool.dll, MVID: 90479bfe-7f4a-44df-9ee8-0174e6524deb, AssemblyLoadContext: Default)
+       The "NuGetInteractive" property is a global property, and cannot be modified.
+       Assembly loaded during Evaluation: System.Net.Sockets, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Net.Sockets.dll, MVID: 56699e44-7260-4dcc-91f5-6790336de0c2, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Threading.Overlapped, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Threading.Overlapped.dll, MVID: a35d6e5e-4723-4445-a517-8ba2bf3ff76d, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed (location: C:\Program Files\dotnet\sdk\10.0.100\Newtonsoft.Json.dll, MVID: 7e62198b-eab2-4380-bbac-29171862d1d8, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Linq.Expressions, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Linq.Expressions.dll, MVID: 363e0b8b-31db-484c-be40-5cd8d9e29524, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.ComponentModel.TypeConverter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.ComponentModel.TypeConverter.dll, MVID: 2d9d624a-6e6a-4baf-a225-f69abd247888, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.ObjectModel.dll, MVID: ba2e52ac-c921-4c76-b494-a107e8f89356, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Runtime.Numerics, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Runtime.Numerics.dll, MVID: f7819309-7cd8-4dc3-b08c-be78679d77da, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Runtime.Serialization.Primitives, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Runtime.Serialization.Primitives.dll, MVID: 838a4272-75cb-4e94-aee1-4d1fe4c1cdd1, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Runtime.Serialization.Formatters, Version=8.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Runtime.Serialization.Formatters.dll, MVID: d4933870-a2f6-4960-9626-a13d2cbacdf4, AssemblyLoadContext: Default)
+       Overriding target "GetFrameworkPaths" in project "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" with target "GetFrameworkPaths" from project "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets".
+       The target "ResolveNuGetPackageAssets" listed in an AfterTargets attribute at "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets (27,11)" does not exist in the project, and will be ignored.
+     1>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" on node 1 (Restore target(s)).
+     1>Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
+     1>Target "_LoadRestoreGraphEntryPoints" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_FilterRestoreGraphProjectInputItems" depends on it):
+     1>Done building target "_LoadRestoreGraphEntryPoints" in project "CAT_wpf_app.csproj".
+     1>Target "_FilterRestoreGraphProjectInputItems" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreGraph" depends on it):
+       Using "RemoveDuplicates" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+       Using "MSBuild" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "MSBuild"
+         Global Properties:
+           ExcludeRestorePackageImports=true
+     0>C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj(4,92): message : Property 'MSBuildExtensionsPath' with value 'C:\Program Files\dotnet\sdk\10.0.100\' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props(60,5): message : Property reassignment: $(MSBuildProjectExtensionsPath)="C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\obj\" (previous value: "obj\") at C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props (60,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props(84,119): message : Property 'MSBuildUserExtensionsPath' with value 'C:\Users\Damien Mazeas\AppData\Local\Microsoft\MSBuild' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Roslyn\Microsoft.CSharp.Core.targets(200,5): message : Property reassignment: $(CommandLineArgsForDesignTimeEvaluation)="-langversion:8.0 -define:DEBUG;TRACE" (previous value: "-langversion:8.0") at C:\Program Files\dotnet\sdk\10.0.100\Roslyn\Microsoft.CSharp.Core.targets (200,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.props(117,5): message : Property reassignment: $(AvailablePlatforms)="Any CPU,x86,x64,ARM64" (previous value: "Any CPU,x86,x64") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.props (117,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(175,5): message : Property reassignment: $(_DebugSymbolsProduced)="true" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (175,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(185,5): message : Property reassignment: $(_DocumentationFileProduced)="false" (previous value: "true") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (185,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(392,5): message : Property reassignment: $(MSBuildCopyMarkerName)="CAT_wpf_.24E02ED6" (previous value: "CAT_wpf_app.csproj") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (392,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(393,5): message : Property reassignment: $(MSBuildCopyMarkerName)="CAT_wpf_.24E02ED6.Up2Date" (previous value: "CAT_wpf_.24E02ED6") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (393,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(528,5): message : Property reassignment: $(ProcessorArchitecture)="amd64" (previous value: "x64") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (528,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(580,5): message : Property reassignment: $(DelaySign)="" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (580,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(649,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};" (previous value: "{CandidateAssemblyFiles}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (649,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(650,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem}" (previous value: "{CandidateAssemblyFiles};") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (650,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(651,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (651,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(652,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (652,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(653,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (653,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(654,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (654,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(655,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (655,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(656,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (656,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(657,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName};bin\Debug\" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (657,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(2606,5): message : Property 'LOCALAPPDATA' with value 'C:\Users\Damien Mazeas\AppData\Local' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3934,5): message : Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Auto" (previous value: "") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (3934,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3935,5): message : Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Off" (previous value: "Auto") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (3935,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message : Property reassignment: $(_TargetsThatPrepareProjectReferences)="
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :       _SplitProjectReferencesByFileExistence
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :     " (previous value: "_SplitProjectReferencesByFileExistence") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (5146,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(6959,5): message : Property 'MSBuildExtensionsPath32' with value 'C:\Program Files\dotnet\sdk\10.0.100' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message : Property reassignment: $(ResolveReferencesDependsOn)="
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ImplicitlyExpandDesignTimeFacades
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     " (previous value: "
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets (74,5)
+       The "NuGetInteractive" property is a global property, and cannot be modified.
+       Overriding target "GetFrameworkPaths" in project "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" with target "GetFrameworkPaths" from project "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets".
+       The target "ResolveNuGetPackageAssets" listed in an AfterTargets attribute at "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets (27,11)" does not exist in the project, and will be ignored.
+     1>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1) is building "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1:2) on node 1 (_IsProjectRestoreSupported target(s)).
+   1:2>Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
+   1:2>Target "_IsProjectRestoreSupported" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (entry point):
+   1:2>Done building target "_IsProjectRestoreSupported" in project "CAT_wpf_app.csproj".
+   1:2>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (_IsProjectRestoreSupported target(s)).
+     1>Done executing task "MSBuild".
+       Assembly loaded during TaskRun: NuGet.Build.Tasks, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll, MVID: a423781e-dcd8-40f9-8979-fe711791fcc3, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+       Assembly loaded during TaskRun: System.Reflection.Metadata, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Reflection.Metadata.dll, MVID: 20dcffdc-49de-4bb4-bd35-82a9f36dffea, AssemblyLoadContext: Default)
+       Assembly loaded during TaskRun: NuGet.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Common.dll, MVID: ec35ea1c-e486-40b2-8650-a0234b606d79, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+       Assembly loaded during TaskRun: NuGet.Commands, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Commands.dll, MVID: d5fc3bb4-5c09-4019-a99b-4fa81d62022e, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+       Assembly loaded during TaskRun: NuGet.ProjectModel, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.ProjectModel.dll, MVID: bc8254c9-73a8-4557-9622-f1d09eb597b0, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+       Using "WarnForInvalidProjectsTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "WarnForInvalidProjectsTask"
+       Done executing task "WarnForInvalidProjectsTask".
+     1>Done building target "_FilterRestoreGraphProjectInputItems" in project "CAT_wpf_app.csproj".
+       Target "_FilterRestoreGraphProjectInputItems" skipped. Previously built successfully.
+     1>Target "_GetAllRestoreProjectPathItems" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreGraph" depends on it):
+       Using "NuGetMessageTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "NuGetMessageTask"
+         Determining projects to restore...
+       Done executing task "NuGetMessageTask".
+       Task "MSBuild"
+         Global Properties:
+           ExcludeRestorePackageImports=true
+     1>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1) is building "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1:3) on node 1 (_GenerateRestoreProjectPathWalk target(s)).
+   1:3>Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
+   1:3>Target "_GenerateRestoreProjectPathItemsPerFramework" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreProjectPathItemsCurrentProject" depends on it):
+       Using "ConvertToAbsolutePath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "ConvertToAbsolutePath"
+       Done executing task "ConvertToAbsolutePath".
+   1:3>Done building target "_GenerateRestoreProjectPathItemsPerFramework" in project "CAT_wpf_app.csproj".
+   1:3>Target "_GenerateRestoreProjectPathItemsCurrentProject" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreProjectPathItems" depends on it):
+   1:3>Done building target "_GenerateRestoreProjectPathItemsCurrentProject" in project "CAT_wpf_app.csproj".
+   1:3>Target "_GenerateRestoreProjectPathItems" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreProjectPathWalk" depends on it):
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+   1:3>Done building target "_GenerateRestoreProjectPathItems" in project "CAT_wpf_app.csproj".
+   1:3>Target "_GenerateRestoreProjectPathWalk" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (entry point):
+       Task "MSBuild"
+       Done executing task "MSBuild".
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+   1:3>Done building target "_GenerateRestoreProjectPathWalk" in project "CAT_wpf_app.csproj".
+   1:3>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (_GenerateRestoreProjectPathWalk target(s)).
+     1>Done executing task "MSBuild".
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+       Task "MSBuild"
+         Global Properties:
+           ExcludeRestorePackageImports=true
+     1>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1) is building "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1:4) on node 1 (_IsProjectRestoreSupported target(s)).
+   1:4>Target "_IsProjectRestoreSupported" skipped. Previously built successfully.
+   1:4>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (_IsProjectRestoreSupported target(s)).
+     1>Done executing task "MSBuild".
+     1>Done building target "_GetAllRestoreProjectPathItems" in project "CAT_wpf_app.csproj".
+     1>Target "_GenerateRestoreGraph" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "Restore" depends on it):
+       Using "Message" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "Message"
+         Generating dg file
+       Done executing task "Message".
+       Task "Message"
+         C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj
+       Done executing task "Message".
+       Task "MSBuild"
+         Global Properties:
+           ExcludeRestorePackageImports=true
+     1>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1) is building "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1:5) on node 1 (_GenerateRestoreGraphProjectEntry target(s)).
+   1:5>Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
+   1:5>Target "CollectPackageReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GetRestoreProjectStyle" depends on it):
+       Using "CheckForDuplicateNuGetItemsTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "CheckForDuplicateNuGetItemsTask"
+       Done executing task "CheckForDuplicateNuGetItemsTask".
+   1:5>Done building target "CollectPackageReferences" in project "CAT_wpf_app.csproj".
+   1:5>Target "_GetRestoreProjectStyle" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreSpecs" depends on it):
+       Using "GetRestoreProjectStyleTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetRestoreProjectStyleTask"
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.GetRestoreProjectStyleTask): NuGet.Configuration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Configuration.dll, MVID: bb10013e-187b-462a-933a-e9beabfb7bea, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+       Done executing task "GetRestoreProjectStyleTask".
+   1:5>Done building target "_GetRestoreProjectStyle" in project "CAT_wpf_app.csproj".
+   1:5>Target "_GenerateRestoreSpecs" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreGraphProjectEntry" depends on it):
+       Task "Message"
+         Restore entry point C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj
+       Done executing task "Message".
+   1:5>Done building target "_GenerateRestoreSpecs" in project "CAT_wpf_app.csproj".
+   1:5>Target "_GetRestoreSettingsOverrides" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GetRestoreSettings" depends on it):
+   1:5>Done building target "_GetRestoreSettingsOverrides" in project "CAT_wpf_app.csproj".
+   1:5>Target "_GetRestoreSettings" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateDotnetCliToolReferenceSpecs" depends on it):
+       Using "GetRestoreSettingsTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetRestoreSettingsTask"
+       Done executing task "GetRestoreSettingsTask".
+   1:5>Done building target "_GetRestoreSettings" in project "CAT_wpf_app.csproj".
+   1:5>Target "_GenerateDotnetCliToolReferenceSpecs" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreGraphProjectEntry" depends on it):
+       Using "GetRestoreDotnetCliToolsTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetRestoreDotnetCliToolsTask"
+       Done executing task "GetRestoreDotnetCliToolsTask".
+   1:5>Done building target "_GenerateDotnetCliToolReferenceSpecs" in project "CAT_wpf_app.csproj".
+   1:5>Target "_GenerateRestoreGraphProjectEntry" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (entry point):
+   1:5>Done building target "_GenerateRestoreGraphProjectEntry" in project "CAT_wpf_app.csproj".
+   1:5>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (_GenerateRestoreGraphProjectEntry target(s)).
+     1>Done executing task "MSBuild".
+       Task "MSBuild"
+         Global Properties:
+           ExcludeRestorePackageImports=true
+     1>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1) is building "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (1:6) on node 1 (_GenerateProjectRestoreGraph target(s)).
+   1:6>Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
+       Target "_GetRestoreProjectStyle" skipped. Previously built successfully.
+       Target "_GetRestoreProjectStyle" skipped. Previously built successfully.
+       Target "_GetRestoreProjectStyle" skipped. Previously built successfully.
+   1:6>Target "_GetRestoreTargetFrameworkOverride" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GetRestoreTargetFrameworksOutput" depends on it):
+   1:6>Done building target "_GetRestoreTargetFrameworkOverride" in project "CAT_wpf_app.csproj".
+   1:6>Target "_GetRestoreTargetFrameworksOutput" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreProjectSpec" depends on it):
+       Using "GetProjectTargetFrameworksTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetProjectTargetFrameworksTask"
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.GetProjectTargetFrameworksTask): NuGet.Frameworks, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Frameworks.dll, MVID: 850f02e4-7dfe-443c-87d1-982613f2ce8f, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+       Done executing task "GetProjectTargetFrameworksTask".
+   1:6>Done building target "_GetRestoreTargetFrameworksOutput" in project "CAT_wpf_app.csproj".
+       Target "_GetRestoreSettings" skipped. Previously built successfully.
+   1:6>Target "_GenerateRestoreProjectSpec" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateProjectRestoreGraph" depends on it):
+   1:6>Done building target "_GenerateRestoreProjectSpec" in project "CAT_wpf_app.csproj".
+       Target "_GetRestoreProjectStyle" skipped. Previously built successfully.
+       Target "CollectPackageReferences" skipped. Previously built successfully.
+   1:6>Target "CollectPackageDownloads" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CollectRestoreInputs" depends on it):
+       Task "CheckForDuplicateNuGetItemsTask"
+       Done executing task "CheckForDuplicateNuGetItemsTask".
+   1:6>Done building target "CollectPackageDownloads" in project "CAT_wpf_app.csproj".
+   1:6>Target "CollectFrameworkReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CollectRestoreInputs" depends on it):
+   1:6>Done building target "CollectFrameworkReferences" in project "CAT_wpf_app.csproj".
+   1:6>Target "CollectCentralPackageVersions" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CollectRestoreInputs" depends on it):
+       Task "CheckForDuplicateNuGetItemsTask"
+       Done executing task "CheckForDuplicateNuGetItemsTask".
+   1:6>Done building target "CollectCentralPackageVersions" in project "CAT_wpf_app.csproj".
+   1:6>Target "CollectNuGetAuditSuppressions" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CollectRestoreInputs" depends on it):
+       Task "CheckForDuplicateNuGetItemsTask"
+       Done executing task "CheckForDuplicateNuGetItemsTask".
+   1:6>Done building target "CollectNuGetAuditSuppressions" in project "CAT_wpf_app.csproj".
+   1:6>Target "CollectPrunePackageReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CollectRestoreInputs" depends on it):
+       Task "CheckForDuplicateNuGetItemsTask"
+       Done executing task "CheckForDuplicateNuGetItemsTask".
+   1:6>Done building target "CollectPrunePackageReferences" in project "CAT_wpf_app.csproj".
+   1:6>Target "_CollectRestoreInputs" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateProjectRestoreGraphPerFramework" depends on it):
+   1:6>Done building target "_CollectRestoreInputs" in project "CAT_wpf_app.csproj".
+   1:6>Target "_GenerateProjectRestoreGraphPerFramework" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateProjectRestoreGraphCurrentProject" depends on it):
+       Using "GetRestoreProjectReferencesTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetRestoreProjectReferencesTask"
+       Done executing task "GetRestoreProjectReferencesTask".
+       Using "GetRestoreNuGetAuditSuppressionsTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetRestoreNuGetAuditSuppressionsTask"
+       Done executing task "GetRestoreNuGetAuditSuppressionsTask".
+       Using "GetRestorePrunePackageReferencesTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "GetRestorePrunePackageReferencesTask"
+       Done executing task "GetRestorePrunePackageReferencesTask".
+   1:6>Done building target "_GenerateProjectRestoreGraphPerFramework" in project "CAT_wpf_app.csproj".
+   1:6>Target "_GenerateProjectRestoreGraphCurrentProject" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateRestoreDependencies" depends on it):
+   1:6>Done building target "_GenerateProjectRestoreGraphCurrentProject" in project "CAT_wpf_app.csproj".
+   1:6>Target "_GenerateRestoreDependencies" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GenerateProjectRestoreGraph" depends on it):
+   1:6>Done building target "_GenerateRestoreDependencies" in project "CAT_wpf_app.csproj".
+   1:6>Target "_GenerateProjectRestoreGraph" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (entry point):
+   1:6>Done building target "_GenerateProjectRestoreGraph" in project "CAT_wpf_app.csproj".
+   1:6>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (_GenerateProjectRestoreGraph target(s)).
+     1>Done executing task "MSBuild".
+     1>Done building target "_GenerateRestoreGraph" in project "CAT_wpf_app.csproj".
+     1>Target "Restore" in file "C:\Program Files\dotnet\sdk\10.0.100\NuGet.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (entry point):
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+       Using "RestoreTask" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll".
+       Task "RestoreTask"
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.RestoreTask): NuGet.Packaging, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Packaging.dll, MVID: 213537d6-d9dc-498e-b0c9-d2ec19128b73, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.RestoreTask): NuGet.LibraryModel, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.LibraryModel.dll, MVID: 32cfc5d8-2340-4201-ac21-280f1a055205, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.RestoreTask): NuGet.Versioning, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Versioning.dll, MVID: 0b79b7cd-ffbc-46b7-8cd2-ea36ee314822, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.RestoreTask): NuGet.Protocol, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Protocol.dll, MVID: a915e891-4e64-4171-a698-7803468fc56b, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.RestoreTask): NuGet.Credentials, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Credentials.dll, MVID: 2f2eee8c-110e-4173-8e92-21e0d350b2d5, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+         X.509 certificate chain validation will use the default trust store selected by .NET for code signing.
+         X.509 certificate chain validation will use the default trust store selected by .NET for timestamping.
+         Assembly loaded during TaskRun (NuGet.Build.Tasks.RestoreTask): NuGet.DependencyResolver.Core, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.DependencyResolver.Core.dll, MVID: 41537a91-3baf-4c2b-b917-0e542bea4f8f, AssemblyLoadContext: MSBuild plugin C:\Program Files\dotnet\sdk\10.0.100\NuGet.Build.Tasks.dll)
+         Nothing to do. None of the projects specified contain packages to restore.
+       Done executing task "RestoreTask".
+     1>Done building target "Restore" in project "CAT_wpf_app.csproj".
+     1>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (Restore target(s)).
+     0>C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj(4,92): message : Property 'MSBuildExtensionsPath' with value 'C:\Program Files\dotnet\sdk\10.0.100\' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props(60,5): message : Property reassignment: $(MSBuildProjectExtensionsPath)="C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\obj\" (previous value: "obj\") at C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props (60,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Current\Microsoft.Common.props(84,119): message : Property 'MSBuildUserExtensionsPath' with value 'C:\Users\Damien Mazeas\AppData\Local\Microsoft\MSBuild' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Roslyn\Microsoft.CSharp.Core.targets(200,5): message : Property reassignment: $(CommandLineArgsForDesignTimeEvaluation)="-langversion:8.0 -define:DEBUG;TRACE" (previous value: "-langversion:8.0") at C:\Program Files\dotnet\sdk\10.0.100\Roslyn\Microsoft.CSharp.Core.targets (200,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.props(117,5): message : Property reassignment: $(AvailablePlatforms)="Any CPU,x86,x64,ARM64" (previous value: "Any CPU,x86,x64") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.props (117,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(175,5): message : Property reassignment: $(_DebugSymbolsProduced)="true" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (175,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(185,5): message : Property reassignment: $(_DocumentationFileProduced)="false" (previous value: "true") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (185,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(392,5): message : Property reassignment: $(MSBuildCopyMarkerName)="CAT_wpf_.24E02ED6" (previous value: "CAT_wpf_app.csproj") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (392,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(393,5): message : Property reassignment: $(MSBuildCopyMarkerName)="CAT_wpf_.24E02ED6.Up2Date" (previous value: "CAT_wpf_.24E02ED6") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (393,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(528,5): message : Property reassignment: $(ProcessorArchitecture)="amd64" (previous value: "x64") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (528,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(580,5): message : Property reassignment: $(DelaySign)="" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (580,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(649,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};" (previous value: "{CandidateAssemblyFiles}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (649,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(650,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem}" (previous value: "{CandidateAssemblyFiles};") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (650,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(651,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (651,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(652,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (652,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(653,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (653,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(654,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (654,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(655,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (655,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(656,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (656,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(657,5): message : Property reassignment: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName};bin\Debug\" (previous value: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (657,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(2606,5): message : Property 'LOCALAPPDATA' with value 'C:\Users\Damien Mazeas\AppData\Local' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3934,5): message : Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Auto" (previous value: "") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (3934,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3935,5): message : Property reassignment: $(_SGenGenerateSerializationAssembliesConfig)="Off" (previous value: "Auto") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (3935,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message : Property reassignment: $(_TargetsThatPrepareProjectReferences)="
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :       _SplitProjectReferencesByFileExistence
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(5146,5): message :     " (previous value: "_SplitProjectReferencesByFileExistence") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (5146,5)
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(6959,5): message : Property 'MSBuildExtensionsPath32' with value 'C:\Program Files\dotnet\sdk\10.0.100' expanded from the environment.
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message : Property reassignment: $(ResolveReferencesDependsOn)="
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ImplicitlyExpandDesignTimeFacades
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     " (previous value: "
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets (74,5)
+       The "NuGetInteractive" property is a global property, and cannot be modified.
+       Assembly loaded during Evaluation: NuGet.Frameworks, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 (location: C:\Program Files\dotnet\sdk\10.0.100\NuGet.Frameworks.dll, MVID: 850f02e4-7dfe-443c-87d1-982613f2ce8f, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Diagnostics.TraceSource, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Diagnostics.TraceSource.dll, MVID: 3603caea-7194-4c37-a6c8-98f50f3785d1, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Data.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Data.Common.dll, MVID: 8e610159-d7cd-45da-80f6-bbc8f35efc28, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.ComponentModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.ComponentModel.dll, MVID: 37e13ac6-32d8-4020-9fcc-48a37456ece0, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Reflection.Emit.Lightweight, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Reflection.Emit.Lightweight.dll, MVID: 04a8830f-7779-4293-86e0-cc042d987005, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Reflection.Emit.ILGeneration, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Reflection.Emit.ILGeneration.dll, MVID: 3891ef81-5b90-4c53-91c2-969ac66c9d49, AssemblyLoadContext: Default)
+       Assembly loaded during Evaluation: System.Reflection.Primitives, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (location: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\10.0.0\System.Reflection.Primitives.dll, MVID: 01463719-aa35-42f3-848a-8a227ed9c141, AssemblyLoadContext: Default)
+       Overriding target "GetFrameworkPaths" in project "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" with target "GetFrameworkPaths" from project "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets".
+       The target "ResolveNuGetPackageAssets" listed in an AfterTargets attribute at "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets (27,11)" does not exist in the project, and will be ignored.
+   1:7>Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" on node 1 (default targets).
+   1:7>Project file contains ToolsVersion="15.0". This toolset may be unknown or missing, in which case you may be able to resolve this by installing the appropriate version of MSBuild, or the build may have been forced to a particular ToolsVersion for policy reasons. Treating the project as if it had ToolsVersion="Current". For more information, please see http://go.microsoft.com/fwlink/?LinkId=293424.
+   1:7>Target "_CheckForInvalidConfigurationAndPlatform" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "BeforeBuild" depends on it):
+       Task "Message"
+         Configuration=Debug
+       Done executing task "Message".
+       Task "Message"
+         Platform=AnyCPU
+       Done executing task "Message".
+   1:7>Done building target "_CheckForInvalidConfigurationAndPlatform" in project "CAT_wpf_app.csproj".
+   1:7>Target "BeforeBuild" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "Build" depends on it):
+   1:7>Done building target "BeforeBuild" in project "CAT_wpf_app.csproj".
+   1:7>Target "BuildOnlySettings" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "CoreBuild" depends on it):
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(1168,7): message : Property reassignment: $(BuildingProject)="true" (previous value: "false") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (1168,7) [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+   1:7>Done building target "BuildOnlySettings" in project "CAT_wpf_app.csproj".
+   1:7>Target "GetFrameworkPaths" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.NETFramework.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "PrepareForBuild" depends on it):
+   1:7>Done building target "GetFrameworkPaths" in project "CAT_wpf_app.csproj".
+       Target "GetFrameworkPaths" skipped. Previously built successfully.
+   1:7>Target "GetReferenceAssemblyPaths" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "PrepareForBuild" depends on it):
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(1255,7): message : Property reassignment: $(TargetFrameworkDirectory)="" (previous value: "v4.0.30319") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (1255,7) [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+       Using "GetReferenceAssemblyPaths" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "GetReferenceAssemblyPaths"
+       Done executing task "GetReferenceAssemblyPaths".
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(1272,7): message : Property reassignment: $(TargetFrameworkDirectory)="C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\;;" (previous value: "v4.0.30319") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (1272,7) [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+       C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(1293,7): message : Property reassignment: $(TargetFrameworkDirectory)="C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\;;;C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\" (previous value: "v4.0.30319") at C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets (1293,7) [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+   1:7>Done building target "GetReferenceAssemblyPaths" in project "CAT_wpf_app.csproj".
+   1:7>Target "PrepareForBuild" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "CoreBuild" depends on it):
+       Using "FindAppConfigFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "FindAppConfigFile"
+         Found "App.config".
+       Done executing task "FindAppConfigFile".
+       Using "MakeDir" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "MakeDir"
+       Done executing task "MakeDir".
+   1:7>Done building target "PrepareForBuild" in project "CAT_wpf_app.csproj".
+   1:7>Target "BeforeResolveReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveReferences" depends on it):
+   1:7>Done building target "BeforeResolveReferences" in project "CAT_wpf_app.csproj".
+   1:7>Target "IgnoreJavaScriptOutputAssembly" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "AssignProjectConfiguration" depends on it):
+   1:7>Done building target "IgnoreJavaScriptOutputAssembly" in project "CAT_wpf_app.csproj".
+   1:7>Target "_SplitProjectReferencesByFileExistence" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "PrepareProjectReferences" depends on it):
+   1:7>Done building target "_SplitProjectReferencesByFileExistence" in project "CAT_wpf_app.csproj".
+   1:7>Target "_AddOutputPathToGlobalPropertiesToRemove" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_GetProjectReferenceTargetFrameworkProperties" depends on it):
+   1:7>Done building target "_AddOutputPathToGlobalPropertiesToRemove" in project "CAT_wpf_app.csproj".
+   1:7>Target "_GetProjectReferenceTargetFrameworkProperties" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "PrepareProjectReferences" depends on it):
+       Task "MSBuild"
+       Done executing task "MSBuild".
+       Using "SetRidAgnosticValueForProjects" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "SetRidAgnosticValueForProjects"
+       Done executing task "SetRidAgnosticValueForProjects".
+   1:7>Done building target "_GetProjectReferenceTargetFrameworkProperties" in project "CAT_wpf_app.csproj".
+   1:7>Target "PrepareProjectReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveProjectReferences" depends on it):
+   1:7>Done building target "PrepareProjectReferences" in project "CAT_wpf_app.csproj".
+   1:7>Target "ResolveProjectReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveReferences" depends on it):
+   1:7>Done building target "ResolveProjectReferences" in project "CAT_wpf_app.csproj".
+       Target "ResolveProjectReferences" skipped. Previously built successfully.
+       Target "GetFrameworkPaths" skipped. Previously built successfully.
+       Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
+       Target "PrepareForBuild" skipped. Previously built successfully.
+   1:7>Target "ResolveSDKReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveAssemblyReferences" depends on it):
+   1:7>Done building target "ResolveSDKReferences" in project "CAT_wpf_app.csproj".
+       Target "ResolveSDKReferences" skipped. Previously built successfully.
+   1:7>Target "ExpandSDKReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveAssemblyReferences" depends on it):
+   1:7>Done building target "ExpandSDKReferences" in project "CAT_wpf_app.csproj".
+   1:7>Target "ImplicitlyExpandNETStandardFacades" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveAssemblyReferences" depends on it):
+   1:7>Done building target "ImplicitlyExpandNETStandardFacades" in project "CAT_wpf_app.csproj".
+       Target "GetFrameworkPaths" skipped. Previously built successfully.
+       Target "GetReferenceAssemblyPaths" skipped. Previously built successfully.
+   1:7>Target "_HandlePackageFileConflicts" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveAssemblyReferences" depends on it):
+       Using "ResolvePackageFileConflicts" task from assembly "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\\tools\net10.0\Microsoft.NET.Build.Extensions.Tasks.dll".
+       Task "ResolvePackageFileConflicts"
+       Done executing task "ResolvePackageFileConflicts".
+   1:7>Done building target "_HandlePackageFileConflicts" in project "CAT_wpf_app.csproj".
+   1:7>Target "ResolveAssemblyReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveReferences" depends on it):
+       Using "ResolveAssemblyReference" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "ResolveAssemblyReference"
+         TargetFrameworkMoniker:
+             .NETFramework,Version=v4.8
+         TargetFrameworkMonikerDisplayName:
+             .NET Framework 4.8
+         TargetedRuntimeVersion:
+             v
+         Assemblies:
+             Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
+                 HintPath = 'packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll'
+             Rti.ConnextDds, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL
+                 HintPath = 'packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\Rti.ConnextDds.dll'
+             System
+             System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
+                 HintPath = 'packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll'
+             System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
+                 HintPath = 'packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll'
+             System.Data
+             System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL
+                 HintPath = 'packages\System.Memory.4.5.4\lib\net461\System.Memory.dll'
+             System.Numerics
+             System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
+                 HintPath = 'packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll'
+             System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL
+                 HintPath = 'packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll'
+             System.Xml
+             Microsoft.CSharp
+             System.Xml.Linq
+             System.Data.DataSetExtensions
+             System.Net.Http
+             System.Xaml
+             WindowsBase
+             PresentationCore
+             PresentationFramework
+             System.Core
+         AssemblyFiles:
+             C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll
+         CandidateAssemblyFiles:
+         TargetFrameworkDirectories:
+             C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\
+         NonCultureResourceDirectories:
+             
+         InstalledAssemblyTables:
+         IgnoreInstalledAssemblyTable:
+             False
+         SearchPaths:
+             {CandidateAssemblyFiles}
+             {HintPathFromItem}
+             {TargetFrameworkDirectory}
+             {Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}
+             {AssemblyFolders}
+             {GAC}
+             {RawFileName}
+             bin\Debug\
+         AllowedAssemblyExtensions:
+             .winmd
+             .dll
+             .exe
+         AllowedRelatedFileExtensions:
+             .pdb
+             .xml
+             .pri
+             .dll.config
+             .exe.config
+         AppConfigFile:
+             App.config
+         AutoUnify:
+             True
+         EnableCustomCulture:
+             False
+         EnableCustomCulture:
+             False
+         CopyLocalDependenciesWhenParentReferenceInGac:
+             True
+         FindDependencies:
+             True
+         TargetProcessorArchitecture:
+             amd64
+         StateFile:
+             obj\Debug\CAT_wpf_app.csproj.AssemblyReference.cache
+         InstalledAssemblySubsetTables:
+         IgnoreInstalledAssemblySubsetTable:
+             False
+         TargetFrameworkSubsets:
+         FullTargetFrameworkSubsetNames:
+             Full
+         ProfileName:
+             
+         FullFrameworkFolders:
+             C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\
+         LatestTargetFrameworkDirectories:
+         ProfileTablesLocation:
+         Primary reference "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll".
+             Reference found at search path location "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll".
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51".
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Microsoft.Bcl.HashCode.1.1.0\lib\net461\Microsoft.Bcl.HashCode.xml".
+         Primary reference "Rti.ConnextDds, Version=7.6.0.0, Culture=neutral, PublicKeyToken=null".
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\Rti.ConnextDds.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\Rti.ConnextDds.xml".
+         Primary reference "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51".
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.xml".
+         Primary reference "System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.xml".
+         Primary reference "System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51".
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Memory.4.5.4\lib\net461\System.Memory.xml".
+         Primary reference "System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.xml".
+         Unified primary reference "System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+             Using this version instead of original version "4.0.4.1" in "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll" because AutoUnify is 'true'.
+             Resolved file path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll".
+             Reference found at search path location "{HintPathFromItem}".
+             Found related file "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.xml".
+         Primary reference "System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.DataSetExtensions.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.DataSetExtensions.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xaml.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xaml.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Primary reference "System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.winmd", but it didn't exist.
+             This reference is not "CopyLocal" because it's a prerequisite file.
+         Dependency "netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51".
+             Resolved file path is "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\netstandard.dll".
+             Reference found at search path location "{TargetFrameworkDirectory}".
+                 For SearchPath "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0" (added by referencing assembly "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\Rti.ConnextDds.dll").
+                 Considered "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\netstandard.winmd", but it didn't exist.
+                 Considered "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\netstandard.dll", but it didn't exist.
+                 Considered "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\packages\Rti.ConnextDds.7.6.0\lib\netstandard2.0\netstandard.exe", but it didn't exist.
+                 For SearchPath "{TargetFrameworkDirectory}".
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\netstandard.winmd", but it didn't exist.
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\netstandard.dll", but it didn't exist.
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\netstandard.exe", but it didn't exist.
+                 Considered "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\netstandard.winmd", but it didn't exist.
+             Required by "Rti.ConnextDds, Version=7.6.0.0, Culture=neutral, processorArchitecture=MSIL".
+             This reference is not "CopyLocal" because it's a prerequisite file.
+       Done executing task "ResolveAssemblyReference".
+   1:7>Done building target "ResolveAssemblyReferences" in project "CAT_wpf_app.csproj".
+       Target "ResolveAssemblyReferences" skipped. Previously built successfully.
+   1:7>Target "_RemoveZipFileSuggestedRedirect" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "GenerateBindingRedirects" depends on it):
+   1:7>Done building target "_RemoveZipFileSuggestedRedirect" in project "CAT_wpf_app.csproj".
+   1:7>Target "GenerateBindingRedirectsUpdateAppConfig" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveReferences" depends on it):
+   1:7>Done building target "GenerateBindingRedirectsUpdateAppConfig" in project "CAT_wpf_app.csproj".
+       Target "PrepareForBuild" skipped. Previously built successfully.
+       Target "ResolveAssemblyReferences" skipped. Previously built successfully.
+   1:7>Target "ResolveComReferences" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "ResolveReferences" depends on it):
+       Task "MakeDir"
+       Done executing task "MakeDir".
+       Using "ResolveComReference" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "ResolveComReference"
+   1:7>C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3068,5): error MSB4803: The task "ResolveComReference" is not supported on the .NET Core version of MSBuild. Please use the .NET Framework version of MSBuild. See https://aka.ms/msbuild/MSB4803 for further details. [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+       Done executing task "ResolveComReference" -- FAILED.
+   1:7>Done building target "ResolveComReferences" in project "CAT_wpf_app.csproj" -- FAILED.
+   1:7>Target "_CheckForCompileOutputs" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CleanGetCurrentAndPriorFileWrites" depends on it):
+   1:7>Done building target "_CheckForCompileOutputs" in project "CAT_wpf_app.csproj".
+   1:7>Target "_CleanGetCurrentAndPriorFileWrites" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "_CleanRecordFileWrites" depends on it):
+       Using "ReadLinesFromFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "ReadLinesFromFile"
+       Done executing task "ReadLinesFromFile".
+       Task "ConvertToAbsolutePath"
+       Done executing task "ConvertToAbsolutePath".
+       Using "FindUnderPath" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "FindUnderPath"
+         Comparison path is "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app".
+       Done executing task "FindUnderPath".
+       Task "FindUnderPath"
+         Comparison path is "bin\Debug\".
+       Done executing task "FindUnderPath".
+       Task "FindUnderPath"
+         Comparison path is "obj\Debug\".
+       Done executing task "FindUnderPath".
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+   1:7>Done building target "_CleanGetCurrentAndPriorFileWrites" in project "CAT_wpf_app.csproj".
+   1:7>Target "_CleanRecordFileWrites" in file "C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets" from project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (target "CoreBuild" depends on it):
+       Task "RemoveDuplicates"
+       Done executing task "RemoveDuplicates".
+       Task "MakeDir"
+       Done executing task "MakeDir".
+       Using "WriteLinesToFile" task from assembly "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+       Task "WriteLinesToFile"
+         Skipping write to file "obj\Debug\CAT_wpf_app.csproj.FileListAbsolute.txt" because content would not change.
+       Done executing task "WriteLinesToFile".
+   1:7>Done building target "_CleanRecordFileWrites" in project "CAT_wpf_app.csproj".
+   1:7>Done Building Project "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (default targets) -- FAILED.
+
+Build FAILED.
+
+       "C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj" (default target) (1:7) ->
+       (ResolveComReferences target) -> 
+         C:\Program Files\dotnet\sdk\10.0.100\Microsoft.Common.CurrentVersion.targets(3068,5): error MSB4803: The task "ResolveComReference" is not supported on the .NET Core version of MSBuild. Please use the .NET Framework version of MSBuild. See https://aka.ms/msbuild/MSB4803 for further details. [C:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\CAT_wpf_app.csproj]
+
+    0 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:00.49

@@ -19,9 +19,6 @@ public class TeleopDataPublisher : MonoBehaviour
     [Tooltip("Speed value to publish (0-100%).")]
     [SerializeField] private float speed = 100.0f;
 
-    [Tooltip("Scale factor for position (e.g. Unity meters to millimeters).")]
-    [SerializeField] private float positionScale = 1000.0f;
-
     // DDS Entities
     private DataWriter<DynamicData> _writer;
     private DynamicData _sample;
@@ -67,6 +64,8 @@ public class TeleopDataPublisher : MonoBehaviour
             var typeFactory = DynamicTypeFactory.Instance;
             var operatorPoseType = typeFactory.BuildStruct()
                 .WithName(typeName)
+                .AddMember(new StructMember("Id", typeFactory.CreateString(128)))
+                .AddMember(new StructMember("Timestamp", typeFactory.GetPrimitiveType<double>()))
                 .AddMember(new StructMember("X", typeFactory.GetPrimitiveType<float>()))
                 .AddMember(new StructMember("Y", typeFactory.GetPrimitiveType<float>()))
                 .AddMember(new StructMember("Z", typeFactory.GetPrimitiveType<float>()))
@@ -104,8 +103,8 @@ public class TeleopDataPublisher : MonoBehaviour
         if (!_isInitialized) return;
 
         // Check if position, rotation, or speed has changed
-        // Using a small epsilon for float comparison to avoid noise
-        bool positionChanged = Vector3.SqrMagnitude(_transform.localPosition - _lastPosition) > 0.0001f;
+        // Using a smaller epsilon to detect fine movements
+        bool positionChanged = Vector3.SqrMagnitude(_transform.localPosition - _lastPosition) > 1e-7f;
         bool rotationChanged = Quaternion.Angle(_transform.localRotation, _lastRotation) > 0.01f;
         bool speedChanged = !Mathf.Approximately(speed, _lastSpeed);
 
@@ -120,6 +119,8 @@ public class TeleopDataPublisher : MonoBehaviour
         }
     }
 
+    private int _sequenceId = 0;
+
     /// <summary>
     /// Populates and writes the DDS sample.
     /// </summary>
@@ -127,11 +128,15 @@ public class TeleopDataPublisher : MonoBehaviour
     {
         try
         {
+            _sequenceId++;
+            _sample.SetValue("Id", _sequenceId.ToString());
+            _sample.SetValue("Timestamp", (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
+
             // Position conversion (Unity -> Fanuc)
             // Based on user requirements: X inverted, others scaled
-            _sample.SetValue("X", -_transform.localPosition.x * positionScale);
-            _sample.SetValue("Y", _transform.localPosition.y * positionScale);
-            _sample.SetValue("Z", _transform.localPosition.z * positionScale);
+            _sample.SetValue("X", -_transform.localPosition.x * 100000);
+            _sample.SetValue("Y", _transform.localPosition.y * 100000);
+            _sample.SetValue("Z", _transform.localPosition.z * 100000);
 
             // Rotation conversion (Quaternion -> Fanuc WPR)
             Vector3 wpr = CreateFanucWPRFromQuaternion(_transform.localRotation);
@@ -146,7 +151,7 @@ public class TeleopDataPublisher : MonoBehaviour
             _writer.Write(_sample);
 
             // Debug Log
-            Debug.Log($"[TeleopPublisher] Sent: X={-_transform.localPosition.x * positionScale:F2}, Y={_transform.localPosition.y * positionScale:F2}, Z={_transform.localPosition.z * positionScale:F2}, Speed={speed:F1}");
+            Debug.Log($"[TeleopPublisher] Sent: Id={_sequenceId}, X={-_transform.localPosition.x * 100000:F2}, Y={_transform.localPosition.y * 100000:F2}, Z={_transform.localPosition.z * 100000:F2}, Speed={speed:F1}");
         }
         catch (System.Exception ex)
         {
