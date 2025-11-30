@@ -1,7 +1,7 @@
 F Number: F00000    
 VERSION : HandlingTool         
 $VERSION: V9.40107      7/23/2021
-DATE:     30-NOV-25 19:28 
+DATE:     30-NOV-25 21:19 
 
 ETHERNET CONFIGURATION::
 
@@ -88,24 +88,25 @@ ETHERNET STATISTICS:
 -avg pps:             0              
 -max pps:             0              
 Socket    UseTid    OwnTid   State   NonBlock  TrigEvent  Port
-0x 574   188:SCCD  188:SCCD  NOPEND     N     0x     578   9100
-0x 57C   189:SCCD  189:SCCD  NOPEND     N     0x     580   9101
-0x 5A8   190:SCCD  190:SCCD  NOPEND     N     0x     5AC   9102
-0x 5EC   191:SCCD  191:SCCD  NOPEND     N     0x     5F0   9103
-0x 684   171:RPCM  171:RPCM  SELECT     N     0x     63C      0
-0x 608   171:RPCM  171:RPCM  SELECT     N     0x     5F8   3002
-0x 604   150:HTTP  150:HTTP  SELECT     N     0x     610   3080
-0x 568   298:TPCN  298:TPCN  SELECT     N     0x     4C4  60012
-0x 4C8   186:HTTP  186:HTTP  SELECT     N     0x     588     80
-0x 6D0   XXX:____  241:GIGE  NOPEND     N     0x     6D4      0
-0x 6A4   XXX:____   33:TKEY  NOPEND     Y     0x     674  60004
-0x 644    75:TLNT   75:TLNT  NOPEND     Y     0x     67C     23
-0x 6F0   184:      184:      SELECT     N     0x     6F4  60008
-0x 6B4    97:PRXY   97:PRXY  SELECT     Y     0x     640   8080
-0x 664    97:PRXY   97:PRXY  SELECT     Y     0x     594  50005
-0x 6EC    97:PRXY   97:PRXY  SELECT     Y     0x     670  60009
-0x 6E8   234:HTTP  234:HTTP  SELECT     N     0x     6C0   4080
-0x 680   177:      177:      NOPEND     N     0x     65C     21
-0x 710   182:PMON  182:PMON  NOPEND     N     0x     708      0
-0x 74C   174:TCPM  174:TCPM  NOPEND     N     0x     750      0
-0x 754   174:TCPM  174:TCPM  NOPEND     N     0x     758      0
+0x 550   188:SCCD  188:SCCD  NOPEND     N     0x     524   9100
+0x 558   189:SCCD  189:SCCD  NOPEND     N     0x     55C   9101
+0x 578   190:SCCD  190:SCCD  NOPEND     N     0x     56C   9102
+0x 53C   191:SCCD  191:SCCD  NOPEND     N     0x     554   9103
+0x 4F8   171:RPCM  171:RPCM  SELECT     N     0x     4CC      0
+0x 600   171:RPCM  171:RPCM  SELECT     N     0x     57C   3002
+0x 604   150:HTTP  150:HTTP  SELECT     N     0x     608   3080
+0x 5DC   298:TPCN  298:TPCN  SELECT     N     0x     580  60012
+0x 5E8   186:HTTP  186:HTTP  SELECT     N     0x     574     80
+0x 6D0   XXX:____  241:GIGE  NOPEND     N     0x     694      0
+0x 644   XXX:____   33:TKEY  NOPEND     Y     0x     684  60004
+0x 650    75:TLNT   75:TLNT  NOPEND     Y     0x     6C4     23
+0x 660   184:      184:      SELECT     N     0x     678  60008
+0x 674    97:PRXY   97:PRXY  SELECT     Y     0x     6E0   8080
+0x 640    97:PRXY   97:PRXY  SELECT     Y     0x     6CC  50005
+0x 680    97:PRXY   97:PRXY  SELECT     Y     0x     64C  60009
+0x 6D4   234:HTTP  234:HTTP  SELECT     N     0x     6C0   4080
+0x 65C   177:      177:      NOPEND     N     0x     67C     21
+0x 734   182:PMON  182:PMON  NOPEND     N     0x     738      0
+0x 7FC   188:SCCD  188:SCCD  NOPEND     N     0x     758      0
+0x 648   174:TCPM  174:TCPM  NOPEND     N     0x     63C      0
+0x 754   174:TCPM  174:TCPM  NOPEND     N     0x     750      0

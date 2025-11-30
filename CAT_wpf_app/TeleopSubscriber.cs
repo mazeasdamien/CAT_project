@@ -31,10 +31,16 @@ namespace CAT_wpf_app
         public string LastId { get; private set; }
         public double LastTimestamp { get; private set; }
         public int TotalSamplesReceived { get; private set; }
+        public int TotalRobotWrites { get; private set; } // Track actual writes
         public bool IsReachable { get; private set; }
+
+        // Rate Limiting
+        private DateTime _lastRobotWriteTime = DateTime.MinValue;
+        private const double MinWriteIntervalMs = 50.0; // 20Hz Limit
 
         // Configurable Register IDs
         public int PositionRegisterId { get; set; } = 1;
+        public int BufferPositionRegisterId { get; set; } = 9; // Buffer PR
         public int SpeedRegisterId { get; set; } = 1;
 
         /// <summary>
@@ -67,8 +73,6 @@ namespace CAT_wpf_app
                     .Create();
 
                 // 2. Register Type
-                // Note: If the type is already registered by another entity, this might throw or be ignored.
-                // We check if it's already registered to be safe, or just try-catch.
                 try
                 {
                     participant.RegisterType(TYPE_NAME, operatorPoseType);
@@ -130,17 +134,18 @@ namespace CAT_wpf_app
 
                         TotalSamplesReceived++;
                         dataReceived = true;
-
-                        // Update Robot Registers
-                        // We only update the local state here. 
-                        // The actual write to the robot happens ONCE after the loop to prevent bursting.
                     }
                 }
 
-                // Only write to the robot ONCE per cycle, using the latest data
+                // Rate Limiting Check
                 if (dataReceived && robot != null && robot.IsConnected)
                 {
-                    UpdateRobotRegister(robot, LastX, LastY, LastZ, LastW, LastP, LastR, LastSpeed);
+                    if ((DateTime.Now - _lastRobotWriteTime).TotalMilliseconds >= MinWriteIntervalMs)
+                    {
+                        UpdateRobotRegister(robot, LastX, LastY, LastZ, LastW, LastP, LastR, LastSpeed);
+                        _lastRobotWriteTime = DateTime.Now;
+                        TotalRobotWrites++;
+                    }
                 }
             }
             catch (Exception ex)
@@ -152,93 +157,121 @@ namespace CAT_wpf_app
         }
 
         /// <summary>
-        /// Updates the robot's Position Register [1] and Data Register [1] (Speed).
+        /// Updates the robot's Position Register using a Buffer Strategy.
+        /// 1. Write to Buffer PR (e.g., PR[9]).
+        /// 2. Check Reachability on Buffer PR.
+        /// 3. If Valid, Copy Buffer PR to Target PR (e.g., PR[1]).
         /// </summary>
         private void UpdateRobotRegister(FRCRobot robot, float x, float y, float z, float w, float p, float r, float speed)
         {
             try
             {
-                // 1. Get the current robot position to steal its Configuration
-                // We need the robot to stay in the same posture (No-Flip, Up, Top, etc.)
+                // 1. Get Access to BUFFER Register (PR[9])
+                FRCSysPositions positions = robot.RegPositions;
+                FRCSysPosition bufferSysPosition = positions[BufferPositionRegisterId];
+                FRCSysGroupPosition bufferGroupPos = bufferSysPosition.Group[1];
+                FRCXyzWpr bufferXyzWpr = bufferGroupPos.Formats[FRETypeCodeConstants.frXyzWpr];
+
+                // Safety Check: Ignore (0,0,0)
+                if (Math.Abs(x) < 0.1f && Math.Abs(y) < 0.1f && Math.Abs(z) < 0.1f)
+                {
+                    _logAction?.Invoke("[Teleop] Ignored Zero Pose (0,0,0)", "#FFA500", "ZeroPose");
+                    return;
+                }
+
+                // 2. Set Coordinates on BUFFER
+                bufferXyzWpr.X = x;
+                bufferXyzWpr.Y = y;
+                bufferXyzWpr.Z = z;
+                bufferXyzWpr.W = w;
+                bufferXyzWpr.P = p;
+                bufferXyzWpr.R = r;
+
+                // 3. Configuration Handling (Copy Current Robot Config to Buffer)
                 FRCCurGroupPosition currentGroupPos = robot.CurPosition.Group[1, FRECurPositionConstants.frWorldDisplayType];
                 FRCXyzWpr currentXyzWpr = currentGroupPos.Formats[FRETypeCodeConstants.frXyzWpr];
-                FRCConfig currentConfig = currentXyzWpr.Config;
+                bufferXyzWpr.Config.Text = currentXyzWpr.Config.Text;
 
-
-                // 2. Prepare the Target Register
-                FRCSysPositions positions = robot.RegPositions;
-                FRCSysPosition sysPosition = positions[PositionRegisterId];
-                FRCSysGroupPosition groupPos = sysPosition.Group[1];
-                FRCXyzWpr targetXyzWpr = groupPos.Formats[FRETypeCodeConstants.frXyzWpr];
-
-                // 3. Assign Coordinates
-                targetXyzWpr.X = x;
-                targetXyzWpr.Y = y;
-                targetXyzWpr.Z = z;
-                targetXyzWpr.W = w;
-                targetXyzWpr.P = p;
-                targetXyzWpr.R = r;
-
-                // 4. CRITICAL: Manually copy the Configuration flags and Turn counts
-                targetXyzWpr.Config.Text = currentConfig.Text;
-
-                // 5. Check Reachability using LINEAR Motion Type
+                // 4. Reachability Check on BUFFER
                 object missing = System.Type.Missing;
                 FRCMotionErrorInfo motionErrorInfo;
+                bool isReachable = false;
 
-                // Changed from frJointMotionType to frLinearMotionType
-                if (groupPos.IsReachable[missing, FREMotionTypeConstants.frJointMotionType, FREOrientTypeConstants.frAESWorldOrientType, missing, out motionErrorInfo])
+                // Check Linear First
+                if (bufferGroupPos.IsReachable[missing, FREMotionTypeConstants.frLinearMotionType, FREOrientTypeConstants.frAESWorldOrientType, missing, out motionErrorInfo])
                 {
-                    IsReachable = true;
-                    groupPos.Update();
-
+                    isReachable = true;
+                }
+                else
+                {
+                    // Fallback: Reset Turns
                     try
                     {
-                        // DEBUG: Inspect the type returned by RegNumerics
-                        object rawSpeedObj = robot.RegNumerics[SpeedRegisterId];
-                        // _logAction?.Invoke($"[TeleopSubscriber] SpeedReg Type: {rawSpeedObj.GetType().FullName}", "#FF00FF");
+                        // bufferXyzWpr.Config.Turn1 = 0; // Not available in this PCDK version
+                        // bufferXyzWpr.Config.Turn2 = 0;
+                        // bufferXyzWpr.Config.Turn3 = 0;
 
-                        // Attempt to cast to FRCRegNumeric explicitly
-                        // If this fails, we will know from the log above (if enabled) or the catch below
-                        if (rawSpeedObj is FRCRegNumeric speedReg)
+                        // Parse and reset turns via Text property
+                        // Format is usually "N U T, 0, 0, 0"
+                        string currentConfigStr = bufferXyzWpr.Config.Text;
+                        if (!string.IsNullOrEmpty(currentConfigStr))
                         {
-                            // SAFETY: Clamp speed to minimum 1% and maximum 50% to prevent Faults (SRVO-171)
-                            float safeSpeed = Math.Min(Math.Max(speed, 1.0f), 50.0f);
-                            speedReg.RegFloat = safeSpeed;
+                            string[] parts = currentConfigStr.Split(',');
+                            if (parts.Length > 0)
+                            {
+                                // Keep the first part (Posture: N U T) and append 0,0,0
+                                bufferXyzWpr.Config.Text = $"{parts[0]}, 0, 0, 0";
+                            }
                         }
-                        else
+                        if (bufferGroupPos.IsReachable[missing, FREMotionTypeConstants.frLinearMotionType, FREOrientTypeConstants.frAESWorldOrientType, missing, out motionErrorInfo])
                         {
-                            // If it's not FRCRegNumeric, try dynamic as a fallback, but be careful
-                            // dynamic dynSpeed = rawSpeedObj;
-                            // dynSpeed.RegFloat = safeSpeed; 
-
-                            // For now, just log that we couldn't cast it
-                            // _logAction?.Invoke($"[TeleopSubscriber] SpeedReg is not FRCRegNumeric. It is: {rawSpeedObj.GetType().Name}", "#FFA500");
+                            isReachable = true;
                         }
                     }
-                    catch (Exception ex)
+                    catch { }
+                }
+
+                IsReachable = isReachable;
+
+                if (isReachable)
+                {
+                    // 5. Commit to TARGET Register (PR[1])
+                    // We know the values in 'bufferXyzWpr' are valid (including the potentially reset turns).
+                    // We copy them to PR[1].
+                    FRCSysPosition targetSysPosition = positions[PositionRegisterId];
+                    FRCSysGroupPosition targetGroupPos = targetSysPosition.Group[1];
+                    FRCXyzWpr targetXyzWpr = targetGroupPos.Formats[FRETypeCodeConstants.frXyzWpr];
+
+                    targetXyzWpr.X = bufferXyzWpr.X;
+                    targetXyzWpr.Y = bufferXyzWpr.Y;
+                    targetXyzWpr.Z = bufferXyzWpr.Z;
+                    targetXyzWpr.W = bufferXyzWpr.W;
+                    targetXyzWpr.P = bufferXyzWpr.P;
+                    targetXyzWpr.R = bufferXyzWpr.R;
+                    targetXyzWpr.Config.Text = bufferXyzWpr.Config.Text; // Copy the validated config
+
+                    targetGroupPos.Update(); // Write to Controller
+
+                    // 6. Update Speed
+                    object rawSpeedObj = robot.RegNumerics[SpeedRegisterId];
+                    if (rawSpeedObj is FRCRegNumeric speedReg)
                     {
-                        // Log only once or rarely to avoid spam
-                        // _logAction?.Invoke($"[TeleopSubscriber] Speed Update Error: {ex.Message}", "#FFA500");
+                        float maxLinearSpeed = 2000.0f;
+                        float calculatedSpeed = (speed / 100.0f) * maxLinearSpeed;
+                        float safeSpeed = Math.Max(calculatedSpeed, 50.0f);
+                        safeSpeed = Math.Min(safeSpeed, maxLinearSpeed);
+                        speedReg.RegFloat = safeSpeed;
+                        _logAction?.Invoke($"[Teleop] Speed Update: {safeSpeed:F1} mm/s (Reg[{SpeedRegisterId}])", "#2196F3", "SpeedUpdate");
                     }
                 }
                 else
                 {
-                    IsReachable = false;
-
-                    // 1. LOG THE COORDINATES: Are they huge (e.g., 50000) or normal (e.g., 500)?
-                    string values = $"X={x:F2}, Y={y:F2}, Z={z:F2}";
-
-                    // 2. LOG THE EXACT ERROR: This tells us WHY it failed
-                    string errorRaw = motionErrorInfo != null ? motionErrorInfo.ToString() : "Unknown Error";
-
-                    _logAction?.Invoke($"[TeleopSubscriber] Unreachable (Linear): X={x:F2}, Y={y:F2}, Z={z:F2}", "#FFA500", "Unreachable");
+                    _logAction?.Invoke($"[TeleopSubscriber] Unreachable: X={x:F2}, Y={y:F2}, Z={z:F2}", "#FFA500", "Unreachable");
                 }
             }
             catch (Exception ex)
             {
-                // Often fails if robot is moving or locked
-                _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}", "#F44336", "RobotWriteError");
+                _logAction?.Invoke($"[Robot] Write Error: {ex.Message}", "#F44336", "WriteError");
             }
         }
     }

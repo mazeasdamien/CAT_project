@@ -1,7 +1,7 @@
 F Number: F00000    
 VERSION : HandlingTool         
 $VERSION: V9.40107      7/23/2021
-DATE:     30-NOV-25 19:28 
+DATE:     30-NOV-25 21:19 
 DCS Version: V4.5.2
 
 --- Tool frame -------------------------
@@ -166,12 +166,12 @@ J6: Servo card - Axis 6              OK
 --- Mastering parameter ----------------
     Axis  Position  Master count  Status
 ---------- Group 1 ----------       
-J1       8.126 deg           0       OK 
-J2      13.983 deg           0       OK 
-J3     -13.305 deg           0       OK 
-J4        .702 deg           0       OK 
-J5     -72.011 deg           0       OK 
-J6      -8.316 deg           0       OK 
+J1      24.487 deg           0       OK 
+J2       9.915 deg           0       OK 
+J3      -6.242 deg           0       OK 
+J4      30.769 deg           0       OK 
+J5     -57.817 deg           0       OK 
+J6      47.014 deg           0       OK 
 
 --- Collaborative robot ----------------
 Enable/Disable: ENABLE              OK 

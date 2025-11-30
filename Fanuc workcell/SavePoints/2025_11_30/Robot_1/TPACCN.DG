@@ -3,30 +3,32 @@
 F Number: F00000    
 VERSION : HandlingTool         
 $VERSION: V9.40107      7/23/2021
-DATE:     30-NOV-25 19:28 
+DATE:     30-NOV-25 21:19 
 
 Menu                         Elapsed Time         #Sel       #Keys
                      (YY-MM-DD HH:MM:SS)
 Id:  962, 1                          08            1           3
 S/W Install                          28            1           0
-Hints                             51:40           12          11
-DCS                            02:17:40           26          97
-Id:  381, 5                    07:05:10           64          34
-SELECT                            07:38           25          85
-EDIT                           09:12:34           19        2076
-Registers                         01:48            6         153
-Position Reg                   03:06:08           16         441
+Hints                             53:02           14          12
+DCS                            02:21:18           28          99
+Id:  381, 5                    07:19:10           72          37
+SELECT                            07:40           28          90
+EDIT                           09:30:14           24        2210
+Registers                         01:52            7         155
+Position Reg                   04:14:12           17         447
 Id:  381, 3                          16            2           5
 Home                                 06            1           3
 Notifications                        12            1           7
 Config                               22            1           8
 Alarm Log                         17:38            2         214
+4D Display                        06:10            1           7
+Axis                                 04            3           0
 
-Full Menus:                    23:01:48 
+Full Menus:                 01 00:52:52 
 Quick Menus:                         00 
 
 MENU Popup:                                        3
-[ TYPE ] Pullup:                                  12
+[ TYPE ] Pullup:                                  13
 
 Functions at COLD start
 ABORT (ALL)                                        2

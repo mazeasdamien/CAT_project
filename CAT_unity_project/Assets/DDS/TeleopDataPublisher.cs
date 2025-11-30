@@ -133,10 +133,30 @@ public class TeleopDataPublisher : MonoBehaviour
             _sample.SetValue("Id", _sequenceId.ToString());
             _sample.SetValue("Timestamp", (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
 
-            // Position conversion (Unity -> Fanuc)
-            _sample.SetValue("X", -_transform.localPosition.x * 1000);
-            _sample.SetValue("Y", _transform.localPosition.y * 1000);
-            _sample.SetValue("Z", _transform.localPosition.z * 1000);
+            // Position conversion (Unity -> Fanuc) with Reachability Check
+            float maxReachMm = 1418f; // Robot Max Reach
+            float currentDistMm = _transform.localPosition.magnitude * 1000f;
+
+            float finalX, finalY, finalZ;
+
+            if (currentDistMm > maxReachMm)
+            {
+                // Clamp to max reach sphere
+                Vector3 clampedPos = _transform.localPosition.normalized * (maxReachMm / 1000f);
+                finalX = -clampedPos.x * 1000;
+                finalY = clampedPos.y * 1000;
+                finalZ = clampedPos.z * 1000;
+            }
+            else
+            {
+                finalX = -_transform.localPosition.x * 1000;
+                finalY = _transform.localPosition.y * 1000;
+                finalZ = _transform.localPosition.z * 1000;
+            }
+
+            _sample.SetValue("X", finalX);
+            _sample.SetValue("Y", finalY);
+            _sample.SetValue("Z", finalZ);
 
             // Rotation conversion (Quaternion -> Fanuc WPR)
             Vector3 wpr = CreateFanucWPRFromQuaternion(_transform.localRotation);
@@ -151,7 +171,7 @@ public class TeleopDataPublisher : MonoBehaviour
             _writer.Write(_sample);
 
             // Debug Log
-            Debug.Log($"[TeleopPublisher] Sent: Id={_sequenceId}, X={-_transform.localPosition.x * 1000:F2}, Y={_transform.localPosition.y * 1000:F2}, Z={_transform.localPosition.z * 1000:F2}, Speed={speed:F1}");
+            Debug.Log($"[TeleopPublisher] Sent: Id={_sequenceId}, X={finalX:F2}, Y={finalY:F2}, Z={finalZ:F2}, Speed={speed:F1}");
         }
         catch (System.Exception ex)
         {

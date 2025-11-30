@@ -144,6 +144,9 @@ namespace CAT_wpf_app
         private string _teleopRate = "0.0 Hz";
         public string TeleopRate { get => _teleopRate; set { _teleopRate = value; OnPropertyChanged(); } }
 
+        private string _robotWriteRate = "0.0 Hz";
+        public string RobotWriteRate { get => _robotWriteRate; set { _robotWriteRate = value; OnPropertyChanged(); } }
+
         private string _teleopReachability = "Unknown";
         public string TeleopReachability { get => _teleopReachability; set { _teleopReachability = value; OnPropertyChanged(); } }
 
@@ -174,6 +177,15 @@ namespace CAT_wpf_app
                 if (_teleopSubscriber != null) _teleopSubscriber.SpeedRegisterId = value;
             }
         }
+
+        // --- Debug Properties ---
+        private string _debugPR9 = "N/A"; public string DebugPR9 { get => _debugPR9; set { _debugPR9 = value; OnPropertyChanged(); } }
+        private string _debugPR9Reach = "Unknown"; public string DebugPR9Reach { get => _debugPR9Reach; set { _debugPR9Reach = value; OnPropertyChanged(); } }
+
+        private string _debugPR1 = "N/A"; public string DebugPR1 { get => _debugPR1; set { _debugPR1 = value; OnPropertyChanged(); } }
+        private string _debugPR1Reach = "Unknown"; public string DebugPR1Reach { get => _debugPR1Reach; set { _debugPR1Reach = value; OnPropertyChanged(); } }
+
+        private string _debugR1 = "N/A"; public string DebugR1 { get => _debugR1; set { _debugR1 = value; OnPropertyChanged(); } }
 
         public class LogEntry : INotifyPropertyChanged
         {
@@ -401,6 +413,8 @@ namespace CAT_wpf_app
             DateTime lastRateCheck = DateTime.Now;
             int lastSampleCount = 0;
             int lastTeleopSampleCount = 0;
+            int lastRobotWriteCount = 0;
+            DateTime _lastDebugUpdate = DateTime.Now;
 
             try
             {
@@ -463,7 +477,7 @@ namespace CAT_wpf_app
                 participant = DomainParticipantFactory.Instance.CreateParticipant(0, partQos);
                 if (participant == null) throw new Exception("Failed to create Participant.");
 
-                publisher = new RobotStatePublisher(participant, writerQos, (msg, color) => Log(msg, color));
+                publisher = new RobotStatePublisher(participant, writerQos, (msg, color, topic) => Log(msg, color, topic));
                 _teleopSubscriber = new TeleopSubscriber(participant, readerQos, (msg, color, topic) => Log(msg, color, topic));
                 Application.Current.Dispatcher.Invoke(() => DdsStatus = "Initialized");
                 Log("DDS Initialized.");
@@ -531,14 +545,6 @@ namespace CAT_wpf_app
                             x = ((float)xyz.X).ToString("F2");
                             y = ((float)xyz.Y).ToString("F2");
                             z = ((float)xyz.Z).ToString("F2");
-                            w = ((float)xyz.W).ToString("F2");
-                            p = ((float)xyz.P).ToString("F2");
-                            r = ((float)xyz.R).ToString("F2");
-                        }
-
-                        // Update Properties on UI Thread
-                        Application.Current.Dispatcher.Invoke(() =>
-                        {
                             if (robot != null && robot.IsConnected)
                             {
                                 J1 = j1; J2 = j2; J3 = j3; J4 = j4; J5 = j5; J6 = j6;
@@ -584,11 +590,15 @@ namespace CAT_wpf_app
                                     double tRate = (TeleopSampleCount - lastTeleopSampleCount) / (now - lastRateCheck).TotalSeconds;
                                     TeleopRate = $"{tRate:F1} Hz";
                                     lastTeleopSampleCount = TeleopSampleCount;
+
+                                    double wRate = (_teleopSubscriber.TotalRobotWrites - lastRobotWriteCount) / (now - lastRateCheck).TotalSeconds;
+                                    RobotWriteRate = $"{wRate:F1} Hz";
+                                    lastRobotWriteCount = _teleopSubscriber.TotalRobotWrites;
                                 }
 
                                 lastRateCheck = now;
                             }
-                        });
+                        }
                     }
                     catch (Exception)
                     {

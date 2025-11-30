@@ -3,7 +3,7 @@
 F Number: F00000    
 VERSION : HandlingTool         
 $VERSION: V9.40107      7/23/2021
-DATE:     30-NOV-25 18:48 
+DATE:     01-DEC-25 00:21 
 
 VERSION INFORMATION::
 SOFTWARE:              ID:
@@ -24,11 +24,7 @@ Update Version      : None
 Customization Ver.  : None
 Root Version        : V9.40107  
 Boot MONITOR        : V0.00P/00
-Teach Pendant       : 7D0D/01P
-Browser Plugins     : V9.40107
-TP Core Firmware    : V9.40P/17
-TP Operating System : 
-HTML5 Browser       : N/A
+Teach Pendant       : 7D01/09I
 FPGA Version        : 1
 Media from FRA        07/24/2021
 
@@ -231,13 +227,13 @@ MEMORY USAGE::
 
 MEMORY DETAIL (MAIN):
 Pools        TOTAL     AVAILABLE      LARGEST
-TPP         1000.0KB     943.2KB     943.1KB
+TPP         1000.0KB     942.9KB     942.7KB
 PERM        3064.0KB    1076.6KB    1076.4KB
 SYSTEM          .0KB       0.0KB       0.0KB
 SHADOW      6698.3KB    5371.1KB      32.0KB
-PAGE      315070.8KB  217773.8KB  217773.8KB
-TEMP      150442.0KB  116170.9KB  111702.8KB
-FROM      130798.0KB   57606.0KB
+PAGE      315070.8KB  217513.8KB  217513.8KB
+TEMP      150442.0KB  116170.5KB  112870.3KB
+FROM      130798.0KB   57546.0KB
 
 HARDWARE
 FROM     128MB
@@ -246,8 +242,8 @@ SRAM       3MB
 
 MEMORY DETAIL (MAIN - TASKS):
 TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
-   1       62.8KB        42.6KB      42.6KB      0
-   2       62.8KB        40.4KB      40.4KB      0
+   1       62.8KB        42.3KB      40.3KB      0
+   2       62.8KB        40.7KB      40.7KB      0
    3       62.8KB        39.1KB      39.1KB      0
    4       62.8KB        40.7KB      40.7KB      0
    5       62.8KB        40.7KB      40.7KB      0
@@ -261,8 +257,8 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
   35     2398.8KB       531.1KB     449.0KB      0
   36     1518.8KB      1149.6KB    1148.8KB      0
   37       62.8KB        61.9KB      61.9KB      0
-  38     1998.8KB       372.3KB     372.3KB      0
-  39     1074.6KB      1007.0KB      89.8KB     11
+  38     1998.8KB       370.9KB     370.9KB      0
+  39     1074.6KB      1007.0KB      89.6KB     11
   40       62.8KB        61.9KB      61.9KB      0
   41      134.8KB        42.7KB      35.7KB      1
   42      190.8KB        90.3KB      90.2KB      0
@@ -272,12 +268,12 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
   54       62.8KB        49.6KB      49.6KB      0
   55       62.8KB        54.6KB      54.5KB      0
   63       62.8KB        49.1KB      49.1KB      0
-  71      126.8KB       125.7KB     112.9KB      0
-  72      190.8KB       147.2KB     126.3KB      0
+  71      126.8KB       125.7KB      87.7KB      0
+  72      190.8KB       134.1KB      99.0KB      0
   73      330.7KB       191.3KB      63.9KB      4
   74       62.8KB        61.7KB      61.7KB      0
   75       62.8KB        61.9KB      61.9KB      0
-  76      190.8KB       129.0KB     124.4KB      0
+  76      190.8KB       129.3KB     121.6KB      0
   77       62.8KB        26.7KB      26.4KB      0
   78      254.8KB       253.8KB     253.8KB      0
   97       62.8KB        58.5KB      58.5KB      0
@@ -303,16 +299,16 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
  136       62.8KB        52.4KB      52.4KB      0
  150      190.8KB       175.8KB     175.8KB      0
  153       62.8KB        60.5KB      60.5KB      0
- 159     4094.8KB      3286.5KB    3286.5KB      0
+ 159     4094.8KB      3286.3KB    3286.3KB      0
  166       62.8KB        28.9KB      28.9KB      0
  170      854.7KB       852.5KB     408.0KB      7
  171      554.8KB       465.4KB     449.7KB      0
  174       62.8KB        61.2KB      61.2KB      0
  177       62.8KB        50.6KB      50.6KB      0
- 182      126.8KB        60.3KB      35.8KB      0
+ 182      126.8KB        59.9KB      19.7KB      0
  184       62.8KB        61.5KB      61.5KB      0
  185       62.8KB        61.9KB      61.9KB      0
- 186       62.8KB        51.9KB      51.9KB      0
+ 186      126.8KB       115.9KB     115.9KB      0
  187      254.8KB       105.3KB      31.0KB      3
  188       62.8KB        62.8KB      62.8KB      0
  189       62.8KB        62.8KB      62.8KB      0
@@ -343,13 +339,13 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
  263       62.8KB        62.8KB      62.8KB      0
  264       62.8KB        62.8KB      62.8KB      0
  265       62.8KB        62.8KB      62.8KB      0
- 297      142.8KB        66.7KB      66.7KB      0
+ 297      338.8KB       262.7KB     262.7KB      0
  298       62.8KB        61.4KB      61.4KB      0
  300       62.8KB        43.1KB      35.2KB      0
  301       62.8KB        61.9KB      61.9KB      0
  302       62.8KB        61.9KB      61.9KB      0
  317       62.8KB        61.9KB      61.9KB      0
- 322     9618.8KB      8927.2KB    7895.1KB      0
+ 322     9618.8KB      8918.9KB    7895.1KB      0
  323       62.8KB        61.9KB      61.9KB      0
  330       62.8KB        61.9KB      61.9KB      0
  332       62.8KB        59.6KB      59.6KB      0
@@ -364,11 +360,11 @@ Total -    0.0KB   Current -   0.0KB    Minimum -    0.0KB
 
 TASK STATES:
 
-1       TELEOP status = ABORTED
+1       TELEOP PAUSED @ 6 in TELEOP of TELEOP
 
 ******  History Data  ******
 Routine depth: 0  Routine: TELEOP                              
-Line:     5       Program: TELEOP                                Type: TP    
+Line:     6       Program: TELEOP                                Type: TP    
 
 2  ZDTMSGTYPES status = ABORTED
 
@@ -757,7 +753,7 @@ UI[  18] OFF  Prod start
 UO[   1] OFF  Cmd enabled
 UO[   2]  ON  System ready
 UO[   3] OFF  Prg running
-UO[   4] OFF  Prg paused
+UO[   4]  ON  Prg paused
 UO[   5] OFF  Motion held
 UO[   6] OFF  Fault
 UO[   7] OFF  At perch
@@ -1445,34 +1441,34 @@ CURRENT ROBOT POSITION::
 Group #:  1
  
 CURRENT JOINT POSITION:
-Joint   1:     18.83
-Joint   2:     26.58
-Joint   3:    -57.80
-Joint   4:      3.06
-Joint   5:    -31.38
-Joint   6:     67.65
+Joint   1:    -27.86
+Joint   2:     18.55
+Joint   3:    -44.54
+Joint   4:   -142.99
+Joint   5:    -50.94
+Joint   6:    154.59
 
 
 Frame #:   0  Tool #:   1
 CURRENT USER FRAME POSITION:
 CFG: N U T, 0, 0, 0
-X:    631.55
-Y:     52.36
-Z:     22.34
-W:    178.65
-P:      1.21
-R:     89.06
+X:    700.00
+Y:   -150.00
+Z:    230.00
+W:   -180.00
+P:    -90.00
+R:      0.00
 
 
 Tool #:   1
 CURRENT WORLD POSITION:
 CFG: N U T, 0, 0, 0
-X:    631.55
-Y:     52.36
-Z:     22.34
-W:    178.65
-P:      1.21
-R:     89.06
+X:    700.00
+Y:   -150.00
+Z:    230.00
+W:   -180.00
+P:    -90.00
+R:      0.00
 
 
 </PRE><H2><A NAME="8">Ethernet Configuration Information</A></H2>

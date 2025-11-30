@@ -913,7 +913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CarrotController
   realRobotPosition: {fileID: 391397835}
   userControlTarget: {fileID: 1305357904}
-  leadDistance: 0.05
+  leadDistance: 0.2
+  singularityRadius: 0.1
 --- !u!114 &1034808221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,7 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TeleopDataPublisher
   topicName: TeleopData_Topic
   typeName: TeleopData
-  speed: 100
+  speed: 50
 --- !u!171741748 &1045549703
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -1202,10 +1203,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomLocalMover
   isMoving: 0
-  speed: 0.2
+  speed: 0.1
   reachThreshold: 0.01
-  limit1: {x: -0.87, y: -0.598, z: 0.6}
-  limit2: {x: -0.201, y: 0.427, z: -0.06}
+  limit1: {x: -0.8, y: -0.6, z: 0.6}
+  limit2: {x: -0.36, y: 0.427, z: -0.06}
+  rotLimit1: {x: 1.2302091, y: 181.32713, z: 269.08704}
+  rotLimit2: {x: 21.093353, y: 245.0635, z: 242.05864}
+  rotationSpeed: 3
 --- !u!1001 &1526352740
 PrefabInstance:
   m_ObjectHideFlags: 0
