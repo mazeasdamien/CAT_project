@@ -3,7 +3,7 @@
 F Number: F00000    
 VERSION : HandlingTool         
 $VERSION: V9.40107      7/23/2021
-DATE:     30-NOV-25 01:10 
+DATE:     30-NOV-25 18:48 
 
 VERSION INFORMATION::
 SOFTWARE:              ID:
@@ -231,13 +231,13 @@ MEMORY USAGE::
 
 MEMORY DETAIL (MAIN):
 Pools        TOTAL     AVAILABLE      LARGEST
-TPP         1000.0KB     943.3KB     943.3KB
-PERM        3064.0KB    1076.4KB    1076.2KB
+TPP         1000.0KB     943.2KB     943.1KB
+PERM        3064.0KB    1076.6KB    1076.4KB
 SYSTEM          .0KB       0.0KB       0.0KB
 SHADOW      6698.3KB    5371.1KB      32.0KB
 PAGE      315070.8KB  217773.8KB  217773.8KB
-TEMP      150442.0KB  116583.3KB  114096.1KB
-FROM      130798.0KB   57610.0KB
+TEMP      150442.0KB  116170.9KB  111702.8KB
+FROM      130798.0KB   57606.0KB
 
 HARDWARE
 FROM     128MB
@@ -246,44 +246,44 @@ SRAM       3MB
 
 MEMORY DETAIL (MAIN - TASKS):
 TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
-   1       62.8KB        42.3KB      40.3KB      0
-   2       62.8KB        40.7KB      40.7KB      0
+   1       62.8KB        42.6KB      42.6KB      0
+   2       62.8KB        40.4KB      40.4KB      0
    3       62.8KB        39.1KB      39.1KB      0
    4       62.8KB        40.7KB      40.7KB      0
    5       62.8KB        40.7KB      40.7KB      0
    6       62.8KB        40.7KB      40.7KB      0
    7       62.8KB        40.7KB      40.7KB      0
    8       62.8KB        32.8KB      32.8KB      0
-   9       62.8KB        48.0KB      48.0KB      0
-  10       62.8KB        40.7KB      40.7KB      0
+   9       62.8KB        40.7KB      40.7KB      0
+  10       62.8KB        23.1KB      23.1KB      0
   33       62.8KB        61.6KB      61.6KB      0
   34       62.8KB        29.0KB      29.0KB      0
   35     2398.8KB       531.1KB     449.0KB      0
   36     1518.8KB      1149.6KB    1148.8KB      0
   37       62.8KB        61.9KB      61.9KB      0
-  38     1998.8KB       372.4KB     372.4KB      0
-  39     1074.6KB      1007.0KB      89.6KB     11
+  38     1998.8KB       372.3KB     372.3KB      0
+  39     1074.6KB      1007.0KB      89.8KB     11
   40       62.8KB        61.9KB      61.9KB      0
   41      134.8KB        42.7KB      35.7KB      1
   42      190.8KB        90.3KB      90.2KB      0
   47      198.8KB       197.9KB     197.9KB      0
   51       62.8KB        61.0KB      61.0KB      0
-  52     7998.8KB      7601.7KB    7586.5KB      0
+  52     7998.8KB      7707.1KB    7693.9KB      0
   54       62.8KB        49.6KB      49.6KB      0
   55       62.8KB        54.6KB      54.5KB      0
   63       62.8KB        49.1KB      49.1KB      0
-  71      126.8KB       125.7KB      87.6KB      0
-  72      190.8KB       147.0KB     116.9KB      0
+  71      126.8KB       125.7KB     112.9KB      0
+  72      190.8KB       147.2KB     126.3KB      0
   73      330.7KB       191.3KB      63.9KB      4
   74       62.8KB        61.7KB      61.7KB      0
   75       62.8KB        61.9KB      61.9KB      0
-  76      190.8KB       129.3KB     122.2KB      0
+  76      190.8KB       129.0KB     124.4KB      0
   77       62.8KB        26.7KB      26.4KB      0
   78      254.8KB       253.8KB     253.8KB      0
   97       62.8KB        58.5KB      58.5KB      0
   99       62.8KB        61.9KB      61.9KB      0
  100       62.8KB        58.7KB      58.6KB      0
- 101       62.8KB        50.8KB      49.4KB      0
+ 101       62.8KB        51.6KB      51.6KB      0
  102       94.8KB        93.9KB      93.9KB      0
  103       94.8KB        93.9KB      93.9KB      0
  104       94.8KB        93.9KB      93.9KB      0
@@ -306,10 +306,10 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
  159     4094.8KB      3286.5KB    3286.5KB      0
  166       62.8KB        28.9KB      28.9KB      0
  170      854.7KB       852.5KB     408.0KB      7
- 171      554.8KB       456.8KB     433.8KB      0
+ 171      554.8KB       465.4KB     449.7KB      0
  174       62.8KB        61.2KB      61.2KB      0
- 177       62.8KB        50.7KB      50.6KB      0
- 182      126.8KB        50.4KB      17.6KB      0
+ 177       62.8KB        50.6KB      50.6KB      0
+ 182      126.8KB        60.3KB      35.8KB      0
  184       62.8KB        61.5KB      61.5KB      0
  185       62.8KB        61.9KB      61.9KB      0
  186       62.8KB        51.9KB      51.9KB      0
@@ -327,7 +327,7 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
  211       62.8KB        61.7KB      61.7KB      0
  214       62.8KB        61.9KB      61.9KB      0
  217       62.8KB        12.1KB      12.1KB      0
- 231       62.8KB        28.1KB      28.0KB      0
+ 231       62.8KB        28.2KB      28.1KB      0
  232       62.8KB        61.9KB      61.9KB      0
  234       62.8KB        51.9KB      51.9KB      0
  239      126.8KB       125.9KB     125.9KB      0
@@ -349,7 +349,7 @@ TASK        TOTAL     AVAILABLE     LARGEST   REALLOC
  301       62.8KB        61.9KB      61.9KB      0
  302       62.8KB        61.9KB      61.9KB      0
  317       62.8KB        61.9KB      61.9KB      0
- 322     9618.8KB      8516.8KB    7482.9KB      0
+ 322     9618.8KB      8927.2KB    7895.1KB      0
  323       62.8KB        61.9KB      61.9KB      0
  330       62.8KB        61.9KB      61.9KB      0
  332       62.8KB        59.6KB      59.6KB      0
@@ -368,7 +368,7 @@ TASK STATES:
 
 ******  History Data  ******
 Routine depth: 0  Routine: TELEOP                              
-Line:     1       Program: TELEOP                                Type: TP    
+Line:     5       Program: TELEOP                                Type: TP    
 
 2  ZDTMSGTYPES status = ABORTED
 
@@ -412,17 +412,17 @@ Line:    63       Program: SYRSRUTL                              Type: PC
 Routine depth: 0  Routine: ATSHELL                             
 Line:  1069       Program: ATSHELL                               Type: PC    
 
-9     LOADCELL status = ABORTED
-
-******  History Data  ******
-Routine depth: 0  Routine: PBCORE                              
-Line:     0       Program: PBCORE                                Type: 0
-
-10      MTRPLCC status = ABORTED
+9      MTRPLCC status = ABORTED
 
 ******  History Data  ******
 Routine depth: 0  Routine:                                     
-Line:   175       Program: PBCORE                                Type: PC    
+Line:   175       Program: ATSHELL                               Type: PC    
+
+10      SWIMSET status = ABORTED
+
+******  History Data  ******
+Routine depth: 0  Routine: SWIMSET                             
+Line:   348       Program: SWIMSET                               Type: PC    
 
 
 </PRE><H2><A NAME="4">I/O status information</A></H2>
@@ -1445,34 +1445,34 @@ CURRENT ROBOT POSITION::
 Group #:  1
  
 CURRENT JOINT POSITION:
-Joint   1:     38.74
-Joint   2:    -17.24
-Joint   3:     -8.21
-Joint   4:     -3.59
-Joint   5:    -82.35
-Joint   6:    170.44
+Joint   1:     18.83
+Joint   2:     26.58
+Joint   3:    -57.80
+Joint   4:      3.06
+Joint   5:    -31.38
+Joint   6:     67.65
 
 
 Frame #:   0  Tool #:   1
 CURRENT USER FRAME POSITION:
 CFG: N U T, 0, 0, 0
-X:    338.00
-Y:     92.00
-Z:    432.00
-W:    176.59
-P:     -1.16
-R:   -151.28
+X:    631.55
+Y:     52.36
+Z:     22.34
+W:    178.65
+P:      1.21
+R:     89.06
 
 
 Tool #:   1
 CURRENT WORLD POSITION:
 CFG: N U T, 0, 0, 0
-X:    338.00
-Y:     92.00
-Z:    432.00
-W:    176.59
-P:     -1.16
-R:   -151.28
+X:    631.55
+Y:     52.36
+Z:     22.34
+W:    178.65
+P:      1.21
+R:     89.06
 
 
 </PRE><H2><A NAME="8">Ethernet Configuration Information</A></H2>

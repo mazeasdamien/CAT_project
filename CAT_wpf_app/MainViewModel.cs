@@ -13,19 +13,21 @@ using Rti.Dds.Domain;
 using Rti.Dds.Publication;
 using Rti.Dds.Subscription;
 using Microsoft.Win32;
+using System.Collections.Concurrent;
 
 namespace CAT_wpf_app
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         // --- Constants ---
-        private const int ROBOT_UPDATE_RATE_MS = 10;
+        private const int ROBOT_UPDATE_RATE_MS = 33;
 
         // --- Fields ---
         private Thread _workerThread;
         private volatile bool _shouldRun;
         private readonly object _logLock = new object();
         private TeleopSubscriber _teleopSubscriber; // Promoted to field
+        private ConcurrentQueue<Action<FRCRobot>> _robotCommandQueue = new ConcurrentQueue<Action<FRCRobot>>();
 
         // --- Properties ---
 
@@ -173,34 +175,63 @@ namespace CAT_wpf_app
             }
         }
 
-        public class LogEntry
+        public class LogEntry : INotifyPropertyChanged
         {
-            public string Text { get; set; }
-            public string Color { get; set; }
+            private string _text;
+            public string Text
+            {
+                get => _text;
+                set { _text = value; OnPropertyChanged(); }
+            }
+
+            private string _color;
+            public string Color
+            {
+                get => _color;
+                set { _color = value; OnPropertyChanged(); }
+            }
+
+            public string Topic { get; set; }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+            protected void OnPropertyChanged([CallerMemberName] string name = null)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
         }
 
         public ObservableCollection<LogEntry> Logs { get; } = new ObservableCollection<LogEntry>();
+        public ObservableCollection<LogEntry> AlarmLogs { get; } = new ObservableCollection<LogEntry>();
 
         // --- Commands ---
         public ICommand StartCommand { get; }
         public ICommand StopCommand { get; }
         public ICommand ClearLogsCommand { get; }
+        public ICommand ClearAlarmLogsCommand { get; }
         public ICommand BrowseQosCommand { get; }
         public ICommand BrowseLicenseCommand { get; }
         public ICommand OpenAboutCommand { get; }
+        public ICommand StartTeleopProgramCommand { get; }
+        public ICommand AbortCommand { get; }
+        public ICommand ResetCommand { get; }
 
         // --- Constructor ---
         public MainViewModel()
         {
             // Enable collection synchronization for cross-thread access
             BindingOperations.EnableCollectionSynchronization(Logs, _logLock);
+            BindingOperations.EnableCollectionSynchronization(AlarmLogs, _logLock);
 
             StartCommand = new RelayCommand(_ => Start(), _ => !IsRunning && !IsBusy);
             StopCommand = new RelayCommand(_ => Stop(), _ => IsRunning && !IsBusy);
             ClearLogsCommand = new RelayCommand(_ => ClearLogs());
+            ClearAlarmLogsCommand = new RelayCommand(_ => ClearAlarmLogs());
             BrowseQosCommand = new RelayCommand(_ => BrowseFile("XML Files|*.xml|All Files|*.*", path => QosFilePath = path), _ => !IsRunning);
             BrowseLicenseCommand = new RelayCommand(_ => BrowseFile("License Files|*.dat|All Files|*.*", path => LicenseFilePath = path), _ => !IsRunning);
             OpenAboutCommand = new RelayCommand(_ => OpenAbout());
+            StartTeleopProgramCommand = new RelayCommand(_ => StartTeleopProgram(), _ => IsRunning && RobotStatus == "Connected");
+            AbortCommand = new RelayCommand(_ => AbortTasks(), _ => IsRunning && RobotStatus == "Connected");
+            ResetCommand = new RelayCommand(_ => ResetAlarms(), _ => IsRunning && RobotStatus == "Connected");
         }
 
         // --- Methods ---
@@ -283,6 +314,83 @@ namespace CAT_wpf_app
             });
         }
 
+        private void ClearAlarmLogs()
+        {
+            lock (_logLock)
+            {
+                AlarmLogs.Clear();
+            }
+        }
+
+        private void AbortTasks()
+        {
+            Log("Queuing Abort Command...", "#FFD700");
+            _robotCommandQueue.Enqueue(robot =>
+            {
+                try
+                {
+                    Log("Executing: Abort All Tasks...", "#FFD700");
+                    robot.Tasks.AbortAll();
+                    Log("Tasks Aborted.", "#4CAF50");
+                    LogAlarm("Tasks Aborted by User", "#FFFF00");
+                }
+                catch (Exception ex)
+                {
+                    Log($"Abort Failed: {ex.Message}", "#F44336");
+                    LogAlarm($"Abort Failed: {ex.Message}", "#F44336");
+                }
+            });
+        }
+
+        private void ResetAlarms()
+        {
+            Log("Queuing Reset Command...", "#FFD700");
+            _robotCommandQueue.Enqueue(robot =>
+            {
+                try
+                {
+                    Log("Executing: Reset Alarms...", "#FFD700");
+                    robot.Alarms.Reset();
+                    Log("Alarms Reset.", "#4CAF50");
+                    LogAlarm("Alarms Reset by User", "#4CAF50");
+                }
+                catch (Exception ex)
+                {
+                    Log($"Reset Failed: {ex.Message}", "#F44336");
+                    LogAlarm($"Reset Failed: {ex.Message}", "#F44336");
+                }
+            });
+        }
+
+        private void StartTeleopProgram()
+        {
+            Log("Queuing Teleop Start Sequence...", "#FFD700");
+            _robotCommandQueue.Enqueue(robot =>
+            {
+                try
+                {
+                    // Optional: Auto-Abort and Reset before starting
+                    // robot.Tasks.AbortAll();
+                    // robot.Alarms.Reset();
+
+                    string programName = "TELEOP";
+                    Log($"Executing: Select Program '{programName}'...", "#FFD700");
+                    robot.Programs.Selected = programName;
+
+                    Log("Executing: Run Program...", "#FFD700");
+                    FRCTPProgram prog = (FRCTPProgram)robot.Programs[robot.Programs.Selected, Type.Missing, Type.Missing];
+                    prog.Run();
+
+                    Log("Teleop Program Started Successfully.", "#4CAF50");
+                }
+                catch (Exception ex)
+                {
+                    Log($"Failed to start Teleop Program: {ex.Message}", "#F44336");
+                    LogAlarm($"Start Teleop Failed: {ex.Message}", "#F44336");
+                }
+            });
+        }
+
         private void WorkerLoop()
         {
             FRCRobot robot = null;
@@ -356,7 +464,7 @@ namespace CAT_wpf_app
                 if (participant == null) throw new Exception("Failed to create Participant.");
 
                 publisher = new RobotStatePublisher(participant, writerQos, (msg, color) => Log(msg, color));
-                _teleopSubscriber = new TeleopSubscriber(participant, readerQos, (msg, color) => Log(msg, color));
+                _teleopSubscriber = new TeleopSubscriber(participant, readerQos, (msg, color, topic) => Log(msg, color, topic));
                 Application.Current.Dispatcher.Invoke(() => DdsStatus = "Initialized");
                 Log("DDS Initialized.");
 
@@ -369,6 +477,19 @@ namespace CAT_wpf_app
                 {
                     try
                     {
+                        // Process Command Queue
+                        while (_robotCommandQueue.TryDequeue(out var action))
+                        {
+                            if (robot != null && robot.IsConnected)
+                            {
+                                action(robot);
+                            }
+                            else
+                            {
+                                Log("Cannot execute command: Robot not connected.", "#F44336");
+                            }
+                        }
+
                         // Publish (Only if connected)
                         if (robot != null && robot.IsConnected)
                         {
@@ -506,14 +627,54 @@ namespace CAT_wpf_app
             }
         }
 
-        private void Log(string message, string color = "#CCCCCC")
+        private void Log(string message, string color = "#CCCCCC", string topic = null)
         {
             lock (_logLock)
             {
                 Application.Current.Dispatcher.InvokeAsync(() =>
                 {
-                    Logs.Insert(0, new LogEntry { Text = $"[{DateTime.Now:HH:mm:ss}] {message}", Color = color });
+                    if (!string.IsNullOrEmpty(topic))
+                    {
+                        // Find existing log with same topic
+                        // We search the entire list or just the top few? 
+                        // Searching the whole list (max 100) is fast enough.
+                        System.Linq.Enumerable.FirstOrDefault(Logs, l => l.Topic == topic);
+                        LogEntry existingLog = null;
+                        foreach (var log in Logs)
+                        {
+                            if (log.Topic == topic)
+                            {
+                                existingLog = log;
+                                break;
+                            }
+                        }
+
+                        if (existingLog != null)
+                        {
+                            existingLog.Text = $"[{DateTime.Now:HH:mm:ss}] {message}";
+                            existingLog.Color = color;
+                            // Move to top to indicate activity?
+                            // Logs.Move(Logs.IndexOf(existingLog), 0); 
+                            // User asked to "update the line instead of adding it in the feed".
+                            // Keeping it in place seems to fit "update the line" better than moving it.
+                            return;
+                        }
+                    }
+
+                    Logs.Insert(0, new LogEntry { Text = $"[{DateTime.Now:HH:mm:ss}] {message}", Color = color, Topic = topic });
                     if (Logs.Count > 100) Logs.RemoveAt(Logs.Count - 1);
+                });
+            }
+        }
+
+        private void LogAlarm(string message, string color = "#F44336")
+        {
+            lock (_logLock)
+            {
+                Application.Current.Dispatcher.InvokeAsync(() =>
+                {
+                    AlarmLogs.Insert(0, new LogEntry { Text = $"[{DateTime.Now:HH:mm:ss}] {message}", Color = color });
+                    if (AlarmLogs.Count > 100) AlarmLogs.RemoveAt(AlarmLogs.Count - 1);
                 });
             }
         }

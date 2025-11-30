@@ -18,7 +18,7 @@ namespace CAT_wpf_app
         private const string TYPE_NAME = "TeleopData";
 
         private readonly DataReader<DynamicData> _reader;
-        private readonly Action<string, string> _logAction;
+        private readonly Action<string, string, string> _logAction;
 
         // Data holders for UI visualization
         public float LastX { get; private set; }
@@ -42,8 +42,8 @@ namespace CAT_wpf_app
         /// </summary>
         /// <param name="participant">The DDS DomainParticipant.</param>
         /// <param name="readerQos">The DataReader QoS.</param>
-        /// <param name="logAction">Action to log messages with color.</param>
-        public TeleopSubscriber(DomainParticipant participant, DataReaderQos readerQos, Action<string, string> logAction = null)
+        /// <param name="logAction">Action to log messages with color and optional topic.</param>
+        public TeleopSubscriber(DomainParticipant participant, DataReaderQos readerQos, Action<string, string, string> logAction = null)
         {
             if (participant == null) throw new ArgumentNullException(nameof(participant));
             _logAction = logAction;
@@ -84,11 +84,11 @@ namespace CAT_wpf_app
                 // 4. Create DataReader
                 _reader = participant.ImplicitSubscriber.CreateDataReader(topic, readerQos);
 
-                _logAction?.Invoke($"[TeleopSubscriber] Subscribed to {TOPIC_NAME}", "#4CAF50");
+                _logAction?.Invoke($"[TeleopSubscriber] Subscribed to {TOPIC_NAME}", "#4CAF50", null);
             }
             catch (Exception ex)
             {
-                _logAction?.Invoke($"[TeleopSubscriber] Init Error: {ex.Message}", "#F44336");
+                _logAction?.Invoke($"[TeleopSubscriber] Init Error: {ex.Message}", "#F44336", null);
                 throw;
             }
         }
@@ -132,17 +132,20 @@ namespace CAT_wpf_app
                         dataReceived = true;
 
                         // Update Robot Registers
-                        // Writing to Register Position 3 as per requirements
-                        if (robot != null && robot.IsConnected)
-                        {
-                            UpdateRobotRegister(robot, LastX, LastY, LastZ, LastW, LastP, LastR, LastSpeed);
-                        }
+                        // We only update the local state here. 
+                        // The actual write to the robot happens ONCE after the loop to prevent bursting.
                     }
+                }
+
+                // Only write to the robot ONCE per cycle, using the latest data
+                if (dataReceived && robot != null && robot.IsConnected)
+                {
+                    UpdateRobotRegister(robot, LastX, LastY, LastZ, LastW, LastP, LastR, LastSpeed);
                 }
             }
             catch (Exception ex)
             {
-                _logAction?.Invoke($"[TeleopSubscriber] Process Error: {ex.Message}", "#F44336");
+                _logAction?.Invoke($"[TeleopSubscriber] Process Error: {ex.Message}", "#F44336", "ProcessError");
             }
 
             return dataReceived;
@@ -155,42 +158,87 @@ namespace CAT_wpf_app
         {
             try
             {
-                // 1. Update Position Register PR[x]
+                // 1. Get the current robot position to steal its Configuration
+                // We need the robot to stay in the same posture (No-Flip, Up, Top, etc.)
+                FRCCurGroupPosition currentGroupPos = robot.CurPosition.Group[1, FRECurPositionConstants.frWorldDisplayType];
+                FRCXyzWpr currentXyzWpr = currentGroupPos.Formats[FRETypeCodeConstants.frXyzWpr];
+                FRCConfig currentConfig = currentXyzWpr.Config;
+
+
+                // 2. Prepare the Target Register
                 FRCSysPositions positions = robot.RegPositions;
                 FRCSysPosition sysPosition = positions[PositionRegisterId];
                 FRCSysGroupPosition groupPos = sysPosition.Group[1];
-                FRCXyzWpr xyzWpr = groupPos.Formats[FRETypeCodeConstants.frXyzWpr];
+                FRCXyzWpr targetXyzWpr = groupPos.Formats[FRETypeCodeConstants.frXyzWpr];
 
-                // Assign values
-                xyzWpr.X = x;
-                xyzWpr.Y = y;
-                xyzWpr.Z = z;
-                xyzWpr.W = w;
-                xyzWpr.P = p;
-                xyzWpr.R = r;
+                // 3. Assign Coordinates
+                targetXyzWpr.X = x;
+                targetXyzWpr.Y = y;
+                targetXyzWpr.Z = z;
+                targetXyzWpr.W = w;
+                targetXyzWpr.P = p;
+                targetXyzWpr.R = r;
 
-                // Check Reachability
+                // 4. CRITICAL: Manually copy the Configuration flags and Turn counts
+                targetXyzWpr.Config.Text = currentConfig.Text;
+
+                // 5. Check Reachability using LINEAR Motion Type
                 object missing = System.Type.Missing;
                 FRCMotionErrorInfo motionErrorInfo;
 
-                // Using the snippet provided by user, adapted for C# context
+                // Changed from frJointMotionType to frLinearMotionType
                 if (groupPos.IsReachable[missing, FREMotionTypeConstants.frJointMotionType, FREOrientTypeConstants.frAESWorldOrientType, missing, out motionErrorInfo])
                 {
                     IsReachable = true;
-                    // Commit changes to the controller
                     groupPos.Update();
-                    // _logAction?.Invoke($"[TeleopSubscriber] Robot Updated: {x:F2}, {y:F2}, {z:F2}", "#4CAF50"); // Optional: Log success (might be too spammy)
+
+                    try
+                    {
+                        // DEBUG: Inspect the type returned by RegNumerics
+                        object rawSpeedObj = robot.RegNumerics[SpeedRegisterId];
+                        // _logAction?.Invoke($"[TeleopSubscriber] SpeedReg Type: {rawSpeedObj.GetType().FullName}", "#FF00FF");
+
+                        // Attempt to cast to FRCRegNumeric explicitly
+                        // If this fails, we will know from the log above (if enabled) or the catch below
+                        if (rawSpeedObj is FRCRegNumeric speedReg)
+                        {
+                            // SAFETY: Clamp speed to minimum 1% and maximum 50% to prevent Faults (SRVO-171)
+                            float safeSpeed = Math.Min(Math.Max(speed, 1.0f), 50.0f);
+                            speedReg.RegFloat = safeSpeed;
+                        }
+                        else
+                        {
+                            // If it's not FRCRegNumeric, try dynamic as a fallback, but be careful
+                            // dynamic dynSpeed = rawSpeedObj;
+                            // dynSpeed.RegFloat = safeSpeed; 
+
+                            // For now, just log that we couldn't cast it
+                            // _logAction?.Invoke($"[TeleopSubscriber] SpeedReg is not FRCRegNumeric. It is: {rawSpeedObj.GetType().Name}", "#FFA500");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log only once or rarely to avoid spam
+                        // _logAction?.Invoke($"[TeleopSubscriber] Speed Update Error: {ex.Message}", "#FFA500");
+                    }
                 }
                 else
                 {
                     IsReachable = false;
-                    _logAction?.Invoke($"[TeleopSubscriber] Target Unreachable: X={x:F2}, Y={y:F2}, Z={z:F2}", "#FFA500");
+
+                    // 1. LOG THE COORDINATES: Are they huge (e.g., 50000) or normal (e.g., 500)?
+                    string values = $"X={x:F2}, Y={y:F2}, Z={z:F2}";
+
+                    // 2. LOG THE EXACT ERROR: This tells us WHY it failed
+                    string errorRaw = motionErrorInfo != null ? motionErrorInfo.ToString() : "Unknown Error";
+
+                    _logAction?.Invoke($"[TeleopSubscriber] Unreachable (Linear): X={x:F2}, Y={y:F2}, Z={z:F2}", "#FFA500", "Unreachable");
                 }
             }
             catch (Exception ex)
             {
                 // Often fails if robot is moving or locked
-                _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}", "#F44336");
+                _logAction?.Invoke($"[TeleopSubscriber] Robot Write Error: {ex.Message}", "#F44336", "RobotWriteError");
             }
         }
     }

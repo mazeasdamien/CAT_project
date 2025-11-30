@@ -17,7 +17,8 @@ public class TeleopDataPublisher : MonoBehaviour
 
     [Header("Teleoperation Settings")]
     [Tooltip("Speed value to publish (0-100%).")]
-    [SerializeField] private float speed = 100.0f;
+    [Range(0, 100)]
+    [SerializeField] private float speed = 10.0f;
 
     // DDS Entities
     private DataWriter<DynamicData> _writer;
@@ -133,10 +134,9 @@ public class TeleopDataPublisher : MonoBehaviour
             _sample.SetValue("Timestamp", (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
 
             // Position conversion (Unity -> Fanuc)
-            // Based on user requirements: X inverted, others scaled
-            _sample.SetValue("X", -_transform.localPosition.x * 100000);
-            _sample.SetValue("Y", _transform.localPosition.y * 100000);
-            _sample.SetValue("Z", _transform.localPosition.z * 100000);
+            _sample.SetValue("X", -_transform.localPosition.x * 1000);
+            _sample.SetValue("Y", _transform.localPosition.y * 1000);
+            _sample.SetValue("Z", _transform.localPosition.z * 1000);
 
             // Rotation conversion (Quaternion -> Fanuc WPR)
             Vector3 wpr = CreateFanucWPRFromQuaternion(_transform.localRotation);
@@ -151,7 +151,7 @@ public class TeleopDataPublisher : MonoBehaviour
             _writer.Write(_sample);
 
             // Debug Log
-            Debug.Log($"[TeleopPublisher] Sent: Id={_sequenceId}, X={-_transform.localPosition.x * 100000:F2}, Y={_transform.localPosition.y * 100000:F2}, Z={_transform.localPosition.z * 100000:F2}, Speed={speed:F1}");
+            Debug.Log($"[TeleopPublisher] Sent: Id={_sequenceId}, X={-_transform.localPosition.x * 1000:F2}, Y={_transform.localPosition.y * 1000:F2}, Z={_transform.localPosition.z * 1000:F2}, Speed={speed:F1}");
         }
         catch (System.Exception ex)
         {
@@ -167,13 +167,10 @@ public class TeleopDataPublisher : MonoBehaviour
     private Vector3 CreateFanucWPRFromQuaternion(Quaternion q)
     {
         // Calculate Euler angles manually to match Fanuc convention
-        // Note: Unity's eulerAngles might not match the specific sequence Fanuc expects, so we use the provided math.
-
         float W = Mathf.Atan2(2 * ((q.w * q.x) + (q.y * q.z)), 1 - 2 * (Mathf.Pow(q.x, 2) + Mathf.Pow(q.y, 2))) * (180 / Mathf.PI);
         float P = Mathf.Asin(2 * ((q.w * q.y) - (q.z * q.x))) * (180 / Mathf.PI);
         float R = Mathf.Atan2(2 * ((q.w * q.z) + (q.x * q.y)), 1 - 2 * (Mathf.Pow(q.y, 2) + Mathf.Pow(q.z, 2))) * (180 / Mathf.PI);
 
-        // User specified return format: W, -P, -R
         return new Vector3(W, -P, -R);
     }
 }

@@ -59,14 +59,14 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <TextBlock Text="About" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Grid.Row="0"/>
+        <TextBlock Text="About" FontSize="24" FontWeight="Bold" Foreground="#00FFFF" HorizontalAlignment="Center" Grid.Row="0"/>
 
         <!-- Content -->
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="CAT Control Interface" FontSize="18" FontWeight="SemiBold" Foreground="#007ACC" HorizontalAlignment="Center" Margin="0,0,0,10"/>
             <TextBlock Text="Created by Damien Mazeas" FontSize="14" Foreground="#CCCCCC" HorizontalAlignment="Center" Margin="0,0,0,20"/>
             
-            <TextBlock Text="This project enables bidirectional communication" Foreground="#AAAAAA" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,5"/>
+            <TextBlock Text="This application enables bidirectional communication" Foreground="#AAAAAA" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,5"/>
             <TextBlock Text="between Unity and Fanuc Robots via DDS." Foreground="#AAAAAA" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,20"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">

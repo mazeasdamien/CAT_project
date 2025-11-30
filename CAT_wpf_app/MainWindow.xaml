@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CAT_wpf_app"
         mc:Ignorable="d"
-        Title="CAT Fanuc Node" Height="800" Width="900"
+        Title="Cognitive-Adaptive Telexistence - Fanuc Node" Height="800" Width="900"
+        Icon="app_icon.ico"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent"
         ResizeMode="CanResizeWithGrip">
     
@@ -91,9 +92,10 @@
 
                 <!-- Icon/Title -->
                 <StackPanel Orientation="Horizontal" Margin="10,0,0,0" VerticalAlignment="Center">
-                    <!-- Icon placeholder -->
-                    <Path Data="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" Fill="#007ACC" Width="16" Height="16" Stretch="Uniform" Margin="0,0,10,0"/>
-                    <TextBlock Text="CAT Fanuc Node" FontSize="12" VerticalAlignment="Center" Foreground="#CCCCCC"/>
+                    <!-- Robot Icon -->
+                    <Path Data="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H18A2,2 0 0,1 20,9V11H22V13H20V17A2,2 0 0,1 18,19H15V21H13V19H11V21H9V19H6A2,2 0 0,1 4,17V13H2V11H4V9A2,2 0 0,1 6,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M6,9V17H18V9H6M9,12A1.5,1.5 0 0,0 7.5,13.5A1.5,1.5 0 0,0 9,15A1.5,1.5 0 0,0 10.5,13.5A1.5,1.5 0 0,0 9,12M15,12A1.5,1.5 0 0,0 13.5,13.5A1.5,1.5 0 0,0 15,15A1.5,1.5 0 0,0 16.5,13.5A1.5,1.5 0 0,0 15,12Z" 
+                          Fill="#00FFFF" Width="18" Height="18" Stretch="Uniform" Margin="0,0,10,0"/>
+                    <TextBlock Text="Cognitive-Adaptive Telexistence - Fanuc Node" FontSize="12" VerticalAlignment="Center" Foreground="#00FFFF"/>
                 </StackPanel>
 
                 <Button Grid.Column="1" Content="About" Command="{Binding OpenAboutCommand}" Style="{StaticResource TitleBarButton}" HorizontalAlignment="Right" Margin="0,0,10,0" Width="60"/>
@@ -116,41 +118,19 @@
                 <!-- Controls Panel -->
                 <Border Grid.Column="0" Background="#252526" CornerRadius="5" Padding="15" Margin="0,0,10,10">
                     <StackPanel>
-                        <TextBlock Text="Control Panel" FontWeight="Bold" Margin="0,0,0,10"/>
+                        <TextBlock Text="Fanuc robot" FontWeight="Bold" Margin="0,0,0,10"/>
                         
                         <Grid Margin="0,0,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Grid.Column="0" Content="Start Node" Command="{Binding StartCommand}" Style="{StaticResource StandardButton}" Background="#2E7D32" Height="35" Margin="0,0,5,0"/>
-                            <Button Grid.Column="1" Content="Stop Node" Command="{Binding StopCommand}" Style="{StaticResource StandardButton}" Background="#C62828" Height="35" Margin="5,0,0,0"/>
+                            <Button Grid.Column="0" Content="Connect" Command="{Binding StartCommand}" Style="{StaticResource StandardButton}" Background="#2E7D32" Height="35" Margin="0,0,5,0"/>
+                            <Button Grid.Column="1" Content="Disconnect" Command="{Binding StopCommand}" Style="{StaticResource StandardButton}" Background="#C62828" Height="35" Margin="5,0,0,0"/>
                         </Grid>
 
                         <Separator Background="#3E3E42" Margin="0,15"/>
 
-                        <TextBlock Text="Status" FontWeight="Bold" Margin="0,0,0,5"/>
-                        
-                        <Grid Margin="0,5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="Robot:" FontWeight="SemiBold"/>
-                            <TextBlock Grid.Column="1" Text="{Binding RobotStatus}" HorizontalAlignment="Right" Foreground="{Binding RobotStatusColor}"/> 
-                        </Grid>
-
-                        <Grid Margin="0,5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="DDS:" FontWeight="SemiBold"/>
-                            <TextBlock Grid.Column="1" Text="{Binding DdsStatus}" HorizontalAlignment="Right"/>
-                        </Grid>
-
-                        <Separator Background="#3E3E42" Margin="0,15"/>
-                        
                         <TextBlock Text="Configuration" FontWeight="Bold" Margin="0,0,0,5"/>
                         <Grid Margin="0,5">
                              <Grid.ColumnDefinitions>
@@ -183,6 +163,40 @@
                             <Button Grid.Column="2" Content="..." Command="{Binding BrowseLicenseCommand}" Width="25" Style="{StaticResource StandardButton}" IsEnabled="{Binding IsRunning, Converter={x:Static local:InverseBooleanConverter.Instance}}"/>
                         </Grid>
 
+                        <Separator Background="#3E3E42" Margin="0,15"/>
+
+                        <TextBlock Text="Status" FontWeight="Bold" Margin="0,0,0,5"/>
+                        
+                        <Grid Margin="0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Robot:" FontWeight="SemiBold"/>
+                            <TextBlock Grid.Column="1" Text="{Binding RobotStatus}" HorizontalAlignment="Right" Foreground="{Binding RobotStatusColor}"/> 
+                        </Grid>
+
+                        <Grid Margin="0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="DDS:" FontWeight="SemiBold"/>
+                            <TextBlock Grid.Column="1" Text="{Binding DdsStatus}" HorizontalAlignment="Right"/>
+                        </Grid>
+
+                        <Separator Background="#3E3E42" Margin="0,15"/>
+
+                        <TextBlock Text="Robot Control" FontWeight="Bold" Margin="0,0,0,5"/>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Column="0" Content="Abort" Command="{Binding AbortCommand}" Style="{StaticResource StandardButton}" Background="#D32F2F" Height="35" Margin="0,0,2,0" ToolTip="Abort All Tasks"/>
+                            <Button Grid.Column="1" Content="Reset" Command="{Binding ResetCommand}" Style="{StaticResource StandardButton}" Background="#FBC02D" Foreground="Black" Height="35" Margin="2,0,0,0" ToolTip="Reset Alarms"/>
+                        </Grid>
+                        <Button Content="Start Teleoperation" Command="{Binding StartTeleopProgramCommand}" Style="{StaticResource StandardButton}" Background="#43A047" Height="35" Margin="0,0,0,5" ToolTip="Start DAMIEN_UNITY program."/>
 
                     </StackPanel>
                 </Border>
@@ -402,7 +416,7 @@
                                         <TextBlock Text="Parameters" FontWeight="SemiBold" Margin="0,0,0,10" Foreground="#64B5F6"/>
                                         <Grid>
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="85"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
                                             <Grid.RowDefinitions>
@@ -453,6 +467,32 @@
                                         </StackPanel>
                                     </Grid>
                                 </Grid>
+                            </Grid>
+                        </TabItem>
+
+                        <TabItem Header="Alarm Log">
+                            <Grid Margin="0,10,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0" Margin="0,0,0,5">
+                                    <TextBlock Text="Robot Alarms" FontWeight="Bold" VerticalAlignment="Center"/>
+                                    <Button Content="Clear" Command="{Binding ClearAlarmLogsCommand}" HorizontalAlignment="Right" Width="60" Height="25" Style="{StaticResource StandardButton}"/>
+                                </Grid>
+
+                                <Border Grid.Row="1" Background="#1E1E1E" CornerRadius="5" Padding="5">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <ItemsControl ItemsSource="{Binding AlarmLogs}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Text}" Foreground="{Binding Color}" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap" Margin="0,2"/>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
+                                </Border>
                             </Grid>
                         </TabItem>
                     </TabControl>

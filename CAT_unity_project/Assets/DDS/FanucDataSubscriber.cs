@@ -160,10 +160,9 @@ public class FanucDataSubscriber : MonoBehaviour
                     float j5 = (float)data.GetValue<double>("J5");
                     float j6 = (float)data.GetValue<double>("J6");
 
-                    // Fanuc sends position in mm, Unity uses meters. Divide by 100000.(beacaus model was scale 100)
-                    float x = (float)data.GetValue<double>("X") / 100000;
-                    float y = (float)data.GetValue<double>("Y") / 100000;
-                    float z = (float)data.GetValue<double>("Z") / 100000;
+                    float x = (float)data.GetValue<double>("X") / 1000;
+                    float y = (float)data.GetValue<double>("Y") / 1000;
+                    float z = (float)data.GetValue<double>("Z") / 1000;
                     float w = (float)data.GetValue<double>("W");
                     float p = (float)data.GetValue<double>("P");
                     float r = (float)data.GetValue<double>("R");
