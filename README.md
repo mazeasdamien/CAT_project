@@ -1,153 +1,182 @@
-# CAT Project - Digital Twin Interface
+# Cognitive-Adaptive Telexistence (CAT) - Fanuc Node
 
-This project implements a real-time Digital Twin interface for industrial robotic systems, specifically Fanuc robots. It bridges the physical world (or simulated Roboguide environment) with a digital visualization in Unity using the Data Distribution Service (DDS) for high-performance, real-time communication.
+**A high-performance Digital Twin interface for Fanuc industrial robots, bridging the physical world with Unity via RTI Connext DDS.**
+
+---
+
+## 📖 Overview
+
+The **CAT Project** implements a real-time, bidirectional interface between a Fanuc Robot Controller (physical or simulated in RoboGuide) and a Unity-based virtual environment. It leverages the **Data Distribution Service (DDS)** standard to ensure low-latency, reliable communication suitable for teleoperation and remote monitoring.
+
+### Key Features
+*   **Real-time Monitoring**: Streams robot joint angles and Cartesian position to Unity at high frequency (>30Hz).
+*   **Teleoperation**: Allows an operator in Unity (VR or Desktop) to control the physical robot.
+*   **Safety First**: Implements reachability checks, limit verification, and "dead-man" switches to prevent unsafe movements.
+*   **DDS Integration**: Uses RTI Connext DDS for robust, decoupled communication.
+
+---
 
 ## 🏗 System Architecture
 
-The system consists of two main applications communicating bidirectionally via RTI Connext DDS:
+The system consists of two main applications:
 
-1.  **WPF Application (`CAT_wpf_app`)**: 
-    *   **Publisher**: Connects to the Fanuc Robot Controller, reads the robot's state (Joints & Cartesian), and publishes it to DDS.
-    *   **Subscriber**: Subscribes to teleoperation commands from Unity and updates the robot's registers.
-2.  **Unity Application (`CAT_unity_project`)**: 
-    *   **Subscriber**: Receives robot state updates and visualizes the robot's movement.
-    *   **Publisher**: Publishes teleoperation commands (Target Pose & Speed) based on user interaction.
+### 1. WPF Application (`CAT_wpf_app`)
+Acts as the **Edge Node** or "Driver". It runs on the Windows PC connected to the robot controller.
+*   **Libraries**: Uses `FRRobot.dll` (Fanuc PCDK) for robot communication and `rcsd_net.dll` (RTI DDS) for network data.
+*   **Role**:
+    *   **Publisher**: Reads `CurPosition` (Joints/World) and publishes to `RobotState_Topic`.
+    *   **Subscriber**: Listens to `OperatorNewPose_Topic` and writes to the robot's Position Registers.
 
+### 2. Unity Application (`CAT_unity_project`)
+Acts as the **Operator Station**.
+*   **Role**:
+    *   **Subscriber**: Visualizes the robot's live state.
+    *   **Publisher**: Sends target joint configurations based on operator input.
+
+### Data Flow Diagram
 ```mermaid
 graph LR
-    subgraph WPF App
-    A[RobotStatePublisher]
-    B[TeleopSubscriber]
-    end
-    
-    subgraph Unity App
-    C[FanucDataSubscriber]
-    D[TeleopDataPublisher]
-    E[BioDataPublisher]
+    subgraph "Edge Node (WPF)"
+        A[Robot Controller] <== PCDK ==> B[WPF App]
+        B -- "RobotState (J1-J6, XYZ)" --> DDS((DDS Network))
+        DDS -- "OperatorNewPose (J1-J6)" --> B
     end
 
-    A -- "RobotState_Topic" --> C
-    D -- "OperatorPose_Topic" --> B
-    E -. "OperatorBioState_Topic" .-> F((DDS))
+    subgraph "Operator Station (Unity)"
+        C[Unity App] -- "OperatorNewPose" --> DDS
+        DDS -- "RobotState" --> C
+    end
 ```
 
 ---
 
-## 🖥️ WPF Application
+## 📂 Repository Structure
 
-Located in: `CAT_wpf_app/`
-
-The WPF application is a standalone desktop tool for robot control and monitoring.
-
-### Key Components
-*   **`RobotStatePublisher.cs`**: 
-    *   **Data Acquisition**: Polls the robot's `CurPosition` (Joints & World) via `FRRobot`.
-    *   **Change Detection**: Publishes data only when changes exceed a threshold (`0.0001`).
-    *   **Topic**: `RobotState_Topic`.
-*   **`TeleopSubscriber.cs`**: 
-    *   **Role**: Receives teleoperation commands from Unity.
-    *   **Action**: Updates the robot's Position Register `PR[3]` with the received target pose.
-    *   **Topic**: `OperatorPose_Topic`.
-*   **`MainViewModel.cs`**: Orchestrates the application logic, handles UI binding, and manages DDS entities.
-
-### User Interface
-The UI has been enhanced with a **Live Robot Data** panel containing two tabs:
-*   **Robot State**: Displays real-time Joint angles (J1-J6) and Cartesian coordinates (X, Y, Z, W, P, R).
-*   **Teleoperation**: Visualizes the incoming target pose and speed from Unity, along with reception statistics (Samples Received, Rate).
-
----
-
-## 🎮 Unity Application
-
-Located in: `CAT_unity_project/`
-
-The Unity project serves as the visualization and control interface.
-
-### Key Scripts (Assets/DDS)
-
-#### 1. `DDSHandler.cs`
-**Role:** Central DDS Manager / Singleton
-*   Initializes the DDS `DomainParticipant` using `QOS.xml`.
-*   Manages the lifecycle of DDS entities.
-
-#### 2. `FanucDataSubscriber.cs`
-**Role:** Robot State Visualizer
-*   Subscribes to `RobotState_Topic`.
-*   Converts Fanuc coordinates (Right-Handed, mm) to Unity coordinates (Left-Handed, m).
-*   Updates the 3D robot model's joint angles.
-
-#### 3. `TeleopDataPublisher.cs`
-**Role:** Teleoperation Source
-*   Tracks a target GameObject in Unity.
-*   Publishes its position, rotation, and speed to `OperatorPose_Topic`.
-*   Handles coordinate conversion (Unity -> Fanuc).
-
-#### 4. `BioDataPublisher.cs`
-**Role:** Human Simulation
-*   Simulates operator physiological state (Stress, Pupil Diameter) from CSV data.
-*   Publishes to `OperatorBioState_Topic`.
-
-### Mathematical Conversions
-
-#### Coordinate System
-*   **Fanuc**: Right-Handed, Millimeters.
-*   **Unity**: Left-Handed, Meters.
-*   **Scaling Factor**: 100 (Project specific).
-
-$$
-\begin{aligned}
-X_{Unity} &= -\frac{X_{Fanuc}}{100} \\
-Y_{Unity} &= \frac{Y_{Fanuc}}{100} \\
-Z_{Unity} &= \frac{Z_{Fanuc}}{100}
-\end{aligned}
-$$
-
-#### Orientation
-Fanuc WPR (Euler) $\leftrightarrow$ Unity Quaternion conversions are handled automatically, including the necessary axis remapping.
+```text
+IFAC_Project/
+├── CAT_wpf_app/                 # C# WPF Application
+│   ├── MainViewModel.cs         # Core Logic & UI Binding
+│   ├── RobotStatePublisher.cs   # DDS Publisher (Robot -> DDS)
+│   ├── TeleopSubscriber.cs      # DDS Subscriber (DDS -> Robot)
+│   ├── MainWindow.xaml          # User Interface
+│   └── ...
+├── CAT_unity_project/           # Unity 3D Project
+│   ├── Assets/
+│   │   ├── DDS/                 # DDS Scripts
+│   │   │   ├── DDSHandler.cs    # DDS Lifecycle Manager
+│   │   │   ├── FanucDataSubscriber.cs
+│   │   │   └── TeleopDataPublisher.cs
+│   │   └── ...
+├── QOS.xml                      # DDS Quality of Service Profile
+├── rti_license.dat              # RTI Connext License File
+└── README.md                    # This file
+```
 
 ---
 
-## 📡 DDS Configuration
+## ⚙️ Prerequisites
 
-### Data Structures
+### Hardware
+*   **Fanuc Robot** (e.g., CRX-10iA) or **Fanuc RoboGuide** simulation.
+*   Windows PC (Windows 10/11).
+*   Ethernet connection to the robot.
 
-#### 1. `RobotState` (Robot -> Unity)
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `Clock` | String | Timestamp |
-| `Sample` | Int | Sample ID |
-| `J1` - `J6` | Double | Joint angles (Deg) |
-| `X`, `Y`, `Z` | Double | Position (mm) |
-| `W`, `P`, `R` | Double | Orientation (Deg) |
-
-#### 2. `TeleopData` (Unity -> Robot)
-| Field | Type | Description |
-| :--- | :--- | :--- |
-| `Id` | String | Sequence ID |
-| `Timestamp` | Double | Time in seconds (Epoch) |
-| `X`, `Y`, `Z` | Float | Target Position (mm) |
-| `W`, `P`, `R` | Float | Target Orientation (Deg) |
-| `Speed` | Float | Movement Speed |
-
-### QoS Profile
-Settings are loaded from `QOS.xml` (Default: `RigQoSLibrary::RigQoSProfile`).
+### Software
+1.  **RTI Connext DDS** (Version 6.x or 7.x).
+2.  **Fanuc PC Developer's Kit (PCDK)**: Required for `FRRobot.dll`.
+3.  **Visual Studio 2022**: For building the WPF app.
+4.  **Unity 2022.3 LTS** (or newer): For the visualization app.
 
 ---
 
-## 🚀 Setup & Usage
+## 🚀 Installation & Setup
 
-1.  **Prerequisites**:
-    *   RTI Connext DDS installed.
-    *   `rti_license.dat` in project roots.
-    *   Fanuc Roboguide or Real Robot.
+### 1. DDS Configuration
+*   Ensure `rti_license.dat` is placed in the root of both the WPF project and the Unity project (or set `RTI_LICENSE_FILE` environment variable).
+*   The `QOS.xml` file defines the network behavior. Ensure it is present in the execution directory.
 
-2.  **WPF App**:
-    *   Build & Run `CAT_wpf_app`.
-    *   Enter Robot IP and Connect.
-    *   Monitor "Robot State" tab for live data.
-    *   Monitor "Teleoperation" tab for incoming commands.
+### 2. WPF Application
+1.  Open `CAT_wpf_app.sln` in Visual Studio.
+2.  **References**: Ensure `FRRobot.dll` is referenced. If missing, locate it in your Fanuc PCDK installation (usually `C:\Program Files (x86)\FANUC\Shared\Controls\FRRobot.dll`).
+3.  **NuGet Packages**: Restore NuGet packages (RTI DDS libraries).
+4.  **Build**: Build the solution (Debug or Release).
 
-3.  **Unity App**:
-    *   Open `CAT_unity_project`.
-    *   Play the scene.
-    *   Move the Teleop Target object to send commands to the robot.
+### 3. Unity Application
+1.  Open the `CAT_unity_project` folder in Unity Hub.
+2.  Ensure the RTI DDS C# libraries are present in `Assets/Plugins` (if not managed by a package).
+3.  Open the main scene (e.g., `Assets/Scenes/MainScene.unity`).
+
+---
+
+## 🎮 Usage Guide
+
+### Phase 1: Start the WPF Node
+1.  Run `CAT_wpf_app.exe`.
+2.  **Configuration**:
+    *   **IP**: Enter the Robot's IP address (e.g., `127.0.0.1` for RoboGuide).
+    *   **QOS/Lic**: Verify paths to XML and License files.
+3.  **Connect**: Click the green **Connect** button.
+    *   *Status should change to "Connected" (Green).*
+    *   *Live Robot Data (J1-J6) should appear in the "Robot State" tab.*
+
+### Phase 2: Start Unity Visualization
+1.  Press **Play** in the Unity Editor.
+2.  The virtual robot should immediately snap to the physical robot's pose.
+3.  *Verify*: Move the physical robot (or jog in RoboGuide); the Unity robot should follow instantly.
+
+### Phase 3: Teleoperation (Control Robot from Unity)
+**⚠️ WARNING: Ensure the robot area is clear. Teleoperation moves the robot automatically.**
+
+1.  **WPF App**: Go to the **Teleoperation** tab.
+2.  **Unity**: Enable "Teleop Mode" (or move the Target Ghost object).
+    *   *You should see "Target Joints" changing in the WPF App.*
+    *   *Reachability should say "Reachable" (Green).*
+3.  **WPF App**:
+    *   Click **Reset** (Yellow) to clear any existing faults.
+    *   Click **Start Teleoperation** (Green).
+    *   *The robot will now follow the Unity target.*
+4.  **Stop**: Click **Abort** (Red) or **Disconnect** to stop immediately.
+
+---
+
+## 📡 Technical Details: DDS Topics
+
+### 1. `RobotState_Topic` (Robot $\to$ Unity)
+*   **Type Name**: `RobotState`
+*   **Structure**:
+    *   `Clock` (String): Timestamp.
+    *   `Sample` (Int): Sequence number.
+    *   `J1`...`J6` (Double): Joint angles in **Degrees**.
+    *   `X`, `Y`, `Z`, `W`, `P`, `R` (Double): Cartesian pose (mm, deg).
+
+### 2. `OperatorNewPose_Topic` (Unity $\to$ Robot)
+*   **Type Name**: `OperatorNewPose`
+*   **Structure**:
+    *   `J1`...`J6` (Double): Target Joint angles in **Degrees**.
+    *   `Samples` (Int): Sequence number.
+
+---
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+**1. `SRVO-115 Limit Error` (Robot Fault)**
+*   **Cause**: The robot received a target position of `0,0,0,0,0,0` (all zeros), which is often unreachable or out of bounds.
+*   **Fix**:
+    *   Ensure Unity is running **before** clicking "Start Teleoperation".
+    *   Check the "Target Joints" in the WPF Teleop tab. Do **not** start if they are all zeros.
+    *   Click **Reset** in the WPF app to clear the fault.
+
+**2. "DDS Participant is not initialized"**
+*   **Cause**: Missing license file or invalid `QOS.xml`.
+*   **Fix**: Check the "System Logs" in the WPF app. Ensure `rti_license.dat` is valid and accessible.
+
+**3. Robot Connection Failed**
+*   **Cause**: Wrong IP, or RoboGuide is not running.
+*   **Fix**: Ping the robot IP from command prompt. Ensure "PC Interface" option is enabled on the robot.
+
+---
+
+## 📝 Authors
+*   **Damien Mazeas** - *IFAC Project*
