@@ -43,12 +43,11 @@ Loading C:\Program Files (x86)\FANUC\Shared\Off Line\FRVRC\V9.40\bin\DRASKER.DLL
 Switching states: old = STARTUP   new = STARTUP 
 [ntinit] TmpWrk3 wanted 370MB and got 307MB
 [ntinit] TmpWrk  BaseAddress: 0x10550000 RegionSize:  27648KB Protections: 0x00000004
-[ntinit] TmpWrk2 BaseAddress: 0x07CD0000 RegionSize: 122880KB Protections: 0x00000004
+[ntinit] TmpWrk2 BaseAddress: 0x07EF0000 RegionSize: 122880KB Protections: 0x00000004
 [ntinit] TmpWrk3 BaseAddress: 0x2D150000 RegionSize: 315072KB Protections: 0x00000004
 [NTINIT] Frequency 10000000, Ticks/ms 10000 BusClock 40000000
 [IEWTQ] Count = 0 add to head/tail task: 199  cnt: 24  pri: 10
-[NTPORT] Ready for connections at 9100
-ution discovery suceeded, min res: 1 ms
+[osppc] Virtual Clock timer device resolution discovery suceeded, min res: 1 ms
 [NTPORT] Ready for connections at 9101
 [NTPORT] Ready for connections at 9102
 [NTPORT] Ready for connections at 9103
@@ -65,7 +64,7 @@ Updated $MED_PATH to = C:\ProgramData\FANUC\FRVRC Media\V9.40
 Updated $UD1_PATH to = c:\users\DAMIEN~1\desktop\IFAC_P~1\FANUCW~1\robot_1\ud1
 Updated $UD2_PATH to = C:\Users\Damien Mazeas\Documents\My Workcells\Fanuc workcell\Robot_1\UD2
 Updated $UT1_PATH to = C:\Users\Damien Mazeas\Documents\My Workcells\Fanuc workcell\Robot_1\UT1
-[syinit] bootrom time: 72755 ms
+[syinit] bootrom time: 243673 ms
 [syinit] ** HOT START **
 [syinit] System Version V9.40107      7/23/2021
 [ERLOG] Waiting for UIF to start up
@@ -81,12 +80,12 @@ Updated $UT1_PATH to = C:\Users\Damien Mazeas\Documents\My Workcells\Fanuc workc
 [dpinit] setting cur lang to NULL
 [dpsetlng] setting cur lang to DEFAULT     
 [tppascon_config] wait for EVB_SPINITDONE
-[syinit] start at 30-NOV-25 21:20:24 
+[syinit] start at 01-DEC-25 19:20:24 
 [sycfgmen] cfgmenu_p 0x407C4CE4
 [ostkinit] sending F_WRIT to 201
 [ostkinit] TPWDOG_CHK+2 $1000
 [ostkinit] sending F_READ to 201
-[syinisb0] tpid check ltp = 0x681ACE8, tpid = 49
+[syinisb0] tpid check ltp = 0x6DE898, tpid = 49
 [NTSYIN_STEP] Startup Step #1
 VMGR for R-30iB V8.30
 [mktskmem] use static 2000 pages for tid:  52
@@ -95,8 +94,8 @@ VMGR for R-30iB V8.30
 [vminit] Loading 2 temp 153007108 remaining of 154052600
 [vminit_loadctx] Loaded FRB:\S-SYSTEM.PRV only
 [vminit_loadctx] Loaded FRB:\S-INTERN.PRV only
-[vminit_loadctx] Done Loading Time = 107014us
-[vminit] after 2 temp 150635032 remaining of 154052600, took 0ms
+[vminit_loadctx] Done Loading Time = 111274us
+[vminit] after 2 temp 150631888 remaining of 154052600, took 0ms
 [NTSYIN_STEP] Startup Step #2
 [NTFRCPY] Did not load \TMILIB.DLL
 [NTSYIN_STEP] Startup Step #3
@@ -125,9 +124,9 @@ Web Enhancements installed
 [syinisb0] Legacy 2, tpid = 49
 [dpsetlng] setting cur lang to DEFAULT     
 [tppascon_config] wait for EVB_SPINITDONE
-[dpimage_restctx] Loading DEFAULT      dictionaries pool_avail = 150107964
+[dpimage_restctx] Loading DEFAULT      dictionaries pool_avail = 150104820
 [dpimage_restctx] Ref time cached:120ms nocache:620ms, Numfiles = 291 Time 0ms
-[dpimage_restctx] Dictionaries loaded pool_avail = 148585848
+[dpimage_restctx] Dictionaries loaded pool_avail = 148582704
 [dpsetlng] setting cur lang to DEFAULT     
 [tppascon_config] wait for EVB_SPINITDONE
 [NTSYIN_STEP] Startup Step #4
@@ -137,25 +136,29 @@ Web Enhancements installed
 [NTFRCPY] Did not load \DCSTSK.DLL
 [NTFRCPY] Did not load \DHCP.DLL
 [NTFRCPY] Did not load \IOSLCTSK.DLL
+[osppc] Timer sync timeout! tid: 187
 [NTFRCPY] Did not load \PBCTLRUN.DLL
 [NTFRCPY] Did not load \PWMAINSP.DLL
+[osppc] Timer sync timeout! tid: 187
 [NTFRCPY] Did not load \SFTEDT.DLL
+[osppc] Timer sync timeout! tid: 187
 [NTFRCPY] Did not load \SNTP.DLL
 [NTFRCPY] Did not load \SYUSRCPY.DLL
 [NTFRCPY] Did not load \TLIFTSK.DLL
 [NTFRCPY] Did not load \TPFICD.DLL
+[osppc] Timer sync timeout! tid: 187
 [NTFRCPY] Did not load \UECK.DLL
-[SYSINISB0] spspload reference time 44355 ms, This Time 954ms
-[vminit] Loading 3 temp 148501180 remaining of 154052600
+[SYSINISB0] spspload reference time 44355 ms, This Time 20202ms
+[vminit] Loading 3 temp 148498036 remaining of 154052600
 [vminit_loadctx] Loading all files (VMGR/PVAR Suspended)
-[vminit_loadctx] Done Loading Time = 187871us
+[vminit_loadctx] Done Loading Time = 236601us
 [vmshadow_cleanup] Redirected from task 187 to TID_VMSC
-[vmimage_bakfile] FRB:s-posreg.PRV at 30-NOV-25 21:20:26  (322)
-[vmimage_bakfile] FRB:s-system.PRV at 30-NOV-25 21:20:26  (322)
-[vminit] after 3 temp 145076448 remaining of 154052600, took 0ms
+[vmimage_bakfile] FRB:s-posreg.PRV at 01-DEC-25 19:20:48  (322)
+[vmimage_bakfile] FRB:s-system.PRV at 01-DEC-25 19:20:48  (322)
+[vminit] after 3 temp 145071032 remaining of 154052600, took 0ms
 [Syin] Mobo start 0xFFFFFFFF
 [NTSYIN_STEP] Startup Step #5
-[SYINISB)] total time 3873
+[SYINISB)] total time 24235
 [NTSYIN_STEP] Startup Step #6
 [NTSYIN_STEP] Startup Step #7
 [SYINISUB] Saving user device UD1:
@@ -167,7 +170,7 @@ Web Enhancements installed
 [syinit] : calling iosetup
 [ripini] Initializing
 [rosip] Entering baseinit, waiting on packet rate =2
-[ripini] Sending init packet 1, 388, 0x11FD0ACC
+[ripini] Sending init packet 1, 388, 0x11E89F38
 [rosip] Initialization not successful
 [NTSYIN_STEP] Startup Step #10
 pmgr-sector set 100
@@ -186,8 +189,8 @@ pmgr-sector set 100
 [SMTP] $SYS_TIME not available
 [NTSYIN_STEP] Startup Step #19
 [ERLOG] continue stat = 0x0
-[rcmplg] RCMCFG_BASE $681C0E0, rcmcfg_p $11E54044
-[rcmutl] Remote Connect Manager V1.2@0x76F5089
+[rcmplg] RCMCFG_BASE $6DCC78, rcmcfg_p $11E533FC
+[rcmutl] Remote Connect Manager V1.2@0x6495089
 [RMCN] Loading FR:\RCMCFG.XML
 [rcmlib_parseurl] Added forward slash
 [rcmlib_parseurl] Error not in format http://
@@ -204,6 +207,7 @@ pmgr-sector set 100
 [TPGL_InstID] allocated instance 2 3 0 255 
 [vmshadow_cleanup] Redirected from task 72 to TID_VMSC
 [NTSYIN_STEP] Startup Step #26
+[osppc] Timer sync timeout! tid: 72
 [sytimque]: trigger loaded 0
 [CHND] Low Priority Condition Handler started.
 [CHND] init done. starting scanning
@@ -250,20 +254,20 @@ syopinsp-Jog in Auto used: 1
 [SYINISUB] Saving user device UD1:
 [NTSYIN_STEP] Startup Step #33
 [DEBUG] Entering moinit
-[sfmdest] null_flg_p:10A0D960
-[pmgr]shakehand px01, px_starting=1022
-[pmgr]shakehand px02, px_starting=1020
-[pmgr]shakehand px03, px_starting=1016
-[pmgr]shakehand px04, px_starting=1008
-[pmgr]shakehand px05, px_starting=992
-[pmgr]shakehand px06, px_starting=960
-[pmgr]shakehand px07, px_starting=896
-[pmgr]shakehand px08, px_starting=768
-[pmgr]shakehand px09, px_starting=512
-[pmgr]shakehand px010, px_starting=0
+[sfmdest] null_flg_p:10BF44B0
+[pmgr]shakehand px02, px_starting=1021
+[pmgr]shakehand px03, px_starting=1017
+[pmgr]shakehand px04, px_starting=1009
+[pmgr]shakehand px05, px_starting=993
+[pmgr]shakehand px06, px_starting=961
+[pmgr]shakehand px07, px_starting=897
+[pmgr]shakehand px08, px_starting=769
+[pmgr]shakehand px09, px_starting=513
+[pmgr]shakehand px010, px_starting=1
+[pmgr]shakehand px01, px_starting=0
 [PMPT] Not Required
 [SRIF] Not Need
-[miinit][1] posted init PKT <EBEA3F4> to task<72> (0)
+[miinit][1] posted init PKT <EC2231C> to task<72> (0)
 [miinit] Mount $SPL_MOR_GRP[1] fail. stat = 100006 
  [mpinit] initialize mb_fp
 [mpinit] after mpdyinit
@@ -277,10 +281,10 @@ syopinsp-Jog in Auto used: 1
 [nectkini] finish wake up  stat = 0
 [moinit] done
 [ostksock_timeout] g_ce_mode 0
-[ostksock_create] Socket 1588 binding to IP port # 60004
+[ostksock_create] Socket 1652 binding to IP port # 60004
 [ostksock_create] T-X IP address <001.001.001.011>
 start set_risc_global 
-  RISC global address 11EA45EC
+  RISC global address 11D274BC
   PHYSICAL ITP = 8
   IDLING NUM = 1
 FINISH !!
@@ -301,7 +305,7 @@ SEC -001 Security Config Mismatch
 [TELNET] Ethernet event flag received.
 [miinit] done 
 [SYINISUB] Checking $repower.$flag
-[syinisub] TICK_OFFSET 681C064 to 0
+[syinisub] TICK_OFFSET 6DCBFC to 0
 [vmshadow_cleanup] Redirected from task 72 to TID_VMSC
 [NTSYIN_STEP] Startup Step #34
 [syinisub] TPID = 0x31 !!!!!!!!!!!!!!!!!!!!!!!!!
@@ -350,7 +354,7 @@ Ready to run SHELL
 [symonutl] Getting data (3EA, 0)
 [symonutl] Fail to get mac from I2C (1)
 [vmshadow_cleanup] Redirected from task 72 to TID_VMSC
-SYINISUB TOTAL TIME 7445
+SYINISUB TOTAL TIME 7937
 [SYINISUB] restored user device UD1:
 [NTSYIN_STEP] Startup Step #40
 [TPSPART] Found KAREL ATMSKCHG 200
@@ -360,39 +364,39 @@ SYINISUB TOTAL TIME 7445
 [TPSPART] Found KAREL ATPRSCRN 932
 [TPSPART] Found KAREL ATPASWRD 935
 [TPSPART] Found KAREL ATINSTAL 936
-[TPKSINIT] dname -K943- not found devstat = 0 cfg $109B83B0
+[TPKSINIT] dname -K943- not found devstat = 0 cfg $10B91F28
 [TPSPART] Found KAREL ATCELLIO 955
-[TPKSINIT] dname -K972- not found devstat = 0 cfg $109B8144
-[TPKSINIT] dname -K973- not found devstat = 0 cfg $EBA9BA0
+[TPKSINIT] dname -K972- not found devstat = 0 cfg $10B91CBC
+[TPKSINIT] dname -K973- not found devstat = 0 cfg $EBEEA0C
 [TPSPART] Found KAREL ATSOFTPA 992
 Result size = 596
 [xmlparse_getAttrEnum] fc does not enumerate as PROGRAM
 [osppc] Tick time changed -1200
-[vmimage_bakfile] FRB:mtparam.PRV at 30-NOV-25 21:20:36  (322)
+[vmimage_bakfile] FRB:mtparam.PRV at 01-DEC-25 19:20:58  (322)
 [vmfndvar] [*SYSTEM*]$SYSTEM_TIMER truncated to $SYSTEM_TIME
 [FTP] getservbyname failed
 [FTP] getservbyname failed
 [NTSYIN_STEP] Startup Step #41
 [NTSYIN_STEP] Startup Step #42
-[tpmains] ready at 30-NOV-25 21:20:36 
+[tpmains] ready at 01-DEC-25 19:20:58 
 [PMON] Connecting to <127.000.000.001:5182>
 [PMON] Connect ID is 3BCDB0EC
 [scswapap] not swapping SGLY, 0, 0
 [scswapap] not swapping SGLY, 0, 1
 
 SMON(main)> xyzrate 11
-spcmd time 0 
+spcmd time 1 
 spcmd completed successfully.
 R E S E T
 [ntsuperv] Sync state change from 0 to 1
 [ntsuperv] Sync state change from 1 to 0
 
-SMON(main)> xyzrate 11=>192.168.56.1:18540
+SMON(main)> xyzrate 11=>192.168.56.1:15400
 spcmd time 0 
 spcmd completed successfully.
 
 
-SMON(main)> tpdisc 0=>192.168.56.1:18540
+SMON(main)> tpdisc 0=>192.168.56.1:15400
 [ostkdisc] F_CANCL packet sent to 201
 [ostkdisc] F_SHUTDOWN packet sent to 201
 [ostkdisc] TP is disconnected
@@ -401,20 +405,20 @@ SMON(main)> tpdisc 0=>192.168.56.1:18540
 [tpaccn] disconnect current TP
 [sytp_disc] setting CGTPFLAG_TPDISC
 [tpaccn] prepare for remote iPendant connection
-spcmd time 426 
+spcmd time 432 
 spcmd completed successfully.
 
 
 SMON(main)> tpconn 0
 [dpsetlng] setting cur lang to DEFAULT     
 [sytp_disc] resetting CGTPFLAG_TPDISC
-spcmd time 56 
+spcmd time 53 
 spcmd completed successfully.
 [wdwmclng]
 [ostkdisc] prepare for remote iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 30-NOV-25 21:20:44 
+[tpmains] ready at 01-DEC-25 19:21:42 
 [ostchp] ignoring connect pkt
 [sfcgtp] disconnect remote iPendant
 [ostkdisc] TP is disconnected
@@ -423,20 +427,25 @@ spcmd completed successfully.
 [ostkdisc] prepare for local iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 30-NOV-25 21:20:44 
+[tpmains] ready at 01-DEC-25 19:21:44 
 [sfcgtp] request PMON connect to 127.0.0.1:60005
 [sfcgtp] ip 7F000001, port EA65
 [PMON] Connecting to <127.000.000.001:60005>
-[ostkey] recevied iPendant socket 1768 from PMON
+[ostkey] recevied iPendant socket 1760 from PMON
 [ostkey] Not wired so not FTP connect
-[PMON] Sent iPendant socket 1768 to TKEY
+[PMON] Sent iPendant socket 1760 to TKEY
 [PMON] Connect ID is 3BCCD190
 [PMEV_CONNECT_ID]S501 is not ordered
 [TXPROC] version of iPendant V9.4107
 [TXPROC] core version of iPendant V9.40P/17
+[FRSOCK] recv failed (no pending)! 0x2746
 SYST-045 TP enabled in AUTO mode
 SYST-042 DEADMAN defeated
+R E S E T
+SYST-042 DEADMAN defeated
 SYST-039 Operation mode T2 Selected
+R E S E T
+SRVO-003 Deadman switch released
 R E S E T
 R E S E T
 SYST-043 TP disabled in T1/T2 mode
@@ -451,1511 +460,131 @@ R E S E T
 [ostkdisc] prepare for remote iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 30-NOV-25 21:30:42 
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCC9384
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-R E S E T
+[tpmains] ready at 01-DEC-25 19:27:16 
+SYST-359 Collaborative speed limit (Elbow)
 SYST-323 Collaborative speed limit (TCP)
-SYST-323 Collaborative speed limit (TCP)
-[PMON] Connecting to <127.000.000.001:5184>
-[PMON] Connect ID is 3BCCD604
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-R E S E T
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCC9384
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-R E S E T
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
+[ntsuperv] Sync state change from 0 to 1
+[ntsuperv] Sync state change from 1 to 0
+SYST-359 Collaborative speed limit (Elbow)
 
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:18540
-Copy time 3 
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 1 
 
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
+[mdspc] MDS4:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS4:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS6:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 3354 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 29 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 3 
+spcmd completed successfully.
+
+R E S E T
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 5 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
+[mdspc] MDS1:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS1:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS3:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 3137 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 33 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 4 
+spcmd completed successfully.
+
+R E S E T
+[osppc] Tick time changed -20000
+[osppc] Tick time changed -1200
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 0 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
+[mdspc] MDS8:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS8:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS0:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 2712 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 40 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 2 
+spcmd completed successfully.
+
+R E S E T
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 1 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
+[mdspc] MDS5:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS5:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS7:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 2680 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 31 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 2 
+spcmd completed successfully.
+
+R E S E T
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 2 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
 [mdspc] MDS2:\CRSENSPK.ZIP file generation error 0x2000E
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
@@ -1963,285 +592,65 @@ SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
 [mdspc] MDS4:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 4318 
+Copy time 2710 
 
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\VISION
 Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 43 
+spcmd time 45 
 spcmd completed successfully.
 
 
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\DCSL
 Created directory VIRT:\TMPBACK\_BACKUP_
-spcmd time 5 
+spcmd time 6 
 spcmd completed successfully.
 
 R E S E T
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-018 Position not reachable (G:1)
+[PMON] Connecting to <127.000.000.001:5184>
+[PMON] Connect ID is 3BCC93B4
 R E S E T
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-018 Position not reachable (G:1)
+SYST-323 Collaborative speed limit (TCP)
+CPMO-095 Too Large Jnt Cmd (G:1 A:5)
+R E S E T
+R E S E T
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+CPMO-095 Too Large Jnt Cmd (G:1 A:5)
+R E S E T
+R E S E T
+MOTN-621 Reduced TCP speed by elbow speed limit.(L:3)
+R E S E T
 R E S E T
 MOTN-018 Position not reachable (G:1)
 R E S E T
 R E S E T
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
+MOTN-018 Position not reachable (G:1)
 R E S E T
-R E S E T
-
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:18540
-Copy time 2 
-
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
-[mdspc] MDS9:\CRSENSPK.ZIP file generation error 0x2000E
-[scswapap] not swapping SGLY, 0, 1
-[scswapap] not swapping SGLY, 0, 0
-[vmisavef] appending segment to MDS9:\SYSVARS.SV
-[scswapap] not swapping SGLY, 0, 1
-[scswapap] not swapping SGLY, 0, 0
-[mdspc] MDS1:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 3333 
-
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
-Created directory VIRT:\TMPBACK\VISION
-Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 43 
-spcmd completed successfully.
-
-
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
-Created directory VIRT:\TMPBACK\DCSL
-Created directory VIRT:\TMPBACK\_BACKUP_
-spcmd time 7 
-spcmd completed successfully.
-
-R E S E T
+SYST-323 Collaborative speed limit (TCP)
 [FRSOCK] recv failed (no pending)! 0x2746
 
-SMON(main)> tpdisc 0=>192.168.56.1:18540
+SMON(main)> tpdisc 0=>192.168.56.1:15400
 [ostkdisc] TP is disconnected
 [ostchp] TP is disconnected
 [tpaccn] disconnect current TP
 [tpaccn] prepare for remote iPendant connection
-spcmd time 288 
+spcmd time 225 
 spcmd completed successfully.
 
 [ostkdisc] prepare for remote iPendant connection
 [ostkdisc] TP is connected
 [ostchp] TP is connected in graphic mode
-[tpmains] ready at 30-NOV-25 22:33:58 
+[tpmains] ready at 01-DEC-25 22:15:30 
 
-SMON(main)> tpconn 1=>192.168.56.1:18540
+SMON(main)> tpconn 1=>192.168.56.1:15400
 [ostkdisc] TP is disconnected
 [ostchp] TP is disconnected
 [dpsetlng] setting cur lang to DEFAULT     
 [tpaccn] disconnect remote iPendant
 [sytp_disc] resetting CGTPFLAG_TPDISC
-spcmd time 272 
+spcmd time 240 
 spcmd completed successfully.
 
 [wdwmclng]
@@ -2254,12 +663,174 @@ spcmd completed successfully.
 [ostkdisc] F_READ packet sent to 201
 [ostchp] TP is connected in legacy mode
 [tpmains_start] executing legacy mode case
-[tpmains] ready at 30-NOV-25 22:34:00 
+[tpmains] ready at 01-DEC-25 22:15:32 
+SYST-323 Collaborative speed limit (TCP)
+SYST-359 Collaborative speed limit (Elbow)
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+SRVO-003 Deadman switch released
+R E S E T
+R E S E T
+R E S E T
+SYST-178 SHIFT-RESET Pressed
+SYST-179 SHIFT-RESET Released
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
+R E S E T
+R E S E T
+MOTN-018 Position not reachable (G:1)
+R E S E T
+R E S E T
+MOTN-018 Position not reachable (G:1)
+R E S E T
+MOTN-018 Position not reachable (G:1)
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+[NTPORT] accept connection
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+MOTN-018 Position not reachable (G:1)
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+R E S E T
+SYST-178 SHIFT-RESET Pressed
+SYST-359 Collaborative speed limit (Elbow)
+MOTN-018 Position not reachable (G:1)
+SYST-179 SHIFT-RESET Released
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+MOTN-018 Position not reachable (G:1)
+INTP-106 (TELEOP, 6) Continue request failed
+MCTL-003 system is in error status
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
 
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:18540
-Copy time 1 
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 2 
 
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
+[mdspc] MDS9:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS9:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS1:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 3199 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 49 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 5 
+spcmd completed successfully.
+
+R E S E T
+R E S E T
+MOTN-018 Position not reachable (G:1)
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-323 Collaborative speed limit (TCP)
+SYST-359 Collaborative speed limit (Elbow)
+SYST-323 Collaborative speed limit (TCP)
+[NTPORT] accept connection
+SYST-042 DEADMAN defeated
+SYST-045 TP enabled in AUTO mode
+SYST-039 Operation mode T2 Selected
+SRVO-003 Deadman switch released
+R E S E T
+R E S E T
+R E S E T
+R E S E T
+SYST-042 DEADMAN defeated
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
+R E S E T
+R E S E T
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 2 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
 [mdspc] MDS6:\CRSENSPK.ZIP file generation error 0x2000E
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
@@ -2267,190 +838,93 @@ SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
 [mdspc] MDS8:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 3286 
+Copy time 3035 
 
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\VISION
 Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 28 
+spcmd time 25 
 spcmd completed successfully.
 
 
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\DCSL
 Created directory VIRT:\TMPBACK\_BACKUP_
-spcmd time 5 
+spcmd time 2 
 spcmd completed successfully.
 
 R E S E T
-[PMON] Disconnecting from <127.000.000.001:5184>, $3BCCD604
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-018 Position not reachable (G:1)
+R E S E T
+[PMON] Disconnecting from <127.000.000.001:5184>, $3BCC93B4
+[PMON] Connecting to <127.000.000.001:5184>
+[PMON] Connect ID is 3BCC89BC
+R E S E T
+[NTPORT] accept connection
+TPIF-053 Not editing background program
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+[NTPORT] accept connection
+PROG-046 TP is enabled while running (TELEOP)
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+SYST-178 SHIFT-RESET Pressed
+SYST-179 SHIFT-RESET Released
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
 SYST-323 Collaborative speed limit (TCP)
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCCB14C
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
+R E S E T
+R E S E T
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-018 Position not reachable (G:1)
+R E S E T
+
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 5 
+
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
+[mdspc] MDS3:\CRSENSPK.ZIP file generation error 0x2000E
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[vmisavef] appending segment to MDS3:\SYSVARS.SV
+[scswapap] not swapping SGLY, 0, 1
+[scswapap] not swapping SGLY, 0, 0
+[mdspc] MDS5:\VIMGDIAG.ZIP file generation error 0x75017A
+Copy time 3117 
+
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\VISION
+Created directory VIRT:\TMPBACK\VISION\DATA
+spcmd time 40 
+spcmd completed successfully.
+
+
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
+Created directory VIRT:\TMPBACK\DCSL
+Created directory VIRT:\TMPBACK\_BACKUP_
+spcmd time 7 
+spcmd completed successfully.
+
+R E S E T
+SYST-322 Auto status check time out
+R E S E T
 MOTN-056 Speed limits used (G:1)
 MOTN-056 Speed limits used (G:1)
 MOTN-056 Speed limits used (G:1)
@@ -2592,466 +1066,6 @@ MOTN-056 Speed limits used (G:1)
 MOTN-056 Speed limits used (G:1)
 MOTN-018 Position not reachable (G:1)
 R E S E T
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-018 Position not reachable (G:1)
-R E S E T
-MOTN-018 Position not reachable (G:1)
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
-R E S E T
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
-MOTN-056 Speed limits used (G:1)
 MOTN-056 Speed limits used (G:1)
 MOTN-056 Speed limits used (G:1)
 MOTN-056 Speed limits used (G:1)
@@ -3090,70 +1104,145 @@ MOTN-056 Speed limits used (G:1)
 SRVO-115 Limit error (G:1, A:6)
 R E S E T
 MOTN-017 Limit error (G:1, A:6)
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
+R E S E T
+R E S E T
 R E S E T
 MOTN-056 Speed limits used (G:1)
-SRVO-115 Limit error (G:1, A:6)
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCCB14C
-
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:18540
-Copy time 3 
-
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
-[mdspc] MDS3:\CRSENSPK.ZIP file generation error 0x2000E
-[scswapap] not swapping SGLY, 0, 1
-[scswapap] not swapping SGLY, 0, 0
-[vmisavef] appending segment to MDS3:\SYSVARS.SV
-[scswapap] not swapping SGLY, 0, 1
-[scswapap] not swapping SGLY, 0, 0
-[mdspc] MDS5:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 3228 
-
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
-Created directory VIRT:\TMPBACK\VISION
-Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 50 
-spcmd completed successfully.
-
-
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
-Created directory VIRT:\TMPBACK\DCSL
-Created directory VIRT:\TMPBACK\_BACKUP_
-spcmd time 5 
-spcmd completed successfully.
-
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+SRVO-115 Limit error (G:1, A:4)
 R E S E T
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCC51F4
-SRVO-115 Limit error (G:1, A:6)
+[PMON] Disconnecting from <127.000.000.001:5184>, $3BCC89BC
+[PMON] Connecting to <127.000.000.001:5184>
+[PMON] Connect ID is 3BCC91E0
 R E S E T
+MOTN-018 Position not reachable (G:1)
 R E S E T
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-063 Position config change (G:1)
+R E S E T
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-056 Speed limits used (G:1)
+MOTN-018 Position not reachable (G:1)
+R E S E T
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-063 Position config change (G:1)
+R E S E T
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-063 Position config change (G:1)
+R E S E T
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-063 Position config change (G:1)
+R E S E T
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-063 Position config change (G:1)
+R E S E T
+MOTN-622 (TELEOP, 6)Wrist configuration changed
+MOTN-063 Position config change (G:1)
+R E S E T
+SYST-323 Collaborative speed limit (TCP)
 [NTPORT] accept connection
-SYST-323 Collaborative speed limit (TCP)
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCC51F4
-[PMON] Connecting to <127.000.000.001:5183>
-[PMON] Connect ID is 3BCC724C
-MOTN-018 Position not reachable (G:1)
+SYST-042 DEADMAN defeated
+SYST-045 TP enabled in AUTO mode
+SYST-039 Operation mode T2 Selected
+SRVO-003 Deadman switch released
 R E S E T
-SYST-323 Collaborative speed limit (TCP)
-MOTN-018 Position not reachable (G:1)
-INTP-106 (TELEOP, 6) Continue request failed
-MCTL-003 system is in error status
 R E S E T
-SYST-323 Collaborative speed limit (TCP)
-[PMON] Disconnecting from <127.000.000.001:5183>, $3BCC724C
+R E S E T
+SYST-043 TP disabled in T1/T2 mode
+SYST-040 Operation mode AUTO Selected
+R E S E T
 
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:18540
-Copy time 0 
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
+Copy time 4 
 
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
 [mdspc] MDS0:\CRSENSPK.ZIP file generation error 0x2000E
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
@@ -3161,27 +1250,36 @@ SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
 [mdspc] MDS2:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 3170 
+Copy time 2618 
 
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\VISION
 Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 37 
+spcmd time 31 
 spcmd completed successfully.
 
 
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\DCSL
 Created directory VIRT:\TMPBACK\_BACKUP_
 spcmd time 4 
 spcmd completed successfully.
 
 R E S E T
+[NTPORT] accept connection
+SYST-045 TP enabled in AUTO mode
+SYST-042 DEADMAN defeated
+SYST-039 Operation mode T2 Selected
+R E S E T
+R E S E T
+SYST-040 Operation mode AUTO Selected
+R E S E T
+[PMON] Disconnecting from <127.000.000.001:5184>, $3BCC91E0
 
-SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:18540
+SMON(main)> copy frs:orderfil.dat virt:\tmpback\=>192.168.56.1:15400
 Copy time 0 
 
-SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
+SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:15400
 [mdspc] MDS7:\CRSENSPK.ZIP file generation error 0x2000E
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
@@ -3189,19 +1287,19 @@ SMON(main)> copy mdb:*.* virt:\tmpback\=>192.168.56.1:18540
 [scswapap] not swapping SGLY, 0, 1
 [scswapap] not swapping SGLY, 0, 0
 [mdspc] MDS9:\VIMGDIAG.ZIP file generation error 0x75017A
-Copy time 3545 
+Copy time 2574 
 
-SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fr:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\VISION
 Created directory VIRT:\TMPBACK\VISION\DATA
-spcmd time 24 
+spcmd time 22 
 spcmd completed successfully.
 
 
-SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:18540
+SMON(main)> xcopy fra:\*.* virt:\tmpback\*.*=>192.168.56.1:15400
 Created directory VIRT:\TMPBACK\DCSL
 Created directory VIRT:\TMPBACK\_BACKUP_
-spcmd time 7 
+spcmd time 1 
 spcmd completed successfully.
 
 R E S E T
@@ -3212,5 +1310,5 @@ R E S E T
 [futil_save] Unmapping FROM memory
 [NtrosStop] Saving Complete
 Switching states: old = STARTUP   new = SHUTDOWN
-Tick            Avg: 0.890 ms, Min: 0.001 ms, Max: 4839.120 ms, ticks: 12268802
-Execution times Avg: 0.010 ms, Min: 0.000 ms, Max: 9.296 ms
+Tick            Avg: 0.835 ms, Min: 0.001 ms, Max: 5044.768 ms, ticks: 19704094
+Execution times Avg: 0.009 ms, Min: 0.000 ms, Max: 63.643 ms

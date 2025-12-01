@@ -140,7 +140,7 @@ namespace CAT_wpf_app
                     _writer.Write(_sample);
 
                     // Log with Topic "PublisherStatus" to update the line instead of spamming
-                    _logAction?.Invoke($"[Publisher] Sample {_sampleId} sent. J1: {currentJoints[0]:F2}, X: {xyzWpr.X:F2}", "#2196F3", "PublisherStatus");
+                    // _logAction?.Invoke($"[Publisher] Sample {_sampleId} sent. J1: {currentJoints[0]:F2}, X: {xyzWpr.X:F2}", "#2196F3", "PublisherStatus");
 
                     // Update state
                     Array.Copy(currentJoints, _prevJoints, 6);

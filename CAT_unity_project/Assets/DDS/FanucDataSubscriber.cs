@@ -2,6 +2,7 @@ using Rti.Dds.Subscription;
 using Rti.Types.Dynamic;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// The FanucDataSubscriber class is responsible for receiving robot state data from the DDS network
@@ -21,6 +22,10 @@ public class FanucDataSubscriber : MonoBehaviour
 
     [Tooltip("The root transform for the robot's world position.")]
     public Transform worldPosition;
+
+    [Header("UI Configuration")]
+    [Tooltip("TextMeshPro component to display joint values.")]
+    public TextMeshProUGUI jointDisplay;
 
     [Header("DDS Configuration")]
     [Tooltip("The name of the DDS topic to subscribe to.")]
@@ -128,23 +133,11 @@ public class FanucDataSubscriber : MonoBehaviour
             // Attempt to take data
             using var samples = reader.Take();
 
-            if (samples.Count > 0)
-            {
-                // DEBUG: Log that we actually touched the network
-                Debug.Log($"FanucDataSubscriber: Received batch of {samples.Count} samples.");
-            }
-
             foreach (var sample in samples)
             {
                 if (sample.Info.ValidData)
                 {
                     DynamicData data = sample.Data;
-
-                    // DEBUG: Print raw values of the first joint to verify content
-                    double debugJ1 = data.GetValue<double>("J1");
-                    int debugSampleId = data.GetValue<int>("Sample");
-
-                    Debug.Log($"<color=green>DATA RECEIVED:</color> SampleID: {debugSampleId} | J1: {debugJ1}");
 
                     if (!_hasReceivedData)
                     {
@@ -166,10 +159,6 @@ public class FanucDataSubscriber : MonoBehaviour
                     float w = (float)data.GetValue<double>("W");
                     float p = (float)data.GetValue<double>("P");
                     float r = (float)data.GetValue<double>("R");
-
-                    // DEBUG: Log all joint values and position
-                    Debug.Log($"<color=cyan>JOINTS:</color> J1:{j1:F2} | J2:{j2:F2} | J3:{j3:F2} | J4:{j4:F2} | J5:{j5:F2} | J6:{j6:F2}");
-                    Debug.Log($"<color=yellow>POS:</color> X:{x:F3} | Y:{y:F3} | Z:{z:F3} | W:{w:F2} | P:{p:F2} | R:{r:F2}");
 
                     UpdateRobotState(j1, j2, j3, j4, j5, j6, x, y, z, w, p, r);
                 }
@@ -215,6 +204,11 @@ public class FanucDataSubscriber : MonoBehaviour
             UpdateJoint(3, j4);
             UpdateJoint(4, j5);
             UpdateJoint(5, j6);
+        }
+
+        if (jointDisplay != null)
+        {
+            jointDisplay.text = $"J1: {j1:F2}\nJ2: {j2:F2}\nJ3: {j3:F2}\nJ4: {j4:F2}\nJ5: {j5:F2}\nJ6: {j6:F2}";
         }
     }
 

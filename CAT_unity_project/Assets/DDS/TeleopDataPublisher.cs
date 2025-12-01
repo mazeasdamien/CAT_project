@@ -2,53 +2,49 @@ using Rti.Dds.Publication;
 using Rti.Types.Dynamic;
 using UnityEngine;
 
-/// <summary>
-/// Manages teleoperation by publishing the transform's position, rotation (as Fanuc WPR), and speed to a DDS topic.
-/// This script monitors the GameObject's transform and publishes updates whenever the pose or speed changes.
-/// </summary>
 public class TeleopDataPublisher : MonoBehaviour
 {
+    [Header("References")]
+    [Tooltip("Reference to the IK Solver script to get joint angles.")]
+    public FanucJacobianIK robotIK;
+
     [Header("DDS Configuration")]
     [Tooltip("The name of the DDS topic to publish to.")]
-    [SerializeField] private string topicName = "TeleopData_Topic";
+    [SerializeField] private string topicName = "OperatorNewPose_Topic";
 
     [Tooltip("The name of the struct type in DDS.")]
-    [SerializeField] private string typeName = "TeleopData";
+    [SerializeField] private string typeName = "OperatorNewPose";
 
-    [Header("Teleoperation Settings")]
-    [Tooltip("Speed value to publish (0-100%).")]
-    [Range(0, 100)]
-    [SerializeField] private float speed = 10.0f;
-
-    // DDS Entities
     private DataWriter<DynamicData> _writer;
     private DynamicData _sample;
     private bool _isInitialized = false;
 
-    // State Tracking
     private Transform _transform;
     private Vector3 _lastPosition;
     private Quaternion _lastRotation;
-    private float _lastSpeed;
 
-    /// <summary>
-    /// Initialization.
-    /// </summary>
+    private float _publishRateHz = 10f;
+    private float _nextPublishTime = 0f;
+
     private void Start()
     {
         _transform = transform;
 
-        // Initialize state trackers to ensure first update is sent
         _lastPosition = Vector3.negativeInfinity;
         _lastRotation = Quaternion.identity;
-        _lastSpeed = -1f;
+
+        if (robotIK == null)
+        {
+            robotIK = FindObjectOfType<FanucJacobianIK>();
+            if (robotIK == null)
+            {
+                Debug.LogError("TeleopDataPublisher: FanucJacobianIK script not found! Please assign it in the Inspector.");
+            }
+        }
 
         InitializeDDS();
     }
 
-    /// <summary>
-    /// Sets up the DDS DataWriter and defines the data type.
-    /// </summary>
     private void InitializeDDS()
     {
         var ddsHandler = DDSHandler.Instance;
@@ -60,30 +56,27 @@ public class TeleopDataPublisher : MonoBehaviour
 
         try
         {
-            // Define the struct type dynamically
-            // We add "Speed" to the user's original structure
             var typeFactory = DynamicTypeFactory.Instance;
+
+            // Define struct with J1-J6 instead of XYZWPR
             var operatorPoseType = typeFactory.BuildStruct()
                 .WithName(typeName)
-                .AddMember(new StructMember("Id", typeFactory.CreateString(128)))
-                .AddMember(new StructMember("Timestamp", typeFactory.GetPrimitiveType<double>()))
-                .AddMember(new StructMember("X", typeFactory.GetPrimitiveType<float>()))
-                .AddMember(new StructMember("Y", typeFactory.GetPrimitiveType<float>()))
-                .AddMember(new StructMember("Z", typeFactory.GetPrimitiveType<float>()))
-                .AddMember(new StructMember("W", typeFactory.GetPrimitiveType<float>()))
-                .AddMember(new StructMember("P", typeFactory.GetPrimitiveType<float>()))
-                .AddMember(new StructMember("R", typeFactory.GetPrimitiveType<float>()))
-                .AddMember(new StructMember("Speed", typeFactory.GetPrimitiveType<float>()))
+                .AddMember(new StructMember("J1", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J2", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J3", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J4", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J5", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("J6", typeFactory.GetPrimitiveType<double>()))
+                .AddMember(new StructMember("Samples", typeFactory.GetPrimitiveType<int>()))
                 .Create();
 
-            // Setup the writer using the centralized DDSHandler
             _writer = ddsHandler.SetupDataWriter(topicName, operatorPoseType);
 
             if (_writer != null)
             {
                 _sample = new DynamicData(operatorPoseType);
                 _isInitialized = true;
-                Debug.Log($"TeleopDataPublisher: Successfully initialized writer for topic '{topicName}'.");
+                Debug.Log($"TeleopDataPublisher: Successfully initialized writer for topic '{topicName}' with Joint Data.");
             }
             else
             {
@@ -96,101 +89,74 @@ public class TeleopDataPublisher : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Checks for changes and publishes updates.
-    /// </summary>
     private void Update()
     {
-        if (!_isInitialized) return;
+        if (!_isInitialized || robotIK == null) return;
 
-        // Check if position, rotation, or speed has changed
-        // Using a smaller epsilon to detect fine movements
-        bool positionChanged = Vector3.SqrMagnitude(_transform.localPosition - _lastPosition) > 1e-7f;
+        if (Time.time < _nextPublishTime) return;
+
+        // Check if the target transform has moved, which would cause IK to update joints
+        bool positionChanged = Vector3.SqrMagnitude(_transform.localPosition - _lastPosition) > 0.0001f;
         bool rotationChanged = Quaternion.Angle(_transform.localRotation, _lastRotation) > 0.01f;
-        bool speedChanged = !Mathf.Approximately(speed, _lastSpeed);
 
-        if (positionChanged || rotationChanged || speedChanged)
+        if (positionChanged || rotationChanged)
         {
-            PublishPose();
-
-            // Update tracked state
+            PublishJoints();
             _lastPosition = _transform.localPosition;
             _lastRotation = _transform.localRotation;
-            _lastSpeed = speed;
+            _nextPublishTime = Time.time + (1f / _publishRateHz);
         }
     }
 
     private int _sequenceId = 0;
 
-    /// <summary>
-    /// Populates and writes the DDS sample.
-    /// </summary>
-    private void PublishPose()
+    private void PublishJoints()
     {
         try
         {
+            if (robotIK.joints == null || robotIK.joints.Count < 6)
+            {
+                Debug.LogWarning("TeleopDataPublisher: Robot joints not fully assigned in IK script.");
+                return;
+            }
+
             _sequenceId++;
-            _sample.SetValue("Id", _sequenceId.ToString());
-            _sample.SetValue("Timestamp", (System.DateTime.UtcNow - new System.DateTime(1970, 1, 1)).TotalSeconds);
 
-            // Position conversion (Unity -> Fanuc) with Reachability Check
-            float maxReachMm = 1418f; // Robot Max Reach
-            float currentDistMm = _transform.localPosition.magnitude * 1000f;
+            // Extract Joint Angles from ArticulationBodies (in Radians, convert to Degrees)
+            // Note: ArticulationBody.jointPosition returns radians
+            double j1 = robotIK.joints[0].jointPosition[0] * Mathf.Rad2Deg;
+            double j2 = robotIK.joints[1].jointPosition[0] * Mathf.Rad2Deg;
+            double j3 = robotIK.joints[2].jointPosition[0] * Mathf.Rad2Deg;
+            double j4 = robotIK.joints[3].jointPosition[0] * Mathf.Rad2Deg;
+            double j5 = robotIK.joints[4].jointPosition[0] * Mathf.Rad2Deg;
+            double j6 = robotIK.joints[5].jointPosition[0] * Mathf.Rad2Deg;
 
-            float finalX, finalY, finalZ;
+            // Apply Fanuc Coupling Correction for J3
+            // Fanuc J3 = Unity J3 - Unity J2
+            j3 = j3 - j2;
 
-            if (currentDistMm > maxReachMm)
-            {
-                // Clamp to max reach sphere
-                Vector3 clampedPos = _transform.localPosition.normalized * (maxReachMm / 1000f);
-                finalX = -clampedPos.x * 1000;
-                finalY = clampedPos.y * 1000;
-                finalZ = clampedPos.z * 1000;
-            }
-            else
-            {
-                finalX = -_transform.localPosition.x * 1000;
-                finalY = _transform.localPosition.y * 1000;
-                finalZ = _transform.localPosition.z * 1000;
-            }
+            _sample.SetValue("J1", j1);
+            _sample.SetValue("J2", j2);
+            _sample.SetValue("J3", j3);
+            _sample.SetValue("J4", j4);
+            _sample.SetValue("J5", j5);
+            _sample.SetValue("J6", j6);
+            _sample.SetValue("Samples", _sequenceId);
 
-            _sample.SetValue("X", finalX);
-            _sample.SetValue("Y", finalY);
-            _sample.SetValue("Z", finalZ);
-
-            // Rotation conversion (Quaternion -> Fanuc WPR)
-            Vector3 wpr = CreateFanucWPRFromQuaternion(_transform.localRotation);
-            _sample.SetValue("W", wpr.x);
-            _sample.SetValue("P", wpr.y);
-            _sample.SetValue("R", wpr.z);
-
-            // Speed
-            _sample.SetValue("Speed", speed);
-
-            // Publish
             _writer.Write(_sample);
-
-            // Debug Log
-            Debug.Log($"[TeleopPublisher] Sent: Id={_sequenceId}, X={finalX:F2}, Y={finalY:F2}, Z={finalZ:F2}, Speed={speed:F1}");
         }
         catch (System.Exception ex)
         {
             Debug.LogError($"TeleopDataPublisher: Error publishing sample: {ex.Message}");
         }
     }
-
-    /// <summary>
-    /// Converts a Unity Quaternion to Fanuc World Position Representation (WPR).
-    /// </summary>
-    /// <param name="q">Unity Quaternion</param>
-    /// <returns>Vector3 containing (W, P, R)</returns>
-    private Vector3 CreateFanucWPRFromQuaternion(Quaternion q)
-    {
-        // Calculate Euler angles manually to match Fanuc convention
-        float W = Mathf.Atan2(2 * ((q.w * q.x) + (q.y * q.z)), 1 - 2 * (Mathf.Pow(q.x, 2) + Mathf.Pow(q.y, 2))) * (180 / Mathf.PI);
-        float P = Mathf.Asin(2 * ((q.w * q.y) - (q.z * q.x))) * (180 / Mathf.PI);
-        float R = Mathf.Atan2(2 * ((q.w * q.z) + (q.x * q.y)), 1 - 2 * (Mathf.Pow(q.y, 2) + Mathf.Pow(q.z, 2))) * (180 / Mathf.PI);
-
-        return new Vector3(W, -P, -R);
-    }
+    /*
+        private Vector3 CreateFanucWPRFromQuaternion(Quaternion q)
+        {
+            float W = Mathf.Atan2(2 * ((q.w * q.x) + (q.y * q.z)), 1 - 2 * (Mathf.Pow(q.x, 2) + Mathf.Pow(q.y, 2))) * (180 / Mathf.PI);
+            float P = Mathf.Asin(2 * ((q.w * q.y) - (q.z * q.x))) * (180 / Mathf.PI);
+            float R = Mathf.Atan2(2 * ((q.w * q.z) + (q.x * q.y)), 1 - 2 * (Mathf.Pow(q.y, 2) + Mathf.Pow(q.z, 2))) * (180 / Mathf.PI);
+            return new Vector3(W, -P, -R);
+        }
+    */
 }

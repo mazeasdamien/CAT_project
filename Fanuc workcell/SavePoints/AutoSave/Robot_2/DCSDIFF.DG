@@ -1,0 +1,21 @@
+F Number: F00000    
+VERSION : HandlingTool         
+$VERSION: V9.40107      7/23/2021
+DATE:     01-DEC-25 23:54 
+DCS Version: V4.5.2
+
+
+--- Signature number (Dec) -------------
+                Current        Latch
+1 Total:        -138704269            0
+  Time:01-DEC-25 20:22              None
+2 Base:        -1672622576            0
+  Time:01-DEC-25 20:22              None
+   Mastering:    336434605
+   Robot:       -427933804
+   Other:       -930978075
+3 Pos./Speed:  -1128030488            0
+  Time:01-DEC-25 20:22              None
+4 I/O connect:   752027228            0
+  Time:01-DEC-25 20:22              None
+

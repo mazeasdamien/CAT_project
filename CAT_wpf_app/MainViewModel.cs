@@ -130,12 +130,14 @@ namespace CAT_wpf_app
         private string _r; public string R { get => _r; set { _r = value; OnPropertyChanged(); } }
 
         // Teleop Data
-        private string _teleopX = "0.00"; public string TeleopX { get => _teleopX; set { _teleopX = value; OnPropertyChanged(); } }
-        private string _teleopY = "0.00"; public string TeleopY { get => _teleopY; set { _teleopY = value; OnPropertyChanged(); } }
-        private string _teleopZ = "0.00"; public string TeleopZ { get => _teleopZ; set { _teleopZ = value; OnPropertyChanged(); } }
-        private string _teleopW = "0.00"; public string TeleopW { get => _teleopW; set { _teleopW = value; OnPropertyChanged(); } }
-        private string _teleopP = "0.00"; public string TeleopP { get => _teleopP; set { _teleopP = value; OnPropertyChanged(); } }
-        private string _teleopR = "0.00"; public string TeleopR { get => _teleopR; set { _teleopR = value; OnPropertyChanged(); } }
+        private string _teleopJ1 = "0.00"; public string TeleopJ1 { get => _teleopJ1; set { _teleopJ1 = value; OnPropertyChanged(); } }
+        private string _teleopJ2 = "0.00"; public string TeleopJ2 { get => _teleopJ2; set { _teleopJ2 = value; OnPropertyChanged(); } }
+        private string _teleopJ3 = "0.00"; public string TeleopJ3 { get => _teleopJ3; set { _teleopJ3 = value; OnPropertyChanged(); } }
+        private string _teleopJ4 = "0.00"; public string TeleopJ4 { get => _teleopJ4; set { _teleopJ4 = value; OnPropertyChanged(); } }
+        private string _teleopJ5 = "0.00"; public string TeleopJ5 { get => _teleopJ5; set { _teleopJ5 = value; OnPropertyChanged(); } }
+        private string _teleopJ6 = "0.00"; public string TeleopJ6 { get => _teleopJ6; set { _teleopJ6 = value; OnPropertyChanged(); } }
+
+        // Removed TeleopSpeed as it's not in the struct anymore, but keeping property to avoid UI binding errors if not updated yet
         private string _teleopSpeed = "0.0"; public string TeleopSpeed { get => _teleopSpeed; set { _teleopSpeed = value; OnPropertyChanged(); } }
 
         private int _teleopSampleCount = 0;
@@ -178,14 +180,7 @@ namespace CAT_wpf_app
             }
         }
 
-        // --- Debug Properties ---
-        private string _debugPR9 = "N/A"; public string DebugPR9 { get => _debugPR9; set { _debugPR9 = value; OnPropertyChanged(); } }
-        private string _debugPR9Reach = "Unknown"; public string DebugPR9Reach { get => _debugPR9Reach; set { _debugPR9Reach = value; OnPropertyChanged(); } }
 
-        private string _debugPR1 = "N/A"; public string DebugPR1 { get => _debugPR1; set { _debugPR1 = value; OnPropertyChanged(); } }
-        private string _debugPR1Reach = "Unknown"; public string DebugPR1Reach { get => _debugPR1Reach; set { _debugPR1Reach = value; OnPropertyChanged(); } }
-
-        private string _debugR1 = "N/A"; public string DebugR1 { get => _debugR1; set { _debugR1 = value; OnPropertyChanged(); } }
 
         public class LogEntry : INotifyPropertyChanged
         {
@@ -212,8 +207,17 @@ namespace CAT_wpf_app
             }
         }
 
+        public class AlarmEntry
+        {
+            public string Time { get; set; }
+            public string Code { get; set; }
+            public string Message { get; set; }
+            public string Severity { get; set; }
+            public string Color { get; set; }
+        }
+
         public ObservableCollection<LogEntry> Logs { get; } = new ObservableCollection<LogEntry>();
-        public ObservableCollection<LogEntry> AlarmLogs { get; } = new ObservableCollection<LogEntry>();
+        public ObservableCollection<AlarmEntry> AlarmLogs { get; } = new ObservableCollection<AlarmEntry>();
 
         // --- Commands ---
         public ICommand StartCommand { get; }
@@ -336,14 +340,14 @@ namespace CAT_wpf_app
 
         private void AbortTasks()
         {
-            Log("Queuing Abort Command...", "#FFD700");
+            Log("Queuing Abort Command...", "#E0E0E0");
             _robotCommandQueue.Enqueue(robot =>
             {
                 try
                 {
-                    Log("Executing: Abort All Tasks...", "#FFD700");
+                    Log("Executing: Abort All Tasks...", "#E0E0E0");
                     robot.Tasks.AbortAll();
-                    Log("Tasks Aborted.", "#4CAF50");
+                    Log("Tasks Aborted.", "#FF9800");
                     LogAlarm("Tasks Aborted by User", "#FFFF00");
                 }
                 catch (Exception ex)
@@ -356,12 +360,12 @@ namespace CAT_wpf_app
 
         private void ResetAlarms()
         {
-            Log("Queuing Reset Command...", "#FFD700");
+            Log("Queuing Reset Command...", "#E0E0E0");
             _robotCommandQueue.Enqueue(robot =>
             {
                 try
                 {
-                    Log("Executing: Reset Alarms...", "#FFD700");
+                    Log("Executing: Reset Alarms...", "#E0E0E0");
                     robot.Alarms.Reset();
                     Log("Alarms Reset.", "#4CAF50");
                     LogAlarm("Alarms Reset by User", "#4CAF50");
@@ -376,22 +380,40 @@ namespace CAT_wpf_app
 
         private void StartTeleopProgram()
         {
-            Log("Queuing Teleop Start Sequence...", "#FFD700");
+            Log("Queuing Teleop Start Sequence...", "#E0E0E0");
             _robotCommandQueue.Enqueue(robot =>
             {
                 try
                 {
                     // Optional: Auto-Abort and Reset before starting
-                    // robot.Tasks.AbortAll();
-                    // robot.Alarms.Reset();
+                    Thread.Sleep(500);
+                    robot.Tasks.AbortAll();
+                    Thread.Sleep(500);
+                    robot.Alarms.Reset();
+                    Thread.Sleep(500);
 
                     string programName = "TELEOP";
-                    Log($"Executing: Select Program '{programName}'...", "#FFD700");
+                    Log($"Executing: Select Program '{programName}'...", "#E0E0E0");
                     robot.Programs.Selected = programName;
 
-                    Log("Executing: Run Program...", "#FFD700");
+                    Log("Executing: Run Program...", "#E0E0E0");
                     FRCTPProgram prog = (FRCTPProgram)robot.Programs[robot.Programs.Selected, Type.Missing, Type.Missing];
-                    prog.Run();
+
+                    Application.Current.Dispatcher.Invoke(() =>
+                    {
+                        try
+                        {
+                            prog.Run();
+                        }
+                        catch (System.Runtime.InteropServices.COMException comEx)
+                        {
+                            if (comEx.Message.Contains("UOP is the master device"))
+                            {
+                                throw new Exception("Robot rejected command: UOP is Master. Check Remote/Local Setup (Set to 'Software' or 'Cell').");
+                            }
+                            throw;
+                        }
+                    });
 
                     Log("Teleop Program Started Successfully.", "#4CAF50");
                 }
@@ -554,13 +576,13 @@ namespace CAT_wpf_app
                             // Teleop UI Updates
                             if (_teleopSubscriber != null)
                             {
-                                TeleopX = _teleopSubscriber.LastX.ToString("F2");
-                                TeleopY = _teleopSubscriber.LastY.ToString("F2");
-                                TeleopZ = _teleopSubscriber.LastZ.ToString("F2");
-                                TeleopW = _teleopSubscriber.LastW.ToString("F2");
-                                TeleopP = _teleopSubscriber.LastP.ToString("F2");
-                                TeleopR = _teleopSubscriber.LastR.ToString("F2");
-                                TeleopSpeed = _teleopSubscriber.LastSpeed.ToString("F1");
+                                TeleopJ1 = _teleopSubscriber.LastJ1.ToString("F2");
+                                TeleopJ2 = _teleopSubscriber.LastJ2.ToString("F2");
+                                TeleopJ3 = _teleopSubscriber.LastJ3.ToString("F2");
+                                TeleopJ4 = _teleopSubscriber.LastJ4.ToString("F2");
+                                TeleopJ5 = _teleopSubscriber.LastJ5.ToString("F2");
+                                TeleopJ6 = _teleopSubscriber.LastJ6.ToString("F2");
+
                                 TeleopSampleCount = _teleopSubscriber.TotalSamplesReceived;
 
                                 if (_teleopSubscriber.IsReachable)
@@ -574,6 +596,31 @@ namespace CAT_wpf_app
                                     TeleopReachabilityColor = "#F44336"; // Red
                                 }
                             }
+
+                            // --- Alarm Monitoring ---
+                            try
+                            {
+                                // Check if there are any alarms
+                                if (robot.Alarms.Count > 0)
+                                {
+                                    FRCAlarm alarm = robot.Alarms[1]; // Get most recent (1-based index)
+                                    string code = alarm.ErrorNumber;
+                                    string msg = alarm.ErrorMessage;
+                                    string severity = "ALARM";
+
+                                    // Basic severity inference
+                                    if (code.Contains("WARN")) severity = "WARN";
+                                    else if (code.Contains("STOP")) severity = "STOP";
+
+                                    // Check if we already logged this recently to avoid spam
+                                    // We check the top entry of AlarmLogs
+                                    if (AlarmLogs.Count == 0 || AlarmLogs[0].Message != msg)
+                                    {
+                                        AddAlarmEntry(msg, code, severity, "#F44336");
+                                    }
+                                }
+                            }
+                            catch { }
 
                             // Update Stats
                             var now = DateTime.Now;
@@ -612,11 +659,11 @@ namespace CAT_wpf_app
             {
                 Log($"Worker Error: {ex.Message}");
                 Application.Current.Dispatcher.Invoke(() =>
-                {
-                    RobotStatus = "Error";
-                    DdsStatus = "Error";
-                    IsRunning = false;
-                });
+                            {
+                                RobotStatus = "Error";
+                                DdsStatus = "Error";
+                                IsRunning = false;
+                            });
             }
             finally
             {
@@ -679,11 +726,24 @@ namespace CAT_wpf_app
 
         private void LogAlarm(string message, string color = "#F44336")
         {
+            // Backward compatibility wrapper
+            AddAlarmEntry(message, "SYS", "INFO", color);
+        }
+
+        private void AddAlarmEntry(string message, string code, string severity, string color)
+        {
             lock (_logLock)
             {
                 Application.Current.Dispatcher.InvokeAsync(() =>
                 {
-                    AlarmLogs.Insert(0, new LogEntry { Text = $"[{DateTime.Now:HH:mm:ss}] {message}", Color = color });
+                    AlarmLogs.Insert(0, new AlarmEntry
+                    {
+                        Time = DateTime.Now.ToString("HH:mm:ss"),
+                        Code = code,
+                        Message = message,
+                        Severity = severity,
+                        Color = color
+                    });
                     if (AlarmLogs.Count > 100) AlarmLogs.RemoveAt(AlarmLogs.Count - 1);
                 });
             }

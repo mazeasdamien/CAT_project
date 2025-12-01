@@ -1,0 +1,13 @@
+Catalog records in use 6049 of 18000
+Shadow in use 1359124 of 6859100
+Programs in use 4 of 1024
+3907 scans with 21945911 updates max=872 (*SYSTEM* = 872) mean=5617
+Last poweroff = 885 uS Poweroff copy time (5646 records) = 384 uS
+
+$VARS_CONFIG.$SHADDGDET = 0
+For more detail set $VARS_CONFIG.$SHADDGDET to:
+1 = Variable Change Summary
+2 = Variable Change Summary and Scan List
+3 = Variable Change Summary and Detailed Change Listing
+4 = All Available Information
+
