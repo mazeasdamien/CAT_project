@@ -604,13 +604,13 @@ namespace CAT_wpf_app
                                 if (robot.Alarms.Count > 0)
                                 {
                                     FRCAlarm alarm = robot.Alarms[1]; // Get most recent (1-based index)
-                                    string code = alarm.ErrorNumber;
+                                    string code = alarm.ErrorNumber.ToString();
                                     string msg = alarm.ErrorMessage;
                                     string severity = "ALARM";
 
                                     // Basic severity inference
-                                    if (code.Contains("WARN")) severity = "WARN";
-                                    else if (code.Contains("STOP")) severity = "STOP";
+                                    if (msg.Contains("WARN")) severity = "WARN";
+                                    else if (msg.Contains("STOP")) severity = "STOP";
 
                                     // Check if we already logged this recently to avoid spam
                                     // We check the top entry of AlarmLogs

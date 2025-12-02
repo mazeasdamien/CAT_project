@@ -526,9 +526,9 @@
                                                     </Style>
                                                 </DataGridTextColumn.ElementStyle>
                                             </DataGridTextColumn>
-                                            <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="80" Foreground="#888888"/>
-                                            <DataGridTextColumn Header="Severity" Binding="{Binding Severity}" Width="80" Foreground="#888888"/>
-                                            <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="80" Foreground="#888888"/>
+                                            <DataGridTextColumn Header="Code" Binding="{Binding Code}" Width="80" Foreground="#E0E0E0"/>
+                                            <DataGridTextColumn Header="Severity" Binding="{Binding Severity}" Width="80" Foreground="#E0E0E0"/>
+                                            <DataGridTextColumn Header="Time" Binding="{Binding Time}" Width="80" Foreground="#E0E0E0"/>
                                         </DataGrid.Columns>
                                     </DataGrid>
                                 </Border>

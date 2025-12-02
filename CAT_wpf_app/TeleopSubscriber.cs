@@ -108,6 +108,14 @@ namespace CAT_wpf_app
 
                         if (robot != null && robot.IsConnected)
                         {
+                            // Check for all zeros (invalid data)
+                            if (Math.Abs(LastJ1) < 0.001 && Math.Abs(LastJ2) < 0.001 && Math.Abs(LastJ3) < 0.001 &&
+                                Math.Abs(LastJ4) < 0.001 && Math.Abs(LastJ5) < 0.001 && Math.Abs(LastJ6) < 0.001)
+                            {
+                                // Skip writing to robot
+                                return dataReceived;
+                            }
+
                             FRCSysPositions positions = robot.RegPositions;
                             FRCSysPosition sysPosition = positions[PositionRegisterId];
                             FRCSysGroupPosition sysGroupPosition = sysPosition.Group[1];
