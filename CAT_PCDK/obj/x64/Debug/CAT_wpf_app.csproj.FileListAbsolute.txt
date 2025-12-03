@@ -1,0 +1,1 @@
+c:\Users\Damien Mazeas\Desktop\IFAC_Project\CAT_wpf_app\obj\x64\Debug\CAT_wpf_app.csproj.AssemblyReference.cache
