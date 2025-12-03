@@ -27,6 +27,11 @@
           <kind>KEEP_LAST_HISTORY_QOS</kind>
           <depth>1</depth>
         </history>
+        <representation>
+          <value>
+            <element>XCDR_DATA_REPRESENTATION</element>
+          </value>
+        </representation>
       </datareader_qos>
 
       <datawriter_qos>
@@ -40,6 +45,11 @@
           <kind>KEEP_LAST_HISTORY_QOS</kind>
           <depth>1</depth>
         </history>
+        <representation>
+          <value>
+            <element>XCDR_DATA_REPRESENTATION</element>
+          </value>
+        </representation>
       </datawriter_qos>
     </qos_profile>
   </qos_library>

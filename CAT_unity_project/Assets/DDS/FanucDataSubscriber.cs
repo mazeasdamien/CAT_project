@@ -3,55 +3,36 @@ using Rti.Types.Dynamic;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Omg.Types;
 
-/// <summary>
-/// The FanucDataSubscriber class is responsible for receiving robot state data from the DDS network
-/// and synchronizing the digital twin's movement with the physical (or virtual) robot.
-/// 
-/// Functionality:
-/// 1. Subscribes to the "RobotState_Topic" using RTI Connext DDS.
-/// 2. Decodes the dynamic data packet containing joint angles and Cartesian coordinates.
-/// 3. Updates the Unity ArticulationBody components to drive the physics-based robot model.
-/// 4. Handles coordinate system transformations between the industrial robot (Fanuc) and Unity.
-/// </summary>
 public class FanucDataSubscriber : MonoBehaviour
 {
     [Header("Robot Configuration")]
-    [Tooltip("List of ArticulationBodies representing the robot joints.")]
     public List<ArticulationBody> joints;
-
-    [Tooltip("The root transform for the robot's world position.")]
     public Transform worldPosition;
 
     [Header("UI Configuration")]
-    [Tooltip("TextMeshPro component to display joint values.")]
     public TextMeshProUGUI jointDisplay;
 
     [Header("DDS Configuration")]
-    [Tooltip("The name of the DDS topic to subscribe to.")]
     [SerializeField] private string topicName = "RobotState_Topic";
+    [SerializeField] private string typeName = "RobotDDS::RobotState";
 
-    [Tooltip("The name of the struct type in DDS.")]
-    [SerializeField] private string typeName = "RobotState";
+    [Header("Debugging")]
+    [Tooltip("If true, prints received values to console.")]
+    [SerializeField] private bool debugLogging = true;
+    [Tooltip("How often to print logs in seconds (prevents console flooding).")]
+    [SerializeField] private float logInterval = 1.0f;
+    private float _lastLogTime = 0f;
 
     private DataReader<DynamicData> _reader;
     private bool _hasReceivedData = false;
-
-    // Member IDs
-    private int _idJ1, _idJ2, _idJ3, _idJ4, _idJ5, _idJ6;
-    private int _idX, _idY, _idZ;
-    private int _idW, _idP, _idR;
 
     private void Start()
     {
         InitializeDDS();
     }
 
-    /// <summary>
-    /// Initializes the DDS DataReader for the robot state topic.
-    /// This method defines the expected data structure (DynamicType) to match the publisher's schema
-    /// and registers the subscription via the central DDSHandler.
-    /// </summary>
     private void InitializeDDS()
     {
         if (DDSHandler.Instance == null)
@@ -62,17 +43,13 @@ public class FanucDataSubscriber : MonoBehaviour
 
         try
         {
-            // --- IMPORTANT: DATA TYPE DEFINITION ---
-            // This MUST match the Publisher's definition EXACTLY.
-            // Publisher has: Clock (String), Sample (Int), then Joints.
-
             var typeFactory = DynamicTypeFactory.Instance;
 
-            // Define struct
             StructType robotStateType = typeFactory.BuildStruct()
                 .WithName(typeName)
-                .AddMember(new StructMember("Clock", typeFactory.CreateString(bounds: 50))) // MUST BE HERE
-                .AddMember(new StructMember("Sample", typeFactory.GetPrimitiveType<int>())) // MUST BE HERE
+                .WithExtensibility(ExtensibilityKind.Final) 
+                .AddMember(new StructMember("Clock", typeFactory.CreateString(bounds: 50)))
+                .AddMember(new StructMember("SampleId", typeFactory.GetPrimitiveType<int>()))
                 .AddMember(new StructMember("J1", typeFactory.GetPrimitiveType<double>()))
                 .AddMember(new StructMember("J2", typeFactory.GetPrimitiveType<double>()))
                 .AddMember(new StructMember("J3", typeFactory.GetPrimitiveType<double>()))
@@ -86,11 +63,6 @@ public class FanucDataSubscriber : MonoBehaviour
                 .AddMember(new StructMember("P", typeFactory.GetPrimitiveType<double>()))
                 .AddMember(new StructMember("R", typeFactory.GetPrimitiveType<double>()))
                 .Create();
-
-            // Cache IDs to ensure we are looking up valid members
-            // If these throw an error, it means the Type Build failed
-            _idJ1 = robotStateType.GetMember("J1").Id;
-            _idX = robotStateType.GetMember("X").Id; // Checking just a couple for safety
 
             Debug.Log("FanucDataSubscriber: Type Definition Built. Attempting to create Reader...");
 
@@ -115,22 +87,35 @@ public class FanucDataSubscriber : MonoBehaviour
     {
         if (_reader != null)
         {
+            CheckConnectionStatus();
             ProcessData(_reader);
         }
     }
 
-    /// <summary>
-    /// Processes incoming data samples from the DDS DataReader.
-    /// Iterates through the received batch, validates data, and triggers the robot state update.
-    /// </summary>
-    /// <param name="anyReader">The untyped DataReader received from the middleware.</param>
+    private bool _isConnected = false;
+
+    private void CheckConnectionStatus()
+    {
+        // Check if we have matched with a Publisher
+        var status = _reader.SubscriptionMatchedStatus;
+        if (status.CurrentCount.Value > 0 && !_isConnected)
+        {
+            _isConnected = true;
+            Debug.Log("<color=green><b>SUCCESS: DDS Publisher Discovered!</b></color>");
+        }
+        else if (status.CurrentCount.Value == 0 && _isConnected)
+        {
+            _isConnected = false;
+            Debug.LogWarning("<color=red><b>WARNING: DDS Publisher Lost!</b></color>");
+        }
+    }
+
     private void ProcessData(AnyDataReader anyReader)
     {
         var reader = (DataReader<DynamicData>)anyReader;
 
         try
         {
-            // Attempt to take data
             using var samples = reader.Take();
 
             foreach (var sample in samples)
@@ -145,7 +130,10 @@ public class FanucDataSubscriber : MonoBehaviour
                         _hasReceivedData = true;
                     }
 
-                    // Extract Full Data
+                    // 1. Extract Raw Data
+                    int sampleId = data.GetValue<int>("SampleId");
+                    string clock = data.GetValue<string>("Clock");
+
                     float j1 = (float)data.GetValue<double>("J1");
                     float j2 = (float)data.GetValue<double>("J2");
                     float j3 = (float)data.GetValue<double>("J3");
@@ -153,54 +141,55 @@ public class FanucDataSubscriber : MonoBehaviour
                     float j5 = (float)data.GetValue<double>("J5");
                     float j6 = (float)data.GetValue<double>("J6");
 
-                    float x = (float)data.GetValue<double>("X") / 1000;
-                    float y = (float)data.GetValue<double>("Y") / 1000;
-                    float z = (float)data.GetValue<double>("Z") / 1000;
+                    // Raw Cartesian (Direct from Robot)
+                    float rawX = (float)data.GetValue<double>("X");
+                    float rawY = (float)data.GetValue<double>("Y");
+                    float rawZ = (float)data.GetValue<double>("Z");
                     float w = (float)data.GetValue<double>("W");
                     float p = (float)data.GetValue<double>("P");
                     float r = (float)data.GetValue<double>("R");
 
-                    UpdateRobotState(j1, j2, j3, j4, j5, j6, x, y, z, w, p, r);
-                }
-                else
-                {
-                    // This happens when a publisher disconnects or changes liveness
-                    Debug.LogWarning($"FanucDataSubscriber: Received Meta-Data (Invalid Data). State: {sample.Info.State.Instance}");
+                    // 2. Debug Logging (Throttled)
+                    if (debugLogging && (Time.time - _lastLogTime > logInterval))
+                    {
+                        Debug.Log($"<color=cyan><b>DDS RX [#{sampleId}]</b></color> | Time: {clock}\n" +
+                                  $"<b>Joints:</b> {j1:F2}, {j2:F2}, {j3:F2}, {j4:F2}, {j5:F2}, {j6:F2}\n" +
+                                  $"<b>Pos:</b> X:{rawX:F2} Y:{rawY:F2} Z:{rawZ:F2} W:{w:F2} P:{p:F2} R:{r:F2}");
+                        _lastLogTime = Time.time;
+                    }
+
+                    // 3. Unity Conversion (Scale & Axis Flip)
+                    float unityX = rawX / 1000f;
+                    float unityY = rawY / 1000f;
+                    float unityZ = rawZ / 1000f;
+
+                    UpdateRobotState(j1, j2, j3, j4, j5, j6, unityX, unityY, unityZ, w, p, r);
                 }
             }
         }
         catch (System.Exception e)
         {
-            // This is where Type Mismatches usually show up
             Debug.LogError($"FanucDataSubscriber: ERROR processing samples: {e.Message}\nStack: {e.StackTrace}");
         }
     }
 
-    /// <summary>
-    /// Updates the visual and physical representation of the robot based on the received state.
-    /// Performs necessary coordinate system conversions (Right-Handed to Left-Handed) and 
-    /// handles mechanical coupling logic.
-    /// </summary>
     private void UpdateRobotState(float j1, float j2, float j3, float j4, float j5, float j6, float x, float y, float z, float w, float p, float r)
     {
         if (worldPosition != null)
         {
-            // Position is already scaled in ProcessData (divided by 1000), so we use it directly here.
-            // Note: Coordinate conversion (X inverted) is still applied.
+            // Position Logic: Negate X for Left-Handed System
             worldPosition.localPosition = new Vector3(-x, y, z);
+            
+            // Rotation Logic
             Vector3 eulerAngles = CreateQuaternionFromFanucWPR(w, p, r).eulerAngles;
             worldPosition.localEulerAngles = new Vector3(eulerAngles.x, -eulerAngles.y, -eulerAngles.z);
-        }
-        else
-        {
-            Debug.LogWarning("FanucDataSubscriber: worldPosition Transform is not assigned!");
         }
 
         if (joints != null && joints.Count >= 6)
         {
             UpdateJoint(0, j1);
             UpdateJoint(1, j2);
-            UpdateJoint(2, j3 + j2);
+            UpdateJoint(2, j3 + j2); // Coupling J2/J3 is common in some robots
             UpdateJoint(3, j4);
             UpdateJoint(4, j5);
             UpdateJoint(5, j6);
@@ -222,14 +211,6 @@ public class FanucDataSubscriber : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Converts Fanuc Euler angles (Yaw-Pitch-Roll) to a Unity Quaternion.
-    /// Fanuc uses a specific rotation order (W, P, R) which corresponds to rotation around X, Y, and Z axes.
-    /// </summary>
-    /// <param name="W">Yaw (Rotation around X) in degrees.</param>
-    /// <param name="P">Pitch (Rotation around Y) in degrees.</param>
-    /// <param name="R">Roll (Rotation around Z) in degrees.</param>
-    /// <returns>Unity Quaternion representing the orientation.</returns>
     public Quaternion CreateQuaternionFromFanucWPR(float W, float P, float R)
     {
         float Wrad = W * Mathf.Deg2Rad;
