@@ -50,7 +50,7 @@ public class UnityRobotSubscriber : MonoBehaviour
             }
             LogInfo($"Config file found: {configPath}");
 
-            // 2. Init ACE (Safe to call multiple times, but good to log)
+            // 2. Init ACE
             Ace.Init();
             LogInfo("ACE Initialized.");
 
@@ -61,7 +61,6 @@ public class UnityRobotSubscriber : MonoBehaviour
                 LogError("CRITICAL: Failed to get DomainParticipantFactory.");
                 return;
             }
-            LogInfo("DomainParticipantFactory retrieved.");
 
             // 4. Create Participant
             _participant = _dpf.CreateParticipant(DomainId);
@@ -70,7 +69,6 @@ public class UnityRobotSubscriber : MonoBehaviour
                 LogError($"CRITICAL: Could not create DomainParticipant for Domain ID {DomainId}.");
                 return;
             }
-            LogInfo($"DomainParticipant created on Domain {DomainId}.");
 
             // 5. Register Type
             RobotStateTypeSupport support = new RobotStateTypeSupport();
@@ -79,7 +77,6 @@ public class UnityRobotSubscriber : MonoBehaviour
                 LogError("CRITICAL: Failed to register RobotState type.");
                 return;
             }
-            LogInfo($"Type '{support.GetTypeName()}' registered.");
 
             // 6. Create Topic
             Topic topic = _participant.CreateTopic(TopicName, support.GetTypeName());
@@ -88,7 +85,6 @@ public class UnityRobotSubscriber : MonoBehaviour
                 LogError($"CRITICAL: Failed to create Topic '{TopicName}'.");
                 return;
             }
-            LogInfo($"Topic '{TopicName}' created.");
 
             // 7. Create Subscriber
             Subscriber subscriber = _participant.CreateSubscriber();
@@ -147,30 +143,65 @@ public class UnityRobotSubscriber : MonoBehaviour
         }
     }
 
+    // --- FIX: UPDATED COORDINATE LOGIC ---
     void ApplyRobotState(RobotState msg)
     {
-        // Optional: Debug log every movement (Can be spammy, so maybe comment out if not needed)
-        // LogInfo($"Applying State: J1={msg.J1:F2}");
+        // 1. Position Conversion (mm to meters)
+        float x = (float)msg.X / 1000.0f;
+        float y = (float)msg.Y / 1000.0f;
+        float z = (float)msg.Z / 1000.0f;
+
+        // 2. Rotation Conversion (Fanuc WPR to Unity)
+        float w = (float)msg.W;
+        float p = (float)msg.P;
+        float r = (float)msg.R;
 
         if (RobotRoot != null)
         {
-            float x = (float)msg.X / 1000.0f;
-            float y = (float)msg.Y / 1000.0f;
-            float z = (float)msg.Z / 1000.0f;
-
+            // Position: Negate X for Left-Handed Coordinate System
             RobotRoot.localPosition = new Vector3(-x, y, z);
-            RobotRoot.localRotation = Quaternion.Euler((float)msg.W, (float)msg.P, (float)msg.R);
+
+            // Rotation: Calculate Quaternion, get Eulers, then flip Y and Z axes
+            Vector3 tempEuler = CreateQuaternionFromFanucWPR(w, p, r).eulerAngles;
+            RobotRoot.localEulerAngles = new Vector3(tempEuler.x, -tempEuler.y, -tempEuler.z);
         }
 
+        // 3. Joint Application
         if (Joints != null && Joints.Length >= 6)
         {
             SetJoint(0, (float)msg.J1);
             SetJoint(1, (float)msg.J2);
-            SetJoint(2, (float)msg.J3);
+
+            // FIX: Fanuc/Parallel linkage robots usually require J3 + J2
+            SetJoint(2, (float)msg.J3 + (float)msg.J2);
+
             SetJoint(3, (float)msg.J4);
             SetJoint(4, (float)msg.J5);
             SetJoint(5, (float)msg.J6);
         }
+    }
+
+    // --- FIX: ADDED MATH HELPER ---
+    // Converts Fanuc Yaw-Pitch-Roll (WPR) to a Quaternion
+    public Quaternion CreateQuaternionFromFanucWPR(float W, float P, float R)
+    {
+        float Wrad = W * Mathf.Deg2Rad;
+        float Prad = P * Mathf.Deg2Rad;
+        float Rrad = R * Mathf.Deg2Rad;
+
+        float cosR = Mathf.Cos(Rrad * 0.5f);
+        float sinR = Mathf.Sin(Rrad * 0.5f);
+        float cosP = Mathf.Cos(Prad * 0.5f);
+        float sinP = Mathf.Sin(Prad * 0.5f);
+        float cosW = Mathf.Cos(Wrad * 0.5f);
+        float sinW = Mathf.Sin(Wrad * 0.5f);
+
+        float qx = (cosR * cosP * sinW) - (sinR * sinP * cosW);
+        float qy = (cosR * sinP * cosW) + (sinR * cosP * sinW);
+        float qz = (sinR * cosP * cosW) - (cosR * sinP * sinW);
+        float qw = (cosR * cosP * cosW) + (sinR * sinP * sinW);
+
+        return new Quaternion(qx, qy, qz, qw);
     }
 
     void SetJoint(int index, float angle)
@@ -208,7 +239,6 @@ public class UnityRobotSubscriber : MonoBehaviour
             }
         }
 
-        // AUTOMATIC EDITOR HANDLING
 #if UNITY_EDITOR
         LogInfo("Editor Mode: Keeping ACE/Factory alive.");
 #else
