@@ -933,7 +933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 391397835}
   m_Layer: 0
-  m_Name: World Position
+  m_Name: Fanuc Robot TCP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1328,15 +1328,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456371765}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 713244504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 497, y: 151}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 497, y: -165}
   m_SizeDelta: {x: 979.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456371767
@@ -1382,8 +1382,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292532954
-  m_fontColor: {r: 0.8544474, g: 0.8544474, b: 0.8544474, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1466,7 +1466,7 @@ GameObject:
   - component: {fileID: 517667011}
   - component: {fileID: 517667015}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1578,6 +1578,7 @@ MonoBehaviour:
   - Robot
   - Subscriber
   - Singularity
+  - CRITICAL
 --- !u!1 &527197453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,7 +2220,7 @@ GameObject:
   - component: {fileID: 1037098401}
   - component: {fileID: 1037098402}
   m_Layer: 0
-  m_Name: TCP
+  m_Name: 3D Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2787,9 +2788,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1262163163}
+  - component: {fileID: 1262163165}
   - component: {fileID: 1262163164}
   m_Layer: 0
-  m_Name: DDS Handler (camera target)
+  m_Name: DDSManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2822,9 +2824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd19e07958350d459c3c765fd8a0995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UnityRobotPublisher
-  DomainId: 0
   TopicName: RobotState_Topic
-  RobotRoot: {fileID: 1526352749}
+  FanucRobotTCP: {fileID: 391397835}
   Joints:
   - {fileID: 155201883}
   - {fileID: 968165632}
@@ -2833,6 +2834,19 @@ MonoBehaviour:
   - {fileID: 1526352752}
   - {fileID: 1045549703}
   VerboseLogging: 1
+--- !u!114 &1262163165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262163160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d1033d8a7ac954092f899b5b39748f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DDSManager
+  Settings: {fileID: 11400000, guid: 9d77d8b76b88e7f408c71022f163dec1, type: 2}
 --- !u!1 &1283041669
 GameObject:
   m_ObjectHideFlags: 0

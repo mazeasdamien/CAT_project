@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class OrbitCamera : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class OrbitCamera : MonoBehaviour
     float x = 0.0f;
     float y = 0.0f;
 
+    private bool canInteract = true;
+
     void Start()
     {
         Vector3 angles = transform.eulerAngles;
@@ -38,18 +41,40 @@ public class OrbitCamera : MonoBehaviour
     {
         if (target)
         {
-            // Check for left mouse button click and drag (Orbit)
-            if (Input.GetMouseButton(0))
+            // Check if mouse is over UI when clicking
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
-                x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-                y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                {
+                    canInteract = false;
+                }
+                else
+                {
+                    canInteract = true;
+                }
             }
 
-            // Check for right mouse button click and drag (Pan)
-            if (Input.GetMouseButton(1))
+            // If no buttons are held, reset interaction state
+            if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
             {
-                targetOffset -= transform.right * Input.GetAxis("Mouse X") * panSpeed;
-                targetOffset -= transform.up * Input.GetAxis("Mouse Y") * panSpeed;
+                canInteract = true;
+            }
+
+            if (canInteract)
+            {
+                // Check for left mouse button click and drag (Orbit)
+                if (Input.GetMouseButton(0))
+                {
+                    x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
+                    y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+                }
+
+                // Check for right mouse button click and drag (Pan)
+                if (Input.GetMouseButton(1))
+                {
+                    targetOffset -= transform.right * Input.GetAxis("Mouse X") * panSpeed;
+                    targetOffset -= transform.up * Input.GetAxis("Mouse Y") * panSpeed;
+                }
             }
 
             y = ClampAngle(y, yMinLimit, yMaxLimit);
@@ -57,7 +82,11 @@ public class OrbitCamera : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(y, x, 0);
 
             // Optional: Scroll to zoom
-            distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * zoomRate, distanceMin, distanceMax);
+            // Only zoom if not over UI
+            if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject())
+            {
+                distance = Mathf.Clamp(distance - Input.GetAxis("Mouse ScrollWheel") * zoomRate, distanceMin, distanceMax);
+            }
 
             /*
              * If you want to check for collisions so the camera doesn't clip through walls:

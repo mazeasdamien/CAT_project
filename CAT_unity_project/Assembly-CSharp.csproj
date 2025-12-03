@@ -64,6 +64,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\RobotStateIdlTypeSupport.cs" />
     <Compile Include="Assets\Scripts\TransformMatcher.cs" />
+    <Compile Include="Assets\Scripts\DDSManager.cs" />
+    <Compile Include="Assets\Scripts\DDSSettings.cs" />
     <Compile Include="Assets\Scripts\UnityRobotSubscriber.cs" />
     <Compile Include="Assets\Scripts\FanucCRXKinematics.cs" />
     <Compile Include="Assets\Scripts\InGameConsoleLogger.cs" />

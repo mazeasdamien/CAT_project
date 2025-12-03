@@ -1,110 +1,109 @@
 using System;
-using System.IO;
 using UnityEngine;
 using OpenDDSharp;
 using OpenDDSharp.DDS;
 using OpenDDSharp.OpenDDS.DCPS;
 using RobotDDS;
 using System.Collections.Generic;
+using System.Collections;
 
 public class UnityRobotSubscriber : MonoBehaviour
 {
     [Header("DDS Configuration")]
-    public int DomainId = 0;
     public string TopicName = "RobotState_Topic";
 
     [Header("Robot Visuals")]
-    public Transform RobotRoot;
+    public Transform FanucRobotTCP;
     public ArticulationBody[] Joints;
 
     [Header("Debug")]
     public bool VerboseLogging = true;
 
-    private DomainParticipantFactory _dpf;
-    private DomainParticipant _participant;
     private RobotStateDataReader _robotReader;
     private RobotStateListener _listener;
+    private Subscriber _subscriber;
+    private Topic _topic;
 
     // Thread-safe Data Exchange
     private object _dataLock = new object();
     private RobotState _latestState = null;
     private bool _hasNewData = false;
 
-    void Start()
+    IEnumerator Start()
     {
-        InitializeDDS();
+        // Wait for DDSManager to be ready
+        while (DDSManager.Instance == null || !DDSManager.Instance.IsInitialized)
+        {
+            yield return null;
+        }
+
+        InitializeSubscriber();
     }
 
-    void InitializeDDS()
+    void InitializeSubscriber()
     {
         try
         {
-            LogInfo("--- Starting DDS Initialization ---");
-
-            // 1. Check Config File
-            string configPath = Path.Combine(Application.streamingAssetsPath, "rtps.ini");
-            if (!File.Exists(configPath))
+            DomainParticipant participant = DDSManager.Instance.Participant;
+            if (participant == null)
             {
-                LogError($"CRITICAL: Config file not found at: {configPath}");
-                return;
-            }
-            LogInfo($"Config file found: {configPath}");
-
-            // 2. Init ACE
-            Ace.Init();
-            LogInfo("ACE Initialized.");
-
-            // 3. Get Factory
-            _dpf = ParticipantService.Instance.GetDomainParticipantFactory("-DCPSConfigFile", configPath);
-            if (_dpf == null)
-            {
-                LogError("CRITICAL: Failed to get DomainParticipantFactory.");
+                LogError("Participant is null in DDSManager.");
                 return;
             }
 
-            // 4. Create Participant
-            _participant = _dpf.CreateParticipant(DomainId);
-            if (_participant == null)
-            {
-                LogError($"CRITICAL: Could not create DomainParticipant for Domain ID {DomainId}.");
-                return;
-            }
+            LogInfo("--- Initializing Subscriber ---");
 
-            // 5. Register Type
+            // 1. Register Type
             RobotStateTypeSupport support = new RobotStateTypeSupport();
-            if (support.RegisterType(_participant, support.GetTypeName()) != ReturnCode.Ok)
+            ReturnCode ret = support.RegisterType(participant, support.GetTypeName());
+            if (ret != ReturnCode.Ok)
             {
-                LogError("CRITICAL: Failed to register RobotState type.");
-                return;
+                // It might be already registered. Log warning but proceed.
+                LogInfo($"RegisterType returned {ret}. Assuming type might already be registered.");
             }
 
-            // 6. Create Topic
-            Topic topic = _participant.CreateTopic(TopicName, support.GetTypeName());
-            if (topic == null)
+            // 2. Create Topic
+            _topic = participant.CreateTopic(TopicName, support.GetTypeName());
+            if (_topic == null)
             {
+                // If CreateTopic fails, it might already exist. 
+                // However, FindTopic requires a Duration which is causing build issues.
                 LogError($"CRITICAL: Failed to create Topic '{TopicName}'.");
                 return;
             }
 
-            // 7. Create Subscriber
-            Subscriber subscriber = _participant.CreateSubscriber();
-            if (subscriber == null)
+            // 3. Create Subscriber
+            _subscriber = participant.CreateSubscriber();
+            if (_subscriber == null)
             {
                 LogError("CRITICAL: Failed to create Subscriber.");
                 return;
             }
 
-            // 8. QoS Setup
+            // 4. QoS Setup
             DataReaderQos readerQos = new DataReaderQos();
-            subscriber.GetDefaultDataReaderQos(readerQos);
-            readerQos.Reliability.Kind = ReliabilityQosPolicyKind.ReliableReliabilityQos;
-            readerQos.Durability.Kind = DurabilityQosPolicyKind.TransientLocalDurabilityQos;
-            readerQos.History.Kind = HistoryQosPolicyKind.KeepLastHistoryQos;
-            readerQos.History.Depth = 1;
+            _subscriber.GetDefaultDataReaderQos(readerQos);
 
-            // 9. Create Reader & Listener
+            // Use settings from DDSManager if available
+            bool useReliable = true;
+            bool useTransientLocal = true;
+            int historyDepth = 1;
+
+            if (DDSManager.Instance != null && DDSManager.Instance.Settings != null)
+            {
+                useReliable = DDSManager.Instance.Settings.UseReliable;
+                useTransientLocal = DDSManager.Instance.Settings.UseTransientLocal;
+                historyDepth = DDSManager.Instance.Settings.HistoryDepth;
+            }
+
+            readerQos.Reliability.Kind = useReliable ? ReliabilityQosPolicyKind.ReliableReliabilityQos : ReliabilityQosPolicyKind.BestEffortReliabilityQos;
+            readerQos.Durability.Kind = useTransientLocal ? DurabilityQosPolicyKind.TransientLocalDurabilityQos : DurabilityQosPolicyKind.VolatileDurabilityQos;
+            readerQos.History.Kind = HistoryQosPolicyKind.KeepLastHistoryQos;
+            readerQos.History.Depth = historyDepth;
+
+            // 5. Create Reader & Listener
             _listener = new RobotStateListener(this);
-            DataReader genericReader = subscriber.CreateDataReader(topic, readerQos, _listener, (uint)StatusKind.DataAvailableStatus);
+            DataReader genericReader = _subscriber.CreateDataReader(_topic, readerQos, _listener, (uint)StatusKind.DataAvailableStatus);
 
             if (genericReader != null)
             {
@@ -143,46 +142,44 @@ public class UnityRobotSubscriber : MonoBehaviour
         }
     }
 
-    // --- FIX: UPDATED COORDINATE LOGIC ---
     void ApplyRobotState(RobotState msg)
     {
-        // 1. Position Conversion (mm to meters)
-        float x = (float)msg.X / 1000.0f;
-        float y = (float)msg.Y / 1000.0f;
-        float z = (float)msg.Z / 1000.0f;
-
-        // 2. Rotation Conversion (Fanuc WPR to Unity)
-        float w = (float)msg.W;
-        float p = (float)msg.P;
-        float r = (float)msg.R;
-
-        if (RobotRoot != null)
+        if (FanucRobotTCP != null)
         {
-            // Position: Negate X for Left-Handed Coordinate System
-            RobotRoot.localPosition = new Vector3(-x, y, z);
+            // Position Logic: Negate X for Left-Handed System
+            float unityX = (float)msg.X / 1000f;
+            float unityY = (float)msg.Y / 1000f;
+            float unityZ = (float)msg.Z / 1000f;
 
-            // Rotation: Calculate Quaternion, get Eulers, then flip Y and Z axes
-            Vector3 tempEuler = CreateQuaternionFromFanucWPR(w, p, r).eulerAngles;
-            RobotRoot.localEulerAngles = new Vector3(tempEuler.x, -tempEuler.y, -tempEuler.z);
+            FanucRobotTCP.localPosition = new Vector3(-unityX, unityY, unityZ);
+
+            // Rotation Logic
+            Vector3 eulerAngles = CreateQuaternionFromFanucWPR((float)msg.W, (float)msg.P, (float)msg.R).eulerAngles;
+            FanucRobotTCP.localEulerAngles = new Vector3(eulerAngles.x, -eulerAngles.y, -eulerAngles.z);
         }
 
-        // 3. Joint Application
         if (Joints != null && Joints.Length >= 6)
         {
             SetJoint(0, (float)msg.J1);
             SetJoint(1, (float)msg.J2);
-
-            // FIX: Fanuc/Parallel linkage robots usually require J3 + J2
+            // Fanuc/Parallel linkage robots usually require J3 + J2
             SetJoint(2, (float)msg.J3 + (float)msg.J2);
-
             SetJoint(3, (float)msg.J4);
             SetJoint(4, (float)msg.J5);
             SetJoint(5, (float)msg.J6);
         }
     }
 
-    // --- FIX: ADDED MATH HELPER ---
-    // Converts Fanuc Yaw-Pitch-Roll (WPR) to a Quaternion
+    void SetJoint(int index, float angle)
+    {
+        if (index < Joints.Length && Joints[index] != null)
+        {
+            var drive = Joints[index].xDrive;
+            drive.target = angle;
+            Joints[index].xDrive = drive;
+        }
+    }
+
     public Quaternion CreateQuaternionFromFanucWPR(float W, float P, float R)
     {
         float Wrad = W * Mathf.Deg2Rad;
@@ -204,16 +201,6 @@ public class UnityRobotSubscriber : MonoBehaviour
         return new Quaternion(qx, qy, qz, qw);
     }
 
-    void SetJoint(int index, float angle)
-    {
-        if (index < Joints.Length && Joints[index] != null)
-        {
-            var drive = Joints[index].xDrive;
-            drive.target = angle;
-            Joints[index].xDrive = drive;
-        }
-    }
-
     // --- Helper Logging Methods ---
     public void LogInfo(string msg)
     {
@@ -226,26 +213,29 @@ public class UnityRobotSubscriber : MonoBehaviour
     }
 
     // --- CLEANUP ---
-    void OnApplicationQuit()
+    void OnDestroy()
     {
-        LogInfo("Cleaning up DDS Entities...");
+        CleanupSubscriber();
+    }
 
-        if (_participant != null)
+    void CleanupSubscriber()
+    {
+        if (_subscriber != null)
         {
-            _participant.DeleteContainedEntities();
-            if (_dpf != null)
-            {
-                _dpf.DeleteParticipant(_participant);
-            }
-        }
+            _subscriber.DeleteContainedEntities();
 
-#if UNITY_EDITOR
-        LogInfo("Editor Mode: Keeping ACE/Factory alive.");
-#else
-        LogInfo("Build Mode: Shutting down ACE.");
-        ParticipantService.Instance.Shutdown();
-        Ace.Fini();
-#endif
+            if (DDSManager.Instance != null && DDSManager.Instance.Participant != null)
+            {
+                try
+                {
+                    DDSManager.Instance.Participant.DeleteSubscriber(_subscriber);
+                }
+                catch { }
+            }
+            _subscriber = null;
+        }
+        _robotReader = null;
+        _listener = null;
     }
 
     // --- LISTENER CLASS ---
