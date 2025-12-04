@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\FanucCRXKinematics.cs" />
     <Compile Include="Assets\Scripts\InGameConsoleLogger.cs" />
     <Compile Include="Assets\Scripts\FanucIK.cs" />
+    <Compile Include="Assets\Scripts\LoadingScreenController.cs" />
     <Compile Include="Assets\Scripts\RandomLocalMover.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
   </ItemGroup>

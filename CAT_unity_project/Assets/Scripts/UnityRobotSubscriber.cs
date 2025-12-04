@@ -12,6 +12,9 @@ public class UnityRobotSubscriber : MonoBehaviour
     [Header("DDS Configuration")]
     public string TopicName = "RobotState_Topic";
 
+    [Header("UI")]
+    public LoadingScreenController LoadingScreen;
+
     [Header("Robot Visuals")]
     public Transform FanucRobotTCP;
     public ArticulationBody[] Joints;
@@ -25,18 +28,27 @@ public class UnityRobotSubscriber : MonoBehaviour
     private Topic _topic;
 
     // Thread-safe Data Exchange
-    private object _dataLock = new();
+    private readonly object _dataLock = new();
     private RobotState _latestState = null;
     private bool _hasNewData = false;
+    private bool _firstDataReceived = false;
+    private string _queuedStatusMessage = null;
 
     IEnumerator Start()
     {
+        if (LoadingScreen != null)
+        {
+            LoadingScreen.Show();
+            LoadingScreen.SetStatus("Waiting for DDS Manager...");
+        }
+
         // Wait for DDSManager to be ready
         while (DDSManager.Instance == null || !DDSManager.Instance.IsInitialized)
         {
             yield return null;
         }
 
+        if (LoadingScreen != null) LoadingScreen.SetStatus("Initializing Subscriber...");
         InitializeSubscriber();
     }
 
@@ -109,15 +121,23 @@ public class UnityRobotSubscriber : MonoBehaviour
             {
                 _robotReader = new RobotStateDataReader(genericReader);
                 LogInfo("<color=green>SUCCESS: Subscriber Initialized. Waiting for Publisher...</color>");
+
+                if (LoadingScreen != null)
+                {
+                    // Do NOT hide yet. Wait for data.
+                    LoadingScreen.SetStatus("Waiting for Publisher...");
+                }
             }
             else
             {
                 LogError("CRITICAL: Failed to create DataReader.");
+                if (LoadingScreen != null) LoadingScreen.SetStatus("Error: Failed to create DataReader");
             }
         }
         catch (Exception e)
         {
             LogError($"EXCEPTION during Init: {e.Message}\n{e.StackTrace}");
+            if (LoadingScreen != null) LoadingScreen.SetStatus($"Exception: {e.Message}");
         }
     }
 
@@ -132,12 +152,28 @@ public class UnityRobotSubscriber : MonoBehaviour
 
     void Update()
     {
+        // Handle queued status updates from background threads
+        if (_queuedStatusMessage != null)
+        {
+            if (LoadingScreen != null) LoadingScreen.SetStatus(_queuedStatusMessage);
+            _queuedStatusMessage = null;
+        }
+
         lock (_dataLock)
         {
             if (_hasNewData && _latestState != null)
             {
                 ApplyRobotState(_latestState);
                 _hasNewData = false;
+
+                if (!_firstDataReceived)
+                {
+                    _firstDataReceived = true;
+                    if (LoadingScreen != null)
+                    {
+                        LoadingScreen.Hide();
+                    }
+                }
             }
         }
     }
@@ -278,9 +314,14 @@ public class UnityRobotSubscriber : MonoBehaviour
         protected override void OnSubscriptionMatched(DataReader reader, SubscriptionMatchedStatus status)
         {
             if (status.CurrentCountChange > 0)
+            {
                 _parent.LogInfo($"<color=cyan>Publisher FOUND! (Count: {status.TotalCount})</color>");
+                _parent._queuedStatusMessage = "Publisher Found! Receiving Data...";
+            }
             else if (status.CurrentCountChange < 0)
+            {
                 _parent.LogInfo($"<color=orange>Publisher LOST. (Count: {status.TotalCount})</color>");
+            }
         }
 
         protected override void OnLivelinessChanged(DataReader reader, LivelinessChangedStatus status) { }
