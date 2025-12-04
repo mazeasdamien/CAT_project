@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\RobotStateTypeSupport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\TeleopDataTypeSupport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupportImpl.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupportC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupportImpl.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupportC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\RobotStateTypeSupport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\TeleopDataTypeSupport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\FanucDDS_DAMIEN_MAZEASWrapper_export.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupportImpl.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupportC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupportC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupportS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupportImpl.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupportC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupportC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupportS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\RobotState.idl">
+      <Filter>IDL Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\CMakeFiles\4036a7f46d1268e889ef255440adc500\RobotStateC.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\RobotStateTypeSupport.idl">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\TeleopData.idl">
+      <Filter>IDL Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\CMakeFiles\4036a7f46d1268e889ef255440adc500\TeleopDataC.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\opendds_generated\TeleopDataTypeSupport.idl">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7AB97052-2D14-3923-A88F-839B2A4211DC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{15B9AB51-C554-364C-B582-B3865F95ED24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0C8B7E12-895C-39C9-8862-A920B7C8B95F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDL Files">
+      <UniqueIdentifier>{238B440F-28DB-3831-8DE8-1E50023693FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4F118718-0B26-3412-85D6-2406C4C8AEBF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\CMakeFiles\e2c770eff0a92ef53e8b328812a99639\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{DCC7157A-92B0-3700-9F76-7FE681287384}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

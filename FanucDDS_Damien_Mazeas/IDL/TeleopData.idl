@@ -1,0 +1,13 @@
+module RobotDDS {
+  @topic
+  @final
+  struct TeleopData {
+    double J1;
+    double J2;
+    double J3;
+    double J4;
+    double J5;
+    double J6;
+    long Samples;
+  };
+};

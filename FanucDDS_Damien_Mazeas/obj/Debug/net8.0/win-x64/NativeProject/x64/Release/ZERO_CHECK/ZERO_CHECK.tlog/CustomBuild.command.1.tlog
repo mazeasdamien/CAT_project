@@ -1,0 +1,10 @@
+^C:\DEV\TESTFANUC\FANUCDDS_DAMIEN_MAZEAS\OBJ\DEBUG\NET8.0\WIN-X64\NATIVEPROJECT\CMAKEFILES\E2C770EFF0A92EF53E8B328812A99639\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/testFanuc/FanucDDS_DAMIEN_MAZEAS/obj/Debug/net8.0/win-x64/NativeProject -BC:/Dev/testFanuc/FanucDDS_DAMIEN_MAZEAS/obj/Debug/net8.0/win-x64/NativeProject --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Dev/testFanuc/FanucDDS_DAMIEN_MAZEAS/obj/Debug/net8.0/win-x64/NativeProject/FanucDDS_DAMIEN_MAZEASWrapper.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

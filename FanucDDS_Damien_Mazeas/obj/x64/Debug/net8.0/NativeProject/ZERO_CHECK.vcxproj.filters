@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\NativeProject\CMakeFiles\ba7d893f80827103c2aeb7c83f066f0c\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7AB97052-2D14-3923-A88F-839B2A4211DC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

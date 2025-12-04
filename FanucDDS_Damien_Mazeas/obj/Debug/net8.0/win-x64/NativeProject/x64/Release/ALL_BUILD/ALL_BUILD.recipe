@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\Release\FanucDDS_DAMIEN_MAZEASWrapper.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

@@ -1,0 +1,23 @@
+#include <tao/orb.idl>
+#include <tao/Int8Seq.pidl>
+#include <tao/UInt8Seq.pidl>
+module RobotDDS{
+  @topic
+  @final
+  struct RobotState {
+	string Clock;
+	long SampleId;
+	double J1;
+	double J2;
+	double J3;
+	double J4;
+	double J5;
+	double J6;
+	double X;
+	double Y;
+	double Z;
+	double W;
+	double P;
+	double R;
+  };
+};

@@ -1,0 +1,10 @@
+^C:\USERS\DAMIEN MAZEAS\DESKTOP\CAT\FANUCDDS_DAMIEN_MAZEAS\OBJ\X64\DEBUG\NET8.0\NATIVEPROJECT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject" "-BC:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject" --check-stamp-file "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

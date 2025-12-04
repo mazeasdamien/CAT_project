@@ -1,0 +1,27 @@
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEASWrapper.dll
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.deps.json
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.pdb
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.csproj.AssemblyReference.cache
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.AssemblyInfoInputs.cache
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.AssemblyInfo.cs
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.csproj.CoreCompileInputs.cache
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\refint\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.pdb
+C:\Dev\FanucDDS_Damien_Mazeas\FanucDDS_DAMIEN_MAZEAS\obj\x64\Debug\net8.0\ref\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEASWrapper.dll
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.deps.json
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\bin\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.pdb
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.csproj.AssemblyReference.cache
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.AssemblyInfoInputs.cache
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.AssemblyInfo.cs
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.csproj.CoreCompileInputs.cache
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.sourcelink.json
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\refint\FanucDDS_DAMIEN_MAZEAS.dll
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\FanucDDS_DAMIEN_MAZEAS.pdb
+C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_Damien_Mazeas\obj\x64\Debug\net8.0\ref\FanucDDS_DAMIEN_MAZEAS.dll

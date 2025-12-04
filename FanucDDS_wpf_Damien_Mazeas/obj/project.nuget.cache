@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "OWCEXaiDj3M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_wpf_Damien_Mazeas\\FanucDDS_wpf_Damien_Mazeas.csproj",
+  "expectedPackageFiles": [
+    "C:\\NuGetPackages\\openddsharp\\3.310.3\\openddsharp.3.310.3.nupkg.sha512",
+    "C:\\NuGetPackages\\openddsharp.marshaller\\3.310.3\\openddsharp.marshaller.3.310.3.nupkg.sha512",
+    "C:\\NuGetPackages\\openddsharp.native\\3.310.3\\openddsharp.native.3.310.3.nupkg.sha512"
+  ],
+  "logs": []
+}

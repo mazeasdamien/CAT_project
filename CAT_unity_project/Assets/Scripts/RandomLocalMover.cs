@@ -10,32 +10,26 @@ public class RandomLocalMover : MonoBehaviour
     public bool isMoving = true;
 
     [Header("Movement Settings")]
-    [Tooltip("Movement speed in units per second.")]
-    public float speed = 0.5f;
+    [Tooltip("Lerp speed for smooth movement.")]
+    public float speed = 2.0f;
 
     [Tooltip("Distance threshold to consider the target reached.")]
-    public float reachThreshold = 0.01f;
+    public float reachThreshold = 0.05f;
 
     [Header("Area Limits (Local Space)")]
     // Default values provided by user
     public Vector3 limit1 = new Vector3(-0.745999992f, -0.59799999f, 0.600000024f);
     public Vector3 limit2 = new Vector3(-0.201000005f, 0.426999986f, 0.103f);
 
-    [Header("Rotation Limits (Euler Angles)")]
-    public Vector3 rotLimit1 = new Vector3(1.23020911f, 181.327133f, 269.087036f);
-    public Vector3 rotLimit2 = new Vector3(21.0933533f, 245.063507f, 242.05864f);
-
-    [Tooltip("Rotation speed in degrees per second.")]
-    public float rotationSpeed = 30.0f;
+    [Header("Rotation Settings")]
+    [Tooltip("Maximum angle deviation from straight down (in degrees).")]
+    public float tiltTolerance = 20.0f;
 
     private Vector3 _targetPosition;
     private Quaternion _targetRotation;
 
     private Vector3 _minBounds;
     private Vector3 _maxBounds;
-
-    private Vector3 _minRotBounds;
-    private Vector3 _maxRotBounds;
 
     private void Start()
     {
@@ -47,32 +41,29 @@ public class RandomLocalMover : MonoBehaviour
     {
         if (!isMoving) return;
 
-        // Move smoothly towards the target position
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, _targetPosition, speed * Time.deltaTime);
+        // Move smoothly towards the target position using Lerp for natural feel
+        transform.localPosition = Vector3.Lerp(transform.localPosition, _targetPosition, speed * Time.deltaTime);
 
-        // Rotate smoothly towards the target rotation
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation, rotationSpeed * Time.deltaTime);
+        // Rotate smoothly towards the target rotation using Slerp
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, _targetRotation, speed * Time.deltaTime);
 
-        // Check if we have reached the target (both position and rotation)
+        // Check if we have reached the target (mostly position, rotation follows)
         float dist = Vector3.Distance(transform.localPosition, _targetPosition);
         float angle = Quaternion.Angle(transform.localRotation, _targetRotation);
 
-        if (dist < reachThreshold && angle < 1.0f)
+        if (dist < reachThreshold && angle < 5.0f)
         {
             SetNewRandomTarget();
         }
     }
 
     /// <summary>
-    /// Calculates the min and max bounds from the two limit points for both position and rotation.
+    /// Calculates the min and max bounds from the two limit points for position.
     /// </summary>
     private void CalculateBounds()
     {
         _minBounds = Vector3.Min(limit1, limit2);
         _maxBounds = Vector3.Max(limit1, limit2);
-
-        _minRotBounds = Vector3.Min(rotLimit1, rotLimit2);
-        _maxRotBounds = Vector3.Max(rotLimit1, rotLimit2);
     }
 
     /// <summary>
@@ -86,11 +77,25 @@ public class RandomLocalMover : MonoBehaviour
         float z = Random.Range(_minBounds.z, _maxBounds.z);
         _targetPosition = new Vector3(x, y, z);
 
-        // Rotation
-        float rx = Random.Range(_minRotBounds.x, _maxRotBounds.x);
-        float ry = Random.Range(_minRotBounds.y, _maxRotBounds.y);
-        float rz = Random.Range(_minRotBounds.z, _maxRotBounds.z);
-        _targetRotation = Quaternion.Euler(rx, ry, rz);
+        // Rotation: Z axis facing floor (World Down) with tolerance
+        Vector3 worldDown = Vector3.down;
+
+        // Generate a random direction within the tolerance cone
+        // Rotate 'down' towards a random direction by a random angle within tolerance
+        Vector3 targetZ = Vector3.RotateTowards(worldDown, Random.onUnitSphere, Random.Range(0, tiltTolerance) * Mathf.Deg2Rad, 0.0f);
+
+        // Create a rotation looking at targetZ with a random Up vector to allow natural variation
+        Quaternion worldRot = Quaternion.LookRotation(targetZ, Random.onUnitSphere);
+
+        // Convert to Local Rotation
+        if (transform.parent != null)
+        {
+            _targetRotation = Quaternion.Inverse(transform.parent.rotation) * worldRot;
+        }
+        else
+        {
+            _targetRotation = worldRot;
+        }
     }
 
     /// <summary>

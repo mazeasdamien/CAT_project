@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Dev/testFanuc/FanucDDS_DAMIEN_MAZEAS/obj/Debug/net8.0/win-x64/NativeProject/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\RobotStateTypeSupport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\TeleopDataTypeSupport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupportImpl.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupportC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupportImpl.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupportC.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\RobotStateTypeSupport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\TeleopDataTypeSupport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\FanucDDS_DAMIEN_MAZEASWrapper_export.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupportImpl.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupportC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupportC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupportS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupportImpl.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupportC.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupportC.inl">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupportS.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\RobotState.idl">
+      <Filter>IDL Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\CMakeFiles\3091c1aae656c128f591adc113988a1d\RobotStateC.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\RobotStateTypeSupport.idl">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\TeleopData.idl">
+      <Filter>IDL Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\CMakeFiles\3091c1aae656c128f591adc113988a1d\TeleopDataC.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\opendds_generated\TeleopDataTypeSupport.idl">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Dev\testFanuc\FanucDDS_DAMIEN_MAZEAS\obj\Debug\net8.0\win-x64\NativeProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{DCC7157A-92B0-3700-9F76-7FE681287384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{04D0439F-29F8-3814-AC58-06179609E1F7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{AFF0E6CB-0412-32D6-8060-552A26C2CE09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDL Files">
+      <UniqueIdentifier>{F001E850-9989-313B-A83B-8D932848763A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D34AEF0E-4D1E-3D97-A91E-CABD86BC6D0A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

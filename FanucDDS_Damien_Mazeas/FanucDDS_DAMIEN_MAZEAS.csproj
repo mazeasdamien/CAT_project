@@ -1,0 +1,43 @@
+﻿<Project>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <Platforms>x64;x86;ARM64</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RuntimeIdentifiers>win-x64;win-x86;linux-x64;linux-arm64;osx-x64;osx-arm64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+  <ItemGroup>
+    <PackageReference Include="OpenDDSharp.IdlGenerator" Version="3.310.3" />
+    <PackageReference Include="OpenDDSharp" Version="3.310.3" />
+    <PackageReference Include="OpenDDSharp.Marshaller" Version="3.310.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeWrapperWindows Include="$(IntermediateOutputPath)NativeProject\Release\FanucDDS_DAMIEN_MAZEASWrapper.dll" />
+    <ContentWithTargetPath Include="@(NativeWrapperWindows)" Visible="false" Condition="'$(IsWindows)'=='true'">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <TargetPath>FanucDDS_DAMIEN_MAZEASWrapper.dll</TargetPath>
+    </ContentWithTargetPath>
+
+    <NativeWrapperLinux Include="$(IntermediateOutputPath)NativeProject\libFanucDDS_DAMIEN_MAZEASWrapper.so" />
+    <ContentWithTargetPath Include="@(NativeWrapperLinux)" Visible="false" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <TargetPath>libFanucDDS_DAMIEN_MAZEASWrapper.so</TargetPath>
+    </ContentWithTargetPath>
+
+    <NativeWrapperOSX Include="$(IntermediateOutputPath)NativeProject\libFanucDDS_DAMIEN_MAZEASWrapper.dylib" />
+    <ContentWithTargetPath Include="@(NativeWrapperOSX)" Visible="false" Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <TargetPath>libFanucDDS_DAMIEN_MAZEASWrapper.dylib</TargetPath>
+    </ContentWithTargetPath>
+  </ItemGroup>
+</Project>

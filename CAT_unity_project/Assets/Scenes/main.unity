@@ -923,6 +923,12 @@ MonoBehaviour:
   distanceMax: 15
   zoomRate: 0.3
   panSpeed: 0.1
+  panButton: 2
+  enableAutoRotate: 1
+  autoRotateSpeedX: 5
+  autoRotateSpeedY: 1
+  idleTime: 5
+  autoRotateLerpSpeed: 0.5
 --- !u!1 &391397834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1587,9 @@ MonoBehaviour:
   - Subscriber
   - Singularity
   - CRITICAL
+  - DomainParticipant
+  - Publisher
+  - Subscriber
 --- !u!114 &517667016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2250,14 +2259,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037098400}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.96821576, y: -0.25011656, z: -0.000000057226686, w: -0.000000046763752}
-  m_LocalPosition: {x: -0.55801487, y: 0.0043047527, z: -0.005322187}
+  m_LocalRotation: {x: 0.7245888, y: -0.6891816, z: -0.00000021062922, w: 0.00000002462367}
+  m_LocalPosition: {x: -0.4454, y: 0.01, z: 0.225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 566930548}
   m_Father: {fileID: 1070072881}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 87.131}
 --- !u!114 &1037098402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2273,11 +2282,9 @@ MonoBehaviour:
   isMoving: 0
   speed: 0.3
   reachThreshold: 0.01
-  limit1: {x: -0.24, y: -0.5, z: 0.66}
-  limit2: {x: -0.87, y: 0.5, z: -0.03}
-  rotLimit1: {x: 1.2302091, y: 181.32713, z: 269.08704}
-  rotLimit2: {x: 21.093353, y: 245.0635, z: 242.05864}
-  rotationSpeed: 5
+  limit1: {x: -0.2, y: -0.4, z: 0.55}
+  limit2: {x: -0.6, y: 0.4, z: 0.02}
+  tiltTolerance: 20
 --- !u!171741748 &1045549703
 ArticulationBody:
   m_ObjectHideFlags: 0
@@ -2806,6 +2813,7 @@ GameObject:
   - component: {fileID: 1262163163}
   - component: {fileID: 1262163165}
   - component: {fileID: 1262163164}
+  - component: {fileID: 1262163166}
   m_Layer: 0
   m_Name: DDSManager
   m_TagString: Untagged
@@ -2864,6 +2872,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DDSManager
   Settings: {fileID: 11400000, guid: 9d77d8b76b88e7f408c71022f163dec1, type: 2}
+--- !u!114 &1262163166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262163160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7ce2f81dbf1344494ad12129e931b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleopDataPublisher
+  robotIK: {fileID: 434787375}
+  topicName: Teleop_Topic
+  typeName: TeleopData
 --- !u!1 &1283041669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,7 +3122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.52156866}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.94509804}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

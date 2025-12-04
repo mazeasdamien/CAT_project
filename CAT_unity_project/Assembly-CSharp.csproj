@@ -62,14 +62,16 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\RobotStateIdlTypeSupport.cs" />
+    <Compile Include="Assets\Scripts\DDS\DDSSettings.cs" />
     <Compile Include="Assets\Scripts\TransformMatcher.cs" />
-    <Compile Include="Assets\Scripts\DDSManager.cs" />
-    <Compile Include="Assets\Scripts\DDSSettings.cs" />
-    <Compile Include="Assets\Scripts\UnityRobotSubscriber.cs" />
+    <Compile Include="Assets\Scripts\DDS\TeleopDataPublisher.cs" />
     <Compile Include="Assets\Scripts\FanucCRXKinematics.cs" />
     <Compile Include="Assets\Scripts\InGameConsoleLogger.cs" />
+    <Compile Include="Assets\Scripts\DDS\UnityRobotSubscriber.cs" />
+    <Compile Include="Assets\Scripts\DDS\RobotStateTypeSupport.cs" />
+    <Compile Include="Assets\Scripts\DDS\TeleopDataTypeSupport.cs" />
     <Compile Include="Assets\Scripts\FanucIK.cs" />
+    <Compile Include="Assets\Scripts\DDS\DDSManager.cs" />
     <Compile Include="Assets\Scripts\LoadingScreenController.cs" />
     <Compile Include="Assets\Scripts\RandomLocalMover.cs" />
     <Compile Include="Assets\Scripts\OrbitCamera.cs" />
