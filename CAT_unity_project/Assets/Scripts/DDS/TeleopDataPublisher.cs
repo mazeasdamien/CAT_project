@@ -20,6 +20,9 @@ public class TeleopDataPublisher : MonoBehaviour
     [Tooltip("The name of the type in DDS.")]
     [SerializeField] private string typeName = "TeleopData";
 
+    [Tooltip("Rate at which to publish data in Hz.")]
+    [SerializeField] private float publishRateHz = 10f;
+
     private TeleopDataDataWriter _writer;
     private Topic _topic;
     private Publisher _publisher;
@@ -27,21 +30,11 @@ public class TeleopDataPublisher : MonoBehaviour
 
     private bool _isInitialized = false;
 
-    private Transform _transform;
-    private Vector3 _lastPosition;
-    private Quaternion _lastRotation;
-
-    private readonly float _publishRateHz = 10f;
     private float _nextPublishTime = 0f;
     private int _sequenceId = 0;
 
     private void Start()
     {
-        _transform = transform;
-
-        _lastPosition = Vector3.negativeInfinity;
-        _lastRotation = Quaternion.identity;
-
         if (robotIK == null)
         {
             robotIK = FindFirstObjectByType<FanucIK>();
@@ -50,6 +43,8 @@ public class TeleopDataPublisher : MonoBehaviour
                 Debug.LogError("TeleopDataPublisher: FanucIK script not found! Please assign it in the Inspector.");
             }
         }
+
+        Debug.Log($"TeleopDataPublisher: Publishing to topic '{topicName}'");
 
         // Start initialization coroutine to wait for DDSManager
         StartCoroutine(InitializeDDS());
@@ -143,17 +138,8 @@ public class TeleopDataPublisher : MonoBehaviour
 
         if (Time.time < _nextPublishTime) return;
 
-        // Check if the target transform has moved, which would cause IK to update joints
-        bool positionChanged = Vector3.SqrMagnitude(_transform.localPosition - _lastPosition) > 0.0001f;
-        bool rotationChanged = Quaternion.Angle(_transform.localRotation, _lastRotation) > 0.01f;
-
-        if (positionChanged || rotationChanged)
-        {
-            PublishJoints();
-            _lastPosition = _transform.localPosition;
-            _lastRotation = _transform.localRotation;
-            _nextPublishTime = Time.time + (1f / _publishRateHz);
-        }
+        PublishJoints();
+        _nextPublishTime = Time.time + (1f / publishRateHz);
     }
 
     private void PublishJoints()
@@ -162,7 +148,8 @@ public class TeleopDataPublisher : MonoBehaviour
         {
             if (robotIK.joints == null || robotIK.joints.Count < 6)
             {
-                Debug.LogWarning("TeleopDataPublisher: Robot joints not fully assigned in IK script.");
+                // Only log once or throttle this warning to avoid spam
+                // Debug.LogWarning("TeleopDataPublisher: Robot joints not fully assigned in IK script.");
                 return;
             }
 
@@ -186,7 +173,6 @@ public class TeleopDataPublisher : MonoBehaviour
             // Fanuc J3 = Unity J3 - Unity J2
             j3 -= j2;
 
-            // Create Data Sample
             // Create Data Sample
             TeleopData sample = new()
             {
