@@ -15,7 +15,7 @@ public class TeleopDataPublisher : MonoBehaviour
 
     [Header("DDS Configuration")]
     [Tooltip("The name of the DDS topic to publish to.")]
-    [SerializeField] private string topicName = "OperatorNewPose_Topic";
+    [SerializeField] private string topicName = "Teleop_Topic";
 
     [Tooltip("The name of the type in DDS.")]
     [SerializeField] private string typeName = "TeleopData";

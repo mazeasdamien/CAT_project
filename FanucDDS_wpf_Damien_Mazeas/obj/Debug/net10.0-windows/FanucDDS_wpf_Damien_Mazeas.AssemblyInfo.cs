@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FanucDDS_wpf_Damien_Mazeas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe0eb472d4905232a035be448f61418cf0d68309")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d0c627519b98875d6485b6f837cb6ea4929e085")]
 [assembly: System.Reflection.AssemblyProductAttribute("FanucDDS_wpf_Damien_Mazeas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FanucDDS_wpf_Damien_Mazeas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

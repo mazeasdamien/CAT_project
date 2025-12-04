@@ -5,8 +5,142 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FanucDDS_wpf_Damien_Mazeas"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Fanuc DDS Teleop Monitor" Height="600" Width="900"
+        Background="#1E1E1E" Foreground="White"
+        WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style TargetType="Border" x:Key="CardStyle">
+            <Setter Property="Background" Value="#2D2D30"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="2" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
+        <Style TargetType="TextBlock" x:Key="LabelStyle">
+            <Setter Property="Foreground" Value="#AAAAAA"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="ValueStyle">
+            <Setter Property="Foreground" Value="#00BFFF"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Background="#252526" Padding="20">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="FANUC ROBOT TELEOP" FontSize="24" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+                <Border Background="#00BFFF" CornerRadius="4" Padding="8,2" Margin="15,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="LIVE" FontSize="12" FontWeight="Bold" Foreground="Black"/>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- J1 -->
+            <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource CardStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="JOINT 1" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding J1, StringFormat=N2}" Style="{StaticResource ValueStyle}"/>
+                    <TextBlock Text="deg" Foreground="#666" HorizontalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- J2 -->
+            <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource CardStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="JOINT 2" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding J2, StringFormat=N2}" Style="{StaticResource ValueStyle}"/>
+                    <TextBlock Text="deg" Foreground="#666" HorizontalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- J3 -->
+            <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource CardStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="JOINT 3" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding J3, StringFormat=N2}" Style="{StaticResource ValueStyle}"/>
+                    <TextBlock Text="deg" Foreground="#666" HorizontalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- J4 -->
+            <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource CardStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="JOINT 4" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding J4, StringFormat=N2}" Style="{StaticResource ValueStyle}"/>
+                    <TextBlock Text="deg" Foreground="#666" HorizontalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- J5 -->
+            <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource CardStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="JOINT 5" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding J5, StringFormat=N2}" Style="{StaticResource ValueStyle}"/>
+                    <TextBlock Text="deg" Foreground="#666" HorizontalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Border>
+
+            <!-- J6 -->
+            <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource CardStyle}">
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="JOINT 6" Style="{StaticResource LabelStyle}"/>
+                    <TextBlock Text="{Binding J6, StringFormat=N2}" Style="{StaticResource ValueStyle}"/>
+                    <TextBlock Text="deg" Foreground="#666" HorizontalAlignment="Center" FontSize="12"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Footer / Status -->
+        <Border Grid.Row="2" Background="#007ACC" Padding="10,5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Orientation="Horizontal" Grid.Column="0">
+                    <TextBlock Text="Status: " FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="{Binding StatusMessage}" Foreground="White" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="2">
+                    <TextBlock Text="Samples: " FontWeight="Bold" Foreground="White"/>
+                    <TextBlock Text="{Binding Samples}" Foreground="White" Margin="5,0,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

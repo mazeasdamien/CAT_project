@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +17,19 @@ namespace FanucDDS_wpf_Damien_Mazeas
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel _viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            _viewModel = new MainViewModel();
+            DataContext = _viewModel;
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            _viewModel.Cleanup();
+            base.OnClosed(e);
         }
     }
 }
