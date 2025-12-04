@@ -25,7 +25,7 @@ public class UnityRobotSubscriber : MonoBehaviour
     private Topic _topic;
 
     // Thread-safe Data Exchange
-    private object _dataLock = new object();
+    private object _dataLock = new();
     private RobotState _latestState = null;
     private bool _hasNewData = false;
 
@@ -54,7 +54,7 @@ public class UnityRobotSubscriber : MonoBehaviour
             LogInfo("--- Initializing Subscriber ---");
 
             // 1. Register Type
-            RobotStateTypeSupport support = new RobotStateTypeSupport();
+            RobotStateTypeSupport support = new();
             ReturnCode ret = support.RegisterType(participant, support.GetTypeName());
             if (ret != ReturnCode.Ok)
             {
@@ -81,7 +81,7 @@ public class UnityRobotSubscriber : MonoBehaviour
             }
 
             // 4. QoS Setup
-            DataReaderQos readerQos = new DataReaderQos();
+            DataReaderQos readerQos = new();
             _subscriber.GetDefaultDataReaderQos(readerQos);
 
             // Use settings from DDSManager if available
@@ -250,9 +250,9 @@ public class UnityRobotSubscriber : MonoBehaviour
 
         protected override void OnDataAvailable(DataReader reader)
         {
-            RobotStateDataReader robotReader = new RobotStateDataReader(reader);
-            List<RobotState> msgList = new List<RobotState>();
-            List<SampleInfo> infoList = new List<SampleInfo>();
+            RobotStateDataReader robotReader = new(reader);
+            List<RobotState> msgList = new();
+            List<SampleInfo> infoList = new();
 
             ReturnCode ret = robotReader.Take(
                 msgList,

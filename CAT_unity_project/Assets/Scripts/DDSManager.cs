@@ -53,11 +53,8 @@ public class DDSManager : MonoBehaviour
         // but you can enable it if you want persistent DDS across scenes.
     }
 
-    IEnumerator Start()
+    void Start()
     {
-        // Wait a moment to ensure previous DDS entities (ports, etc.) are fully cleaned up by the OS
-        // This is especially important in the Unity Editor between Play sessions.
-        yield return new WaitForSeconds(1.0f);
         InitializeDDS();
     }
 
