@@ -40,8 +40,11 @@ namespace FanucDDS_wpf_Damien_Mazeas
         private double _j6;
         public double J6 { get => _j6; set { _j6 = value; OnPropertyChanged(); } }
 
-        private int _samples;
-        public int Samples { get => _samples; set { _samples = value; OnPropertyChanged(); } }
+        private int _sampleId;
+        public int SampleId { get => _sampleId; set { _sampleId = value; OnPropertyChanged(); } }
+
+        private string _clock = string.Empty;
+        public string Clock { get => _clock; set { _clock = value; OnPropertyChanged(); } }
 
         private string _statusMessage = "Disconnected";
         public string StatusMessage { get => _statusMessage; set { _statusMessage = value; OnPropertyChanged(); } }
@@ -209,7 +212,8 @@ namespace FanucDDS_wpf_Damien_Mazeas
                             J4 = data.J4;
                             J5 = data.J5;
                             J6 = data.J6;
-                            Samples = data.Samples;
+                            SampleId = data.SampleId;
+                            Clock = data.Clock;
                             break; // Only take the latest
                         }
                     }

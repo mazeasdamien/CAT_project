@@ -142,7 +142,7 @@ namespace RobotDDS
       ::RobotDDS::TeleopData & dst,
       ::DDS::DynamicData_ptr src) = 0;
 
-    virtual ::RobotDDS::TeleopData create_sample (
+    virtual ::RobotDDS::TeleopData * create_sample (
       ::DDS::DynamicData_ptr src) = 0;
 
     virtual ::DDS::ReturnCode_t create_dynamic_sample_rc (

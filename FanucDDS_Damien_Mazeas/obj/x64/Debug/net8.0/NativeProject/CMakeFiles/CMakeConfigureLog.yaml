@@ -93,7 +93,7 @@ events:
       The output was:
       0
       MSBuild version 18.0.5+e22287bf1 for .NET Framework
-      Build started 4/12/2025 09:54:06.
+      Build started 4/12/2025 14:04:03.
       
       Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\4.2.0\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -122,7 +122,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.51
+      Time Elapsed 00:00:00.81
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -1213,8 +1213,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q6j6bz"
-      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q6j6bz"
+      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-r2se6p"
+      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-r2se6p"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1224,39 +1224,39 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q6j6bz'
+        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-r2se6p'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e74c0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_95c41.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:07.
+        Build started 4/12/2025 14:04:05.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q6j6bz\\cmTC_e74c0.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-r2se6p\\cmTC_95c41.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q6j6bz\\Debug\\".
-          Creating directory "cmTC_e74c0.dir\\Debug\\cmTC_e74c0.tlog\\".
+          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-r2se6p\\Debug\\".
+          Creating directory "cmTC_95c41.dir\\Debug\\cmTC_95c41.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e74c0.dir\\Debug\\cmTC_e74c0.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e74c0.dir\\Debug\\cmTC_e74c0.tlog\\unsuccessfulbuild".
+          Creating "cmTC_95c41.dir\\Debug\\cmTC_95c41.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_95c41.dir\\Debug\\cmTC_95c41.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e74c0.dir\\Debug\\\\" /Fd"cmTC_e74c0.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_95c41.dir\\Debug\\\\" /Fd"cmTC_95c41.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e74c0.dir\\Debug\\\\" /Fd"cmTC_e74c0.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_95c41.dir\\Debug\\\\" /Fd"cmTC_95c41.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q6j6bz\\Debug\\cmTC_e74c0.exe" /INCREMENTAL /ILK:"cmTC_e74c0.dir\\Debug\\cmTC_e74c0.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q6j6bz/Debug/cmTC_e74c0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q6j6bz/Debug/cmTC_e74c0.lib" /MACHINE:X64  /machine:x64 cmTC_e74c0.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_e74c0.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q6j6bz\\Debug\\cmTC_e74c0.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-r2se6p\\Debug\\cmTC_95c41.exe" /INCREMENTAL /ILK:"cmTC_95c41.dir\\Debug\\cmTC_95c41.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-r2se6p/Debug/cmTC_95c41.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-r2se6p/Debug/cmTC_95c41.lib" /MACHINE:X64  /machine:x64 cmTC_95c41.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_95c41.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-r2se6p\\Debug\\cmTC_95c41.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_e74c0.dir\\Debug\\cmTC_e74c0.tlog\\unsuccessfulbuild".
-          Touching "cmTC_e74c0.dir\\Debug\\cmTC_e74c0.tlog\\cmTC_e74c0.lastbuildstate".
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q6j6bz\\cmTC_e74c0.vcxproj" (default targets).
+          Deleting file "cmTC_95c41.dir\\Debug\\cmTC_95c41.tlog\\unsuccessfulbuild".
+          Touching "cmTC_95c41.dir\\Debug\\cmTC_95c41.tlog\\cmTC_95c41.lastbuildstate".
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-r2se6p\\cmTC_95c41.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.44
+        Time Elapsed 00:00:00.61
         
       exitCode: 0
   -
@@ -1308,37 +1308,37 @@ events:
       stdout: |
         Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201103/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6a2d7.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e9262.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:08.
+        Build started 4/12/2025 14:04:06.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\cmTC_6a2d7.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\cmTC_e9262.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
           Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\Debug\\".
-          Creating directory "cmTC_6a2d7.dir\\Debug\\cmTC_6a2d7.tlog\\".
+          Creating directory "cmTC_e9262.dir\\Debug\\cmTC_e9262.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_6a2d7.dir\\Debug\\cmTC_6a2d7.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_6a2d7.dir\\Debug\\cmTC_6a2d7.tlog\\unsuccessfulbuild".
+          Creating "cmTC_e9262.dir\\Debug\\cmTC_e9262.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_e9262.dir\\Debug\\cmTC_e9262.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201103L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_6a2d7.dir\\Debug\\\\" /Fd"cmTC_6a2d7.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201103L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e9262.dir\\Debug\\\\" /Fd"cmTC_e9262.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201103L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_6a2d7.dir\\Debug\\\\" /Fd"cmTC_6a2d7.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201103L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_e9262.dir\\Debug\\\\" /Fd"cmTC_e9262.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           test_cxx_std.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_6a2d7.exe" /INCREMENTAL /ILK:"cmTC_6a2d7.dir\\Debug\\cmTC_6a2d7.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201103/CMakeFiles/CMakeTmp/Debug/cmTC_6a2d7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201103/CMakeFiles/CMakeTmp/Debug/cmTC_6a2d7.lib" /MACHINE:X64  /machine:x64 cmTC_6a2d7.dir\\Debug\\test_cxx_std.obj
-          cmTC_6a2d7.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_6a2d7.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_e9262.exe" /INCREMENTAL /ILK:"cmTC_e9262.dir\\Debug\\cmTC_e9262.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201103/CMakeFiles/CMakeTmp/Debug/cmTC_e9262.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201103/CMakeFiles/CMakeTmp/Debug/cmTC_e9262.lib" /MACHINE:X64  /machine:x64 cmTC_e9262.dir\\Debug\\test_cxx_std.obj
+          cmTC_e9262.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_e9262.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_6a2d7.dir\\Debug\\cmTC_6a2d7.tlog\\unsuccessfulbuild".
-          Touching "cmTC_6a2d7.dir\\Debug\\cmTC_6a2d7.tlog\\cmTC_6a2d7.lastbuildstate".
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\cmTC_6a2d7.vcxproj" (default targets).
+          Deleting file "cmTC_e9262.dir\\Debug\\cmTC_e9262.tlog\\unsuccessfulbuild".
+          Touching "cmTC_e9262.dir\\Debug\\cmTC_e9262.tlog\\cmTC_e9262.lastbuildstate".
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201103\\CMakeFiles\\CMakeTmp\\cmTC_e9262.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.41
+        Time Elapsed 00:00:00.56
         
       exitCode: 0
   -
@@ -1362,37 +1362,37 @@ events:
       stdout: |
         Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201402/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a79d0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_59108.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:09.
+        Build started 4/12/2025 14:04:08.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\cmTC_a79d0.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\cmTC_59108.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
           Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\Debug\\".
-          Creating directory "cmTC_a79d0.dir\\Debug\\cmTC_a79d0.tlog\\".
+          Creating directory "cmTC_59108.dir\\Debug\\cmTC_59108.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_a79d0.dir\\Debug\\cmTC_a79d0.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_a79d0.dir\\Debug\\cmTC_a79d0.tlog\\unsuccessfulbuild".
+          Creating "cmTC_59108.dir\\Debug\\cmTC_59108.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_59108.dir\\Debug\\cmTC_59108.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201402L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_a79d0.dir\\Debug\\\\" /Fd"cmTC_a79d0.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201402L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_59108.dir\\Debug\\\\" /Fd"cmTC_59108.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201402L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_a79d0.dir\\Debug\\\\" /Fd"cmTC_a79d0.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201402L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_59108.dir\\Debug\\\\" /Fd"cmTC_59108.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           test_cxx_std.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_a79d0.exe" /INCREMENTAL /ILK:"cmTC_a79d0.dir\\Debug\\cmTC_a79d0.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201402/CMakeFiles/CMakeTmp/Debug/cmTC_a79d0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201402/CMakeFiles/CMakeTmp/Debug/cmTC_a79d0.lib" /MACHINE:X64  /machine:x64 cmTC_a79d0.dir\\Debug\\test_cxx_std.obj
-          cmTC_a79d0.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_a79d0.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_59108.exe" /INCREMENTAL /ILK:"cmTC_59108.dir\\Debug\\cmTC_59108.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201402/CMakeFiles/CMakeTmp/Debug/cmTC_59108.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201402/CMakeFiles/CMakeTmp/Debug/cmTC_59108.lib" /MACHINE:X64  /machine:x64 cmTC_59108.dir\\Debug\\test_cxx_std.obj
+          cmTC_59108.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_59108.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_a79d0.dir\\Debug\\cmTC_a79d0.tlog\\unsuccessfulbuild".
-          Touching "cmTC_a79d0.dir\\Debug\\cmTC_a79d0.tlog\\cmTC_a79d0.lastbuildstate".
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\cmTC_a79d0.vcxproj" (default targets).
+          Deleting file "cmTC_59108.dir\\Debug\\cmTC_59108.tlog\\unsuccessfulbuild".
+          Touching "cmTC_59108.dir\\Debug\\cmTC_59108.tlog\\cmTC_59108.lastbuildstate".
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201402\\CMakeFiles\\CMakeTmp\\cmTC_59108.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.47
+        Time Elapsed 00:00:00.60
         
       exitCode: 0
   -
@@ -1416,37 +1416,37 @@ events:
       stdout: |
         Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/cplusplus_201703/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f58a9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_17c71.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:10.
+        Build started 4/12/2025 14:04:09.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_f58a9.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_17c71.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
           Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\Debug\\".
-          Creating directory "cmTC_f58a9.dir\\Debug\\cmTC_f58a9.tlog\\".
+          Creating directory "cmTC_17c71.dir\\Debug\\cmTC_17c71.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_f58a9.dir\\Debug\\cmTC_f58a9.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_f58a9.dir\\Debug\\cmTC_f58a9.tlog\\unsuccessfulbuild".
+          Creating "cmTC_17c71.dir\\Debug\\cmTC_17c71.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_17c71.dir\\Debug\\cmTC_17c71.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201703L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_f58a9.dir\\Debug\\\\" /Fd"cmTC_f58a9.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201703L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_17c71.dir\\Debug\\\\" /Fd"cmTC_17c71.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201703L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_f58a9.dir\\Debug\\\\" /Fd"cmTC_f58a9.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_CPLUSPLUS=201703L /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_17c71.dir\\Debug\\\\" /Fd"cmTC_17c71.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           test_cxx_std.cpp
-        C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp(4,1): error C1189: #error:  "Less then requested value" [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_f58a9.vcxproj]
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_f58a9.vcxproj" (default targets) -- FAILED.
+        C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp(4,1): error C1189: #error:  "Less then requested value" [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_17c71.vcxproj]
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_17c71.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_f58a9.vcxproj" (default target) (1) ->
+        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_17c71.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp(4,1): error C1189: #error:  "Less then requested value" [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_f58a9.vcxproj]
+          C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp(4,1): error C1189: #error:  "Less then requested value" [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\cplusplus_201703\\CMakeFiles\\CMakeTmp\\cmTC_17c71.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.24
+        Time Elapsed 00:00:00.35
         
       exitCode: 1
   -
@@ -1470,37 +1470,37 @@ events:
       stdout: |
         Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/ace_cxx_std_201103/CMakeFiles/CMakeTmp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_eca18.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_66bf1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:11.
+        Build started 4/12/2025 14:04:10.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\cmTC_eca18.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\cmTC_66bf1.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
           Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\Debug\\".
-          Creating directory "cmTC_eca18.dir\\Debug\\cmTC_eca18.tlog\\".
+          Creating directory "cmTC_66bf1.dir\\Debug\\cmTC_66bf1.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_eca18.dir\\Debug\\cmTC_eca18.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_eca18.dir\\Debug\\cmTC_eca18.tlog\\unsuccessfulbuild".
+          Creating "cmTC_66bf1.dir\\Debug\\cmTC_66bf1.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_66bf1.dir\\Debug\\cmTC_66bf1.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /IC:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\ACE_x64 /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_ACE_CXX_STD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_eca18.dir\\Debug\\\\" /Fd"cmTC_eca18.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /IC:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\ACE_x64 /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_ACE_CXX_STD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_66bf1.dir\\Debug\\\\" /Fd"cmTC_66bf1.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /IC:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\ACE_x64 /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_ACE_CXX_STD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_eca18.dir\\Debug\\\\" /Fd"cmTC_eca18.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
+          cl /c /IC:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\ACE_x64 /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D OPENDDS_TEST_ACE_CXX_STD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GR /Fo"cmTC_66bf1.dir\\Debug\\\\" /Fd"cmTC_66bf1.dir\\Debug\\vc145.pdb" /external:W1 /TP /errorReport:queue C:\\NuGetPackages\\openddsharp.idlgenerator\\3.310.3\\tools\\DDS_x64\\cmake\\test_cxx_std.cpp
           test_cxx_std.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_eca18.exe" /INCREMENTAL /ILK:"cmTC_eca18.dir\\Debug\\cmTC_eca18.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/ace_cxx_std_201103/CMakeFiles/CMakeTmp/Debug/cmTC_eca18.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/ace_cxx_std_201103/CMakeFiles/CMakeTmp/Debug/cmTC_eca18.lib" /MACHINE:X64  /machine:x64 cmTC_eca18.dir\\Debug\\test_cxx_std.obj
-          cmTC_eca18.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_eca18.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_66bf1.exe" /INCREMENTAL /ILK:"cmTC_66bf1.dir\\Debug\\cmTC_66bf1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/ace_cxx_std_201103/CMakeFiles/CMakeTmp/Debug/cmTC_66bf1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/opendds_test_cxx_std/ace_cxx_std_201103/CMakeFiles/CMakeTmp/Debug/cmTC_66bf1.lib" /MACHINE:X64  /machine:x64 cmTC_66bf1.dir\\Debug\\test_cxx_std.obj
+          cmTC_66bf1.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\Debug\\cmTC_66bf1.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_eca18.dir\\Debug\\cmTC_eca18.tlog\\unsuccessfulbuild".
-          Touching "cmTC_eca18.dir\\Debug\\cmTC_eca18.tlog\\cmTC_eca18.lastbuildstate".
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\cmTC_eca18.vcxproj" (default targets).
+          Deleting file "cmTC_66bf1.dir\\Debug\\cmTC_66bf1.tlog\\unsuccessfulbuild".
+          Touching "cmTC_66bf1.dir\\Debug\\cmTC_66bf1.tlog\\cmTC_66bf1.lastbuildstate".
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\opendds_test_cxx_std\\ace_cxx_std_201103\\CMakeFiles\\CMakeTmp\\cmTC_66bf1.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.73
+        Time Elapsed 00:00:01.10
         
       exitCode: 0
   -
@@ -1599,7 +1599,7 @@ events:
       The output was:
       0
       MSBuild version 18.0.5+e22287bf1 for .NET Framework
-      Build started 4/12/2025 09:54:12.
+      Build started 4/12/2025 14:04:12.
       
       Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\4.2.0\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
       PrepareForBuild:
@@ -1628,7 +1628,7 @@ events:
           0 Warning(s)
           0 Error(s)
       
-      Time Elapsed 00:00:00.42
+      Time Elapsed 00:00:00.64
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -1933,8 +1933,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-1bgj8v"
-      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-1bgj8v"
+      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q9w8mw"
+      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q9w8mw"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -1944,39 +1944,39 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-1bgj8v'
+        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q9w8mw'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_50cd5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_41471.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:12.
+        Build started 4/12/2025 14:04:13.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-1bgj8v\\cmTC_50cd5.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q9w8mw\\cmTC_41471.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-1bgj8v\\Debug\\".
-          Creating directory "cmTC_50cd5.dir\\Debug\\cmTC_50cd5.tlog\\".
+          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q9w8mw\\Debug\\".
+          Creating directory "cmTC_41471.dir\\Debug\\cmTC_41471.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_50cd5.dir\\Debug\\cmTC_50cd5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_50cd5.dir\\Debug\\cmTC_50cd5.tlog\\unsuccessfulbuild".
+          Creating "cmTC_41471.dir\\Debug\\cmTC_41471.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_41471.dir\\Debug\\cmTC_41471.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_50cd5.dir\\Debug\\\\" /Fd"cmTC_50cd5.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_41471.dir\\Debug\\\\" /Fd"cmTC_41471.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_50cd5.dir\\Debug\\\\" /Fd"cmTC_50cd5.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_41471.dir\\Debug\\\\" /Fd"cmTC_41471.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.2\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-1bgj8v\\Debug\\cmTC_50cd5.exe" /INCREMENTAL /ILK:"cmTC_50cd5.dir\\Debug\\cmTC_50cd5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-1bgj8v/Debug/cmTC_50cd5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-1bgj8v/Debug/cmTC_50cd5.lib" /MACHINE:X64  /machine:x64 cmTC_50cd5.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_50cd5.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-1bgj8v\\Debug\\cmTC_50cd5.exe
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q9w8mw\\Debug\\cmTC_41471.exe" /INCREMENTAL /ILK:"cmTC_41471.dir\\Debug\\cmTC_41471.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q9w8mw/Debug/cmTC_41471.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-q9w8mw/Debug/cmTC_41471.lib" /MACHINE:X64  /machine:x64 cmTC_41471.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_41471.vcxproj -> C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q9w8mw\\Debug\\cmTC_41471.exe
         FinalizeBuildStatus:
-          Deleting file "cmTC_50cd5.dir\\Debug\\cmTC_50cd5.tlog\\unsuccessfulbuild".
-          Touching "cmTC_50cd5.dir\\Debug\\cmTC_50cd5.tlog\\cmTC_50cd5.lastbuildstate".
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-1bgj8v\\cmTC_50cd5.vcxproj" (default targets).
+          Deleting file "cmTC_41471.dir\\Debug\\cmTC_41471.tlog\\unsuccessfulbuild".
+          Touching "cmTC_41471.dir\\Debug\\cmTC_41471.tlog\\cmTC_41471.lastbuildstate".
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-q9w8mw\\cmTC_41471.vcxproj" (default targets).
         
         Build succeeded.
             0 Warning(s)
             0 Error(s)
         
-        Time Elapsed 00:00:00.43
+        Time Elapsed 00:00:00.56
         
       exitCode: 0
   -
@@ -2024,8 +2024,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-fmzrby"
-      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-fmzrby"
+      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-x4xv62"
+      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-x4xv62"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -2035,39 +2035,39 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-fmzrby'
+        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-x4xv62'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_634b0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_83527.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:14.
+        Build started 4/12/2025 14:04:15.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\cmTC_634b0.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\cmTC_83527.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\Debug\\".
-          Creating directory "cmTC_634b0.dir\\Debug\\cmTC_634b0.tlog\\".
+          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\Debug\\".
+          Creating directory "cmTC_83527.dir\\Debug\\cmTC_83527.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_634b0.dir\\Debug\\cmTC_634b0.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_634b0.dir\\Debug\\cmTC_634b0.tlog\\unsuccessfulbuild".
+          Creating "cmTC_83527.dir\\Debug\\cmTC_83527.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_83527.dir\\Debug\\cmTC_83527.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_634b0.dir\\Debug\\\\" /Fd"cmTC_634b0.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\src.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_83527.dir\\Debug\\\\" /Fd"cmTC_83527.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\src.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_634b0.dir\\Debug\\\\" /Fd"cmTC_634b0.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\src.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_83527.dir\\Debug\\\\" /Fd"cmTC_83527.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\src.c"
           src.c
-        C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\cmTC_634b0.vcxproj]
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\cmTC_634b0.vcxproj" (default targets) -- FAILED.
+        C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\cmTC_83527.vcxproj]
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\cmTC_83527.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\cmTC_634b0.vcxproj" (default target) (1) ->
+        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\cmTC_83527.vcxproj" (default target) (1) ->
         (ClCompile target) -> 
-          C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-fmzrby\\cmTC_634b0.vcxproj]
+          C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\src.c(1,10): error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-x4xv62\\cmTC_83527.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.26
+        Time Elapsed 00:00:00.33
         
       exitCode: 1
   -
@@ -2082,8 +2082,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-l2b85j"
-      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-l2b85j"
+      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-de9y1e"
+      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-de9y1e"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -2093,41 +2093,41 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-l2b85j'
+        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-de9y1e'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e2fc4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b3faf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:15.
+        Build started 4/12/2025 14:04:16.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\cmTC_e2fc4.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\cmTC_b3faf.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\Debug\\".
-          Creating directory "cmTC_e2fc4.dir\\Debug\\cmTC_e2fc4.tlog\\".
+          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\Debug\\".
+          Creating directory "cmTC_b3faf.dir\\Debug\\cmTC_b3faf.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_e2fc4.dir\\Debug\\cmTC_e2fc4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_e2fc4.dir\\Debug\\cmTC_e2fc4.tlog\\unsuccessfulbuild".
+          Creating "cmTC_b3faf.dir\\Debug\\cmTC_b3faf.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_b3faf.dir\\Debug\\cmTC_b3faf.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_e2fc4.dir\\Debug\\\\" /Fd"cmTC_e2fc4.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_b3faf.dir\\Debug\\\\" /Fd"cmTC_b3faf.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_e2fc4.dir\\Debug\\\\" /Fd"cmTC_e2fc4.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_b3faf.dir\\Debug\\\\" /Fd"cmTC_b3faf.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\Debug\\cmTC_e2fc4.exe" /INCREMENTAL /ILK:"cmTC_e2fc4.dir\\Debug\\cmTC_e2fc4.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-l2b85j/Debug/cmTC_e2fc4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-l2b85j/Debug/cmTC_e2fc4.lib" /MACHINE:X64  /machine:x64 cmTC_e2fc4.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\cmTC_e2fc4.vcxproj]
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\cmTC_e2fc4.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\Debug\\cmTC_b3faf.exe" /INCREMENTAL /ILK:"cmTC_b3faf.dir\\Debug\\cmTC_b3faf.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-de9y1e/Debug/cmTC_b3faf.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-de9y1e/Debug/cmTC_b3faf.lib" /MACHINE:X64  /machine:x64 cmTC_b3faf.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\cmTC_b3faf.vcxproj]
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\cmTC_b3faf.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\cmTC_e2fc4.vcxproj" (default target) (1) ->
+        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\cmTC_b3faf.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-l2b85j\\cmTC_e2fc4.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-de9y1e\\cmTC_b3faf.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.31
+        Time Elapsed 00:00:00.41
         
       exitCode: 1
   -
@@ -2142,8 +2142,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-d0eq73"
-      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-d0eq73"
+      source: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-iu1a2i"
+      binary: "C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-iu1a2i"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Zi /Ob0 /Od /RTC1"
@@ -2153,41 +2153,41 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-d0eq73'
+        Change Dir: 'C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-iu1a2i'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7af01.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/18/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6cbe2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=18.0 /v:n
         MSBuild version 18.0.5+e22287bf1 for .NET Framework
-        Build started 4/12/2025 09:54:16.
+        Build started 4/12/2025 14:04:17.
         
-        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\cmTC_7af01.vcxproj" on node 1 (default targets).
+        Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\cmTC_6cbe2.vcxproj" on node 1 (default targets).
         PrepareForBuild:
           Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
-          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\Debug\\".
-          Creating directory "cmTC_7af01.dir\\Debug\\cmTC_7af01.tlog\\".
+          Creating directory "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\Debug\\".
+          Creating directory "cmTC_6cbe2.dir\\Debug\\cmTC_6cbe2.tlog\\".
         InitializeBuildStatus:
-          Creating "cmTC_7af01.dir\\Debug\\cmTC_7af01.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
-          Touching "cmTC_7af01.dir\\Debug\\cmTC_7af01.tlog\\unsuccessfulbuild".
+          Creating "cmTC_6cbe2.dir\\Debug\\cmTC_6cbe2.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_6cbe2.dir\\Debug\\cmTC_6cbe2.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_7af01.dir\\Debug\\\\" /Fd"cmTC_7af01.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\CheckFunctionExists.c"
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_6cbe2.dir\\Debug\\\\" /Fd"cmTC_6cbe2.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\CheckFunctionExists.c"
           Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35719 for x64
           Copyright (C) Microsoft Corporation.  All rights reserved.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_7af01.dir\\Debug\\\\" /Fd"cmTC_7af01.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /Fo"cmTC_6cbe2.dir\\Debug\\\\" /Fd"cmTC_6cbe2.dir\\Debug\\vc145.pdb" /external:W1 /TC /errorReport:queue "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\Debug\\cmTC_7af01.exe" /INCREMENTAL /ILK:"cmTC_7af01.dir\\Debug\\cmTC_7af01.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-d0eq73/Debug/cmTC_7af01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-d0eq73/Debug/cmTC_7af01.lib" /MACHINE:X64  /machine:x64 cmTC_7af01.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\cmTC_7af01.vcxproj]
-        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\cmTC_7af01.vcxproj" (default targets) -- FAILED.
+          C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\VC\\Tools\\MSVC\\14.50.35717\\bin\\HostX64\\x64\\link.exe /OUT:"C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\Debug\\cmTC_6cbe2.exe" /INCREMENTAL /ILK:"cmTC_6cbe2.dir\\Debug\\cmTC_6cbe2.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-iu1a2i/Debug/cmTC_6cbe2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /IMPLIB:"C:/Users/Damien Mazeas/Desktop/CAT/FanucDDS_Damien_Mazeas/obj/x64/Debug/net8.0/NativeProject/CMakeFiles/CMakeScratch/TryCompile-iu1a2i/Debug/cmTC_6cbe2.lib" /MACHINE:X64  /machine:x64 cmTC_6cbe2.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\cmTC_6cbe2.vcxproj]
+        Done Building Project "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\cmTC_6cbe2.vcxproj" (default targets) -- FAILED.
         
         Build FAILED.
         
-        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\cmTC_7af01.vcxproj" (default target) (1) ->
+        "C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\cmTC_6cbe2.vcxproj" (default target) (1) ->
         (Link target) -> 
-          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-d0eq73\\cmTC_7af01.vcxproj]
+          LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\\Users\\Damien Mazeas\\Desktop\\CAT\\FanucDDS_Damien_Mazeas\\obj\\x64\\Debug\\net8.0\\NativeProject\\CMakeFiles\\CMakeScratch\\TryCompile-iu1a2i\\cmTC_6cbe2.vcxproj]
         
             0 Warning(s)
             1 Error(s)
         
-        Time Elapsed 00:00:00.33
+        Time Elapsed 00:00:00.37
         
       exitCode: 1
   -

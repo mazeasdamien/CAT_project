@@ -61,6 +61,7 @@
 #include "tao/PortableServer/Fixed_Size_SArgument_T.h"
 #include "tao/PortableServer/Var_Size_SArgument_T.h"
 #include "tao/PortableServer/Object_SArg_Traits.h"
+#include "tao/PortableServer/UB_String_SArguments.h"
 
 // Skeleton file generation suppressed with command line option -SS
 // TAO_IDL - Generated from
@@ -82,7 +83,7 @@ namespace TAO
   template<>
   class SArg_Traits< ::RobotDDS::TeleopData>
     : public
-        Fixed_Size_SArg_Traits_T<
+        Var_Size_SArg_Traits_T<
             ::RobotDDS::TeleopData,
             TAO::Any_Insert_Policy_Noop
           >

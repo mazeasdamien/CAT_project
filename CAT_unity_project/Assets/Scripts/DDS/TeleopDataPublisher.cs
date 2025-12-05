@@ -32,6 +32,9 @@ public class TeleopDataPublisher : MonoBehaviour
 
     private float _nextPublishTime = 0f;
     private int _sequenceId = 0;
+    private double[] _lastJoints = new double[6];
+    private bool _hasPublishedOnce = false;
+    private const double JointTolerance = 0.01; // Degrees
 
     private void Start()
     {
@@ -153,7 +156,7 @@ public class TeleopDataPublisher : MonoBehaviour
                 return;
             }
 
-            _sequenceId++;
+
 
             // Extract Joint Angles from ArticulationBodies (in Radians, convert to Degrees)
             // Note: ArticulationBody.jointPosition returns radians
@@ -173,16 +176,44 @@ public class TeleopDataPublisher : MonoBehaviour
             // Fanuc J3 = Unity J3 - Unity J2
             j3 -= j2;
 
+            // Check if joints have changed
+            bool hasChanged = !_hasPublishedOnce;
+            if (!hasChanged)
+            {
+                if (Math.Abs(j1 - _lastJoints[0]) > JointTolerance ||
+                    Math.Abs(j2 - _lastJoints[1]) > JointTolerance ||
+                    Math.Abs(j3 - _lastJoints[2]) > JointTolerance ||
+                    Math.Abs(j4 - _lastJoints[3]) > JointTolerance ||
+                    Math.Abs(j5 - _lastJoints[4]) > JointTolerance ||
+                    Math.Abs(j6 - _lastJoints[5]) > JointTolerance)
+                {
+                    hasChanged = true;
+                }
+            }
+
+            if (!hasChanged) return;
+
+            // Update last joints
+            _lastJoints[0] = j1;
+            _lastJoints[1] = j2;
+            _lastJoints[2] = j3;
+            _lastJoints[3] = j4;
+            _lastJoints[4] = j5;
+            _lastJoints[5] = j6;
+            _hasPublishedOnce = true;
+            _sequenceId++;
+
             // Create Data Sample
             TeleopData sample = new()
             {
+                Clock = DateTime.Now.ToString("HH:mm:ss.fff"),
+                SampleId = _sequenceId,
                 J1 = j1,
                 J2 = j2,
                 J3 = j3,
                 J4 = j4,
                 J5 = j5,
-                J6 = j6,
-                Samples = _sequenceId
+                J6 = j6
             };
 
             // Write Data

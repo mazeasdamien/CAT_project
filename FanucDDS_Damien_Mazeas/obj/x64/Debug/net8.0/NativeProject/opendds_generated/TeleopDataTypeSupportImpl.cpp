@@ -29,7 +29,7 @@
 #ifdef OPENDDS_IDL_FILE_SPECIFIC
 #  undef OPENDDS_IDL_FILE_SPECIFIC
 #endif
-#define OPENDDS_IDL_FILE_SPECIFIC(base, index) opendds_idl_generated_teleopdatatypesupportimpl_cpp_7wxxht##_##base##index
+#define OPENDDS_IDL_FILE_SPECIFIC(base, index) opendds_idl_generated_teleopdatatypesupportimpl_cpp_vrinoi##_##base##index
 
 
 
@@ -527,7 +527,7 @@ template<> const XTypes::TypeIdentifier& getMinimalTypeIdentifier<RobotDDS_Teleo
   static XTypes::TypeIdentifier ti;
   ACE_GUARD_RETURN(ACE_Thread_Mutex, guard, TheServiceParticipant->get_static_xtypes_lock(), ti);
   if (ti.kind() == XTypes::TK_NONE) {
-    ti = XTypes::TypeIdentifier(XTypes::EK_MINIMAL, XTypes::EquivalenceHashWrapper(220, 157, 79, 164, 172, 183, 184, 54, 164, 41, 6, 47, 127, 193));
+    ti = XTypes::TypeIdentifier(XTypes::EK_MINIMAL, XTypes::EquivalenceHashWrapper(154, 40, 145, 232, 255, 193, 63, 7, 61, 127, 90, 217, 166, 123));
   }
   return ti;
 }
@@ -548,7 +548,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::RobotDDS::TeleopData& va
 {
   ACE_UNUSED_ARG(value_reader);
   ACE_UNUSED_ARG(value);
-  static const ListMemberHelper::Pair pairs[] = {{"J1",0},{"J2",1},{"J3",2},{"J4",3},{"J5",4},{"J6",5},{"Samples",6},{0,0}};
+  static const ListMemberHelper::Pair pairs[] = {{"Clock",0},{"SampleId",1},{"J1",2},{"J2",3},{"J3",4},{"J4",5},{"J5",6},{"J6",7},{0,0}};
   ListMemberHelper helper(pairs);
   if (!value_reader.begin_struct(OpenDDS::DCPS::FINAL)) return false;
   XTypes::MemberId member_id;
@@ -556,31 +556,39 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader,  ::RobotDDS::TeleopData& va
     if (!value_reader.begin_struct_member(member_id, helper)) return false;
     switch (member_id) {
     case 0: {
-      if (!value_reader.read_float64(value.J1)) return false;
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.Clock = x.c_str();
+      }
       break;
     }
     case 1: {
-      if (!value_reader.read_float64(value.J2)) return false;
+      if (!value_reader.read_int32(value.SampleId)) return false;
       break;
     }
     case 2: {
-      if (!value_reader.read_float64(value.J3)) return false;
+      if (!value_reader.read_float64(value.J1)) return false;
       break;
     }
     case 3: {
-      if (!value_reader.read_float64(value.J4)) return false;
+      if (!value_reader.read_float64(value.J2)) return false;
       break;
     }
     case 4: {
-      if (!value_reader.read_float64(value.J5)) return false;
+      if (!value_reader.read_float64(value.J3)) return false;
       break;
     }
     case 5: {
-      if (!value_reader.read_float64(value.J6)) return false;
+      if (!value_reader.read_float64(value.J4)) return false;
       break;
     }
     case 6: {
-      if (!value_reader.read_int32(value.Samples)) return false;
+      if (!value_reader.read_float64(value.J5)) return false;
+      break;
+    }
+    case 7: {
+      if (!value_reader.read_float64(value.J6)) return false;
       break;
     }
     }
@@ -594,7 +602,7 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader, const NestedKeyOnly< ::Robo
 {
   ACE_UNUSED_ARG(value_reader);
   ACE_UNUSED_ARG(value);
-  static const ListMemberHelper::Pair pairs[] = {{"J1",0},{"J2",1},{"J3",2},{"J4",3},{"J5",4},{"J6",5},{"Samples",6},{0,0}};
+  static const ListMemberHelper::Pair pairs[] = {{"Clock",0},{"SampleId",1},{"J1",2},{"J2",3},{"J3",4},{"J4",5},{"J5",6},{"J6",7},{0,0}};
   ListMemberHelper helper(pairs);
   if (!value_reader.begin_struct(OpenDDS::DCPS::FINAL)) return false;
   XTypes::MemberId member_id;
@@ -602,31 +610,39 @@ bool vread(OpenDDS::DCPS::ValueReader& value_reader, const NestedKeyOnly< ::Robo
     if (!value_reader.begin_struct_member(member_id, helper)) return false;
     switch (member_id) {
     case 0: {
-      if (!value_reader.read_float64(value.value.J1)) return false;
+      {
+        String x;
+        if (!value_reader.read_string(x)) return false;
+        value.value.Clock = x.c_str();
+      }
       break;
     }
     case 1: {
-      if (!value_reader.read_float64(value.value.J2)) return false;
+      if (!value_reader.read_int32(value.value.SampleId)) return false;
       break;
     }
     case 2: {
-      if (!value_reader.read_float64(value.value.J3)) return false;
+      if (!value_reader.read_float64(value.value.J1)) return false;
       break;
     }
     case 3: {
-      if (!value_reader.read_float64(value.value.J4)) return false;
+      if (!value_reader.read_float64(value.value.J2)) return false;
       break;
     }
     case 4: {
-      if (!value_reader.read_float64(value.value.J5)) return false;
+      if (!value_reader.read_float64(value.value.J3)) return false;
       break;
     }
     case 5: {
-      if (!value_reader.read_float64(value.value.J6)) return false;
+      if (!value_reader.read_float64(value.value.J4)) return false;
       break;
     }
     case 6: {
-      if (!value_reader.read_int32(value.value.Samples)) return false;
+      if (!value_reader.read_float64(value.value.J5)) return false;
+      break;
+    }
+    case 7: {
+      if (!value_reader.read_float64(value.value.J6)) return false;
       break;
     }
     }
@@ -661,7 +677,39 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::RobotDDS::TeleopD
     return false;
   }
   {
-    MemberParam param(0, false, "J1", 0, true);
+    MemberParam param(0, false, "Clock", 0, true);
+    if (!value_writer.begin_struct_member(param)) {
+      return false;
+    }
+    if (param.present) {
+      if (!value_writer.write_string(value.Clock)) {
+        return false;
+      }
+    } else {
+      value_writer.write_absent_value();
+    }
+    if (!value_writer.end_struct_member()) {
+      return false;
+    }
+  }
+  {
+    MemberParam param(1, false, "SampleId", 0, true);
+    if (!value_writer.begin_struct_member(param)) {
+      return false;
+    }
+    if (param.present) {
+      if (!value_writer.write_int32(value.SampleId)) {
+        return false;
+      }
+    } else {
+      value_writer.write_absent_value();
+    }
+    if (!value_writer.end_struct_member()) {
+      return false;
+    }
+  }
+  {
+    MemberParam param(2, false, "J1", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -677,7 +725,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::RobotDDS::TeleopD
     }
   }
   {
-    MemberParam param(1, false, "J2", 0, true);
+    MemberParam param(3, false, "J2", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -693,7 +741,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::RobotDDS::TeleopD
     }
   }
   {
-    MemberParam param(2, false, "J3", 0, true);
+    MemberParam param(4, false, "J3", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -709,7 +757,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::RobotDDS::TeleopD
     }
   }
   {
-    MemberParam param(3, false, "J4", 0, true);
+    MemberParam param(5, false, "J4", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -725,7 +773,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::RobotDDS::TeleopD
     }
   }
   {
-    MemberParam param(4, false, "J5", 0, true);
+    MemberParam param(6, false, "J5", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -741,28 +789,12 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const  ::RobotDDS::TeleopD
     }
   }
   {
-    MemberParam param(5, false, "J6", 0, true);
+    MemberParam param(7, false, "J6", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
     if (param.present) {
       if (!value_writer.write_float64(value.J6)) {
-        return false;
-      }
-    } else {
-      value_writer.write_absent_value();
-    }
-    if (!value_writer.end_struct_member()) {
-      return false;
-    }
-  }
-  {
-    MemberParam param(6, false, "Samples", 0, true);
-    if (!value_writer.begin_struct_member(param)) {
-      return false;
-    }
-    if (param.present) {
-      if (!value_writer.write_int32(value.Samples)) {
         return false;
       }
     } else {
@@ -783,7 +815,39 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const NestedKeyOnly<const 
     return false;
   }
   {
-    MemberParam param(0, false, "J1", 0, true);
+    MemberParam param(0, false, "Clock", 0, true);
+    if (!value_writer.begin_struct_member(param)) {
+      return false;
+    }
+    if (param.present) {
+      if (!value_writer.write_string(value.value.Clock)) {
+        return false;
+      }
+    } else {
+      value_writer.write_absent_value();
+    }
+    if (!value_writer.end_struct_member()) {
+      return false;
+    }
+  }
+  {
+    MemberParam param(1, false, "SampleId", 0, true);
+    if (!value_writer.begin_struct_member(param)) {
+      return false;
+    }
+    if (param.present) {
+      if (!value_writer.write_int32(value.value.SampleId)) {
+        return false;
+      }
+    } else {
+      value_writer.write_absent_value();
+    }
+    if (!value_writer.end_struct_member()) {
+      return false;
+    }
+  }
+  {
+    MemberParam param(2, false, "J1", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -799,7 +863,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const NestedKeyOnly<const 
     }
   }
   {
-    MemberParam param(1, false, "J2", 0, true);
+    MemberParam param(3, false, "J2", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -815,7 +879,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const NestedKeyOnly<const 
     }
   }
   {
-    MemberParam param(2, false, "J3", 0, true);
+    MemberParam param(4, false, "J3", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -831,7 +895,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const NestedKeyOnly<const 
     }
   }
   {
-    MemberParam param(3, false, "J4", 0, true);
+    MemberParam param(5, false, "J4", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -847,7 +911,7 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const NestedKeyOnly<const 
     }
   }
   {
-    MemberParam param(4, false, "J5", 0, true);
+    MemberParam param(6, false, "J5", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
@@ -863,28 +927,12 @@ bool vwrite(OpenDDS::DCPS::ValueWriter& value_writer, const NestedKeyOnly<const 
     }
   }
   {
-    MemberParam param(5, false, "J6", 0, true);
+    MemberParam param(7, false, "J6", 0, true);
     if (!value_writer.begin_struct_member(param)) {
       return false;
     }
     if (param.present) {
       if (!value_writer.write_float64(value.value.J6)) {
-        return false;
-      }
-    } else {
-      value_writer.write_absent_value();
-    }
-    if (!value_writer.end_struct_member()) {
-      return false;
-    }
-  }
-  {
-    MemberParam param(6, false, "Samples", 0, true);
-    if (!value_writer.begin_struct_member(param)) {
-      return false;
-    }
-    if (param.present) {
-      if (!value_writer.write_int32(value.value.Samples)) {
         return false;
       }
     } else {
@@ -916,13 +964,14 @@ namespace OpenDDS { namespace DCPS {
 template<> void set_default( ::RobotDDS::TeleopData& stru)
 {
   ACE_UNUSED_ARG(stru);
+  stru.Clock = "";
+  stru.SampleId = 0;
   stru.J1 = 0;
   stru.J2 = 0;
   stru.J3 = 0;
   stru.J4 = 0;
   stru.J5 = 0;
   stru.J6 = 0;
-  stru.Samples = 0;
 }
 
 void serialized_size(const Encoding& encoding, size_t& size, const ::RobotDDS::TeleopData& stru)
@@ -930,13 +979,15 @@ void serialized_size(const Encoding& encoding, size_t& size, const ::RobotDDS::T
   ACE_UNUSED_ARG(encoding);
   ACE_UNUSED_ARG(size);
   ACE_UNUSED_ARG(stru);
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.Clock.in()) + 1;
+  primitive_serialized_size(encoding, size, stru.SampleId);
   primitive_serialized_size(encoding, size, stru.J1);
   primitive_serialized_size(encoding, size, stru.J2);
   primitive_serialized_size(encoding, size, stru.J3);
   primitive_serialized_size(encoding, size, stru.J4);
   primitive_serialized_size(encoding, size, stru.J5);
   primitive_serialized_size(encoding, size, stru.J6);
-  primitive_serialized_size(encoding, size, stru.Samples);
 }
 
 bool operator<<(Serializer& strm, const ::RobotDDS::TeleopData& stru)
@@ -945,13 +996,14 @@ bool operator<<(Serializer& strm, const ::RobotDDS::TeleopData& stru)
   ACE_UNUSED_ARG(stru);
   const Encoding& encoding = strm.encoding();
   ACE_UNUSED_ARG(encoding);
-  return (strm << stru.J1)
+  return (strm << stru.Clock.in())
+    && (strm << stru.SampleId)
+    && (strm << stru.J1)
     && (strm << stru.J2)
     && (strm << stru.J3)
     && (strm << stru.J4)
     && (strm << stru.J5)
-    && (strm << stru.J6)
-    && (strm << stru.Samples);
+    && (strm << stru.J6);
 }
 
 bool operator>>(Serializer& strm,  ::RobotDDS::TeleopData& stru)
@@ -960,13 +1012,14 @@ bool operator>>(Serializer& strm,  ::RobotDDS::TeleopData& stru)
   ACE_UNUSED_ARG(stru);
   const Encoding& encoding = strm.encoding();
   ACE_UNUSED_ARG(encoding);
-  return (strm >> stru.J1)
+  return (strm >> stru.Clock.out())
+    && (strm >> stru.SampleId)
+    && (strm >> stru.J1)
     && (strm >> stru.J2)
     && (strm >> stru.J3)
     && (strm >> stru.J4)
     && (strm >> stru.J5)
-    && (strm >> stru.J6)
-    && (strm >> stru.Samples);
+    && (strm >> stru.J6);
 }
 
 void serialized_size(const Encoding& encoding, size_t& size, const NestedKeyOnly<const ::RobotDDS::TeleopData>& stru)
@@ -974,13 +1027,15 @@ void serialized_size(const Encoding& encoding, size_t& size, const NestedKeyOnly
   ACE_UNUSED_ARG(encoding);
   ACE_UNUSED_ARG(size);
   ACE_UNUSED_ARG(stru);
+  primitive_serialized_size_ulong(encoding, size);
+  size += ACE_OS::strlen(stru.value.Clock.in()) + 1;
+  primitive_serialized_size(encoding, size, stru.value.SampleId);
   primitive_serialized_size(encoding, size, stru.value.J1);
   primitive_serialized_size(encoding, size, stru.value.J2);
   primitive_serialized_size(encoding, size, stru.value.J3);
   primitive_serialized_size(encoding, size, stru.value.J4);
   primitive_serialized_size(encoding, size, stru.value.J5);
   primitive_serialized_size(encoding, size, stru.value.J6);
-  primitive_serialized_size(encoding, size, stru.value.Samples);
 }
 
 bool operator<<(Serializer& strm, const NestedKeyOnly<const ::RobotDDS::TeleopData>& stru)
@@ -989,13 +1044,14 @@ bool operator<<(Serializer& strm, const NestedKeyOnly<const ::RobotDDS::TeleopDa
   ACE_UNUSED_ARG(stru);
   const Encoding& encoding = strm.encoding();
   ACE_UNUSED_ARG(encoding);
-  return (strm << stru.value.J1)
+  return (strm << stru.value.Clock.in())
+    && (strm << stru.value.SampleId)
+    && (strm << stru.value.J1)
     && (strm << stru.value.J2)
     && (strm << stru.value.J3)
     && (strm << stru.value.J4)
     && (strm << stru.value.J5)
-    && (strm << stru.value.J6)
-    && (strm << stru.value.Samples);
+    && (strm << stru.value.J6);
 }
 
 bool operator>>(Serializer& strm, const NestedKeyOnly< ::RobotDDS::TeleopData>& stru)
@@ -1004,13 +1060,14 @@ bool operator>>(Serializer& strm, const NestedKeyOnly< ::RobotDDS::TeleopData>& 
   ACE_UNUSED_ARG(stru);
   const Encoding& encoding = strm.encoding();
   ACE_UNUSED_ARG(encoding);
-  return (strm >> stru.value.J1)
+  return (strm >> stru.value.Clock.out())
+    && (strm >> stru.value.SampleId)
+    && (strm >> stru.value.J1)
     && (strm >> stru.value.J2)
     && (strm >> stru.value.J3)
     && (strm >> stru.value.J4)
     && (strm >> stru.value.J5)
-    && (strm >> stru.value.J6)
-    && (strm >> stru.value.Samples);
+    && (strm >> stru.value.J6);
 }
 
 void serialized_size(const Encoding& encoding, size_t& size, const KeyOnly<const ::RobotDDS::TeleopData>& stru)
@@ -1085,10 +1142,10 @@ namespace RobotDDS {
 #endif /* !OPENDDS_NO_MULTI_TOPIC */
 
 #ifndef OPENDDS_SAFETY_PROFILE
-TeleopData TeleopDataTypeSupportImpl::create_sample(::DDS::DynamicData_ptr src)
+TeleopData* TeleopDataTypeSupportImpl::create_sample(::DDS::DynamicData_ptr src)
 {
-  TeleopData value;
-  const ::DDS::ReturnCode_t rc = OpenDDS::DCPS::TypeSupportImpl_T<TeleopData>::create_sample_rc(value, src);
+  TeleopData* value = new TeleopData;
+  const ::DDS::ReturnCode_t rc = OpenDDS::DCPS::TypeSupportImpl_T<TeleopData>::create_sample_rc(*value, src);
   if (rc != ::DDS::RETCODE_OK && OpenDDS::DCPS::log_level >= OpenDDS::DCPS::LogLevel::Warning) {
     ACE_ERROR((LM_WARNING, "(%P|%t) WARNING: TeleopDataTypeSupportImpl::create_sample: "
       "create_sample_rc failed: %C\n", OpenDDS::DCPS::retcode_to_string(rc)));
@@ -1178,9 +1235,9 @@ const OpenDDS::XTypes::TypeMap& TeleopDataTypeSupportImpl::getCompleteTypeMap() 
   return ::DDS::RETCODE_UNSUPPORTED;
 }
 
-::DDS::ReturnCode_t TeleopDataTypeSupportImpl::decode_from_string(const char* in, TeleopData_out param, OpenDDS::DCPS::RepresentationFormat* format)
+::DDS::ReturnCode_t TeleopDataTypeSupportImpl::decode_from_string(const char* in, TeleopData_out out, OpenDDS::DCPS::RepresentationFormat* format)
 {
-  TeleopData* out = &param;
+  out = new TeleopData;
   OpenDDS::DCPS::set_default(*out);
 #if OPENDDS_HAS_JSON_VALUE_READER
   OpenDDS::DCPS::JsonRepresentationFormat_var jrf = OpenDDS::DCPS::JsonRepresentationFormat::_narrow(format);
@@ -1207,7 +1264,7 @@ const OpenDDS::XTypes::TypeMap& TeleopDataTypeSupportImpl::getCompleteTypeMap() 
   ACE_UNUSED_ARG(in);
   ACE_UNUSED_ARG(format);
 #endif
-  out = TeleopData();
+  out = new TeleopData();
   return ::DDS::RETCODE_UNSUPPORTED;
 }
 
@@ -1237,6 +1294,12 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
   {
     const ::RobotDDS::TeleopData& typed = *static_cast<const ::RobotDDS::TeleopData*>(stru);
     ACE_UNUSED_ARG(typed);
+    if (std::strcmp(field, "Clock") == 0) {
+      return typed.Clock.in();
+    }
+    if (std::strcmp(field, "SampleId") == 0) {
+      return typed.SampleId;
+    }
     if (std::strcmp(field, "J1") == 0) {
       return typed.J1;
     }
@@ -1255,9 +1318,6 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     if (std::strcmp(field, "J6") == 0) {
       return typed.J6;
     }
-    if (std::strcmp(field, "Samples") == 0) {
-      return typed.Samples;
-    }
     throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::RobotDDS::TeleopData)");
   }
 
@@ -1271,6 +1331,32 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     if (index != std::string::npos) {
       subfield = base_field.substr(index + 1);
       base_field = base_field.substr(0, index);
+    }
+    if (base_field == "Clock") {
+      TAO::String_Manager val;
+      if (!(strm >> val.out())) {
+        throw std::runtime_error("Field 'Clock' could not be deserialized");
+      }
+      return val;
+    } else {
+      ACE_CDR::ULong len;
+      if (!(strm >> len)) {
+        throw std::runtime_error("String 'Clock' length could not be deserialized");
+      }
+      if (!strm.skip(len)) {
+        throw std::runtime_error("String 'Clock' contents could not be skipped");
+      }
+    }
+    if (base_field == "SampleId") {
+      ACE_CDR::Long val;
+      if (!(strm >> val)) {
+        throw std::runtime_error("Field 'SampleId' could not be deserialized");
+      }
+      return val;
+    } else {
+      if (!strm.skip(1,  4 )) {
+        throw std::runtime_error("Field 'SampleId' could not be skipped");
+      }
     }
     if (base_field == "J1") {
       ACE_CDR::Double val;
@@ -1338,17 +1424,6 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
         throw std::runtime_error("Field 'J6' could not be skipped");
       }
     }
-    if (base_field == "Samples") {
-      ACE_CDR::Long val;
-      if (!(strm >> val)) {
-        throw std::runtime_error("Field 'Samples' could not be deserialized");
-      }
-      return val;
-    } else {
-      if (!strm.skip(1,  4 )) {
-        throw std::runtime_error("Field 'Samples' could not be skipped");
-      }
-    }
     if (!field[0]) {
       return 0;
     }
@@ -1358,6 +1433,12 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
   ComparatorBase::Ptr create_qc_comparator(const char* field, ComparatorBase::Ptr next) const
   {
     ACE_UNUSED_ARG(next);
+    if (std::strcmp(field, "Clock") == 0) {
+      return make_field_cmp(&T::Clock, next);
+    }
+    if (std::strcmp(field, "SampleId") == 0) {
+      return make_field_cmp(&T::SampleId, next);
+    }
     if (std::strcmp(field, "J1") == 0) {
       return make_field_cmp(&T::J1, next);
     }
@@ -1376,21 +1457,24 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     if (std::strcmp(field, "J6") == 0) {
       return make_field_cmp(&T::J6, next);
     }
-    if (std::strcmp(field, "Samples") == 0) {
-      return make_field_cmp(&T::Samples, next);
-    }
     throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::RobotDDS::TeleopData)");
   }
 
 #ifndef OPENDDS_NO_MULTI_TOPIC
   const char** getFieldNames() const
   {
-    static const char* names[] = {"J1", "J2", "J3", "J4", "J5", "J6", "Samples", 0};
+    static const char* names[] = {"Clock", "SampleId", "J1", "J2", "J3", "J4", "J5", "J6", 0};
     return names;
   }
 
   const void* getRawField(const void* stru, const char* field) const
   {
+    if (std::strcmp(field, "Clock") == 0) {
+      return &static_cast<const T*>(stru)->Clock;
+    }
+    if (std::strcmp(field, "SampleId") == 0) {
+      return &static_cast<const T*>(stru)->SampleId;
+    }
     if (std::strcmp(field, "J1") == 0) {
       return &static_cast<const T*>(stru)->J1;
     }
@@ -1409,9 +1493,6 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     if (std::strcmp(field, "J6") == 0) {
       return &static_cast<const T*>(stru)->J6;
     }
-    if (std::strcmp(field, "Samples") == 0) {
-      return &static_cast<const T*>(stru)->Samples;
-    }
     throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::RobotDDS::TeleopData)");
   }
 
@@ -1423,6 +1504,14 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     ACE_UNUSED_ARG(rhs);
     ACE_UNUSED_ARG(rhsFieldSpec);
     ACE_UNUSED_ARG(rhsMeta);
+    if (std::strcmp(field, "Clock") == 0) {
+      static_cast<T*>(lhs)->Clock = *static_cast<const TAO::String_Manager*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
+    if (std::strcmp(field, "SampleId") == 0) {
+      static_cast<T*>(lhs)->SampleId = *static_cast<const  ::CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
+      return;
+    }
     if (std::strcmp(field, "J1") == 0) {
       static_cast<T*>(lhs)->J1 = *static_cast<const  ::CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
       return;
@@ -1447,10 +1536,6 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
       static_cast<T*>(lhs)->J6 = *static_cast<const  ::CORBA::Double*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
       return;
     }
-    if (std::strcmp(field, "Samples") == 0) {
-      static_cast<T*>(lhs)->Samples = *static_cast<const  ::CORBA::Long*>(rhsMeta.getRawField(rhs, rhsFieldSpec));
-      return;
-    }
     throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::RobotDDS::TeleopData)");
   }
 
@@ -1459,6 +1544,12 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     ACE_UNUSED_ARG(lhs);
     ACE_UNUSED_ARG(field);
     ACE_UNUSED_ARG(rhs);
+    if (std::strcmp(field, "Clock") == 0) {
+      return 0 == ACE_OS::strcmp(static_cast<const T*>(lhs)->Clock.in(), static_cast<const T*>(rhs)->Clock.in());
+    }
+    if (std::strcmp(field, "SampleId") == 0) {
+      return static_cast<const T*>(lhs)->SampleId == static_cast<const T*>(rhs)->SampleId;
+    }
     if (std::strcmp(field, "J1") == 0) {
       return static_cast<const T*>(lhs)->J1 == static_cast<const T*>(rhs)->J1;
     }
@@ -1476,9 +1567,6 @@ struct MetaStructImpl< ::RobotDDS::TeleopData> : MetaStruct {
     }
     if (std::strcmp(field, "J6") == 0) {
       return static_cast<const T*>(lhs)->J6 == static_cast<const T*>(rhs)->J6;
-    }
-    if (std::strcmp(field, "Samples") == 0) {
-      return static_cast<const T*>(lhs)->Samples == static_cast<const T*>(rhs)->Samples;
     }
     throw std::runtime_error("Field " + OPENDDS_STRING(field) + " not found or its type is not supported (in struct ::RobotDDS::TeleopData)");
   }
@@ -1534,7 +1622,7 @@ public:
 
   DDS::UInt32 get_item_count()
   {
-    return 7;
+    return 8;
   }
 
   bool serialized_size(const OpenDDS::DCPS::Encoding& enc, size_t& size, OpenDDS::DCPS::Sample::Extent ext) const
@@ -1572,31 +1660,35 @@ protected:
     switch (id) {
     case 0:
       {
-        return get_simple_raw_value(method, dest, tk, value_.J1, id);
+        return get_s8_raw_value(method, dest, tk, value_.Clock, id);
       }
     case 1:
       {
-        return get_simple_raw_value(method, dest, tk, value_.J2, id);
+        return get_simple_raw_value(method, dest, tk, value_.SampleId, id);
       }
     case 2:
       {
-        return get_simple_raw_value(method, dest, tk, value_.J3, id);
+        return get_simple_raw_value(method, dest, tk, value_.J1, id);
       }
     case 3:
       {
-        return get_simple_raw_value(method, dest, tk, value_.J4, id);
+        return get_simple_raw_value(method, dest, tk, value_.J2, id);
       }
     case 4:
       {
-        return get_simple_raw_value(method, dest, tk, value_.J5, id);
+        return get_simple_raw_value(method, dest, tk, value_.J3, id);
       }
     case 5:
       {
-        return get_simple_raw_value(method, dest, tk, value_.J6, id);
+        return get_simple_raw_value(method, dest, tk, value_.J4, id);
       }
     case 6:
       {
-        return get_simple_raw_value(method, dest, tk, value_.Samples, id);
+        return get_simple_raw_value(method, dest, tk, value_.J5, id);
+      }
+    case 7:
+      {
+        return get_simple_raw_value(method, dest, tk, value_.J6, id);
       }
     default:
       return invalid_id(method, id);
@@ -1612,31 +1704,35 @@ protected:
     switch (id) {
     case 0:
       {
-        return set_simple_raw_value(method, value_.J1, id, source, tk);
+        return set_s8_raw_value(method, value_.Clock.inout(), id, source, tk);
       }
     case 1:
       {
-        return set_simple_raw_value(method, value_.J2, id, source, tk);
+        return set_simple_raw_value(method, value_.SampleId, id, source, tk);
       }
     case 2:
       {
-        return set_simple_raw_value(method, value_.J3, id, source, tk);
+        return set_simple_raw_value(method, value_.J1, id, source, tk);
       }
     case 3:
       {
-        return set_simple_raw_value(method, value_.J4, id, source, tk);
+        return set_simple_raw_value(method, value_.J2, id, source, tk);
       }
     case 4:
       {
-        return set_simple_raw_value(method, value_.J5, id, source, tk);
+        return set_simple_raw_value(method, value_.J3, id, source, tk);
       }
     case 5:
       {
-        return set_simple_raw_value(method, value_.J6, id, source, tk);
+        return set_simple_raw_value(method, value_.J4, id, source, tk);
       }
     case 6:
       {
-        return set_simple_raw_value(method, value_.Samples, id, source, tk);
+        return set_simple_raw_value(method, value_.J5, id, source, tk);
+      }
+    case 7:
+      {
+        return set_simple_raw_value(method, value_.J6, id, source, tk);
       }
     default:
       return invalid_id(method, id);
@@ -1702,7 +1798,7 @@ namespace OpenDDS { namespace DCPS {
 namespace {
 XTypes::TypeObject OPENDDS_IDL_FILE_SPECIFIC(minimal_to, 0)()
 {
-  static const unsigned char to_bytes[] = { 131, 0, 0, 0, 241, 81, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 115, 0, 0, 0, 7, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0, 1, 0, 10, 73, 181, 146, 98, 0, 11, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 127, 19, 45, 80, 0, 11, 0, 0, 0, 2, 0, 0, 0, 1, 0, 10, 26, 229, 214, 129, 0, 11, 0, 0, 0, 3, 0, 0, 0, 1, 0, 10, 11, 248, 169, 230, 0, 11, 0, 0, 0, 4, 0, 0, 0, 1, 0, 10, 87, 7, 201, 81, 0, 11, 0, 0, 0, 5, 0, 0, 0, 1, 0, 10, 37, 87, 68, 116, 0, 11, 0, 0, 0, 6, 0, 0, 0, 1, 0, 4, 219, 141, 80, 51  };
+  static const unsigned char to_bytes[] = { 147, 0, 0, 0, 241, 81, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 131, 0, 0, 0, 8, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 1, 0, 112, 0, 152, 168, 146, 174, 11, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 156, 219, 143, 214, 0, 11, 0, 0, 0, 2, 0, 0, 0, 1, 0, 10, 73, 181, 146, 98, 0, 11, 0, 0, 0, 3, 0, 0, 0, 1, 0, 10, 127, 19, 45, 80, 0, 11, 0, 0, 0, 4, 0, 0, 0, 1, 0, 10, 26, 229, 214, 129, 0, 11, 0, 0, 0, 5, 0, 0, 0, 1, 0, 10, 11, 248, 169, 230, 0, 11, 0, 0, 0, 6, 0, 0, 0, 1, 0, 10, 87, 7, 201, 81, 0, 11, 0, 0, 0, 7, 0, 0, 0, 1, 0, 10, 37, 87, 68, 116  };
   XTypes::TypeObject to;
   if (!to_type_object(to_bytes, sizeof(to_bytes), to)) {
     throw std::runtime_error("Could not deserialize minimal Type Object 0");
@@ -1713,7 +1809,7 @@ XTypes::TypeObject OPENDDS_IDL_FILE_SPECIFIC(minimal_to, 0)()
 XTypes::TypeMap OPENDDS_IDL_FILE_SPECIFIC(get_minimal_type_map_private, 0)()
 {
   XTypes::TypeMap tm;
-  tm[XTypes::TypeIdentifier(XTypes::EK_MINIMAL, XTypes::EquivalenceHashWrapper(220, 157, 79, 164, 172, 183, 184, 54, 164, 41, 6, 47, 127, 193))] = OPENDDS_IDL_FILE_SPECIFIC(minimal_to, 0)();
+  tm[XTypes::TypeIdentifier(XTypes::EK_MINIMAL, XTypes::EquivalenceHashWrapper(154, 40, 145, 232, 255, 193, 63, 7, 61, 127, 90, 217, 166, 123))] = OPENDDS_IDL_FILE_SPECIFIC(minimal_to, 0)();
   return tm;
 }
 

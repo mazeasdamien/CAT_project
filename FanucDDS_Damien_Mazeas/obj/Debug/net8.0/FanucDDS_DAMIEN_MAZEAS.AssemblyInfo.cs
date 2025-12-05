@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FanucDDS_DAMIEN_MAZEAS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a54263d7f9b9762d6b99f8a52646b7f5cad46698")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a2daba9207206345135f0eb3134b754a0d48fc5")]
 [assembly: System.Reflection.AssemblyProductAttribute("FanucDDS_DAMIEN_MAZEAS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FanucDDS_DAMIEN_MAZEAS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

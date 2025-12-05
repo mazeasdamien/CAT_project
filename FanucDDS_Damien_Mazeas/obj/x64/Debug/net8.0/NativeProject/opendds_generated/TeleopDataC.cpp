@@ -43,13 +43,14 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
     const RobotDDS::TeleopData &_tao_aggregate)
 {
   return
+    (strm << _tao_aggregate.Clock.in ()) &&
+    (strm << _tao_aggregate.SampleId) &&
     (strm << _tao_aggregate.J1) &&
     (strm << _tao_aggregate.J2) &&
     (strm << _tao_aggregate.J3) &&
     (strm << _tao_aggregate.J4) &&
     (strm << _tao_aggregate.J5) &&
-    (strm << _tao_aggregate.J6) &&
-    (strm << _tao_aggregate.Samples);
+    (strm << _tao_aggregate.J6);
 }
 
 ::CORBA::Boolean operator>> (
@@ -57,13 +58,14 @@ TAO_BEGIN_VERSIONED_NAMESPACE_DECL
     RobotDDS::TeleopData &_tao_aggregate)
 {
   return
+    (strm >> _tao_aggregate.Clock.out ()) &&
+    (strm >> _tao_aggregate.SampleId) &&
     (strm >> _tao_aggregate.J1) &&
     (strm >> _tao_aggregate.J2) &&
     (strm >> _tao_aggregate.J3) &&
     (strm >> _tao_aggregate.J4) &&
     (strm >> _tao_aggregate.J5) &&
-    (strm >> _tao_aggregate.J6) &&
-    (strm >> _tao_aggregate.Samples);
+    (strm >> _tao_aggregate.J6);
 }
 
 TAO_END_VERSIONED_NAMESPACE_DECL

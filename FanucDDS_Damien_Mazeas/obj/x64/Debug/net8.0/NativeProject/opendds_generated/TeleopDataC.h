@@ -59,6 +59,7 @@ TAO_END_VERSIONED_NAMESPACE_DECL
 #include "tao/Fixed_Size_Argument_T.h"
 #include "tao/Var_Size_Argument_T.h"
 #include "tao/Object_Argument_T.h"
+#include "tao/UB_String_Arguments.h"
 #include /**/ "tao/Version.h"
 #include /**/ "tao/Versioned_Namespace.h"
 
@@ -102,8 +103,8 @@ namespace RobotDDS
   
 
   struct TeleopData;
-  using TeleopData_var = ::TAO_Fixed_Var_T<TeleopData>;
-  using TeleopData_out = TeleopData&;
+  using TeleopData_var = ::TAO_Var_Var_T<TeleopData>;
+  using TeleopData_out = ::TAO_Out_T<TeleopData>;
 
   
   // TAO_IDL - Generated from
@@ -120,13 +121,14 @@ namespace RobotDDS
     using _var_type = TeleopData_var;
     using _out_type = TeleopData_out;
     
+    ::TAO::String_Manager Clock;
+    ::CORBA::Long SampleId;
     ::CORBA::Double J1;
     ::CORBA::Double J2;
     ::CORBA::Double J3;
     ::CORBA::Double J4;
     ::CORBA::Double J5;
     ::CORBA::Double J6;
-    ::CORBA::Long Samples;
   };
 
 
@@ -154,7 +156,7 @@ namespace TAO
   template<>
   class Arg_Traits< ::RobotDDS::TeleopData>
     : public
-        Fixed_Size_Arg_Traits_T<
+        Var_Size_Arg_Traits_T<
             ::RobotDDS::TeleopData,
             TAO::Any_Insert_Policy_Noop
           >

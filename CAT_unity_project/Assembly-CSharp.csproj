@@ -63,9 +63,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\DDS\DDSSettings.cs" />
+    <Compile Include="Assets\Scripts\FanucCRX_Controller.cs" />
     <Compile Include="Assets\Scripts\TransformMatcher.cs" />
     <Compile Include="Assets\Scripts\DDS\TeleopDataPublisher.cs" />
-    <Compile Include="Assets\Scripts\FanucCRXKinematics.cs" />
     <Compile Include="Assets\Scripts\DDS\UnityRobotSubscriber.cs" />
     <Compile Include="Assets\Scripts\DDS\RobotStateTypeSupport.cs" />
     <Compile Include="Assets\Scripts\DDS\TeleopDataTypeSupport.cs" />

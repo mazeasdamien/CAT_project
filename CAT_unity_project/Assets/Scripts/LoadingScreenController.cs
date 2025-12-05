@@ -10,10 +10,10 @@ public class LoadingScreenController : MonoBehaviour
 
     private void Awake()
     {
-        // Ensure loading screen is visible on start
+        // Ensure loading screen is hidden on start
         if (LoadingPanel != null)
         {
-            LoadingPanel.SetActive(true);
+            LoadingPanel.SetActive(false);
         }
     }
 

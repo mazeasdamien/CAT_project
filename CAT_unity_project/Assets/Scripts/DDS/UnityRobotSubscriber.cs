@@ -38,8 +38,9 @@ public class UnityRobotSubscriber : MonoBehaviour
     {
         if (LoadingScreen != null)
         {
-            LoadingScreen.Show();
-            LoadingScreen.SetStatus("Waiting for DDS Manager...");
+            // LoadingScreen.Show();
+            // LoadingScreen.SetStatus("Waiting for DDS Manager...");
+            LoadingScreen.Hide();
         }
 
         // Wait for DDSManager to be ready
@@ -48,7 +49,7 @@ public class UnityRobotSubscriber : MonoBehaviour
             yield return null;
         }
 
-        if (LoadingScreen != null) LoadingScreen.SetStatus("Initializing Subscriber...");
+        // if (LoadingScreen != null) LoadingScreen.SetStatus("Initializing Subscriber...");
         InitializeSubscriber();
     }
 
@@ -125,19 +126,19 @@ public class UnityRobotSubscriber : MonoBehaviour
                 if (LoadingScreen != null)
                 {
                     // Do NOT hide yet. Wait for data.
-                    LoadingScreen.SetStatus("Waiting for Publisher...");
+                    // LoadingScreen.SetStatus("Waiting for Publisher...");
                 }
             }
             else
             {
                 LogError("CRITICAL: Failed to create DataReader.");
-                if (LoadingScreen != null) LoadingScreen.SetStatus("Error: Failed to create DataReader");
+                // if (LoadingScreen != null) LoadingScreen.SetStatus("Error: Failed to create DataReader");
             }
         }
         catch (Exception e)
         {
             LogError($"EXCEPTION during Init: {e.Message}\n{e.StackTrace}");
-            if (LoadingScreen != null) LoadingScreen.SetStatus($"Exception: {e.Message}");
+            // if (LoadingScreen != null) LoadingScreen.SetStatus($"Exception: {e.Message}");
         }
     }
 
@@ -155,7 +156,7 @@ public class UnityRobotSubscriber : MonoBehaviour
         // Handle queued status updates from background threads
         if (_queuedStatusMessage != null)
         {
-            if (LoadingScreen != null) LoadingScreen.SetStatus(_queuedStatusMessage);
+            // if (LoadingScreen != null) LoadingScreen.SetStatus(_queuedStatusMessage);
             _queuedStatusMessage = null;
         }
 
@@ -171,7 +172,7 @@ public class UnityRobotSubscriber : MonoBehaviour
                     _firstDataReceived = true;
                     if (LoadingScreen != null)
                     {
-                        LoadingScreen.Hide();
+                        // LoadingScreen.Hide();
                     }
                 }
             }
