@@ -1,5 +1,4 @@
 C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_wpf_Damien_Mazeas\bin\Debug\net10.0-windows\FanucDDS_DAMIEN_MAZEASWrapper.dll
-C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_wpf_Damien_Mazeas\bin\Debug\net10.0-windows\rtps.ini
 C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_wpf_Damien_Mazeas\bin\Debug\net10.0-windows\FanucDDS_wpf_Damien_Mazeas.exe
 C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_wpf_Damien_Mazeas\bin\Debug\net10.0-windows\FanucDDS_wpf_Damien_Mazeas.deps.json
 C:\Users\Damien Mazeas\Desktop\CAT\FanucDDS_wpf_Damien_Mazeas\bin\Debug\net10.0-windows\FanucDDS_wpf_Damien_Mazeas.runtimeconfig.json

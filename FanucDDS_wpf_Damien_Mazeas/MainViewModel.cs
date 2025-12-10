@@ -81,31 +81,26 @@ namespace FanucDDS_wpf_Damien_Mazeas
                 }
 
                 // 1. Get Factory with Config File
-                string configPath = "rtps.ini"; // Ensure this file is copied to output directory
+                // Always use absolute path to avoid CWD ambiguity
+                string configPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rtps.ini");
+
                 if (!System.IO.File.Exists(configPath))
                 {
-                    // Try absolute path if running from IDE
-                    configPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "rtps.ini");
+                    StatusMessage = $"Error: Config file not found at: {configPath}";
+                    return;
                 }
 
                 DomainParticipantFactory? dpf = null;
-                if (System.IO.File.Exists(configPath))
+                try
                 {
-                    try
-                    {
-                        dpf = ParticipantService.Instance.GetDomainParticipantFactory("-DCPSConfigFile", configPath);
-                    }
-                    catch (Exception ex)
-                    {
-                        StatusMessage = $"Error loading config: {ex.Message}";
-                        return;
-                    }
+                    StatusMessage = "Creating Factory...";
+                    string[] args = new string[] { "-DCPSConfigFile", configPath };
+                    dpf = ParticipantService.Instance.GetDomainParticipantFactory(args);
                 }
-                else
+                catch (Exception ex)
                 {
-                    // Fallback to default
-                    dpf = ParticipantService.Instance.GetDomainParticipantFactory();
-                    StatusMessage = "Warning: rtps.ini not found, using default config.";
+                    StatusMessage = $"Exception getting Factory: {ex.Message}";
+                    return;
                 }
 
                 if (dpf == null)

@@ -42,21 +42,21 @@
     <UnityVersion>6000.3.0f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\18\Insiders\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\de\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\cs\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\pt-BR\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\ko\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\pl\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\fr\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\es\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\zh-Hant\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\ru\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\zh-Hans\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\ja\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\tr\System.Text.Json.SourceGeneration.resources.dll" />
-    <Analyzer Include="C:\CAT_project\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\it\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\de\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\cs\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\pt-BR\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\ko\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\pl\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\fr\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\es\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\zh-Hant\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\ru\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\zh-Hans\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\ja\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\tr\System.Text.Json.SourceGeneration.resources.dll" />
+    <Analyzer Include="C:\Users\Damien Mazeas\Desktop\CAT\CAT_unity_project\Assets\Packages\System.Text.Json.10.0.0\analyzers\dotnet\roslyn4.0\cs\it\System.Text.Json.SourceGeneration.resources.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.0f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
